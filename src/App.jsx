@@ -261,7 +261,7 @@ const SCORE_EMOJI = ["", "🧠", "🔥", "⚡", "👏", "🤝"];
 // ─────────────────────────────────────────────
 const C = {
   bg: "#F7F4EF", card: "#FFFFFF", border: "#E4DED4", text: "#1A1714",
-  muted: "#938979", faint: "#CFC7B8", accent: "#2E6B3A", accentSoft: "#E4F0E6",
+  muted: "#756B5D", faint: "#A99C8A", accent: "#2E6B3A", accentSoft: "#E4F0E6",
   gold: "#B8962E", goldSoft: "#FBF6E8", red: "#C05340", redSoft: "#FCEAE6",
   dark: "#1A1714", white: "#FAF8F4",
 };
@@ -273,6 +273,9 @@ const SCREEN_STYLE = {
   alignItems: "center",
   justifyContent: "var(--screen-justify, center)",
   padding: "var(--screen-padding, max(32px, calc(env(safe-area-inset-top, 0px) + 12px)) 18px max(32px, calc(env(safe-area-inset-bottom, 0px) + 12px)))",
+  width: "100%",
+  maxWidth: "430px",
+  margin: "0 auto",
   zIndex: 1,
   position: "relative",
 };
@@ -321,6 +324,7 @@ const CSS = `
     --round-answer-gap: 28px;
     --clue-stack-min-height: 180px;
     --clue-stack-gap: 14px;
+    --tutorial-card-min-height: 430px;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   html, body, #root { min-height:100%; background:${C.bg}; }
@@ -337,24 +341,28 @@ const CSS = `
   .si { animation:slideIn 0.55s cubic-bezier(0.23,1,0.32,1) both; }
   .action-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
   .tutorial-card { max-width:340px; }
+  .tutorial-shell { width:100%; max-width:360px; display:flex; flex-direction:column; align-items:center; margin-top:14px; }
+  .tutorial-card { width:100%; min-height:var(--tutorial-card-min-height); display:flex; flex-direction:column; justify-content:flex-start; }
+  .tutorial-controls { width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center; margin-top:12px; }
   .clue-stack { width:100%; max-width:380px; min-height:var(--clue-stack-min-height); }
   .round-input-wrap { width:100%; max-width:380px; text-align:center; }
   .round-action-row > button { flex:1; min-width:0; }
 
   @media (max-width: 560px) {
     :root {
-      --screen-justify: flex-start;
-      --screen-padding: max(14px, calc(env(safe-area-inset-top, 0px) + 6px)) 14px max(14px, calc(env(safe-area-inset-bottom, 0px) + 8px));
-      --logo-pad-top: 8px;
-      --btn-pad: 12px 26px;
-      --btn-pad-round: 11px 12px;
-      --dots-margin: 8px 0;
-      --round-head-top: max(8px, calc(env(safe-area-inset-top, 0px) + 2px));
-      --round-prompt-gap: 20px;
-      --round-clue-gap: 20px;
-      --round-answer-gap: 18px;
-      --clue-stack-min-height: 140px;
-      --clue-stack-gap: 10px;
+      --screen-justify: center;
+      --screen-padding: max(18px, calc(env(safe-area-inset-top, 0px) + 8px)) 14px max(18px, calc(env(safe-area-inset-bottom, 0px) + 10px));
+      --logo-pad-top: 12px;
+      --btn-pad: 13px 26px;
+      --btn-pad-round: 11px 14px;
+      --dots-margin: 10px 0;
+      --round-head-top: max(12px, calc(env(safe-area-inset-top, 0px) + 4px));
+      --round-prompt-gap: 26px;
+      --round-clue-gap: 24px;
+      --round-answer-gap: 20px;
+      --clue-stack-min-height: 150px;
+      --clue-stack-gap: 11px;
+      --tutorial-card-min-height: 360px;
     }
     .tutorial-card { max-width:100%; }
     .action-row.stack-mobile { flex-direction:column; align-items:stretch; width:100%; }
@@ -476,64 +484,67 @@ function Tutorial({ onDone, onSkip }) {
     <div style={SCREEN_STYLE}>
       <Logo />
 
-      <div
-        key={i}
-        className="fu tutorial-card"
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-        style={{ textAlign:"center", marginTop:32 }}
-      >
-        <div style={{ fontSize:50, marginBottom:18 }}>{c.icon}</div>
-        <h2 style={{ fontFamily:serif, fontSize:"clamp(1.8rem, 7.2vw, 27px)", fontWeight:600, color:C.dark, marginBottom:12 }}>{c.title}</h2>
-        <p style={{ fontFamily:sans, fontSize:14, lineHeight:1.75, color:C.muted, marginBottom:24 }}>{c.body}</p>
+      <div className="tutorial-shell">
+        <div
+          key={i}
+          className="fu tutorial-card"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          style={{ textAlign:"center" }}
+        >
+          <div style={{ fontSize:50, marginBottom:18 }}>{c.icon}</div>
+          <h2 style={{ fontFamily:serif, fontSize:"clamp(1.8rem, 7.2vw, 27px)", fontWeight:600, color:C.dark, marginBottom:12 }}>{c.title}</h2>
+          <p style={{ fontFamily:sans, fontSize:14, lineHeight:1.75, color:C.muted, marginBottom:24 }}>{c.body}</p>
 
-        {c.example && (
-          <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"20px 24px", marginBottom:20, textAlign:"left" }}>
-            {c.example.words.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:400, letterSpacing:"3px", color:C.dark, marginBottom:8 }}>{w}</div>)}
-            {c.example.faded.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:300, letterSpacing:"3px", color:C.faint, marginBottom:8 }}>{w}</div>)}
-            <div style={{ height:1, background:C.border, margin:"12px 0" }}/>
-            <div style={{ fontFamily:serif, fontSize:28, fontWeight:600, letterSpacing:"4px", color:C.accent, textAlign:"center" }}>{c.example.answer}</div>
-          </div>
-        )}
+          {c.example && (
+            <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"20px 24px", marginBottom:20, textAlign:"left" }}>
+              {c.example.words.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:400, letterSpacing:"3px", color:C.dark, marginBottom:8 }}>{w}</div>)}
+              {c.example.faded.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:300, letterSpacing:"3px", color:C.faint, marginBottom:8 }}>{w}</div>)}
+              <div style={{ height:1, background:C.border, margin:"12px 0" }}/>
+              <div style={{ fontFamily:serif, fontSize:28, fontWeight:600, letterSpacing:"4px", color:C.accent, textAlign:"center" }}>{c.example.answer}</div>
+            </div>
+          )}
 
-        {c.scoring && (
-          <div style={{ display:"flex", flexDirection:"column", gap:7, marginBottom:20, alignItems:"center" }}>
-            {[1,2,3,4,5].map(n=>(
-              <div key={n} style={{ display:"flex", alignItems:"center", gap:12, fontFamily:sans, fontSize:13 }}>
-                <div style={{ display:"flex", gap:3 }}>
-                  {[1,2,3,4,5].map(d=><div key={d} style={{ width:10,height:10,borderRadius:"50%", background:d<=n?C.accent:C.border }}/>)}
+          {c.scoring && (
+            <div style={{ display:"flex", flexDirection:"column", gap:7, marginBottom:20, alignItems:"center" }}>
+              {[1,2,3,4,5].map(n=>(
+                <div key={n} style={{ display:"flex", alignItems:"center", gap:12, fontFamily:sans, fontSize:13 }}>
+                  <div style={{ display:"flex", gap:3 }}>
+                    {[1,2,3,4,5].map(d=><div key={d} style={{ width:10,height:10,borderRadius:"50%", background:d<=n?C.accent:C.border }}/>)}
+                  </div>
+                  <span style={{ color:C.muted, minWidth:55 }}>{n} clue{n>1?"s":""}</span>
+                  <span style={{ color:C.dark, fontWeight:600 }}>{SCORE_LABELS[n]}</span>
                 </div>
-                <span style={{ color:C.muted, minWidth:55 }}>{n} clue{n>1?"s":""}</span>
-                <span style={{ color:C.dark, fontWeight:600 }}>{SCORE_LABELS[n]}</span>
-              </div>
-            ))}
+              ))}
+            </div>
+          )}
+
+          {c.share && (
+            <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"18px 28px", marginBottom:20, textAlign:"center", fontFamily:sans }}>
+              <div style={{ fontSize:14, fontWeight:600, color:C.dark, marginBottom:5 }}>🧵 THREAD #42</div>
+              <div style={{ fontSize:24, letterSpacing:5, marginBottom:5 }}>🟢🟢⚪⚪⚪</div>
+              <div style={{ fontSize:12, color:C.muted }}>Brilliant — 2 clues</div>
+            </div>
+          )}
+        </div>
+
+        <div className="tutorial-controls">
+          <Dots n={TUT.length} active={i} />
+          <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
+            <Btn onClick={next}>{i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}</Btn>
+            <button onClick={onSkip} style={{
+              background:"none", border:"none", cursor:"pointer", fontFamily:sans,
+              fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
+              transition:"color 0.2s",
+            }}
+              onMouseEnter={e=>e.target.style.color=C.muted}
+              onMouseLeave={e=>e.target.style.color=C.faint}
+            >Skip to today's puzzle</button>
           </div>
-        )}
-
-        {c.share && (
-          <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"18px 28px", marginBottom:20, textAlign:"center", fontFamily:sans }}>
-            <div style={{ fontSize:14, fontWeight:600, color:C.dark, marginBottom:5 }}>🧵 THREAD #42</div>
-            <div style={{ fontSize:24, letterSpacing:5, marginBottom:5 }}>🟢🟢⚪⚪⚪</div>
-            <div style={{ fontSize:12, color:C.muted }}>Brilliant — 2 clues</div>
+          <div style={{ marginTop:6, fontFamily:sans, fontSize:11, color:C.faint }}>
+            Swipe cards left and right
           </div>
-        )}
-      </div>
-
-      <Dots n={TUT.length} active={i} />
-
-      <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
-        <Btn onClick={next}>{i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}</Btn>
-        <button onClick={onSkip} style={{
-          background:"none", border:"none", cursor:"pointer", fontFamily:sans,
-          fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
-          transition:"color 0.2s",
-        }}
-          onMouseEnter={e=>e.target.style.color=C.muted}
-          onMouseLeave={e=>e.target.style.color=C.faint}
-        >Skip to today's puzzle</button>
-      </div>
-      <div style={{ marginTop:6, fontFamily:sans, fontSize:11, color:C.faint }}>
-        Swipe cards left and right
+        </div>
       </div>
     </div>
   );
