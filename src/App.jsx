@@ -570,7 +570,6 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
     }
   };
 
-  const pass = () => { if (ci<round.clues.length-1) setCi(ci+1); };
   const done = solved || failed;
   const score = solved ? ci+1 : null;
   const visible = round.clues.slice(0, ci+1);
@@ -639,7 +638,6 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
           </div>
           <div className="action-row round-action-row">
             <Btn onClick={submit} style={{ padding:"var(--btn-pad-round, 15px 28px)" }}>Submit</Btn>
-            {ci<round.clues.length-1 && <Btn v="outline" onClick={pass} style={{ padding:"var(--btn-pad-round, 15px 28px)" }}>More clues</Btn>}
           </div>
           {attempts.length>0 && (
             <div style={{ marginTop:18, display:"flex", gap:10, justifyContent:"center", flexWrap:"wrap" }}>
