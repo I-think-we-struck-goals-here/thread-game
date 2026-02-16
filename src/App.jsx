@@ -324,7 +324,7 @@ const CSS = `
     --round-answer-gap: 28px;
     --clue-stack-min-height: 180px;
     --clue-stack-gap: 14px;
-    --tutorial-card-min-height: 430px;
+    --tutorial-card-min-height: 360px;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   html, body, #root { min-height:100%; background:${C.bg}; }
@@ -343,11 +343,15 @@ const CSS = `
   .tutorial-card { max-width:340px; }
   .tutorial-shell { width:100%; max-width:360px; display:flex; flex-direction:column; align-items:center; margin-top:14px; }
   .tutorial-card { width:100%; min-height:var(--tutorial-card-min-height); display:flex; flex-direction:column; justify-content:flex-start; }
-  .tutorial-controls { width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center; margin-top:12px; }
+  .tutorial-controls { width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center; margin-top:8px; }
   .tutorial-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
   .tutorial-step { display:flex; align-items:center; gap:10px; background:${C.card}; border:1px solid ${C.border}; border-radius:12px; padding:10px 12px; text-align:left; }
   .tutorial-step-num { width:22px; height:22px; border-radius:50%; background:${C.accentSoft}; color:${C.accent}; display:flex; align-items:center; justify-content:center; font:700 11px 'DM Sans', sans-serif; flex-shrink:0; }
   .tutorial-step-text { color:${C.dark}; font:500 13px/1.35 'DM Sans', sans-serif; letter-spacing:0.2px; }
+  .tutorial-example { background:${C.card}; border:1px solid ${C.border}; border-radius:14px; padding:16px 18px; margin-bottom:16px; text-align:left; }
+  .tutorial-example-word { font-family:'Cormorant Garamond', serif; font-size:21px; font-weight:400; letter-spacing:2.4px; color:${C.dark}; margin-bottom:6px; }
+  .tutorial-example-word.faded { font-weight:300; color:${C.faint}; }
+  .tutorial-example-answer { font-family:'Cormorant Garamond', serif; font-size:24px; font-weight:600; letter-spacing:3px; color:${C.accent}; text-align:center; }
   .clue-stack { width:100%; max-width:380px; min-height:var(--clue-stack-min-height); }
   .round-input-wrap { width:100%; max-width:380px; text-align:center; }
   .round-action-row > button { flex:1; min-width:0; }
@@ -366,12 +370,15 @@ const CSS = `
       --round-answer-gap: 20px;
       --clue-stack-min-height: 150px;
       --clue-stack-gap: 11px;
-      --tutorial-card-min-height: 360px;
+      --tutorial-card-min-height: 320px;
     }
     .tutorial-card { max-width:100%; }
     .action-row.stack-mobile { flex-direction:column; align-items:stretch; width:100%; }
     .action-row.stack-mobile > button { width:100%; }
     .round-action-row { width:100%; gap:8px; flex-wrap:nowrap; }
+    .tutorial-example { padding:14px 14px; margin-bottom:14px; }
+    .tutorial-example-word { font-size:18px; letter-spacing:2px; margin-bottom:4px; }
+    .tutorial-example-answer { font-size:21px; letter-spacing:2.5px; }
   }
 `;
 
@@ -413,14 +420,6 @@ function Dots({ n, active, color=C.dark }) {
   );
 }
 
-function ThreadLine() {
-  return <div style={{
-    position:"fixed", top:0, left:"50%", width:1, height:"100vh",
-    background:`linear-gradient(to bottom, transparent, ${C.faint} 18%, ${C.faint} 82%, transparent)`,
-    animation:"pulse 4s ease-in-out infinite", pointerEvents:"none", zIndex:0,
-  }}/>;
-}
-
 function Logo({ sub }) {
   return (
     <div style={{ textAlign:"center", padding:"var(--logo-pad-top, 20px) 0 0", position:"relative", zIndex:2 }}>
@@ -440,7 +439,7 @@ function Logo({ sub }) {
 // ─────────────────────────────────────────────
 const TUT = [
   { icon:"🧵", title:"How Thread works",
-    body:"You’re finding one hidden word from clue words. It takes about 20 seconds per round.",
+    body:"You’re finding one hidden word from clue words.",
     steps:["Start with one clue", "Type your best guess", "Wrong guess reveals the next clue"],
     note:"Fewer clues = better result." },
   { icon:"💡", title:"Clues reveal one by one",
@@ -522,11 +521,11 @@ function Tutorial({ onDone, onSkip }) {
           )}
 
           {c.example && (
-            <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"20px 24px", marginBottom:20, textAlign:"left" }}>
-              {c.example.words.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:400, letterSpacing:"3px", color:C.dark, marginBottom:8 }}>{w}</div>)}
-              {c.example.faded.map((w,j)=><div key={j} style={{ fontFamily:serif, fontSize:24, fontWeight:300, letterSpacing:"3px", color:C.faint, marginBottom:8 }}>{w}</div>)}
+            <div className="tutorial-example">
+              {c.example.words.map((w,j)=><div key={j} className="tutorial-example-word">{w}</div>)}
+              {c.example.faded.map((w,j)=><div key={j} className="tutorial-example-word faded">{w}</div>)}
               <div style={{ height:1, background:C.border, margin:"12px 0" }}/>
-              <div style={{ fontFamily:serif, fontSize:28, fontWeight:600, letterSpacing:"4px", color:C.accent, textAlign:"center" }}>{c.example.answer}</div>
+              <div className="tutorial-example-answer">{c.example.answer}</div>
             </div>
           )}
 
@@ -865,7 +864,7 @@ export default function Thread() {
 
   if (phase === "loading") return (
     <div style={{ ...SCREEN_STYLE, background:C.bg }}>
-      <style>{CSS}</style><ThreadLine/>
+      <style>{CSS}</style>
       <div style={{ fontFamily:serif, fontSize:30, fontWeight:300, letterSpacing:"10px", color:C.faint, textTransform:"uppercase" }}>Thread</div>
     </div>
   );
@@ -873,7 +872,6 @@ export default function Thread() {
   return (
     <div style={{ minHeight:"100dvh", background:C.bg, position:"relative", overflowX:"hidden" }}>
       <style>{CSS}</style>
-      <ThreadLine/>
       <div style={{ opacity:fade?0:1, transform:fade?"translateY(6px)":"none", transition:"all 0.3s ease" }}>
 
         {phase === "tutorial" && (
