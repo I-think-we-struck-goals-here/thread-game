@@ -344,6 +344,10 @@ const CSS = `
   .tutorial-shell { width:100%; max-width:360px; display:flex; flex-direction:column; align-items:center; margin-top:14px; }
   .tutorial-card { width:100%; min-height:var(--tutorial-card-min-height); display:flex; flex-direction:column; justify-content:flex-start; }
   .tutorial-controls { width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center; margin-top:12px; }
+  .tutorial-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+  .tutorial-step { display:flex; align-items:center; gap:10px; background:${C.card}; border:1px solid ${C.border}; border-radius:12px; padding:10px 12px; text-align:left; }
+  .tutorial-step-num { width:22px; height:22px; border-radius:50%; background:${C.accentSoft}; color:${C.accent}; display:flex; align-items:center; justify-content:center; font:700 11px 'DM Sans', sans-serif; flex-shrink:0; }
+  .tutorial-step-text { color:${C.dark}; font:500 13px/1.35 'DM Sans', sans-serif; letter-spacing:0.2px; }
   .clue-stack { width:100%; max-width:380px; min-height:var(--clue-stack-min-height); }
   .round-input-wrap { width:100%; max-width:380px; text-align:center; }
   .round-action-row > button { flex:1; min-width:0; }
@@ -435,8 +439,10 @@ function Logo({ sub }) {
 // TUTORIAL
 // ─────────────────────────────────────────────
 const TUT = [
-  { icon:"🧵", title:"Find the thread",
-    body:"Each puzzle hides one word. Five clue words connect to it — each in a completely different way." },
+  { icon:"🧵", title:"How Thread works",
+    body:"You’re finding one hidden word from clue words. It takes about 20 seconds per round.",
+    steps:["Start with one clue", "Type your best guess", "Wrong guess reveals the next clue"],
+    note:"Fewer clues = better result." },
   { icon:"💡", title:"Clues reveal one by one",
     body:"You start with a single clue. As more appear, the thread gets clearer. Guess whenever you feel it.",
     example:{ words:["SATURN","BOXING","PHONE"], faded:["???","???"], answer:"RING" } },
@@ -492,9 +498,28 @@ function Tutorial({ onDone, onSkip }) {
           onTouchEnd={onTouchEnd}
           style={{ textAlign:"center" }}
         >
+          <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"2.4px", textTransform:"uppercase", color:C.faint, fontWeight:700, marginBottom:10 }}>
+            Step {i + 1} of {TUT.length}
+          </div>
           <div style={{ fontSize:50, marginBottom:18 }}>{c.icon}</div>
           <h2 style={{ fontFamily:serif, fontSize:"clamp(1.8rem, 7.2vw, 27px)", fontWeight:600, color:C.dark, marginBottom:12 }}>{c.title}</h2>
           <p style={{ fontFamily:sans, fontSize:14, lineHeight:1.75, color:C.muted, marginBottom:24 }}>{c.body}</p>
+
+          {c.steps && (
+            <div className="tutorial-steps">
+              {c.steps.map((step, idx) => (
+                <div key={step} className="tutorial-step">
+                  <span className="tutorial-step-num">{idx + 1}</span>
+                  <span className="tutorial-step-text">{step}</span>
+                </div>
+              ))}
+              {c.note && (
+                <div style={{ fontFamily:sans, fontSize:12, color:C.muted, marginTop:2 }}>
+                  {c.note}
+                </div>
+              )}
+            </div>
+          )}
 
           {c.example && (
             <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"20px 24px", marginBottom:20, textAlign:"left" }}>
@@ -531,7 +556,9 @@ function Tutorial({ onDone, onSkip }) {
         <div className="tutorial-controls">
           <Dots n={TUT.length} active={i} />
           <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
-            <Btn onClick={next}>{i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}</Btn>
+            <Btn onClick={next}>
+              {i === 0 ? "Show me an example" : i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}
+            </Btn>
             <button onClick={onSkip} style={{
               background:"none", border:"none", cursor:"pointer", fontFamily:sans,
               fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
