@@ -267,13 +267,12 @@ const C = {
 };
 
 const SCREEN_STYLE = {
-  minHeight: "100vh",
+  minHeight: "var(--screen-min-height, 100dvh)",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
-  padding:
-    "max(32px, calc(env(safe-area-inset-top, 0px) + 12px)) 18px max(32px, calc(env(safe-area-inset-bottom, 0px) + 12px))",
+  justifyContent: "var(--screen-justify, center)",
+  padding: "var(--screen-padding, max(32px, calc(env(safe-area-inset-top, 0px) + 12px)) 18px max(32px, calc(env(safe-area-inset-bottom, 0px) + 12px)))",
   zIndex: 1,
   position: "relative",
 };
@@ -308,6 +307,21 @@ async function copyTextFallback(text) {
 
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+  :root {
+    --screen-min-height: 100dvh;
+    --screen-justify: center;
+    --screen-padding: max(32px, calc(env(safe-area-inset-top, 0px) + 12px)) 18px max(32px, calc(env(safe-area-inset-bottom, 0px) + 12px));
+    --logo-pad-top: 20px;
+    --btn-pad: 15px 36px;
+    --btn-pad-round: 15px 28px;
+    --dots-margin: 14px 0;
+    --round-head-top: max(22px, calc(env(safe-area-inset-top, 0px) + 8px));
+    --round-prompt-gap: 44px;
+    --round-clue-gap: 36px;
+    --round-answer-gap: 28px;
+    --clue-stack-min-height: 180px;
+    --clue-stack-gap: 14px;
+  }
   * { box-sizing:border-box; margin:0; padding:0; }
   html, body, #root { min-height:100%; background:${C.bg}; }
   body { -webkit-font-smoothing:antialiased; overflow-x:hidden; }
@@ -323,14 +337,29 @@ const CSS = `
   .si { animation:slideIn 0.55s cubic-bezier(0.23,1,0.32,1) both; }
   .action-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
   .tutorial-card { max-width:340px; }
-  .clue-stack { width:100%; max-width:380px; min-height:180px; }
+  .clue-stack { width:100%; max-width:380px; min-height:var(--clue-stack-min-height); }
   .round-input-wrap { width:100%; max-width:380px; text-align:center; }
+  .round-action-row > button { flex:1; min-width:0; }
 
   @media (max-width: 560px) {
+    :root {
+      --screen-justify: flex-start;
+      --screen-padding: max(14px, calc(env(safe-area-inset-top, 0px) + 6px)) 14px max(14px, calc(env(safe-area-inset-bottom, 0px) + 8px));
+      --logo-pad-top: 8px;
+      --btn-pad: 12px 26px;
+      --btn-pad-round: 11px 12px;
+      --dots-margin: 8px 0;
+      --round-head-top: max(8px, calc(env(safe-area-inset-top, 0px) + 2px));
+      --round-prompt-gap: 20px;
+      --round-clue-gap: 20px;
+      --round-answer-gap: 18px;
+      --clue-stack-min-height: 140px;
+      --clue-stack-gap: 10px;
+    }
     .tutorial-card { max-width:100%; }
-    .action-row { flex-direction:column; align-items:stretch; width:100%; }
-    .action-row > button { width:100%; }
-    .clue-stack { min-height:168px; }
+    .action-row.stack-mobile { flex-direction:column; align-items:stretch; width:100%; }
+    .action-row.stack-mobile > button { width:100%; }
+    .round-action-row { width:100%; gap:8px; flex-wrap:nowrap; }
   }
 `;
 
@@ -349,7 +378,7 @@ function Btn({ children, onClick, v="dark", style={}, disabled }) {
   return (
     <button onClick={disabled ? undefined : onClick} style={{
       fontFamily:sans, fontSize:13, fontWeight:600, letterSpacing:"1.5px",
-      textTransform:"uppercase", border:"none", padding:"15px 36px", borderRadius:100,
+      textTransform:"uppercase", border:"none", padding:"var(--btn-pad, 15px 36px)", borderRadius:100,
       cursor:disabled?"default":"pointer", transition:"all 0.2s ease",
       opacity:disabled?0.35:1, ...styles[v], ...style,
     }}
@@ -361,7 +390,7 @@ function Btn({ children, onClick, v="dark", style={}, disabled }) {
 
 function Dots({ n, active, color=C.dark }) {
   return (
-    <div style={{ display:"flex", gap:7, justifyContent:"center", margin:"14px 0" }}>
+    <div style={{ display:"flex", gap:7, justifyContent:"center", margin:"var(--dots-margin, 14px 0)" }}>
       {Array.from({length:n},(_,i)=>(
         <div key={i} style={{
           width:7, height:7, borderRadius:"50%",
@@ -382,7 +411,7 @@ function ThreadLine() {
 
 function Logo({ sub }) {
   return (
-    <div style={{ textAlign:"center", padding:"20px 0 0", position:"relative", zIndex:2 }}>
+    <div style={{ textAlign:"center", padding:"var(--logo-pad-top, 20px) 0 0", position:"relative", zIndex:2 }}>
       <div style={{ fontFamily:sans, fontSize:9, letterSpacing:"4px", textTransform:"uppercase", color:C.muted, fontWeight:600, marginBottom:5 }}>
         Daily Word Puzzle
       </div>
@@ -492,7 +521,7 @@ function Tutorial({ onDone, onSkip }) {
 
       <Dots n={TUT.length} active={i} />
 
-      <div className="action-row" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
+      <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
         <Btn onClick={next}>{i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}</Btn>
         <button onClick={onSkip} style={{
           background:"none", border:"none", cursor:"pointer", fontFamily:sans,
@@ -550,7 +579,7 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
     <div style={SCREEN_STYLE}>
 
       {/* Top */}
-      <div style={{ position:"absolute", top:"max(22px, calc(env(safe-area-inset-top, 0px) + 8px))", left:0, right:0, textAlign:"center" }}>
+      <div style={{ position:"absolute", top:"var(--round-head-top, max(22px, calc(env(safe-area-inset-top, 0px) + 8px)))", left:0, right:0, textAlign:"center" }}>
         <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"4px", textTransform:"uppercase", color:C.muted, fontWeight:500 }}>
           {isPractice ? `Practice ${practiceIdx+1} of 3` : `Thread #${dayNum}`}
         </div>
@@ -558,12 +587,12 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
       </div>
 
       {/* Prompt */}
-      <div className="fu" style={{ fontFamily:sans, fontSize:13, letterSpacing:"2.5px", textTransform:"uppercase", color:C.muted, textAlign:"center", marginBottom:44, fontWeight:500 }}>
+      <div className="fu" style={{ fontFamily:sans, fontSize:13, letterSpacing:"2.5px", textTransform:"uppercase", color:C.muted, textAlign:"center", marginBottom:"var(--round-prompt-gap, 44px)", fontWeight:500 }}>
         What word connects them all?
       </div>
 
       {/* Clues */}
-      <div className="clue-stack" style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:36 }}>
+      <div className="clue-stack" style={{ display:"flex", flexDirection:"column", gap:"var(--clue-stack-gap, 14px)", marginBottom:"var(--round-clue-gap, 36px)" }}>
         {visible.map((clue,i) => {
           const newest = i===ci && !done;
           return (
@@ -587,7 +616,7 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
 
       {/* Solved / Failed */}
       {done && (
-        <div className="pi" style={{ textAlign:"center", marginBottom:28 }}>
+        <div className="pi" style={{ textAlign:"center", marginBottom:"var(--round-answer-gap, 28px)" }}>
           <div style={{ fontFamily:serif, fontSize:"clamp(2.5rem, 12vw, 58px)", fontWeight:700, letterSpacing:"clamp(4px, 2vw, 8px)", color:solved?C.accent:C.red, lineHeight:1 }}>
             {round.answer}
           </div>
@@ -608,9 +637,9 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
               style={{ flex:1, border:"none", outline:"none", background:"transparent", fontFamily:serif, fontSize:"clamp(1.5rem, 7vw, 28px)", fontWeight:500, letterSpacing:"4px", color:C.dark, textAlign:"center" }}
             />
           </div>
-          <div className="action-row">
-            <Btn onClick={submit}>Submit</Btn>
-            {ci<round.clues.length-1 && <Btn v="outline" onClick={pass}>More clues</Btn>}
+          <div className="action-row round-action-row">
+            <Btn onClick={submit} style={{ padding:"var(--btn-pad-round, 15px 28px)" }}>Submit</Btn>
+            {ci<round.clues.length-1 && <Btn v="outline" onClick={pass} style={{ padding:"var(--btn-pad-round, 15px 28px)" }}>More clues</Btn>}
           </div>
           {attempts.length>0 && (
             <div style={{ marginTop:18, display:"flex", gap:10, justifyContent:"center", flexWrap:"wrap" }}>
@@ -806,7 +835,7 @@ export default function Thread() {
   );
 
   return (
-    <div style={{ minHeight:"100vh", background:C.bg, position:"relative", overflowX:"hidden" }}>
+    <div style={{ minHeight:"100dvh", background:C.bg, position:"relative", overflowX:"hidden" }}>
       <style>{CSS}</style>
       <ThreadLine/>
       <div style={{ opacity:fade?0:1, transform:fade?"translateY(6px)":"none", transition:"all 0.3s ease" }}>
