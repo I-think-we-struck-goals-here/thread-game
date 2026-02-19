@@ -588,6 +588,212 @@ const storage = {
   },
 };
 
+const HISTORY_KEY = "thread-history-v1";
+const HISTORY_MIGRATION_FLAG_KEY = "thread-history-migrated-v1";
+const HISTORY_LIMIT = 400;
+const DAY_KEY_RE = /^thread-(\d{4}-\d{2}-\d{2})$/;
+const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+const normalizeHistoryEntry = (entry) => {
+  if (!entry || typeof entry !== "object") return null;
+
+  const date = typeof entry.date === "string" ? entry.date.trim() : "";
+  if (!DATE_KEY_RE.test(date)) return null;
+
+  const answer = typeof entry.answer === "string" ? entry.answer.trim().toUpperCase() : "";
+  if (!answer) return null;
+
+  let cluesUsed = null;
+  if (entry.cluesUsed !== null && entry.cluesUsed !== undefined) {
+    const parsed = Number(entry.cluesUsed);
+    if (!Number.isInteger(parsed) || parsed < 1 || parsed > 5) return null;
+    cluesUsed = parsed;
+  }
+
+  const updatedAt = Number(entry.updatedAt);
+  return {
+    date,
+    answer,
+    cluesUsed,
+    solved: cluesUsed !== null,
+    updatedAt: Number.isFinite(updatedAt) ? updatedAt : Date.now(),
+  };
+};
+
+const sortHistoryDesc = (entries) => (
+  [...entries].sort((a, b) => b.date.localeCompare(a.date))
+);
+
+const mergeHistoryByDate = (existing, incoming) => {
+  const byDate = new Map();
+  for (const item of existing) {
+    byDate.set(item.date, item);
+  }
+  for (const item of incoming) {
+    const prev = byDate.get(item.date);
+    if (!prev || item.updatedAt >= prev.updatedAt) {
+      byDate.set(item.date, item);
+    }
+  }
+  return sortHistoryDesc([...byDate.values()]).slice(0, HISTORY_LIMIT);
+};
+
+const readHistory = async () => {
+  const stored = await storage.get(HISTORY_KEY);
+  if (!stored) return [];
+  try {
+    const parsed = JSON.parse(stored.value);
+    if (!Array.isArray(parsed)) return [];
+    const clean = parsed.map(normalizeHistoryEntry).filter(Boolean);
+    return sortHistoryDesc(clean).slice(0, HISTORY_LIMIT);
+  } catch {
+    return [];
+  }
+};
+
+const writeHistory = async (entries) => {
+  const clean = sortHistoryDesc(entries.map(normalizeHistoryEntry).filter(Boolean)).slice(0, HISTORY_LIMIT);
+  await storage.set(HISTORY_KEY, JSON.stringify(clean));
+  return clean;
+};
+
+const upsertHistoryEntry = async (entry) => {
+  const clean = normalizeHistoryEntry(entry);
+  if (!clean) return readHistory();
+  const current = await readHistory();
+  const next = mergeHistoryByDate(current, [clean]);
+  await writeHistory(next);
+  return next;
+};
+
+const removeHistoryEntryByDate = async (dateKey) => {
+  if (!DATE_KEY_RE.test(dateKey)) return readHistory();
+  const current = await readHistory();
+  const next = current.filter((item) => item.date !== dateKey);
+  await writeHistory(next);
+  return next;
+};
+
+const migrateLegacyDailyResults = async () => {
+  const migrationDone = await storage.get(HISTORY_MIGRATION_FLAG_KEY);
+  if (migrationDone) return readHistory();
+
+  const current = await readHistory();
+  const legacyEntries = [];
+
+  try {
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const key = localStorage.key(i);
+      if (!key) continue;
+      const match = key.match(DAY_KEY_RE);
+      if (!match) continue;
+
+      const raw = localStorage.getItem(key);
+      if (!raw) continue;
+
+      let parsed;
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        continue;
+      }
+
+      const entry = normalizeHistoryEntry({
+        date: match[1],
+        answer: parsed.answer,
+        cluesUsed: parsed.cluesUsed,
+        updatedAt: Date.now(),
+      });
+      if (entry) legacyEntries.push(entry);
+    }
+  } catch {
+    // Ignore migration scan failures (private mode / blocked storage APIs).
+  }
+
+  const merged = mergeHistoryByDate(current, legacyEntries);
+  await writeHistory(merged);
+  await storage.set(HISTORY_MIGRATION_FLAG_KEY, "1");
+  return merged;
+};
+
+const toUtcDateValue = (dateKey) => {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  return Date.UTC(year, month - 1, day);
+};
+
+const dayDiff = (fromDate, toDate) => (
+  Math.round((toUtcDateValue(toDate) - toUtcDateValue(fromDate)) / 86400000)
+);
+
+const formatHistoryDate = (dateKey) => {
+  const date = new Date(`${dateKey}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return dateKey;
+  return new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(date);
+};
+
+const scoreToDots = (score) => {
+  if (score === null) return "⚫⚫⚫⚫⚫";
+  return Array.from({ length: 5 }, (_, i) => (i < score ? "🟢" : "⚪")).join("");
+};
+
+const buildHistoryStats = (history) => {
+  const ordered = sortHistoryDesc(history);
+  const totalPlayed = ordered.length;
+  const solvedEntries = ordered.filter((entry) => entry.cluesUsed !== null);
+  const solvedCount = solvedEntries.length;
+  const missedCount = totalPlayed - solvedCount;
+  const solveRate = totalPlayed ? Math.round((solvedCount / totalPlayed) * 100) : 0;
+
+  const avgClues = solvedCount
+    ? solvedEntries.reduce((sum, entry) => sum + entry.cluesUsed, 0) / solvedCount
+    : null;
+  const bestScore = solvedCount
+    ? Math.min(...solvedEntries.map((entry) => entry.cluesUsed))
+    : null;
+
+  const scoreCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+  for (const entry of solvedEntries) {
+    scoreCounts[entry.cluesUsed] += 1;
+  }
+
+  const ascDates = [...new Set(ordered.map((entry) => entry.date))].sort((a, b) => a.localeCompare(b));
+  let bestStreak = 0;
+  let runningStreak = 0;
+  let prevDate = null;
+  for (const date of ascDates) {
+    if (prevDate && dayDiff(prevDate, date) === 1) {
+      runningStreak += 1;
+    } else {
+      runningStreak = 1;
+    }
+    if (runningStreak > bestStreak) bestStreak = runningStreak;
+    prevDate = date;
+  }
+
+  let currentStreak = runningStreak;
+  if (ascDates.length > 0) {
+    const lastPlayed = ascDates[ascDates.length - 1];
+    if (dayDiff(lastPlayed, todayKey()) > 1) {
+      currentStreak = 0;
+    }
+  } else {
+    currentStreak = 0;
+  }
+
+  return {
+    totalPlayed,
+    solvedCount,
+    missedCount,
+    solveRate,
+    avgClues,
+    bestScore,
+    scoreCounts,
+    currentStreak,
+    bestStreak,
+    recent: ordered.slice(0, 14),
+  };
+};
+
 const SCORE_LABELS = ["", "Uncanny", "Brilliant", "Sharp", "Solid", "Got there"];
 const SCORE_EMOJI = ["", "🧠", "🔥", "⚡", "👏", "🤝"];
 
@@ -914,7 +1120,7 @@ function Tutorial({ onDone, onSkip }) {
 // ─────────────────────────────────────────────
 // GAME ROUND
 // ─────────────────────────────────────────────
-function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
+function Round({ round, isPractice, practiceIdx, dayNum, onFinish, onViewStats }) {
   const [ci, setCi] = useState(0);
   const [guess, setGuess] = useState("");
   const [attempts, setAttempts] = useState([]);
@@ -1017,6 +1223,25 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
               {attempts.map((a,i)=><span key={i} style={{ fontFamily:sans, fontSize:12, color:C.faint, textDecoration:"line-through", letterSpacing:"1px" }}>{a}</span>)}
             </div>
           )}
+          {!isPractice && onViewStats && (
+            <button
+              type="button"
+              onClick={onViewStats}
+              style={{
+                marginTop: 18,
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: sans,
+                fontSize: 11.5,
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                color: C.faint,
+              }}
+            >
+              View my record
+            </button>
+          )}
         </div>
       )}
 
@@ -1071,7 +1296,7 @@ function PracticeDone({ scores, onContinue }) {
 // ─────────────────────────────────────────────
 // RESULTS
 // ─────────────────────────────────────────────
-function Results({ round, score, dayNum }) {
+function Results({ round, score, dayNum, onViewStats }) {
   const [copied, setCopied] = useState(false);
   const ok = score !== null;
   const row = Array.from({length:5},(_,i)=> !ok?"⚫":i<score?"🟢":"⚪").join("");
@@ -1117,6 +1342,11 @@ function Results({ round, score, dayNum }) {
 
       <div className="fu" style={{ animationDelay:"0.7s", display:"flex", flexDirection:"column", alignItems:"center", gap:10, width:"100%", maxWidth:380 }}>
         <Btn v="green" onClick={share} style={{ minWidth:240 }}>{copied?"Copied to clipboard!":"Share your result"}</Btn>
+        {onViewStats && (
+          <Btn v="outline" onClick={onViewStats} style={{ minWidth:240 }}>
+            View personal record
+          </Btn>
+        )}
         <div style={{ fontFamily:sans, fontSize:11.5, color:C.faint, marginTop:8 }}>New thread at midnight</div>
       </div>
     </div>
@@ -1126,7 +1356,7 @@ function Results({ round, score, dayNum }) {
 // ─────────────────────────────────────────────
 // ALREADY PLAYED TODAY
 // ─────────────────────────────────────────────
-function AlreadyPlayed({ saved, dayNum }) {
+function AlreadyPlayed({ saved, dayNum, onViewStats }) {
   const [copied, setCopied] = useState(false);
   const round = getDailyRound();
   const s = saved.cluesUsed;
@@ -1155,8 +1385,140 @@ function AlreadyPlayed({ saved, dayNum }) {
           {ok ? `${SCORE_LABELS[s]} — ${s} clue${s>1?"s":""}` : "Missed today's thread"}
         </div>
         <Btn v="green" onClick={share} style={{ minWidth:240 }}>{copied?"Copied!":"Share your result"}</Btn>
+        {onViewStats && (
+          <div style={{ marginTop:10 }}>
+            <Btn v="outline" onClick={onViewStats} style={{ minWidth:240 }}>
+              View personal record
+            </Btn>
+          </div>
+        )}
         <div style={{ fontFamily:sans, fontSize:11.5, color:C.faint, marginTop:16 }}>Come back tomorrow for a new thread</div>
       </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// PERSONAL RECORD (LOCAL)
+// ─────────────────────────────────────────────
+function StatsBoard({ history, onBack }) {
+  const stats = buildHistoryStats(history);
+  const hasData = stats.totalPlayed > 0;
+  const avgClues = stats.avgClues === null ? "—" : stats.avgClues.toFixed(2).replace(/\.?0+$/, "");
+  const bestScore = stats.bestScore === null ? "—" : `${stats.bestScore} clues`;
+  const maxBar = Math.max(
+    1,
+    ...Object.values(stats.scoreCounts),
+    stats.missedCount
+  );
+
+  const metricItems = [
+    { label: "Played", value: stats.totalPlayed },
+    { label: "Solved", value: `${stats.solveRate}%` },
+    { label: "Average", value: avgClues },
+    { label: "Best", value: bestScore },
+    { label: "Current streak", value: stats.currentStreak },
+    { label: "Best streak", value: stats.bestStreak },
+  ];
+
+  return (
+    <div style={SCREEN_STYLE}>
+      <Logo sub="Your local record" />
+
+      {!hasData && (
+        <div className="fu tutorial-card" style={{ textAlign:"center", maxWidth:360, marginTop:28 }}>
+          <div style={{ fontSize:48, marginBottom:14 }}>📊</div>
+          <h2 style={{ fontFamily:serif, fontSize:"clamp(1.8rem, 8vw, 28px)", fontWeight:600, color:C.dark, marginBottom:10 }}>
+            No games saved yet
+          </h2>
+          <p style={{ fontFamily:sans, fontSize:14, lineHeight:1.7, color:C.muted, marginBottom:26 }}>
+            Finish a daily thread and your personal record will appear here automatically on this device.
+          </p>
+          <Btn onClick={onBack} style={{ minWidth:220 }}>Back</Btn>
+        </div>
+      )}
+
+      {hasData && (
+        <div style={{ width:"100%", maxWidth:390, marginTop:22 }}>
+          <div className="fu" style={{ animationDelay:"0.1s", display:"grid", gridTemplateColumns:"repeat(2, minmax(0, 1fr))", gap:8, marginBottom:18 }}>
+            {metricItems.map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  background: C.card,
+                  border: `1px solid ${C.border}`,
+                  borderRadius: 12,
+                  padding: "12px 10px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"2px", textTransform:"uppercase", color:C.faint, marginBottom:6 }}>
+                  {item.label}
+                </div>
+                <div style={{ fontFamily:serif, fontSize:22, fontWeight:600, letterSpacing:"1px", color:C.dark }}>
+                  {item.value}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="fu" style={{ animationDelay:"0.2s", background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"14px 14px 12px", marginBottom:14 }}>
+            <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"2.4px", textTransform:"uppercase", color:C.faint, fontWeight:600, marginBottom:10 }}>
+              Score distribution
+            </div>
+            {[1, 2, 3, 4, 5].map((score) => {
+              const count = stats.scoreCounts[score];
+              const width = `${(count / maxBar) * 100}%`;
+              return (
+                <div key={score} style={{ display:"grid", gridTemplateColumns:"40px 1fr 32px", alignItems:"center", gap:10, marginBottom:8 }}>
+                  <div style={{ fontFamily:sans, fontSize:12, color:C.muted }}>{score} clue</div>
+                  <div style={{ height:8, borderRadius:999, background:C.border, overflow:"hidden" }}>
+                    <div style={{ width, minWidth:count ? 6 : 0, height:"100%", background:C.accent, transition:"width 0.3s ease" }} />
+                  </div>
+                  <div style={{ fontFamily:sans, fontSize:12, color:C.dark, textAlign:"right" }}>{count}</div>
+                </div>
+              );
+            })}
+            <div style={{ display:"grid", gridTemplateColumns:"40px 1fr 32px", alignItems:"center", gap:10 }}>
+              <div style={{ fontFamily:sans, fontSize:12, color:C.muted }}>Missed</div>
+              <div style={{ height:8, borderRadius:999, background:C.border, overflow:"hidden" }}>
+                <div style={{ width:`${(stats.missedCount / maxBar) * 100}%`, minWidth:stats.missedCount ? 6 : 0, height:"100%", background:C.red, transition:"width 0.3s ease" }} />
+              </div>
+              <div style={{ fontFamily:sans, fontSize:12, color:C.dark, textAlign:"right" }}>{stats.missedCount}</div>
+            </div>
+          </div>
+
+          <div className="fu" style={{ animationDelay:"0.3s", background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"14px 12px", marginBottom:18 }}>
+            <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"2.4px", textTransform:"uppercase", color:C.faint, fontWeight:600, marginBottom:10 }}>
+              Recent threads
+            </div>
+            <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
+              {stats.recent.map((entry) => (
+                <div key={`${entry.date}-${entry.answer}`} style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:12, padding:"10px 12px", border:`1px solid ${C.border}`, borderRadius:10, background:"#fff" }}>
+                  <div>
+                    <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"1.8px", textTransform:"uppercase", color:C.faint }}>
+                      {formatHistoryDate(entry.date)}
+                    </div>
+                    <div style={{ fontFamily:serif, fontSize:21, fontWeight:500, letterSpacing:"2px", color:C.dark, marginTop:1 }}>
+                      {entry.answer}
+                    </div>
+                  </div>
+                  <div style={{ textAlign:"right" }}>
+                    <div style={{ fontSize:16, letterSpacing:1 }}>{scoreToDots(entry.cluesUsed)}</div>
+                    <div style={{ fontFamily:sans, fontSize:11, color:C.muted, marginTop:2 }}>
+                      {entry.cluesUsed !== null ? `${SCORE_LABELS[entry.cluesUsed]} (${entry.cluesUsed})` : "Missed"}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="fu" style={{ animationDelay:"0.4s", textAlign:"center", marginBottom:8 }}>
+            <Btn onClick={onBack} style={{ minWidth:220 }}>Back</Btn>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -1171,40 +1533,63 @@ export default function Thread() {
   const [dailyScore, setDailyScore] = useState(null);
   const [fade, setFade] = useState(false);
   const [saved, setSaved] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [statsReturnPhase, setStatsReturnPhase] = useState("daily");
 
   const dayNum = getDayNumber();
   const daily = useRef(getDailyRound());
 
   useEffect(() => {
+    let mounted = true;
     (async () => {
+      const seededHistory = await migrateLegacyDailyResults();
+      if (mounted) setHistory(seededHistory);
+
       try {
         const key = `thread-${todayKey()}`;
         const res = await storage.get(key);
         if (res) {
           const parsed = JSON.parse(res.value);
           if (parsed && parsed.answer === daily.current.answer) {
+            if (!mounted) return;
             setSaved(parsed);
             setPhase("already");
             return;
           }
           await storage.remove(key);
+          const trimmedHistory = await removeHistoryEntryByDate(todayKey());
+          if (mounted) setHistory(trimmedHistory);
         }
       } catch {}
       try {
         const tut = await storage.get("thread-tut-done");
-        if (tut) { setPhase("daily"); return; }
+        if (tut) {
+          if (mounted) setPhase("daily");
+          return;
+        }
       } catch {}
-      setPhase("tutorial");
+      if (mounted) setPhase("tutorial");
     })();
+    return () => { mounted = false; };
   }, []);
 
   const go = (p) => { setFade(true); setTimeout(()=>{ setPhase(p); setFade(false); }, 300); };
+  const openStats = (fromPhase) => { setStatsReturnPhase(fromPhase); go("stats"); };
+  const closeStats = () => go(statsReturnPhase || "daily");
 
   const markTut = async () => { try { await storage.set("thread-tut-done","1"); } catch{} };
 
   const saveDailyResult = async (score) => {
+    const date = todayKey();
     const data = { cluesUsed: score, answer: daily.current.answer };
-    try { await storage.set(`thread-${todayKey()}`, JSON.stringify(data)); } catch {}
+    try { await storage.set(`thread-${date}`, JSON.stringify(data)); } catch {}
+    const nextHistory = await upsertHistoryEntry({
+      date,
+      answer: daily.current.answer,
+      cluesUsed: score,
+      updatedAt: Date.now(),
+    });
+    setHistory(nextHistory);
   };
 
   if (phase === "loading") return (
@@ -1242,7 +1627,7 @@ export default function Thread() {
         )}
 
         {phase === "daily" && (
-          <Round key="daily" round={daily.current} dayNum={dayNum}
+          <Round key="daily" round={daily.current} dayNum={dayNum} onViewStats={()=>openStats("daily")}
             onFinish={(score) => {
               setDailyScore(score);
               saveDailyResult(score);
@@ -1252,11 +1637,15 @@ export default function Thread() {
         )}
 
         {phase === "results" && (
-          <Results round={daily.current} score={dailyScore} dayNum={dayNum}/>
+          <Results round={daily.current} score={dailyScore} dayNum={dayNum} onViewStats={()=>openStats("results")} />
         )}
 
         {phase === "already" && (
-          <AlreadyPlayed saved={saved} dayNum={dayNum}/>
+          <AlreadyPlayed saved={saved} dayNum={dayNum} onViewStats={()=>openStats("already")} />
+        )}
+
+        {phase === "stats" && (
+          <StatsBoard history={history} onBack={closeStats} />
         )}
       </div>
     </div>
