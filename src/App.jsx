@@ -37,197 +37,525 @@ const PRACTICE_ROUNDS = [
 ];
 
 // ─────────────────────────────────────────────
-// DAILY ROUND POOL (33 rounds)
+// DAILY ROUND POOL (44 rounds from 19 February 2026 brief)
 // ─────────────────────────────────────────────
 const ALL_ROUNDS = [
-  { answer: "BRIDGE", clues: [
-    { word: "LONDON", connection: "London Bridge" }, { word: "CARDS", connection: "Bridge (card game)" },
-    { word: "BURN", connection: "Burn your bridges" }, { word: "NOSE", connection: "Bridge of your nose" },
-    { word: "SUSPEND", connection: "Suspension bridge" },
-  ]},
-  { answer: "CROWN", clues: [
-    { word: "JEWEL", connection: "Crown Jewels" }, { word: "TOOTH", connection: "Dental crown" },
-    { word: "NETFLIX", connection: "The Crown (TV series)" }, { word: "THORNS", connection: "Crown of thorns" },
-    { word: "VICTORIA", connection: "Crown of Queen Victoria" },
-  ]},
-  { answer: "LIGHT", clues: [
-    { word: "SPEED", connection: "Speed of light" }, { word: "HOUSE", connection: "Lighthouse" },
-    { word: "FEATHER", connection: "Light as a feather" }, { word: "NORTHERN", connection: "Northern Lights" },
-    { word: "GREEN", connection: "Green light" },
-  ]},
-  { answer: "RING", clues: [
-    { word: "SATURN", connection: "Rings of Saturn" }, { word: "BOXING", connection: "Boxing ring" },
-    { word: "PHONE", connection: "Give someone a ring" }, { word: "TOLKIEN", connection: "Lord of the Rings" },
-    { word: "WEDDING", connection: "Wedding ring" },
-  ]},
-  { answer: "PITCH", clues: [
-    { word: "TENT", connection: "Pitch a tent" }, { word: "PERFECT", connection: "Perfect pitch" },
-    { word: "ELEVATOR", connection: "Elevator pitch" }, { word: "BLACK", connection: "Pitch black" },
-    { word: "BASEBALL", connection: "Baseball pitch" },
-  ]},
-  { answer: "WAVE", clues: [
-    { word: "HAIR", connection: "Wave in your hair" }, { word: "STADIUM", connection: "Mexican wave" },
-    { word: "MICRO", connection: "Microwave" }, { word: "HEAT", connection: "Heatwave" },
-    { word: "OCEAN", connection: "Ocean wave" },
-  ]},
-  { answer: "SPRING", clues: [
-    { word: "MATTRESS", connection: "Mattress spring" }, { word: "CLEAN", connection: "Spring cleaning" },
-    { word: "ROLL", connection: "Spring roll" }, { word: "WATER", connection: "Natural spring" },
-    { word: "BLOSSOM", connection: "Spring blossoms" },
-  ]},
-  { answer: "SHELL", clues: [
-    { word: "SHOCK", connection: "Shell shock" }, { word: "PETROL", connection: "Shell (oil company)" },
-    { word: "TURTLE", connection: "Turtle shell" }, { word: "EGG", connection: "Eggshell" },
-    { word: "BEACH", connection: "Seashells on the beach" },
-  ]},
-  { answer: "KEY", clues: [
-    { word: "FLORIDA", connection: "Florida Keys" }, { word: "PIANO", connection: "Piano keys" },
-    { word: "SKELETON", connection: "Skeleton key" }, { word: "BOARD", connection: "Keyboard" },
-    { word: "LOCK", connection: "Lock and key" },
-  ]},
-  { answer: "PLANT", clues: [
-    { word: "FACTORY", connection: "Manufacturing plant" }, { word: "SPY", connection: "Plant a spy" },
-    { word: "RUBBER", connection: "Rubber plant" }, { word: "POWER", connection: "Power plant" },
-    { word: "SEED", connection: "Plant a seed" },
-  ]},
-  { answer: "BANK", clues: [
-    { word: "RIVER", connection: "River bank" }, { word: "ROBBER", connection: "Bank robber" },
-    { word: "BLOOD", connection: "Blood bank" }, { word: "PIGGY", connection: "Piggy bank" },
-    { word: "ENGLAND", connection: "Bank of England" },
-  ]},
-  { answer: "CAST", clues: [
-    { word: "SHADOW", connection: "Cast a shadow" }, { word: "FISHING", connection: "Cast a line" },
-    { word: "IRON", connection: "Cast iron" }, { word: "MOVIE", connection: "Movie cast" },
-    { word: "BROKEN", connection: "Plaster cast" },
-  ]},
-  { answer: "MATCH", clues: [
-    { word: "FIRE", connection: "Strike a match" }, { word: "TENNIS", connection: "Tennis match" },
-    { word: "PERFECT", connection: "Perfect match" }, { word: "MIX", connection: "Mix and match" },
-    { word: "BOOK", connection: "Matchbook" },
-  ]},
-  { answer: "FALL", clues: [
-    { word: "NIAGARA", connection: "Niagara Falls" }, { word: "GRACE", connection: "Fall from grace" },
-    { word: "LEAF", connection: "Falling leaves" }, { word: "FREE", connection: "Freefall" },
-    { word: "WALL", connection: "Berlin Wall fell" },
-  ]},
-  { answer: "PAPER", clues: [
-    { word: "ROCK", connection: "Rock, paper, scissors" }, { word: "TOILET", connection: "Toilet paper" },
-    { word: "TRAIL", connection: "Paper trail" }, { word: "NEWS", connection: "Newspaper" },
-    { word: "WALL", connection: "Wallpaper" },
-  ]},
-  { answer: "STOCK", clues: [
-    { word: "CHICKEN", connection: "Chicken stock" }, { word: "MARKET", connection: "Stock market" },
-    { word: "LAUGHING", connection: "Laughing stock" }, { word: "GUN", connection: "Gunstock" },
-    { word: "TAKE", connection: "Take stock" },
-  ]},
-  { answer: "NAIL", clues: [
-    { word: "COFFIN", connection: "Nail in the coffin" }, { word: "HAMMER", connection: "Hammer and nail" },
-    { word: "POLISH", connection: "Nail polish" }, { word: "SALON", connection: "Nail salon" },
-    { word: "BED", connection: "Bed of nails" },
-  ]},
-  { answer: "TRACK", clues: [
-    { word: "TRAIN", connection: "Train track" }, { word: "RECORD", connection: "Track record" },
-    { word: "RACE", connection: "Racetrack" }, { word: "SOUND", connection: "Soundtrack" },
-    { word: "LOST", connection: "Lose track" },
-  ]},
-  { answer: "STAGE", clues: [
-    { word: "FRIGHT", connection: "Stage fright" }, { word: "ROCKET", connection: "Rocket stage" },
-    { word: "COACH", connection: "Stagecoach" }, { word: "GRIEF", connection: "Stages of grief" },
-    { word: "LEFT", connection: "Stage left" },
-  ]},
-  { answer: "CHECK", clues: [
-    { word: "CHESS", connection: "Check in chess" }, { word: "RAIN", connection: "Raincheck" },
-    { word: "SPELL", connection: "Spellcheck" }, { word: "REALITY", connection: "Reality check" },
-    { word: "BLANK", connection: "Blank check" },
-  ]},
-  { answer: "HEART", clues: [
-    { word: "BRAVE", connection: "Braveheart" }, { word: "ATTACK", connection: "Heart attack" },
-    { word: "BREAK", connection: "Heartbreak" }, { word: "SWEET", connection: "Sweetheart" },
-    { word: "SLEEVE", connection: "Heart on your sleeve" },
-  ]},
-  { answer: "POINT", clues: [
-    { word: "NEEDLE", connection: "Needle point" }, { word: "BULLET", connection: "Bullet point" },
-    { word: "GUN", connection: "Gunpoint" }, { word: "POWER", connection: "PowerPoint" },
-    { word: "VIEW", connection: "Point of view" },
-  ]},
-  { answer: "DRUM", clues: [
-    { word: "STICK", connection: "Drumstick" }, { word: "EAR", connection: "Eardrum" },
-    { word: "SNARE", connection: "Snare drum" }, { word: "STEEL", connection: "Steel drum" },
-    { word: "ROLL", connection: "Drum roll" },
-  ]},
-  { answer: "PLATE", clues: [
-    { word: "TECTONIC", connection: "Tectonic plates" }, { word: "ARMOUR", connection: "Armour plating" },
-    { word: "LICENSE", connection: "License plate" }, { word: "HOME", connection: "Home plate" },
-    { word: "DINNER", connection: "Dinner plate" },
-  ]},
-  { answer: "PASS", clues: [
-    { word: "MOUNTAIN", connection: "Mountain pass" }, { word: "BOARDING", connection: "Boarding pass" },
-    { word: "TIME", connection: "Pass the time" }, { word: "FOOTBALL", connection: "Football pass" },
-    { word: "FAIL", connection: "Pass or fail" },
-  ]},
-  { answer: "CELL", clues: [
-    { word: "PRISON", connection: "Prison cell" }, { word: "PHONE", connection: "Cell phone" },
-    { word: "SOLAR", connection: "Solar cell" }, { word: "BLOOD", connection: "Blood cell" },
-    { word: "DIVIDE", connection: "Cell division" },
-  ]},
-  { answer: "JAM", clues: [
-    { word: "TRAFFIC", connection: "Traffic jam" }, { word: "GUITAR", connection: "Jam session" },
-    { word: "TOAST", connection: "Jam on toast" }, { word: "PEARL", connection: "Pearl Jam" },
-    { word: "DOOR", connection: "Door jamb" },
-  ]},
-  { answer: "BARK", clues: [
-    { word: "DOG", connection: "Dog bark" }, { word: "TREE", connection: "Tree bark" },
-    { word: "MOON", connection: "Barking at the moon" }, { word: "CHOCOLATE", connection: "Chocolate bark" },
-    { word: "BITE", connection: "Bark worse than bite" },
-  ]},
-  { answer: "CURRENT", clues: [
-    { word: "ELECTRIC", connection: "Electric current" }, { word: "AFFAIRS", connection: "Current affairs" },
-    { word: "RAISIN", connection: "Currant (the fruit)" }, { word: "OCEAN", connection: "Ocean current" },
-    { word: "RIVER", connection: "River current" },
-  ]},
-  { answer: "GLASS", clues: [
-    { word: "CEILING", connection: "Glass ceiling" }, { word: "STAIN", connection: "Stained glass" },
-    { word: "SPY", connection: "Spyglass" }, { word: "WINE", connection: "Wine glass" },
-    { word: "SLIPPER", connection: "Glass slipper" },
-  ]},
-  { answer: "FRAME", clues: [
-    { word: "PICTURE", connection: "Picture frame" }, { word: "BLAME", connection: "Frame someone" },
-    { word: "TIME", connection: "Time frame" }, { word: "DOOR", connection: "Door frame" },
-    { word: "FREEZE", connection: "Freeze frame" },
-  ]},
-  { answer: "SEAL", clues: [
-    { word: "NAVY", connection: "Navy SEAL" }, { word: "WAX", connection: "Wax seal" },
-    { word: "ARCTIC", connection: "Arctic seal" }, { word: "DEAL", connection: "Seal the deal" },
-    { word: "APPROVAL", connection: "Seal of approval" },
-  ]},
-  { answer: "COURT", clues: [
-    { word: "BASKETBALL", connection: "Basketball court" }, { word: "JESTER", connection: "Court jester" },
-    { word: "SUPREME", connection: "Supreme Court" }, { word: "SHIP", connection: "Courtship" },
-    { word: "FOOD", connection: "Food court" },
-  ]},
+  {
+    answer: "BRIDGE",
+    variants: ["BRIDGES", "BRIDGED"],
+    clues: [
+      { word: "CAPTAIN", connection: "Captain's bridge (on a ship)" },
+      { word: "GAP", connection: "Bridge the gap" },
+      { word: "BURN", connection: "Burn your bridges" },
+      { word: "CARDS", connection: "Bridge (the card game)" },
+      { word: "LONDON", connection: "London Bridge" },
+    ],
+  },
+  {
+    answer: "CROWN",
+    variants: ["CROWNS", "CROWNED"],
+    clues: [
+      { word: "TRIPLE", connection: "Triple Crown" },
+      { word: "MOLDING", connection: "Crown molding" },
+      { word: "TOOTH", connection: "Dental crown" },
+      { word: "NETFLIX", connection: "The Crown (TV series)" },
+      { word: "JEWEL", connection: "Crown Jewels" },
+    ],
+  },
+  {
+    answer: "LIGHT",
+    variants: ["LIGHTS", "LIT", "LIGHTER", "LIGHTING"],
+    clues: [
+      { word: "HEARTED", connection: "Light-hearted" },
+      { word: "SHED", connection: "Shed light on something" },
+      { word: "FEATHER", connection: "Light as a feather" },
+      { word: "NORTHERN", connection: "Northern Lights" },
+      { word: "GREEN", connection: "Green light" },
+    ],
+  },
+  {
+    answer: "RING",
+    variants: ["RINGS", "RINGING", "RANG", "RUNG"],
+    clues: [
+      { word: "HOLLOW", connection: "Ring hollow" },
+      { word: "CIRCUS", connection: "Three-ring circus" },
+      { word: "BOXING", connection: "Boxing ring" },
+      { word: "TOLKIEN", connection: "Lord of the Rings" },
+      { word: "WEDDING", connection: "Wedding ring" },
+    ],
+  },
+  {
+    answer: "PITCH",
+    variants: ["PITCHED", "PITCHES", "PITCHING"],
+    clues: [
+      { word: "FORK", connection: "Pitchfork" },
+      { word: "SALES", connection: "Sales pitch" },
+      { word: "PERFECT", connection: "Perfect pitch" },
+      { word: "BLACK", connection: "Pitch black" },
+      { word: "TENT", connection: "Pitch a tent" },
+    ],
+  },
+  {
+    answer: "WAVE",
+    variants: ["WAVES", "WAVED", "WAVING"],
+    clues: [
+      { word: "NEW", connection: "New wave (music/film genre)" },
+      { word: "RADIO", connection: "Radio wave" },
+      { word: "HEAT", connection: "Heatwave" },
+      { word: "STADIUM", connection: "Mexican wave" },
+      { word: "OCEAN", connection: "Ocean wave" },
+    ],
+  },
+  {
+    answer: "SPRING",
+    variants: ["SPRINGS", "SPRANG", "SPRUNG"],
+    clues: [
+      { word: "CHICKEN", connection: "No spring chicken" },
+      { word: "BOARD", connection: "Springboard" },
+      { word: "ROLL", connection: "Spring roll" },
+      { word: "CLEAN", connection: "Spring cleaning" },
+      { word: "WATER", connection: "Spring water" },
+    ],
+  },
+  {
+    answer: "SHELL",
+    variants: ["SHELLS", "SHELLED"],
+    clues: [
+      { word: "COMPANY", connection: "Shell company (fraud)" },
+      { word: "FISH", connection: "Shellfish" },
+      { word: "SHOCK", connection: "Shell shock" },
+      { word: "EGG", connection: "Eggshell" },
+      { word: "BEACH", connection: "Seashells on the beach" },
+    ],
+  },
+  {
+    answer: "KEY",
+    variants: ["KEYS"],
+    clues: [
+      { word: "LOW", connection: "Low-key" },
+      { word: "STONE", connection: "Keystone" },
+      { word: "BOARD", connection: "Keyboard" },
+      { word: "SKELETON", connection: "Skeleton key" },
+      { word: "LOCK", connection: "Lock and key" },
+    ],
+  },
+  {
+    answer: "PLANT",
+    variants: ["PLANTS", "PLANTED", "PLANTING"],
+    clues: [
+      { word: "RUBBER", connection: "Rubber plant" },
+      { word: "HOUSE", connection: "Houseplant" },
+      { word: "NUCLEAR", connection: "Nuclear plant" },
+      { word: "SEED", connection: "Plant a seed" },
+      { word: "POT", connection: "Potted plant" },
+    ],
+  },
+  {
+    answer: "BANK",
+    variants: ["BANKS", "BANKED", "BANKING"],
+    clues: [
+      { word: "FOG", connection: "Fog bank" },
+      { word: "SNOW", connection: "Snowbank" },
+      { word: "BLOOD", connection: "Blood bank" },
+      { word: "PIGGY", connection: "Piggy bank" },
+      { word: "RIVER", connection: "River bank" },
+    ],
+  },
+  {
+    answer: "CAST",
+    variants: ["CASTING", "CASTS"],
+    clues: [
+      { word: "TYPE", connection: "Typecast" },
+      { word: "IRON", connection: "Cast iron" },
+      { word: "SHADOW", connection: "Cast a shadow" },
+      { word: "FISHING", connection: "Cast a line" },
+      { word: "POD", connection: "Podcast" },
+    ],
+  },
+  {
+    answer: "MATCH",
+    variants: ["MATCHES", "MATCHED", "MATCHING"],
+    clues: [
+      { word: "GRUDGE", connection: "Grudge match" },
+      { word: "BOOK", connection: "Matchbook" },
+      { word: "PERFECT", connection: "Perfect match" },
+      { word: "TENNIS", connection: "Tennis match" },
+      { word: "FIRE", connection: "Strike a match" },
+    ],
+  },
+  {
+    answer: "FALL",
+    variants: ["FALLS", "FELL", "FALLEN", "FALLING"],
+    clues: [
+      { word: "ANGEL", connection: "Fallen angel" },
+      { word: "FLAT", connection: "Fall flat" },
+      { word: "FREE", connection: "Freefall" },
+      { word: "LEAF", connection: "Falling leaves" },
+      { word: "NIAGARA", connection: "Niagara Falls" },
+    ],
+  },
+  {
+    answer: "PAPER",
+    variants: ["PAPERS"],
+    clues: [
+      { word: "ROCK", connection: "Rock, paper, scissors" },
+      { word: "TIGER", connection: "Paper tiger" },
+      { word: "CHASE", connection: "Paper chase" },
+      { word: "TRAIL", connection: "Paper trail" },
+      { word: "WALL", connection: "Wallpaper" },
+    ],
+  },
+  {
+    answer: "STOCK",
+    variants: ["STOCKS", "STOCKED", "STOCKING"],
+    clues: [
+      { word: "LAUGHING", connection: "Laughing stock" },
+      { word: "LIVE", connection: "Livestock" },
+      { word: "MARKET", connection: "Stock market" },
+      { word: "CHICKEN", connection: "Chicken stock" },
+      { word: "TAKE", connection: "Take stock" },
+    ],
+  },
+  {
+    answer: "NAIL",
+    variants: ["NAILS", "NAILED", "NAILING"],
+    clues: [
+      { word: "TOOTH", connection: "Fight tooth and nail" },
+      { word: "COFFIN", connection: "Nail in the coffin" },
+      { word: "HAMMER", connection: "Hammer and nail" },
+      { word: "POLISH", connection: "Nail polish" },
+      { word: "BED", connection: "Bed of nails" },
+    ],
+  },
+  {
+    answer: "TRACK",
+    variants: ["TRACKS", "TRACKED", "TRACKING"],
+    clues: [
+      { word: "FAST", connection: "Fast track" },
+      { word: "SIDE", connection: "Sidetracked" },
+      { word: "RECORD", connection: "Track record" },
+      { word: "SOUND", connection: "Soundtrack" },
+      { word: "TRAIN", connection: "Train track" },
+    ],
+  },
+  {
+    answer: "STAGE",
+    variants: ["STAGES", "STAGED", "STAGING"],
+    clues: [
+      { word: "BACK", connection: "Backstage" },
+      { word: "COACH", connection: "Stagecoach" },
+      { word: "FRIGHT", connection: "Stage fright" },
+      { word: "ROCKET", connection: "Rocket stage" },
+      { word: "LEFT", connection: "Stage left" },
+    ],
+  },
+  {
+    answer: "CHECK",
+    variants: ["CHECKS", "CHECKED", "CHECKING"],
+    clues: [
+      { word: "RAIN", connection: "Raincheck" },
+      { word: "BODY", connection: "Body check" },
+      { word: "BLANK", connection: "Blank check" },
+      { word: "REALITY", connection: "Reality check" },
+      { word: "CHESS", connection: "Check in chess" },
+    ],
+  },
+  {
+    answer: "HEART",
+    variants: ["HEARTS", "HEARTED"],
+    clues: [
+      { word: "SWEET", connection: "Sweetheart" },
+      { word: "BRAVE", connection: "Braveheart" },
+      { word: "BREAK", connection: "Heartbreak" },
+      { word: "ATTACK", connection: "Heart attack" },
+      { word: "SLEEVE", connection: "Wear your heart on your sleeve" },
+    ],
+  },
+  {
+    answer: "POINT",
+    variants: ["POINTS", "POINTED", "POINTING"],
+    clues: [
+      { word: "COUNTER", connection: "Counterpoint" },
+      { word: "GUN", connection: "Gunpoint" },
+      { word: "NEEDLE", connection: "Needlepoint" },
+      { word: "POWER", connection: "PowerPoint" },
+      { word: "VIEW", connection: "Point of view" },
+    ],
+  },
+  {
+    answer: "DRUM",
+    variants: ["DRUMS", "DRUMMING", "DRUMMED"],
+    clues: [
+      { word: "EAR", connection: "Eardrum" },
+      { word: "MAJOR", connection: "Drum major" },
+      { word: "SNARE", connection: "Snare drum" },
+      { word: "STICK", connection: "Drumstick" },
+      { word: "ROLL", connection: "Drum roll" },
+    ],
+  },
+  {
+    answer: "PLATE",
+    variants: ["PLATES", "PLATED", "PLATING"],
+    clues: [
+      { word: "BOILER", connection: "Boilerplate" },
+      { word: "HOME", connection: "Home plate (baseball)" },
+      { word: "TECTONIC", connection: "Tectonic plates" },
+      { word: "LICENSE", connection: "License plate" },
+      { word: "DINNER", connection: "Dinner plate" },
+    ],
+  },
+  {
+    answer: "PASS",
+    variants: ["PASSES", "PASSED", "PASSING", "PAST"],
+    clues: [
+      { word: "OVER", connection: "Overpass" },
+      { word: "WORD", connection: "Password" },
+      { word: "MOUNTAIN", connection: "Mountain pass" },
+      { word: "BOARDING", connection: "Boarding pass" },
+      { word: "FAIL", connection: "Pass or fail" },
+    ],
+  },
+  {
+    answer: "CELL",
+    variants: ["CELLS"],
+    clues: [
+      { word: "STEM", connection: "Stem cell" },
+      { word: "FUEL", connection: "Fuel cell" },
+      { word: "SOLAR", connection: "Solar cell" },
+      { word: "PHONE", connection: "Cell phone" },
+      { word: "PRISON", connection: "Prison cell" },
+    ],
+  },
+  {
+    answer: "JAM",
+    variants: ["JAMS", "JAMMED", "JAMMING"],
+    clues: [
+      { word: "PEARL", connection: "Pearl Jam" },
+      { word: "TOE", connection: "Toe jam" },
+      { word: "TRAFFIC", connection: "Traffic jam" },
+      { word: "GUITAR", connection: "Jam session" },
+      { word: "TOAST", connection: "Jam on toast" },
+    ],
+  },
+  {
+    answer: "BARK",
+    variants: ["BARKS", "BARKING", "BARKED"],
+    clues: [
+      { word: "CHOCOLATE", connection: "Chocolate bark (the sweet)" },
+      { word: "MOON", connection: "Barking at the moon" },
+      { word: "WORSE", connection: "Bark worse than your bite" },
+      { word: "TREE", connection: "Tree bark" },
+      { word: "DOG", connection: "Dog bark" },
+    ],
+  },
+  {
+    answer: "CURRENT",
+    variants: ["CURRENTS", "CURRENTLY"],
+    clues: [
+      { word: "ACCOUNT", connection: "Current account" },
+      { word: "UNDER", connection: "Undercurrent" },
+      { word: "AFFAIRS", connection: "Current affairs" },
+      { word: "ELECTRIC", connection: "Electric current" },
+      { word: "RIVER", connection: "River current" },
+    ],
+  },
+  {
+    answer: "GLASS",
+    variants: ["GLASSES"],
+    clues: [
+      { word: "CEILING", connection: "Glass ceiling" },
+      { word: "SPY", connection: "Spyglass" },
+      { word: "STAIN", connection: "Stained glass" },
+      { word: "WINE", connection: "Wine glass" },
+      { word: "SLIPPER", connection: "Glass slipper" },
+    ],
+  },
+  {
+    answer: "FRAME",
+    variants: ["FRAMES", "FRAMED", "FRAMING"],
+    clues: [
+      { word: "BLAME", connection: "Frame someone (for a crime)" },
+      { word: "TIME", connection: "Time frame" },
+      { word: "FREEZE", connection: "Freeze frame" },
+      { word: "DOOR", connection: "Door frame" },
+      { word: "PICTURE", connection: "Picture frame" },
+    ],
+  },
+  {
+    answer: "SEAL",
+    variants: ["SEALS", "SEALED", "SEALING"],
+    clues: [
+      { word: "LIPS", connection: "Seal your lips" },
+      { word: "NAVY", connection: "Navy SEAL" },
+      { word: "WAX", connection: "Wax seal" },
+      { word: "DEAL", connection: "Seal the deal" },
+      { word: "APPROVAL", connection: "Seal of approval" },
+    ],
+  },
+  {
+    answer: "COURT",
+    variants: ["COURTS", "COURTING", "COURTED"],
+    clues: [
+      { word: "SHIP", connection: "Courtship" },
+      { word: "FOOD", connection: "Food court" },
+      { word: "SUPREME", connection: "Supreme Court" },
+      { word: "JESTER", connection: "Court jester" },
+      { word: "BASKETBALL", connection: "Basketball court" },
+    ],
+  },
+  {
+    answer: "BREAK",
+    variants: ["BREAKS", "BROKE", "BROKEN", "BREAKING"],
+    clues: [
+      { word: "FAST", connection: "Breakfast" },
+      { word: "GROUND", connection: "Groundbreaking" },
+      { word: "PRISON", connection: "Prison break" },
+      { word: "DANCE", connection: "Breakdance" },
+      { word: "DAY", connection: "Daybreak" },
+    ],
+  },
+  {
+    answer: "DEAD",
+    variants: ["DEADLY"],
+    clues: [
+      { word: "GRATEFUL", connection: "Grateful Dead" },
+      { word: "PAN", connection: "Deadpan" },
+      { word: "LINE", connection: "Deadline" },
+      { word: "END", connection: "Dead end" },
+      { word: "LOCK", connection: "Deadlock" },
+    ],
+  },
+  {
+    answer: "SHARP",
+    variants: ["SHARPS", "SHARPER", "SHARPEST"],
+    clues: [
+      { word: "CARD", connection: "Cardsharp" },
+      { word: "FLAT", connection: "Sharp vs flat (music)" },
+      { word: "SHOOTER", connection: "Sharpshooter" },
+      { word: "TONGUE", connection: "Sharp tongue" },
+      { word: "KNIFE", connection: "Sharp knife" },
+    ],
+  },
+  {
+    answer: "BLIND",
+    variants: ["BLINDS", "BLINDED", "BLINDING"],
+    clues: [
+      { word: "COLOUR", connection: "Colour blind" },
+      { word: "VENETIAN", connection: "Venetian blinds" },
+      { word: "DATE", connection: "Blind date" },
+      { word: "SPOT", connection: "Blind spot" },
+      { word: "FOLD", connection: "Blindfold" },
+    ],
+  },
+  {
+    answer: "CROSS",
+    variants: ["CROSSES", "CROSSED", "CROSSING"],
+    clues: [
+      { word: "DOUBLE", connection: "Double cross" },
+      { word: "ROADS", connection: "Crossroads" },
+      { word: "RED", connection: "Red Cross" },
+      { word: "WORD", connection: "Crossword" },
+      { word: "ANGRY", connection: "Cross (meaning angry)" },
+    ],
+  },
+  {
+    answer: "CHAIN",
+    variants: ["CHAINS", "CHAINED"],
+    clues: [
+      { word: "BALL", connection: "Ball and chain" },
+      { word: "DAISY", connection: "Daisy chain" },
+      { word: "FOOD", connection: "Food chain" },
+      { word: "SUPPLY", connection: "Supply chain" },
+      { word: "LINK", connection: "Chain link" },
+    ],
+  },
+  {
+    answer: "IRON",
+    variants: ["IRONS", "IRONING", "IRONED"],
+    clues: [
+      { word: "WRINKLE", connection: "Iron out the wrinkles" },
+      { word: "MAIDEN", connection: "Iron Maiden" },
+      { word: "MAN", connection: "Iron Man" },
+      { word: "FIST", connection: "Iron fist" },
+      { word: "CURTAIN", connection: "Iron Curtain" },
+    ],
+  },
+  {
+    answer: "BOARD",
+    variants: ["BOARDS", "BOARDED", "BOARDING"],
+    clues: [
+      { word: "ABOVE", connection: "Above board" },
+      { word: "CARD", connection: "Cardboard" },
+      { word: "DART", connection: "Dartboard" },
+      { word: "SKATE", connection: "Skateboard" },
+      { word: "CHALK", connection: "Chalkboard" },
+    ],
+  },
+  {
+    answer: "ROCK",
+    variants: ["ROCKS", "ROCKED", "ROCKING"],
+    clues: [
+      { word: "SHAM", connection: "Shamrock" },
+      { word: "BED", connection: "Bedrock" },
+      { word: "BOTTOM", connection: "Rock bottom" },
+      { word: "PAPER", connection: "Rock, paper, scissors" },
+      { word: "CLIMBING", connection: "Rock climbing" },
+    ],
+  },
+  {
+    answer: "GROUND",
+    variants: ["GROUNDS", "GROUNDED", "GROUNDING"],
+    clues: [
+      { word: "COFFEE", connection: "Coffee grounds" },
+      { word: "PLAY", connection: "Playground" },
+      { word: "HOG", connection: "Groundhog" },
+      { word: "COMMON", connection: "Common ground" },
+      { word: "UNDER", connection: "Underground" },
+    ],
+  },
+  {
+    answer: "LINE",
+    variants: ["LINES", "LINED", "LINING"],
+    clues: [
+      { word: "PUNCH", connection: "Punchline" },
+      { word: "CLOTHES", connection: "Clothesline" },
+      { word: "FINE", connection: "Fine line" },
+      { word: "BOTTOM", connection: "Bottom line" },
+      { word: "FISHING", connection: "Fishing line" },
+    ],
+  },
 ];
 
 // ─────────────────────────────────────────────
 // DAILY PUZZLE PICKER
 // ─────────────────────────────────────────────
 const EPOCH = new Date(2026, 1, 16);
+// Replace the live round on February 19, 2026, then continue with the new pool.
+const ROUND_RESET_DATE = new Date(2026, 1, 19);
+// Already used in the previous live run before this reset.
+const PREVIOUSLY_PLAYED_ANSWERS = new Set(["SPRING", "CROWN", "FALL", "PLANT"]);
+const FUTURE_ROUNDS = ALL_ROUNDS.filter((round) => !PREVIOUSLY_PLAYED_ANSWERS.has(round.answer));
 
 const getDayNumber = () => {
-  const now = new Date(); now.setHours(0,0,0,0);
-  const ep = new Date(EPOCH); ep.setHours(0,0,0,0);
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const ep = new Date(EPOCH);
+  ep.setHours(0, 0, 0, 0);
   return Math.max(1, Math.floor((now - ep) / 86400000) + 1);
 };
 
+const getFutureDayNumber = () => {
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const reset = new Date(ROUND_RESET_DATE);
+  reset.setHours(0, 0, 0, 0);
+  return Math.max(1, Math.floor((now - reset) / 86400000) + 1);
+};
+
 const getDailyRound = () => {
-  const day = getDayNumber();
-  const shuffled = [...ALL_ROUNDS];
-  let s = day * 2654435761;
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    s = (s * 1103515245 + 12345) & 0x7fffffff;
-    const j = s % (i + 1);
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled[0];
+  if (!FUTURE_ROUNDS.length) return ALL_ROUNDS[0];
+  const idx = (getFutureDayNumber() - 1) % FUTURE_ROUNDS.length;
+  return FUTURE_ROUNDS[idx];
 };
 
 const todayKey = () => {
@@ -249,6 +577,13 @@ const storage = {
       localStorage.setItem(key, value);
     } catch {
       // Ignore storage write failures (private mode / quota exceeded).
+    }
+  },
+  async remove(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch {
+      // Ignore storage cleanup failures.
     }
   },
 };
@@ -595,7 +930,8 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish }) {
   const submit = () => {
     const g = guess.trim().toUpperCase();
     if (!g) return;
-    if (g === round.answer) {
+    const validAnswers = [round.answer, ...(round.variants || [])];
+    if (validAnswers.includes(g)) {
       setSolved(true);
     } else {
       setAttempts(p=>[...p, g]);
@@ -842,8 +1178,17 @@ export default function Thread() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await storage.get(`thread-${todayKey()}`);
-        if (res) { setSaved(JSON.parse(res.value)); setPhase("already"); return; }
+        const key = `thread-${todayKey()}`;
+        const res = await storage.get(key);
+        if (res) {
+          const parsed = JSON.parse(res.value);
+          if (parsed && parsed.answer === daily.current.answer) {
+            setSaved(parsed);
+            setPhase("already");
+            return;
+          }
+          await storage.remove(key);
+        }
       } catch {}
       try {
         const tut = await storage.get("thread-tut-done");
