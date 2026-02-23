@@ -849,6 +849,15 @@ async function copyTextFallback(text) {
   }
 }
 
+function getWebsiteMainUrl() {
+  if (typeof window === "undefined") return "";
+  try {
+    return new URL(".", window.location.href).toString();
+  } catch {
+    return `${window.location.origin}/`;
+  }
+}
+
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
   :root {
@@ -1260,7 +1269,7 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish, onViewStats }
 // ─────────────────────────────────────────────
 // PRACTICE DONE
 // ─────────────────────────────────────────────
-function PracticeDone({ scores, onContinue }) {
+function PracticeDone({ scores, onContinue, onViewStats }) {
   return (
     <div style={SCREEN_STYLE}>
       <Logo/>
@@ -1287,7 +1296,14 @@ function PracticeDone({ scores, onContinue }) {
             </div>
           ))}
         </div>
-        <Btn onClick={onContinue} style={{ minWidth:240 }}>Play today's thread</Btn>
+        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:10 }}>
+          <Btn onClick={onContinue} style={{ minWidth:240 }}>Play today's thread</Btn>
+          {onViewStats && (
+            <Btn v="outline" onClick={onViewStats} style={{ minWidth:240 }}>
+              View your results page
+            </Btn>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -1298,16 +1314,48 @@ function PracticeDone({ scores, onContinue }) {
 // ─────────────────────────────────────────────
 function Results({ round, score, dayNum, onViewStats }) {
   const [copied, setCopied] = useState(false);
+  const [copiedWebsite, setCopiedWebsite] = useState(false);
   const ok = score !== null;
   const row = Array.from({length:5},(_,i)=> !ok?"⚫":i<score?"🟢":"⚪").join("");
-  const txt = [`🧵 THREAD #${dayNum}`, row, ok?`${SCORE_LABELS[score]} — ${score} clue${score>1?"s":""}`:"Missed today's thread", ""].join("\n");
+  const appUrl = getWebsiteMainUrl();
+  const txt = [
+    `🧵 THREAD #${dayNum}`,
+    row,
+    ok ? `${SCORE_LABELS[score]} — ${score} clue${score>1?"s":""}` : "Missed today's thread",
+    "",
+    appUrl ? `Play: ${appUrl}` : ""
+  ].filter(Boolean).join("\n");
 
   const share = async () => {
-    if (navigator.share) { try { await navigator.share({text:txt}); return; } catch{} }
+    if (navigator.share) {
+      try {
+        await navigator.share({ text: txt, url: appUrl || undefined });
+        return;
+      } catch {}
+    }
     const copiedOk = await copyTextFallback(txt);
     if (copiedOk) {
       setCopied(true);
       setTimeout(()=>setCopied(false),2500);
+    }
+  };
+
+  const shareWebsite = async () => {
+    if (!appUrl) return;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Thread",
+          text: "Try this daily word puzzle.",
+          url: appUrl,
+        });
+        return;
+      } catch {}
+    }
+    const copiedOk = await copyTextFallback(appUrl);
+    if (copiedOk) {
+      setCopiedWebsite(true);
+      setTimeout(()=>setCopiedWebsite(false),2500);
     }
   };
 
@@ -1342,9 +1390,12 @@ function Results({ round, score, dayNum, onViewStats }) {
 
       <div className="fu" style={{ animationDelay:"0.7s", display:"flex", flexDirection:"column", alignItems:"center", gap:10, width:"100%", maxWidth:380 }}>
         <Btn v="green" onClick={share} style={{ minWidth:240 }}>{copied?"Copied to clipboard!":"Share your result"}</Btn>
+        <Btn v="outline" onClick={shareWebsite} style={{ minWidth:240 }}>
+          {copiedWebsite ? "Website link copied!" : "Share website link"}
+        </Btn>
         {onViewStats && (
           <Btn v="outline" onClick={onViewStats} style={{ minWidth:240 }}>
-            View personal record
+            View your results page
           </Btn>
         )}
         <div style={{ fontFamily:sans, fontSize:11.5, color:C.faint, marginTop:8 }}>New thread at midnight</div>
@@ -1358,18 +1409,50 @@ function Results({ round, score, dayNum, onViewStats }) {
 // ─────────────────────────────────────────────
 function AlreadyPlayed({ saved, dayNum, onViewStats }) {
   const [copied, setCopied] = useState(false);
+  const [copiedWebsite, setCopiedWebsite] = useState(false);
   const round = getDailyRound();
   const s = saved.cluesUsed;
   const ok = s !== null;
   const row = Array.from({length:5},(_,i)=>!ok?"⚫":i<s?"🟢":"⚪").join("");
-  const txt = [`🧵 THREAD #${dayNum}`, row, ok?`${SCORE_LABELS[s]} — ${s} clue${s>1?"s":""}`:"Missed today's thread", ""].join("\n");
+  const appUrl = getWebsiteMainUrl();
+  const txt = [
+    `🧵 THREAD #${dayNum}`,
+    row,
+    ok ? `${SCORE_LABELS[s]} — ${s} clue${s>1?"s":""}` : "Missed today's thread",
+    "",
+    appUrl ? `Play: ${appUrl}` : ""
+  ].filter(Boolean).join("\n");
 
   const share = async () => {
-    if (navigator.share) { try { await navigator.share({text:txt}); return; } catch{} }
+    if (navigator.share) {
+      try {
+        await navigator.share({ text: txt, url: appUrl || undefined });
+        return;
+      } catch {}
+    }
     const copiedOk = await copyTextFallback(txt);
     if (copiedOk) {
       setCopied(true);
       setTimeout(()=>setCopied(false),2500);
+    }
+  };
+
+  const shareWebsite = async () => {
+    if (!appUrl) return;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Thread",
+          text: "Try this daily word puzzle.",
+          url: appUrl,
+        });
+        return;
+      } catch {}
+    }
+    const copiedOk = await copyTextFallback(appUrl);
+    if (copiedOk) {
+      setCopiedWebsite(true);
+      setTimeout(()=>setCopiedWebsite(false),2500);
     }
   };
 
@@ -1384,11 +1467,16 @@ function AlreadyPlayed({ saved, dayNum, onViewStats }) {
         <div style={{ fontFamily:sans, fontSize:13, color:C.muted, marginBottom:32 }}>
           {ok ? `${SCORE_LABELS[s]} — ${s} clue${s>1?"s":""}` : "Missed today's thread"}
         </div>
-        <Btn v="green" onClick={share} style={{ minWidth:240 }}>{copied?"Copied!":"Share your result"}</Btn>
+        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:10 }}>
+          <Btn v="green" onClick={share} style={{ minWidth:240 }}>{copied?"Copied!":"Share your result"}</Btn>
+          <Btn v="outline" onClick={shareWebsite} style={{ minWidth:240 }}>
+            {copiedWebsite ? "Website link copied!" : "Share website link"}
+          </Btn>
+        </div>
         {onViewStats && (
           <div style={{ marginTop:10 }}>
             <Btn v="outline" onClick={onViewStats} style={{ minWidth:240 }}>
-              View personal record
+              View your results page
             </Btn>
           </div>
         )}
@@ -1623,7 +1711,7 @@ export default function Thread() {
         )}
 
         {phase === "practice-done" && (
-          <PracticeDone scores={pScores} onContinue={()=>go("daily")}/>
+          <PracticeDone scores={pScores} onContinue={()=>go("daily")} onViewStats={()=>openStats("practice-done")} />
         )}
 
         {phase === "daily" && (
