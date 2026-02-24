@@ -893,7 +893,7 @@ const CSS = `
   .tutorial-card { max-width:340px; }
   .tutorial-card { width:100%; min-height:var(--tutorial-card-min-height); display:flex; flex-direction:column; justify-content:flex-start; }
   .tutorial-page { width:100%; max-width:380px; display:flex; flex-direction:column; gap:12px; margin-top:14px; padding-bottom:16px; }
-  .tutorial-hero { background:linear-gradient(180deg, ${C.accentSoft} 0%, ${C.card} 100%); border:1px solid ${C.border}; border-radius:16px; padding:18px 18px; text-align:center; display:flex; flex-direction:column; gap:10px; }
+  .tutorial-hero { background:${C.card}; border:1px solid ${C.border}; border-radius:16px; padding:18px 18px; text-align:center; display:flex; flex-direction:column; gap:10px; }
   .tutorial-kicker { font:700 10px/1 'DM Sans', sans-serif; letter-spacing:2.4px; text-transform:uppercase; color:${C.faint}; }
   .tutorial-section { background:${C.card}; border:1px solid ${C.border}; border-radius:16px; padding:16px 16px; display:flex; flex-direction:column; gap:10px; }
   .tutorial-section-title { font:600 clamp(1.55rem, 6.5vw, 25px)/1.08 'Cormorant Garamond', serif; color:${C.dark}; letter-spacing:0.2px; }
@@ -1021,7 +1021,7 @@ function Tutorial({ onDone, onSkip }) {
             Learn how to play
           </h2>
           <p className="tutorial-section-body" style={{ maxWidth:300, margin:"0 auto" }}>
-            Find one hidden word from clue words. You can scroll this page once and start fast.
+            Find one hidden word from clue words.
           </p>
           <button className="tutorial-jump" onClick={scrollToGuide}>
             Learn how to play <span className="tutorial-jump-arrow" aria-hidden="true">↓</span>
