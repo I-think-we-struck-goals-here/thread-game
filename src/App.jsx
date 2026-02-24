@@ -1112,21 +1112,34 @@ function Tutorial({ onDone, onSkip }) {
   );
 }
 
+const createRoundSnapshot = () => ({
+  ci: 0,
+  guess: "",
+  attempts: [],
+  solved: false,
+  failed: false,
+});
+
 // ─────────────────────────────────────────────
 // GAME ROUND
 // ─────────────────────────────────────────────
-function Round({ round, isPractice, practiceIdx, dayNum, onFinish, onViewStats }) {
-  const [ci, setCi] = useState(0);
-  const [guess, setGuess] = useState("");
-  const [attempts, setAttempts] = useState([]);
-  const [solved, setSolved] = useState(false);
-  const [failed, setFailed] = useState(false);
+function Round({ round, isPractice, practiceIdx, dayNum, onFinish, onViewStats, stateSnapshot, onStateSnapshot }) {
+  const [ci, setCi] = useState(() => stateSnapshot?.ci ?? 0);
+  const [guess, setGuess] = useState(() => stateSnapshot?.guess ?? "");
+  const [attempts, setAttempts] = useState(() => stateSnapshot?.attempts ?? []);
+  const [solved, setSolved] = useState(() => stateSnapshot?.solved ?? false);
+  const [failed, setFailed] = useState(() => stateSnapshot?.failed ?? false);
   const [shaking, setShaking] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
     if (!solved && !failed) setTimeout(()=>ref.current?.focus(), 300);
   }, [ci, solved, failed]);
+
+  useEffect(() => {
+    if (!onStateSnapshot) return;
+    onStateSnapshot({ ci, guess, attempts, solved, failed });
+  }, [attempts, ci, failed, guess, onStateSnapshot, solved]);
 
   const submit = () => {
     const g = guess.trim().toUpperCase();
@@ -1139,7 +1152,7 @@ function Round({ round, isPractice, practiceIdx, dayNum, onFinish, onViewStats }
       setShaking(true);
       setTimeout(()=>setShaking(false), 500);
       setGuess("");
-      if (ci < round.clues.length-1) setTimeout(()=>setCi(p=>p+1), 550);
+      if (ci < round.clues.length-1) setCi(p=>p+1);
       else setFailed(true);
     }
   };
@@ -1603,6 +1616,7 @@ export default function Thread() {
   const [pIdx, setPIdx] = useState(0);
   const [pScores, setPScores] = useState([]);
   const [dailyScore, setDailyScore] = useState(null);
+  const [dailyRoundSnapshot, setDailyRoundSnapshot] = useState(createRoundSnapshot);
   const [fade, setFade] = useState(false);
   const [saved, setSaved] = useState(null);
   const [history, setHistory] = useState([]);
@@ -1700,8 +1714,11 @@ export default function Thread() {
 
         {phase === "daily" && (
           <Round key="daily" round={daily.current} dayNum={dayNum} onViewStats={()=>openStats("daily")}
+            stateSnapshot={dailyRoundSnapshot}
+            onStateSnapshot={setDailyRoundSnapshot}
             onFinish={(score) => {
               setDailyScore(score);
+              setDailyRoundSnapshot(createRoundSnapshot());
               saveDailyResult(score);
               go("results");
             }}
