@@ -891,9 +891,18 @@ const CSS = `
   .si { animation:slideIn 0.55s cubic-bezier(0.23,1,0.32,1) both; }
   .action-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
   .tutorial-card { max-width:340px; }
-  .tutorial-shell { width:100%; max-width:360px; display:flex; flex-direction:column; align-items:center; margin-top:14px; }
   .tutorial-card { width:100%; min-height:var(--tutorial-card-min-height); display:flex; flex-direction:column; justify-content:flex-start; }
-  .tutorial-controls { width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center; margin-top:8px; }
+  .tutorial-page { width:100%; max-width:380px; display:flex; flex-direction:column; gap:12px; margin-top:14px; padding-bottom:16px; }
+  .tutorial-hero { background:linear-gradient(180deg, ${C.accentSoft} 0%, ${C.card} 100%); border:1px solid ${C.border}; border-radius:16px; padding:18px 18px; text-align:center; display:flex; flex-direction:column; gap:10px; }
+  .tutorial-kicker { font:700 10px/1 'DM Sans', sans-serif; letter-spacing:2.4px; text-transform:uppercase; color:${C.faint}; }
+  .tutorial-section { background:${C.card}; border:1px solid ${C.border}; border-radius:16px; padding:16px 16px; display:flex; flex-direction:column; gap:10px; }
+  .tutorial-section-title { font:600 clamp(1.55rem, 6.5vw, 25px)/1.08 'Cormorant Garamond', serif; color:${C.dark}; letter-spacing:0.2px; }
+  .tutorial-section-body { color:${C.muted}; font:500 13.5px/1.6 'DM Sans', sans-serif; }
+  .tutorial-jump { margin:2px auto 0; border:none; background:${C.dark}; color:${C.white}; border-radius:999px; padding:11px 18px; font:600 12px/1 'DM Sans', sans-serif; letter-spacing:1.3px; text-transform:uppercase; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:transform 0.18s ease, opacity 0.18s ease; }
+  .tutorial-jump:hover { transform:translateY(-1px); }
+  .tutorial-jump-arrow { display:inline-block; animation:tutorialArrow 1.5s ease-in-out infinite; }
+  @keyframes tutorialArrow { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
+  .tutorial-actions { display:flex; flex-direction:column; gap:8px; align-items:center; margin-top:6px; }
   .tutorial-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
   .tutorial-step { display:flex; align-items:center; gap:10px; background:${C.card}; border:1px solid ${C.border}; border-radius:12px; padding:10px 12px; text-align:left; }
   .tutorial-step-num { width:22px; height:22px; border-radius:50%; background:${C.accentSoft}; color:${C.accent}; display:flex; align-items:center; justify-content:center; font:700 11px 'DM Sans', sans-serif; flex-shrink:0; }
@@ -923,8 +932,9 @@ const CSS = `
       --tutorial-card-min-height: 320px;
     }
     .tutorial-card { max-width:100%; }
-    .action-row.stack-mobile { flex-direction:column; align-items:stretch; width:100%; }
-    .action-row.stack-mobile > button { width:100%; }
+    .tutorial-page { gap:10px; }
+    .tutorial-hero, .tutorial-section { padding:14px 14px; border-radius:14px; }
+    .tutorial-jump { width:100%; justify-content:center; }
     .round-action-row { width:100%; gap:8px; flex-wrap:nowrap; }
     .tutorial-example { padding:14px 14px; margin-bottom:14px; }
     .tutorial-example-word { font-size:18px; letter-spacing:2px; margin-bottom:4px; }
@@ -987,141 +997,115 @@ function Logo({ sub }) {
 // ─────────────────────────────────────────────
 // TUTORIAL
 // ─────────────────────────────────────────────
-const TUT = [
-  { icon:"🧵", title:"How Thread works",
-    body:"You’re finding one hidden word from clue words.",
-    steps:["Start with one clue", "Type your best guess", "Wrong guess reveals the next clue"],
-    note:"Fewer clues = better result." },
-  { icon:"💡", title:"Clues reveal one by one",
-    body:"You start with a single clue. As more appear, the thread gets clearer. Guess whenever you feel it.",
-    example:{ words:["SATURN","BOXING","PHONE"], faded:["???","???"], answer:"RING" } },
-  { icon:"⚡", title:"Fewer clues = better score",
-    body:"A wrong guess costs you — it reveals the next clue. Bold guesses pay off, but bad ones tighten the clock.",
-    scoring:true },
-  { icon:"📤", title:"Share your result",
-    body:"One puzzle a day. When you're done, share a spoiler-free emoji grid with friends.",
-    share:true },
+const TUTORIAL_STEPS = [
+  "Start with one clue",
+  "Type your best guess",
+  "Wrong guess reveals the next clue",
 ];
 
 function Tutorial({ onDone, onSkip }) {
-  const [i, setI] = useState(0);
-  const touchStartX = useRef(null);
-  const c = TUT[i];
-  const isFirstStep = i === 0;
-  const isLastStep = i === TUT.length - 1;
-  const next = () => i < TUT.length-1 ? setI(i+1) : onDone();
-  const previous = () => setI((p) => Math.max(0, p - 1));
-  const nextLabel = isFirstStep ? "Show me an example" : isLastStep ? "Try 3 practice rounds" : "Next";
+  const guideRef = useRef(null);
 
-  const onTouchStart = (event) => {
-    touchStartX.current = event.touches?.[0]?.clientX ?? null;
-  };
-
-  const onTouchEnd = (event) => {
-    if (touchStartX.current === null) {
-      return;
-    }
-
-    const endX = event.changedTouches?.[0]?.clientX ?? touchStartX.current;
-    const delta = endX - touchStartX.current;
-    touchStartX.current = null;
-
-    if (Math.abs(delta) < 42) {
-      return;
-    }
-
-    if (delta < 0) {
-      next();
-      return;
-    }
-
-    previous();
+  const scrollToGuide = () => {
+    guideRef.current?.scrollIntoView({ behavior:"smooth", block:"start" });
   };
 
   return (
-    <div style={SCREEN_STYLE}>
+    <div style={{ ...SCREEN_STYLE, justifyContent:"flex-start" }}>
       <Logo />
 
-      <div className="tutorial-shell">
-        <div
-          key={i}
-          className="fu tutorial-card"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-          style={{ textAlign:"center" }}
-        >
-          <div style={{ fontFamily:sans, fontSize:10, letterSpacing:"2.4px", textTransform:"uppercase", color:C.faint, fontWeight:700, marginBottom:10 }}>
-            Step {i + 1} of {TUT.length}
-          </div>
-          <div style={{ fontSize:50, marginBottom:18 }}>{c.icon}</div>
-          <h2 style={{ fontFamily:serif, fontSize:"clamp(1.8rem, 7.2vw, 27px)", fontWeight:600, color:C.dark, marginBottom:12 }}>{c.title}</h2>
-          <p style={{ fontFamily:sans, fontSize:14, lineHeight:1.75, color:C.muted, marginBottom:24 }}>{c.body}</p>
-
-          {c.steps && (
-            <div className="tutorial-steps">
-              {c.steps.map((step, idx) => (
-                <div key={step} className="tutorial-step">
-                  <span className="tutorial-step-num">{idx + 1}</span>
-                  <span className="tutorial-step-text">{step}</span>
-                </div>
-              ))}
-              {c.note && (
-                <div style={{ fontFamily:sans, fontSize:12, color:C.muted, marginTop:2 }}>
-                  {c.note}
-                </div>
-              )}
-            </div>
-          )}
-
-          {c.example && (
-            <div className="tutorial-example">
-              {c.example.words.map((w,j)=><div key={j} className="tutorial-example-word">{w}</div>)}
-              {c.example.faded.map((w,j)=><div key={j} className="tutorial-example-word faded">{w}</div>)}
-              <div style={{ height:1, background:C.border, margin:"12px 0" }}/>
-              <div className="tutorial-example-answer">{c.example.answer}</div>
-            </div>
-          )}
-
-          {c.scoring && (
-            <div style={{ display:"flex", flexDirection:"column", gap:7, marginBottom:20, alignItems:"center" }}>
-              {[1,2,3,4,5].map(n=>(
-                <div key={n} style={{ display:"flex", alignItems:"center", gap:12, fontFamily:sans, fontSize:13 }}>
-                  <div style={{ display:"flex", gap:3 }}>
-                    {[1,2,3,4,5].map(d=><div key={d} style={{ width:10,height:10,borderRadius:"50%", background:d<=n?C.accent:C.border }}/>)}
-                  </div>
-                  <span style={{ color:C.muted, minWidth:55 }}>{n} clue{n>1?"s":""}</span>
-                  <span style={{ color:C.dark, fontWeight:600 }}>{SCORE_LABELS[n]}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {c.share && (
-            <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"18px 28px", marginBottom:20, textAlign:"center", fontFamily:sans }}>
-              <div style={{ fontSize:14, fontWeight:600, color:C.dark, marginBottom:5 }}>🧵 THREAD #42</div>
-              <div style={{ fontSize:24, letterSpacing:5, marginBottom:5 }}>🟢🟢⚪⚪⚪</div>
-              <div style={{ fontSize:12, color:C.muted }}>Brilliant — 2 clues</div>
-            </div>
-          )}
+      <div className="tutorial-page">
+        <div className="fu tutorial-hero">
+          <div className="tutorial-kicker">New to Thread?</div>
+          <h2 style={{ fontFamily:serif, fontSize:"clamp(1.95rem, 7.5vw, 31px)", color:C.dark, fontWeight:600 }}>
+            Learn how to play
+          </h2>
+          <p className="tutorial-section-body" style={{ maxWidth:300, margin:"0 auto" }}>
+            Find one hidden word from clue words. You can scroll this page once and start fast.
+          </p>
+          <button className="tutorial-jump" onClick={scrollToGuide}>
+            Learn how to play <span className="tutorial-jump-arrow" aria-hidden="true">↓</span>
+          </button>
         </div>
 
-        <div className="tutorial-controls">
-          <Dots n={TUT.length} active={i} />
-          <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
-            <Btn v="outline" onClick={previous} disabled={isFirstStep}>Back</Btn>
-            <Btn onClick={next}>{nextLabel}</Btn>
+        <div ref={guideRef} className="fu tutorial-section" style={{ animationDelay:"0.12s" }}>
+          <div style={{ fontSize:24 }}>🧵</div>
+          <h3 className="tutorial-section-title">How Thread works</h3>
+          <p className="tutorial-section-body">
+            You are finding one hidden word from clue words.
+          </p>
+          <div className="tutorial-steps" style={{ marginBottom:0 }}>
+            {TUTORIAL_STEPS.map((step, idx) => (
+              <div key={step} className="tutorial-step">
+                <span className="tutorial-step-num">{idx + 1}</span>
+                <span className="tutorial-step-text">{step}</span>
+              </div>
+            ))}
           </div>
+        </div>
+
+        <div className="fu tutorial-section" style={{ animationDelay:"0.2s" }}>
+          <div style={{ fontSize:24 }}>💡</div>
+          <h3 className="tutorial-section-title">Clues reveal one by one</h3>
+          <p className="tutorial-section-body">
+            Guess whenever you feel ready. Wrong guesses unlock the next clue.
+          </p>
+          <div className="tutorial-example" style={{ marginBottom:0 }}>
+            {["SATURN", "BOXING", "PHONE"].map((word) => (
+              <div key={word} className="tutorial-example-word">{word}</div>
+            ))}
+            {["???", "???"].map((word, idx) => (
+              <div key={`hidden-${idx}`} className="tutorial-example-word faded">{word}</div>
+            ))}
+            <div style={{ height:1, background:C.border, margin:"12px 0" }}/>
+            <div className="tutorial-example-answer">RING</div>
+          </div>
+        </div>
+
+        <div className="fu tutorial-section" style={{ animationDelay:"0.28s" }}>
+          <div style={{ fontSize:24 }}>⚡</div>
+          <h3 className="tutorial-section-title">Fewer clues = better score</h3>
+          <p className="tutorial-section-body">
+            Bold guesses can win big. More wrong guesses means a lower rating.
+          </p>
+          <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
+            {[1,2,3,4,5].map((n) => (
+              <div key={n} style={{ display:"flex", alignItems:"center", gap:12, fontFamily:sans, fontSize:13 }}>
+                <div style={{ display:"flex", gap:3 }}>
+                  {[1,2,3,4,5].map((d) => (
+                    <div key={d} style={{ width:10, height:10, borderRadius:"50%", background:d<=n?C.accent:C.border }} />
+                  ))}
+                </div>
+                <span style={{ color:C.muted, minWidth:60 }}>{n} clue{n>1?"s":""}</span>
+                <span style={{ color:C.dark, fontWeight:600 }}>{SCORE_LABELS[n]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="fu tutorial-section" style={{ animationDelay:"0.36s" }}>
+          <div style={{ fontSize:24 }}>📤</div>
+          <h3 className="tutorial-section-title">Share your result</h3>
+          <p className="tutorial-section-body">
+            Daily puzzle. Share a spoiler-free emoji grid when you finish.
+          </p>
+          <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:"16px 20px", textAlign:"center", fontFamily:sans }}>
+            <div style={{ fontSize:14, fontWeight:600, color:C.dark, marginBottom:5 }}>🧵 THREAD #42</div>
+            <div style={{ fontSize:24, letterSpacing:5, marginBottom:5 }}>🟢🟢⚪⚪⚪</div>
+            <div style={{ fontSize:12, color:C.muted }}>Brilliant - 2 clues</div>
+          </div>
+        </div>
+
+        <div className="fu tutorial-actions" style={{ animationDelay:"0.44s" }}>
+          <Btn onClick={onDone} style={{ minWidth:260 }}>Start 3 practice rounds</Btn>
           <button onClick={onSkip} style={{
             background:"none", border:"none", cursor:"pointer", fontFamily:sans,
             fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
-            transition:"color 0.2s", marginTop:6,
+            transition:"color 0.2s",
           }}
             onMouseEnter={e=>e.target.style.color=C.muted}
             onMouseLeave={e=>e.target.style.color=C.faint}
           >Skip to today's puzzle</button>
-          <div style={{ marginTop:6, fontFamily:sans, fontSize:11, color:C.faint }}>
-            Use Back/Next buttons (swipe still works)
-          </div>
         </div>
       </div>
     </div>
