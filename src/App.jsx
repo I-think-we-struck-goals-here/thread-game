@@ -901,6 +901,8 @@ const CSS = `
   .tutorial-jump { margin:2px auto 0; border:none; background:${C.dark}; color:${C.white}; border-radius:999px; padding:11px 18px; font:600 12px/1 'DM Sans', sans-serif; letter-spacing:1.3px; text-transform:uppercase; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:transform 0.18s ease, opacity 0.18s ease; }
   .tutorial-jump:hover { transform:translateY(-1px); }
   .tutorial-jump-arrow { display:inline-block; animation:tutorialArrow 1.5s ease-in-out infinite; }
+  .tutorial-skip-top { margin:2px auto 0; border:1.5px solid ${C.border}; background:transparent; color:${C.muted}; border-radius:999px; padding:10px 17px; font:600 11px/1 'DM Sans', sans-serif; letter-spacing:1.2px; text-transform:uppercase; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:all 0.18s ease; }
+  .tutorial-skip-top:hover { border-color:${C.muted}; color:${C.dark}; }
   @keyframes tutorialArrow { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
   .tutorial-actions { display:flex; flex-direction:column; gap:8px; align-items:center; margin-top:6px; }
   .tutorial-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
@@ -935,6 +937,7 @@ const CSS = `
     .tutorial-page { gap:10px; }
     .tutorial-hero, .tutorial-section { padding:14px 14px; border-radius:14px; }
     .tutorial-jump { width:100%; justify-content:center; }
+    .tutorial-skip-top { width:100%; }
     .round-action-row { width:100%; gap:8px; flex-wrap:nowrap; }
     .tutorial-example { padding:14px 14px; margin-bottom:14px; }
     .tutorial-example-word { font-size:18px; letter-spacing:2px; margin-bottom:4px; }
@@ -1025,6 +1028,9 @@ function Tutorial({ onDone, onSkip }) {
           </p>
           <button className="tutorial-jump" onClick={scrollToGuide}>
             Learn how to play <span className="tutorial-jump-arrow" aria-hidden="true">↓</span>
+          </button>
+          <button className="tutorial-skip-top" onClick={onSkip}>
+            Skip straight to today's puzzle
           </button>
         </div>
 
