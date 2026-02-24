@@ -1322,14 +1322,13 @@ function Results({ round, score, dayNum, onViewStats }) {
     `🧵 THREAD #${dayNum}`,
     row,
     ok ? `${SCORE_LABELS[score]} — ${score} clue${score>1?"s":""}` : "Missed today's thread",
-    "",
-    appUrl ? `Play: ${appUrl}` : ""
+    ""
   ].filter(Boolean).join("\n");
 
   const share = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ text: txt, url: appUrl || undefined });
+        await navigator.share({ text: txt });
         return;
       } catch {}
     }
@@ -1419,14 +1418,13 @@ function AlreadyPlayed({ saved, dayNum, onViewStats }) {
     `🧵 THREAD #${dayNum}`,
     row,
     ok ? `${SCORE_LABELS[s]} — ${s} clue${s>1?"s":""}` : "Missed today's thread",
-    "",
-    appUrl ? `Play: ${appUrl}` : ""
+    ""
   ].filter(Boolean).join("\n");
 
   const share = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ text: txt, url: appUrl || undefined });
+        await navigator.share({ text: txt });
         return;
       } catch {}
     }
