@@ -1007,8 +1007,11 @@ function Tutorial({ onDone, onSkip }) {
   const [i, setI] = useState(0);
   const touchStartX = useRef(null);
   const c = TUT[i];
+  const isFirstStep = i === 0;
+  const isLastStep = i === TUT.length - 1;
   const next = () => i < TUT.length-1 ? setI(i+1) : onDone();
   const previous = () => setI((p) => Math.max(0, p - 1));
+  const nextLabel = isFirstStep ? "Show me an example" : isLastStep ? "Try 3 practice rounds" : "Next";
 
   const onTouchStart = (event) => {
     touchStartX.current = event.touches?.[0]?.clientX ?? null;
@@ -1105,20 +1108,19 @@ function Tutorial({ onDone, onSkip }) {
         <div className="tutorial-controls">
           <Dots n={TUT.length} active={i} />
           <div className="action-row stack-mobile" style={{ marginTop:6, width:"100%", maxWidth:340 }}>
-            <Btn onClick={next}>
-              {i === 0 ? "Show me an example" : i<TUT.length-1 ? "Next" : "Try 3 practice rounds"}
-            </Btn>
-            <button onClick={onSkip} style={{
-              background:"none", border:"none", cursor:"pointer", fontFamily:sans,
-              fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
-              transition:"color 0.2s",
-            }}
-              onMouseEnter={e=>e.target.style.color=C.muted}
-              onMouseLeave={e=>e.target.style.color=C.faint}
-            >Skip to today's puzzle</button>
+            <Btn v="outline" onClick={previous} disabled={isFirstStep}>Back</Btn>
+            <Btn onClick={next}>{nextLabel}</Btn>
           </div>
+          <button onClick={onSkip} style={{
+            background:"none", border:"none", cursor:"pointer", fontFamily:sans,
+            fontSize:12, color:C.faint, fontWeight:500, padding:"8px 16px",
+            transition:"color 0.2s", marginTop:6,
+          }}
+            onMouseEnter={e=>e.target.style.color=C.muted}
+            onMouseLeave={e=>e.target.style.color=C.faint}
+          >Skip to today's puzzle</button>
           <div style={{ marginTop:6, fontFamily:sans, fontSize:11, color:C.faint }}>
-            Swipe cards left and right
+            Use Back/Next buttons (swipe still works)
           </div>
         </div>
       </div>
