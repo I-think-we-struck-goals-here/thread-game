@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { NEW_ROUNDS } from "./new-rounds.js";
 
 // ─────────────────────────────────────────────
 // PRACTICE ROUNDS (easier, used during onboarding)
@@ -530,11 +531,25 @@ const ALL_ROUNDS = [
 // DAILY PUZZLE PICKER
 // ─────────────────────────────────────────────
 const EPOCH = new Date(2026, 1, 16);
-// Replace the live round on February 19, 2026, then continue with the new pool.
-const ROUND_RESET_DATE = new Date(2026, 1, 19);
-// Already used in the previous live run before this reset.
-const PREVIOUSLY_PLAYED_ANSWERS = new Set(["SPRING", "CROWN", "FALL", "PLANT"]);
-const FUTURE_ROUNDS = ALL_ROUNDS.filter((round) => !PREVIOUSLY_PLAYED_ANSWERS.has(round.answer));
+// Start the replacement pool on March 31, 2026 so this becomes round #45.
+const ROUND_RESET_DATE = new Date(2026, 2, 31);
+
+const shuffleWithSeed = (items, seed) => {
+  let state = seed >>> 0;
+  const next = () => {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    return state / 4294967296;
+  };
+
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(next() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const FUTURE_ROUNDS = shuffleWithSeed(NEW_ROUNDS, 20260331);
 
 const getDayNumber = () => {
   const now = new Date();
@@ -553,7 +568,7 @@ const getFutureDayNumber = () => {
 };
 
 const getDailyRound = () => {
-  if (!FUTURE_ROUNDS.length) return ALL_ROUNDS[0];
+  if (!FUTURE_ROUNDS.length) return NEW_ROUNDS[0] ?? ALL_ROUNDS[0];
   const idx = (getFutureDayNumber() - 1) % FUTURE_ROUNDS.length;
   return FUTURE_ROUNDS[idx];
 };
