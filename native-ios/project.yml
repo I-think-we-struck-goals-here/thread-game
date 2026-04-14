@@ -1,0 +1,87 @@
+name: ThreadApp
+options:
+  minimumXcodeGenVersion: 2.45.3
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    CURRENT_PROJECT_VERSION: 2
+    MARKETING_VERSION: 1.0.1
+    IPHONEOS_DEPLOYMENT_TARGET: 17.0
+    THREAD_DISPLAY_NAME: Daily Thread
+    THREAD_BUNDLE_IDENTIFIER: co.dailythread.threadapp
+    THREAD_SUPPORT_URL: https://daily-thread.co/support
+    THREAD_SUPPORT_EMAIL: zmailinglist@gmail.com
+    THREAD_PRIVACY_POLICY_URL: https://daily-thread.co/privacy
+    THREAD_APP_STORE_URL: "https://apps.apple.com/gb/app/daily-thread/id6761757949"
+    THREAD_ANALYTICS_BASE_URL: ""
+    THREAD_ANALYTICS_API_KEY: ""
+    THREAD_ANALYTICS_BUILD_CHANNEL: release
+    THREAD_AGGREGATE_BASE_URL: ""
+    THREAD_AGGREGATE_API_KEY: ""
+    THREAD_ENABLE_REMOTE_PUSH: NO
+    THREAD_PUSH_BASE_URL: ""
+    THREAD_PUSH_API_KEY: ""
+    THREAD_ICLOUD_CONTAINER_IDENTIFIER: iCloud.$(THREAD_BUNDLE_IDENTIFIER)
+    THREAD_ENABLE_ICLOUD_SYNC: YES
+    THREAD_RESET_PROGRESS_ON_LAUNCH: NO
+  configs:
+    Debug:
+      THREAD_ANALYTICS_BASE_URL: https://thread-game-site-zac-pools-projects.vercel.app
+      THREAD_ANALYTICS_BUILD_CHANNEL: debug
+      THREAD_ENABLE_ICLOUD_SYNC: NO
+      THREAD_RESET_PROGRESS_ON_LAUNCH: NO
+    Release:
+      THREAD_ANALYTICS_BASE_URL: https://thread-game-site-zac-pools-projects.vercel.app
+      THREAD_ANALYTICS_BUILD_CHANNEL: release
+      THREAD_ENABLE_ICLOUD_SYNC: YES
+      THREAD_RESET_PROGRESS_ON_LAUNCH: NO
+targets:
+  ThreadApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Thread
+        excludes:
+          - Resources/**
+      - path: Thread/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: Thread
+        PRODUCT_BUNDLE_IDENTIFIER: $(THREAD_BUNDLE_IDENTIFIER)
+        PRODUCT_MODULE_NAME: ThreadApp
+        INFOPLIST_FILE: Thread/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SUPPORTS_MACCATALYST: NO
+        DEVELOPMENT_TEAM: 2KTYK48W3M
+        CODE_SIGN_STYLE: Automatic
+      configs:
+        Debug:
+          CODE_SIGN_ENTITLEMENTS: ""
+        Release:
+          CODE_SIGN_ENTITLEMENTS: Thread/Thread.entitlements
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - ThreadAppTests
+
+  ThreadAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: ThreadTests
+    dependencies:
+      - target: ThreadApp
+    hostApplication: ThreadApp
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Thread.app/Thread"
+        BUNDLE_LOADER: "$(TEST_HOST)"
