@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "sourcePool": "practice",
+    "answer": "STAR",
+    "acceptedAnswers": [
+      "STAR"
+    ],
+    "clues": [
+      {
+        "word": "WARS",
+        "connection": "Star Wars"
+      },
+      {
+        "word": "SHOOTING",
+        "connection": "Shooting star"
+      },
+      {
+        "word": "FISH",
+        "connection": "Starfish"
+      },
+      {
+        "word": "HOLLYWOOD",
+        "connection": "Hollywood star"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Stars at night"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "sourcePool": "practice",
+    "answer": "FIRE",
+    "acceptedAnswers": [
+      "FIRE"
+    ],
+    "clues": [
+      {
+        "word": "CAMP",
+        "connection": "Campfire"
+      },
+      {
+        "word": "ALARM",
+        "connection": "Fire alarm"
+      },
+      {
+        "word": "FLY",
+        "connection": "Firefly"
+      },
+      {
+        "word": "WORK",
+        "connection": "Fireworks"
+      },
+      {
+        "word": "DRAGON",
+        "connection": "Dragon breathes fire"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "sourcePool": "practice",
+    "answer": "MOON",
+    "acceptedAnswers": [
+      "MOON"
+    ],
+    "clues": [
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      },
+      {
+        "word": "LANDING",
+        "connection": "Moon landing"
+      }
+    ]
+  }
+]

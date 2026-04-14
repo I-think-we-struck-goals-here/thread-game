@@ -1,0 +1,9246 @@
+[
+  {
+    "id": 1,
+    "sourcePool": "legacyDaily",
+    "answer": "BRIDGE",
+    "acceptedAnswers": [
+      "BRIDGE",
+      "BRIDGES",
+      "BRIDGED"
+    ],
+    "clues": [
+      {
+        "word": "CAPTAIN",
+        "connection": "Captain's bridge (on a ship)"
+      },
+      {
+        "word": "GAP",
+        "connection": "Bridge the gap"
+      },
+      {
+        "word": "BURN",
+        "connection": "Burn your bridges"
+      },
+      {
+        "word": "CARDS",
+        "connection": "Bridge (the card game)"
+      },
+      {
+        "word": "LONDON",
+        "connection": "London Bridge"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "sourcePool": "legacyDaily",
+    "answer": "CROWN",
+    "acceptedAnswers": [
+      "CROWN",
+      "CROWNS",
+      "CROWNED"
+    ],
+    "clues": [
+      {
+        "word": "TRIPLE",
+        "connection": "Triple Crown"
+      },
+      {
+        "word": "MOLDING",
+        "connection": "Crown molding"
+      },
+      {
+        "word": "TOOTH",
+        "connection": "Dental crown"
+      },
+      {
+        "word": "NETFLIX",
+        "connection": "The Crown (TV series)"
+      },
+      {
+        "word": "JEWEL",
+        "connection": "Crown Jewels"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "sourcePool": "legacyDaily",
+    "answer": "LIGHT",
+    "acceptedAnswers": [
+      "LIGHT",
+      "LIGHTS",
+      "LIT",
+      "LIGHTER",
+      "LIGHTING"
+    ],
+    "clues": [
+      {
+        "word": "HEARTED",
+        "connection": "Light-hearted"
+      },
+      {
+        "word": "SHED",
+        "connection": "Shed light on something"
+      },
+      {
+        "word": "FEATHER",
+        "connection": "Light as a feather"
+      },
+      {
+        "word": "NORTHERN",
+        "connection": "Northern Lights"
+      },
+      {
+        "word": "GREEN",
+        "connection": "Green light"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "sourcePool": "legacyDaily",
+    "answer": "RING",
+    "acceptedAnswers": [
+      "RING",
+      "RINGS",
+      "RINGING",
+      "RANG",
+      "RUNG"
+    ],
+    "clues": [
+      {
+        "word": "HOLLOW",
+        "connection": "Ring hollow"
+      },
+      {
+        "word": "CIRCUS",
+        "connection": "Three-ring circus"
+      },
+      {
+        "word": "BOXING",
+        "connection": "Boxing ring"
+      },
+      {
+        "word": "TOLKIEN",
+        "connection": "Lord of the Rings"
+      },
+      {
+        "word": "WEDDING",
+        "connection": "Wedding ring"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "sourcePool": "legacyDaily",
+    "answer": "PITCH",
+    "acceptedAnswers": [
+      "PITCH",
+      "PITCHED",
+      "PITCHES",
+      "PITCHING"
+    ],
+    "clues": [
+      {
+        "word": "FORK",
+        "connection": "Pitchfork"
+      },
+      {
+        "word": "SALES",
+        "connection": "Sales pitch"
+      },
+      {
+        "word": "PERFECT",
+        "connection": "Perfect pitch"
+      },
+      {
+        "word": "BLACK",
+        "connection": "Pitch black"
+      },
+      {
+        "word": "TENT",
+        "connection": "Pitch a tent"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "sourcePool": "legacyDaily",
+    "answer": "WAVE",
+    "acceptedAnswers": [
+      "WAVE",
+      "WAVES",
+      "WAVED",
+      "WAVING"
+    ],
+    "clues": [
+      {
+        "word": "NEW",
+        "connection": "New wave (music/film genre)"
+      },
+      {
+        "word": "RADIO",
+        "connection": "Radio wave"
+      },
+      {
+        "word": "HEAT",
+        "connection": "Heatwave"
+      },
+      {
+        "word": "STADIUM",
+        "connection": "Mexican wave"
+      },
+      {
+        "word": "OCEAN",
+        "connection": "Ocean wave"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "sourcePool": "legacyDaily",
+    "answer": "SPRING",
+    "acceptedAnswers": [
+      "SPRING",
+      "SPRINGS",
+      "SPRANG",
+      "SPRUNG"
+    ],
+    "clues": [
+      {
+        "word": "CHICKEN",
+        "connection": "No spring chicken"
+      },
+      {
+        "word": "BOARD",
+        "connection": "Springboard"
+      },
+      {
+        "word": "ROLL",
+        "connection": "Spring roll"
+      },
+      {
+        "word": "CLEAN",
+        "connection": "Spring cleaning"
+      },
+      {
+        "word": "WATER",
+        "connection": "Spring water"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "sourcePool": "legacyDaily",
+    "answer": "SHELL",
+    "acceptedAnswers": [
+      "SHELL",
+      "SHELLS",
+      "SHELLED"
+    ],
+    "clues": [
+      {
+        "word": "COMPANY",
+        "connection": "Shell company (fraud)"
+      },
+      {
+        "word": "FISH",
+        "connection": "Shellfish"
+      },
+      {
+        "word": "SHOCK",
+        "connection": "Shell shock"
+      },
+      {
+        "word": "EGG",
+        "connection": "Eggshell"
+      },
+      {
+        "word": "BEACH",
+        "connection": "Seashells on the beach"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "sourcePool": "legacyDaily",
+    "answer": "KEY",
+    "acceptedAnswers": [
+      "KEY",
+      "KEYS"
+    ],
+    "clues": [
+      {
+        "word": "LOW",
+        "connection": "Low-key"
+      },
+      {
+        "word": "STONE",
+        "connection": "Keystone"
+      },
+      {
+        "word": "BOARD",
+        "connection": "Keyboard"
+      },
+      {
+        "word": "SKELETON",
+        "connection": "Skeleton key"
+      },
+      {
+        "word": "LOCK",
+        "connection": "Lock and key"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "sourcePool": "legacyDaily",
+    "answer": "PLANT",
+    "acceptedAnswers": [
+      "PLANT",
+      "PLANTS",
+      "PLANTED",
+      "PLANTING"
+    ],
+    "clues": [
+      {
+        "word": "RUBBER",
+        "connection": "Rubber plant"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Houseplant"
+      },
+      {
+        "word": "NUCLEAR",
+        "connection": "Nuclear plant"
+      },
+      {
+        "word": "SEED",
+        "connection": "Plant a seed"
+      },
+      {
+        "word": "POT",
+        "connection": "Potted plant"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "sourcePool": "legacyDaily",
+    "answer": "BANK",
+    "acceptedAnswers": [
+      "BANK",
+      "BANKS",
+      "BANKED",
+      "BANKING"
+    ],
+    "clues": [
+      {
+        "word": "FOG",
+        "connection": "Fog bank"
+      },
+      {
+        "word": "SNOW",
+        "connection": "Snowbank"
+      },
+      {
+        "word": "BLOOD",
+        "connection": "Blood bank"
+      },
+      {
+        "word": "PIGGY",
+        "connection": "Piggy bank"
+      },
+      {
+        "word": "RIVER",
+        "connection": "River bank"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "sourcePool": "legacyDaily",
+    "answer": "CAST",
+    "acceptedAnswers": [
+      "CAST",
+      "CASTING",
+      "CASTS"
+    ],
+    "clues": [
+      {
+        "word": "TYPE",
+        "connection": "Typecast"
+      },
+      {
+        "word": "IRON",
+        "connection": "Cast iron"
+      },
+      {
+        "word": "SHADOW",
+        "connection": "Cast a shadow"
+      },
+      {
+        "word": "FISHING",
+        "connection": "Cast a line"
+      },
+      {
+        "word": "POD",
+        "connection": "Podcast"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "sourcePool": "legacyDaily",
+    "answer": "MATCH",
+    "acceptedAnswers": [
+      "MATCH",
+      "MATCHES",
+      "MATCHED",
+      "MATCHING"
+    ],
+    "clues": [
+      {
+        "word": "GRUDGE",
+        "connection": "Grudge match"
+      },
+      {
+        "word": "BOOK",
+        "connection": "Matchbook"
+      },
+      {
+        "word": "PERFECT",
+        "connection": "Perfect match"
+      },
+      {
+        "word": "TENNIS",
+        "connection": "Tennis match"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Strike a match"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "sourcePool": "legacyDaily",
+    "answer": "FALL",
+    "acceptedAnswers": [
+      "FALL",
+      "FALLS",
+      "FELL",
+      "FALLEN",
+      "FALLING"
+    ],
+    "clues": [
+      {
+        "word": "ANGEL",
+        "connection": "Fallen angel"
+      },
+      {
+        "word": "FLAT",
+        "connection": "Fall flat"
+      },
+      {
+        "word": "FREE",
+        "connection": "Freefall"
+      },
+      {
+        "word": "LEAF",
+        "connection": "Falling leaves"
+      },
+      {
+        "word": "NIAGARA",
+        "connection": "Niagara Falls"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "sourcePool": "legacyDaily",
+    "answer": "PAPER",
+    "acceptedAnswers": [
+      "PAPER",
+      "PAPERS"
+    ],
+    "clues": [
+      {
+        "word": "ROCK",
+        "connection": "Rock, paper, scissors"
+      },
+      {
+        "word": "TIGER",
+        "connection": "Paper tiger"
+      },
+      {
+        "word": "CHASE",
+        "connection": "Paper chase"
+      },
+      {
+        "word": "TRAIL",
+        "connection": "Paper trail"
+      },
+      {
+        "word": "WALL",
+        "connection": "Wallpaper"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "sourcePool": "legacyDaily",
+    "answer": "STOCK",
+    "acceptedAnswers": [
+      "STOCK",
+      "STOCKS",
+      "STOCKED",
+      "STOCKING"
+    ],
+    "clues": [
+      {
+        "word": "LAUGHING",
+        "connection": "Laughing stock"
+      },
+      {
+        "word": "LIVE",
+        "connection": "Livestock"
+      },
+      {
+        "word": "MARKET",
+        "connection": "Stock market"
+      },
+      {
+        "word": "CHICKEN",
+        "connection": "Chicken stock"
+      },
+      {
+        "word": "TAKE",
+        "connection": "Take stock"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "sourcePool": "legacyDaily",
+    "answer": "NAIL",
+    "acceptedAnswers": [
+      "NAIL",
+      "NAILS",
+      "NAILED",
+      "NAILING"
+    ],
+    "clues": [
+      {
+        "word": "TOOTH",
+        "connection": "Fight tooth and nail"
+      },
+      {
+        "word": "COFFIN",
+        "connection": "Nail in the coffin"
+      },
+      {
+        "word": "HAMMER",
+        "connection": "Hammer and nail"
+      },
+      {
+        "word": "POLISH",
+        "connection": "Nail polish"
+      },
+      {
+        "word": "BED",
+        "connection": "Bed of nails"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "sourcePool": "legacyDaily",
+    "answer": "TRACK",
+    "acceptedAnswers": [
+      "TRACK",
+      "TRACKS",
+      "TRACKED",
+      "TRACKING"
+    ],
+    "clues": [
+      {
+        "word": "FAST",
+        "connection": "Fast track"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Sidetracked"
+      },
+      {
+        "word": "RECORD",
+        "connection": "Track record"
+      },
+      {
+        "word": "SOUND",
+        "connection": "Soundtrack"
+      },
+      {
+        "word": "TRAIN",
+        "connection": "Train track"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "sourcePool": "legacyDaily",
+    "answer": "STAGE",
+    "acceptedAnswers": [
+      "STAGE",
+      "STAGES",
+      "STAGED",
+      "STAGING"
+    ],
+    "clues": [
+      {
+        "word": "BACK",
+        "connection": "Backstage"
+      },
+      {
+        "word": "COACH",
+        "connection": "Stagecoach"
+      },
+      {
+        "word": "FRIGHT",
+        "connection": "Stage fright"
+      },
+      {
+        "word": "ROCKET",
+        "connection": "Rocket stage"
+      },
+      {
+        "word": "LEFT",
+        "connection": "Stage left"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "sourcePool": "legacyDaily",
+    "answer": "CHECK",
+    "acceptedAnswers": [
+      "CHECK",
+      "CHECKS",
+      "CHECKED",
+      "CHECKING"
+    ],
+    "clues": [
+      {
+        "word": "RAIN",
+        "connection": "Raincheck"
+      },
+      {
+        "word": "BODY",
+        "connection": "Body check"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Blank check"
+      },
+      {
+        "word": "REALITY",
+        "connection": "Reality check"
+      },
+      {
+        "word": "CHESS",
+        "connection": "Check in chess"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "sourcePool": "legacyDaily",
+    "answer": "HEART",
+    "acceptedAnswers": [
+      "HEART",
+      "HEARTS",
+      "HEARTED"
+    ],
+    "clues": [
+      {
+        "word": "SWEET",
+        "connection": "Sweetheart"
+      },
+      {
+        "word": "BRAVE",
+        "connection": "Braveheart"
+      },
+      {
+        "word": "BREAK",
+        "connection": "Heartbreak"
+      },
+      {
+        "word": "ATTACK",
+        "connection": "Heart attack"
+      },
+      {
+        "word": "SLEEVE",
+        "connection": "Wear your heart on your sleeve"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "sourcePool": "legacyDaily",
+    "answer": "POINT",
+    "acceptedAnswers": [
+      "POINT",
+      "POINTS",
+      "POINTED",
+      "POINTING"
+    ],
+    "clues": [
+      {
+        "word": "COUNTER",
+        "connection": "Counterpoint"
+      },
+      {
+        "word": "GUN",
+        "connection": "Gunpoint"
+      },
+      {
+        "word": "NEEDLE",
+        "connection": "Needlepoint"
+      },
+      {
+        "word": "POWER",
+        "connection": "PowerPoint"
+      },
+      {
+        "word": "VIEW",
+        "connection": "Point of view"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "sourcePool": "legacyDaily",
+    "answer": "DRUM",
+    "acceptedAnswers": [
+      "DRUM",
+      "DRUMS",
+      "DRUMMING",
+      "DRUMMED"
+    ],
+    "clues": [
+      {
+        "word": "EAR",
+        "connection": "Eardrum"
+      },
+      {
+        "word": "MAJOR",
+        "connection": "Drum major"
+      },
+      {
+        "word": "SNARE",
+        "connection": "Snare drum"
+      },
+      {
+        "word": "STICK",
+        "connection": "Drumstick"
+      },
+      {
+        "word": "ROLL",
+        "connection": "Drum roll"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "sourcePool": "legacyDaily",
+    "answer": "PLATE",
+    "acceptedAnswers": [
+      "PLATE",
+      "PLATES",
+      "PLATED",
+      "PLATING"
+    ],
+    "clues": [
+      {
+        "word": "BOILER",
+        "connection": "Boilerplate"
+      },
+      {
+        "word": "HOME",
+        "connection": "Home plate (baseball)"
+      },
+      {
+        "word": "TECTONIC",
+        "connection": "Tectonic plates"
+      },
+      {
+        "word": "LICENSE",
+        "connection": "License plate"
+      },
+      {
+        "word": "DINNER",
+        "connection": "Dinner plate"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "sourcePool": "legacyDaily",
+    "answer": "PASS",
+    "acceptedAnswers": [
+      "PASS",
+      "PASSES",
+      "PASSED",
+      "PASSING",
+      "PAST"
+    ],
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Overpass"
+      },
+      {
+        "word": "WORD",
+        "connection": "Password"
+      },
+      {
+        "word": "MOUNTAIN",
+        "connection": "Mountain pass"
+      },
+      {
+        "word": "BOARDING",
+        "connection": "Boarding pass"
+      },
+      {
+        "word": "FAIL",
+        "connection": "Pass or fail"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "sourcePool": "legacyDaily",
+    "answer": "CELL",
+    "acceptedAnswers": [
+      "CELL",
+      "CELLS"
+    ],
+    "clues": [
+      {
+        "word": "STEM",
+        "connection": "Stem cell"
+      },
+      {
+        "word": "FUEL",
+        "connection": "Fuel cell"
+      },
+      {
+        "word": "SOLAR",
+        "connection": "Solar cell"
+      },
+      {
+        "word": "PHONE",
+        "connection": "Cell phone"
+      },
+      {
+        "word": "PRISON",
+        "connection": "Prison cell"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "sourcePool": "legacyDaily",
+    "answer": "JAM",
+    "acceptedAnswers": [
+      "JAM",
+      "JAMS",
+      "JAMMED",
+      "JAMMING"
+    ],
+    "clues": [
+      {
+        "word": "PEARL",
+        "connection": "Pearl Jam"
+      },
+      {
+        "word": "TOE",
+        "connection": "Toe jam"
+      },
+      {
+        "word": "TRAFFIC",
+        "connection": "Traffic jam"
+      },
+      {
+        "word": "GUITAR",
+        "connection": "Jam session"
+      },
+      {
+        "word": "TOAST",
+        "connection": "Jam on toast"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "sourcePool": "legacyDaily",
+    "answer": "BARK",
+    "acceptedAnswers": [
+      "BARK",
+      "BARKS",
+      "BARKING",
+      "BARKED"
+    ],
+    "clues": [
+      {
+        "word": "CHOCOLATE",
+        "connection": "Chocolate bark (the sweet)"
+      },
+      {
+        "word": "MOON",
+        "connection": "Barking at the moon"
+      },
+      {
+        "word": "WORSE",
+        "connection": "Bark worse than your bite"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree bark"
+      },
+      {
+        "word": "DOG",
+        "connection": "Dog bark"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "sourcePool": "legacyDaily",
+    "answer": "CURRENT",
+    "acceptedAnswers": [
+      "CURRENT",
+      "CURRENTS",
+      "CURRENTLY"
+    ],
+    "clues": [
+      {
+        "word": "ACCOUNT",
+        "connection": "Current account"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Undercurrent"
+      },
+      {
+        "word": "AFFAIRS",
+        "connection": "Current affairs"
+      },
+      {
+        "word": "ELECTRIC",
+        "connection": "Electric current"
+      },
+      {
+        "word": "RIVER",
+        "connection": "River current"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "sourcePool": "legacyDaily",
+    "answer": "GLASS",
+    "acceptedAnswers": [
+      "GLASS",
+      "GLASSES"
+    ],
+    "clues": [
+      {
+        "word": "CEILING",
+        "connection": "Glass ceiling"
+      },
+      {
+        "word": "SPY",
+        "connection": "Spyglass"
+      },
+      {
+        "word": "STAIN",
+        "connection": "Stained glass"
+      },
+      {
+        "word": "WINE",
+        "connection": "Wine glass"
+      },
+      {
+        "word": "SLIPPER",
+        "connection": "Glass slipper"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "sourcePool": "legacyDaily",
+    "answer": "FRAME",
+    "acceptedAnswers": [
+      "FRAME",
+      "FRAMES",
+      "FRAMED",
+      "FRAMING"
+    ],
+    "clues": [
+      {
+        "word": "BLAME",
+        "connection": "Frame someone (for a crime)"
+      },
+      {
+        "word": "TIME",
+        "connection": "Time frame"
+      },
+      {
+        "word": "FREEZE",
+        "connection": "Freeze frame"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Door frame"
+      },
+      {
+        "word": "PICTURE",
+        "connection": "Picture frame"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "sourcePool": "legacyDaily",
+    "answer": "SEAL",
+    "acceptedAnswers": [
+      "SEAL",
+      "SEALS",
+      "SEALED",
+      "SEALING"
+    ],
+    "clues": [
+      {
+        "word": "LIPS",
+        "connection": "Seal your lips"
+      },
+      {
+        "word": "NAVY",
+        "connection": "Navy SEAL"
+      },
+      {
+        "word": "WAX",
+        "connection": "Wax seal"
+      },
+      {
+        "word": "DEAL",
+        "connection": "Seal the deal"
+      },
+      {
+        "word": "APPROVAL",
+        "connection": "Seal of approval"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "sourcePool": "legacyDaily",
+    "answer": "COURT",
+    "acceptedAnswers": [
+      "COURT",
+      "COURTS",
+      "COURTING",
+      "COURTED"
+    ],
+    "clues": [
+      {
+        "word": "SHIP",
+        "connection": "Courtship"
+      },
+      {
+        "word": "FOOD",
+        "connection": "Food court"
+      },
+      {
+        "word": "SUPREME",
+        "connection": "Supreme Court"
+      },
+      {
+        "word": "JESTER",
+        "connection": "Court jester"
+      },
+      {
+        "word": "BASKETBALL",
+        "connection": "Basketball court"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "sourcePool": "legacyDaily",
+    "answer": "BREAK",
+    "acceptedAnswers": [
+      "BREAK",
+      "BREAKS",
+      "BROKE",
+      "BROKEN",
+      "BREAKING"
+    ],
+    "clues": [
+      {
+        "word": "FAST",
+        "connection": "Breakfast"
+      },
+      {
+        "word": "GROUND",
+        "connection": "Groundbreaking"
+      },
+      {
+        "word": "PRISON",
+        "connection": "Prison break"
+      },
+      {
+        "word": "DANCE",
+        "connection": "Breakdance"
+      },
+      {
+        "word": "DAY",
+        "connection": "Daybreak"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "sourcePool": "legacyDaily",
+    "answer": "DEAD",
+    "acceptedAnswers": [
+      "DEAD",
+      "DEADLY"
+    ],
+    "clues": [
+      {
+        "word": "GRATEFUL",
+        "connection": "Grateful Dead"
+      },
+      {
+        "word": "PAN",
+        "connection": "Deadpan"
+      },
+      {
+        "word": "LINE",
+        "connection": "Deadline"
+      },
+      {
+        "word": "END",
+        "connection": "Dead end"
+      },
+      {
+        "word": "LOCK",
+        "connection": "Deadlock"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "sourcePool": "legacyDaily",
+    "answer": "SHARP",
+    "acceptedAnswers": [
+      "SHARP",
+      "SHARPS",
+      "SHARPER",
+      "SHARPEST"
+    ],
+    "clues": [
+      {
+        "word": "CARD",
+        "connection": "Cardsharp"
+      },
+      {
+        "word": "FLAT",
+        "connection": "Sharp vs flat (music)"
+      },
+      {
+        "word": "SHOOTER",
+        "connection": "Sharpshooter"
+      },
+      {
+        "word": "TONGUE",
+        "connection": "Sharp tongue"
+      },
+      {
+        "word": "KNIFE",
+        "connection": "Sharp knife"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "sourcePool": "legacyDaily",
+    "answer": "BLIND",
+    "acceptedAnswers": [
+      "BLIND",
+      "BLINDS",
+      "BLINDED",
+      "BLINDING"
+    ],
+    "clues": [
+      {
+        "word": "COLOUR",
+        "connection": "Colour blind"
+      },
+      {
+        "word": "VENETIAN",
+        "connection": "Venetian blinds"
+      },
+      {
+        "word": "DATE",
+        "connection": "Blind date"
+      },
+      {
+        "word": "SPOT",
+        "connection": "Blind spot"
+      },
+      {
+        "word": "FOLD",
+        "connection": "Blindfold"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "sourcePool": "legacyDaily",
+    "answer": "CROSS",
+    "acceptedAnswers": [
+      "CROSS",
+      "CROSSES",
+      "CROSSED",
+      "CROSSING"
+    ],
+    "clues": [
+      {
+        "word": "DOUBLE",
+        "connection": "Double cross"
+      },
+      {
+        "word": "ROADS",
+        "connection": "Crossroads"
+      },
+      {
+        "word": "RED",
+        "connection": "Red Cross"
+      },
+      {
+        "word": "WORD",
+        "connection": "Crossword"
+      },
+      {
+        "word": "ANGRY",
+        "connection": "Cross (meaning angry)"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "sourcePool": "legacyDaily",
+    "answer": "CHAIN",
+    "acceptedAnswers": [
+      "CHAIN",
+      "CHAINS",
+      "CHAINED"
+    ],
+    "clues": [
+      {
+        "word": "BALL",
+        "connection": "Ball and chain"
+      },
+      {
+        "word": "DAISY",
+        "connection": "Daisy chain"
+      },
+      {
+        "word": "FOOD",
+        "connection": "Food chain"
+      },
+      {
+        "word": "SUPPLY",
+        "connection": "Supply chain"
+      },
+      {
+        "word": "LINK",
+        "connection": "Chain link"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "sourcePool": "legacyDaily",
+    "answer": "IRON",
+    "acceptedAnswers": [
+      "IRON",
+      "IRONS",
+      "IRONING",
+      "IRONED"
+    ],
+    "clues": [
+      {
+        "word": "WRINKLE",
+        "connection": "Iron out the wrinkles"
+      },
+      {
+        "word": "MAIDEN",
+        "connection": "Iron Maiden"
+      },
+      {
+        "word": "MAN",
+        "connection": "Iron Man"
+      },
+      {
+        "word": "FIST",
+        "connection": "Iron fist"
+      },
+      {
+        "word": "CURTAIN",
+        "connection": "Iron Curtain"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "sourcePool": "legacyDaily",
+    "answer": "BOARD",
+    "acceptedAnswers": [
+      "BOARD",
+      "BOARDS",
+      "BOARDED",
+      "BOARDING"
+    ],
+    "clues": [
+      {
+        "word": "ABOVE",
+        "connection": "Above board"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard"
+      },
+      {
+        "word": "DART",
+        "connection": "Dartboard"
+      },
+      {
+        "word": "SKATE",
+        "connection": "Skateboard"
+      },
+      {
+        "word": "CHALK",
+        "connection": "Chalkboard"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "sourcePool": "legacyDaily",
+    "answer": "ROCK",
+    "acceptedAnswers": [
+      "ROCK",
+      "ROCKS",
+      "ROCKED",
+      "ROCKING"
+    ],
+    "clues": [
+      {
+        "word": "SHAM",
+        "connection": "Shamrock"
+      },
+      {
+        "word": "BED",
+        "connection": "Bedrock"
+      },
+      {
+        "word": "BOTTOM",
+        "connection": "Rock bottom"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Rock, paper, scissors"
+      },
+      {
+        "word": "CLIMBING",
+        "connection": "Rock climbing"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "sourcePool": "legacyDaily",
+    "answer": "GROUND",
+    "acceptedAnswers": [
+      "GROUND",
+      "GROUNDS",
+      "GROUNDED",
+      "GROUNDING"
+    ],
+    "clues": [
+      {
+        "word": "COFFEE",
+        "connection": "Coffee grounds"
+      },
+      {
+        "word": "PLAY",
+        "connection": "Playground"
+      },
+      {
+        "word": "HOG",
+        "connection": "Groundhog"
+      },
+      {
+        "word": "COMMON",
+        "connection": "Common ground"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Underground"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "sourcePool": "legacyDaily",
+    "answer": "LINE",
+    "acceptedAnswers": [
+      "LINE",
+      "LINES",
+      "LINED",
+      "LINING"
+    ],
+    "clues": [
+      {
+        "word": "PUNCH",
+        "connection": "Punchline"
+      },
+      {
+        "word": "CLOTHES",
+        "connection": "Clothesline"
+      },
+      {
+        "word": "FINE",
+        "connection": "Fine line"
+      },
+      {
+        "word": "BOTTOM",
+        "connection": "Bottom line"
+      },
+      {
+        "word": "FISHING",
+        "connection": "Fishing line"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "sourcePool": "futureDaily",
+    "answer": "HEAD",
+    "acceptedAnswers": [
+      "HEAD",
+      "HEADS",
+      "HEADED",
+      "HEADING"
+    ],
+    "clues": [
+      {
+        "word": "FIGURE",
+        "connection": "Figurehead"
+      },
+      {
+        "word": "NAIL",
+        "connection": "Hit the nail on the head"
+      },
+      {
+        "word": "QUARTERS",
+        "connection": "Headquarters"
+      },
+      {
+        "word": "LINE",
+        "connection": "Headline"
+      },
+      {
+        "word": "BED",
+        "connection": "Bed head"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "sourcePool": "futureDaily",
+    "answer": "HAND",
+    "acceptedAnswers": [
+      "HAND",
+      "HANDS",
+      "HANDED",
+      "HANDING"
+    ],
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Hands of a clock"
+      },
+      {
+        "word": "SECOND",
+        "connection": "Secondhand"
+      },
+      {
+        "word": "SHORT",
+        "connection": "Shorthand"
+      },
+      {
+        "word": "UPPER",
+        "connection": "Upper hand"
+      },
+      {
+        "word": "SHAKE",
+        "connection": "Handshake"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "sourcePool": "futureDaily",
+    "answer": "FOOT",
+    "acceptedAnswers": [
+      "FOOT",
+      "FEET",
+      "FOOTED",
+      "FOOTING"
+    ],
+    "clues": [
+      {
+        "word": "CARBON",
+        "connection": "Carbon footprint"
+      },
+      {
+        "word": "NOTE",
+        "connection": "Footnote"
+      },
+      {
+        "word": "LOOSE",
+        "connection": "Footloose"
+      },
+      {
+        "word": "BARE",
+        "connection": "Barefoot"
+      },
+      {
+        "word": "PRINT",
+        "connection": "Footprint"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "sourcePool": "futureDaily",
+    "answer": "BACK",
+    "acceptedAnswers": [
+      "BACK",
+      "BACKS",
+      "BACKED",
+      "BACKING"
+    ],
+    "clues": [
+      {
+        "word": "SET",
+        "connection": "Setback"
+      },
+      {
+        "word": "FLASH",
+        "connection": "Flashback"
+      },
+      {
+        "word": "BONE",
+        "connection": "Backbone"
+      },
+      {
+        "word": "QUARTER",
+        "connection": "Quarterback"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Backdoor"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "sourcePool": "futureDaily",
+    "answer": "ARM",
+    "acceptedAnswers": [
+      "ARM",
+      "ARMS",
+      "ARMED",
+      "ARMING"
+    ],
+    "clues": [
+      {
+        "word": "CANDY",
+        "connection": "Arm candy"
+      },
+      {
+        "word": "STRONG",
+        "connection": "Strongarm"
+      },
+      {
+        "word": "CHAIR",
+        "connection": "Armchair"
+      },
+      {
+        "word": "TWISTED",
+        "connection": "Twist someone's arm"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firearm"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "sourcePool": "futureDaily",
+    "answer": "EYE",
+    "acceptedAnswers": [
+      "EYE",
+      "EYES",
+      "EYED"
+    ],
+    "clues": [
+      {
+        "word": "BIRD",
+        "connection": "Bird's-eye view"
+      },
+      {
+        "word": "PRIVATE",
+        "connection": "Private eye"
+      },
+      {
+        "word": "NEEDLE",
+        "connection": "Eye of a needle"
+      },
+      {
+        "word": "BROW",
+        "connection": "Eyebrow"
+      },
+      {
+        "word": "WITNESS",
+        "connection": "Eyewitness"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "sourcePool": "futureDaily",
+    "answer": "FACE",
+    "acceptedAnswers": [
+      "FACE",
+      "FACES",
+      "FACED",
+      "FACING"
+    ],
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "sourcePool": "futureDaily",
+    "answer": "NECK",
+    "acceptedAnswers": [
+      "NECK",
+      "NECKS",
+      "NECKED"
+    ],
+    "clues": [
+      {
+        "word": "LACE",
+        "connection": "Necklace"
+      },
+      {
+        "word": "WOODS",
+        "connection": "Neck of the woods"
+      },
+      {
+        "word": "RED",
+        "connection": "Redneck"
+      },
+      {
+        "word": "BOTTLE",
+        "connection": "Bottleneck"
+      },
+      {
+        "word": "STIFF",
+        "connection": "Stiff neck"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "sourcePool": "futureDaily",
+    "answer": "TONGUE",
+    "acceptedAnswers": [
+      "TONGUE",
+      "TONGUES"
+    ],
+    "clues": [
+      {
+        "word": "SILVER",
+        "connection": "Silver tongue"
+      },
+      {
+        "word": "MOTHER",
+        "connection": "Mother tongue"
+      },
+      {
+        "word": "CHEEK",
+        "connection": "Tongue in cheek"
+      },
+      {
+        "word": "TIED",
+        "connection": "Tongue-tied"
+      },
+      {
+        "word": "TIP",
+        "connection": "Tip of the tongue"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "sourcePool": "futureDaily",
+    "answer": "FINGER",
+    "acceptedAnswers": [
+      "FINGER",
+      "FINGERS",
+      "FINGERED"
+    ],
+    "clues": [
+      {
+        "word": "BUTTER",
+        "connection": "Butterfingers"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladyfinger (biscuit)"
+      },
+      {
+        "word": "FISH",
+        "connection": "Fish finger"
+      },
+      {
+        "word": "PRINT",
+        "connection": "Fingerprint"
+      },
+      {
+        "word": "POINT",
+        "connection": "Point the finger"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "sourcePool": "futureDaily",
+    "answer": "SHOULDER",
+    "acceptedAnswers": [
+      "SHOULDER",
+      "SHOULDERS",
+      "SHOULDERED"
+    ],
+    "clues": [
+      {
+        "word": "COLD",
+        "connection": "Cold shoulder"
+      },
+      {
+        "word": "CHIP",
+        "connection": "Chip on your shoulder"
+      },
+      {
+        "word": "HARD",
+        "connection": "Hard shoulder (motorway)"
+      },
+      {
+        "word": "BLADE",
+        "connection": "Shoulder blade"
+      },
+      {
+        "word": "PAD",
+        "connection": "Shoulder pad"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "sourcePool": "futureDaily",
+    "answer": "CHEST",
+    "acceptedAnswers": [
+      "CHEST",
+      "CHESTS"
+    ],
+    "clues": [
+      {
+        "word": "NUT",
+        "connection": "Chestnut"
+      },
+      {
+        "word": "TREASURE",
+        "connection": "Treasure chest"
+      },
+      {
+        "word": "WAR",
+        "connection": "War chest"
+      },
+      {
+        "word": "HAIR",
+        "connection": "Chest hair"
+      },
+      {
+        "word": "MEDICINE",
+        "connection": "Medicine chest"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "sourcePool": "futureDaily",
+    "answer": "JAW",
+    "acceptedAnswers": [
+      "JAW",
+      "JAWS",
+      "JAWED"
+    ],
+    "clues": [
+      {
+        "word": "BONE",
+        "connection": "Jawbone"
+      },
+      {
+        "word": "SLACK",
+        "connection": "Slack-jawed"
+      },
+      {
+        "word": "DROP",
+        "connection": "Jaw-dropping"
+      },
+      {
+        "word": "LOCK",
+        "connection": "Lockjaw"
+      },
+      {
+        "word": "SHARK",
+        "connection": "Jaws (the movie)"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "sourcePool": "futureDaily",
+    "answer": "KNEE",
+    "acceptedAnswers": [
+      "KNEE",
+      "KNEES",
+      "KNEED"
+    ],
+    "clues": [
+      {
+        "word": "JERK",
+        "connection": "Knee-jerk reaction"
+      },
+      {
+        "word": "DEEP",
+        "connection": "Knee-deep"
+      },
+      {
+        "word": "CAP",
+        "connection": "Kneecap"
+      },
+      {
+        "word": "WEAK",
+        "connection": "Weak at the knees"
+      },
+      {
+        "word": "PAD",
+        "connection": "Knee pad"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "sourcePool": "futureDaily",
+    "answer": "LIP",
+    "acceptedAnswers": [
+      "LIP",
+      "LIPS",
+      "LIPPED"
+    ],
+    "clues": [
+      {
+        "word": "BITE",
+        "connection": "Bite your lip"
+      },
+      {
+        "word": "STIFF",
+        "connection": "Stiff upper lip"
+      },
+      {
+        "word": "READ",
+        "connection": "Lip reading"
+      },
+      {
+        "word": "STICK",
+        "connection": "Lipstick"
+      },
+      {
+        "word": "SERVICE",
+        "connection": "Lip service"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "sourcePool": "futureDaily",
+    "answer": "SKIN",
+    "acceptedAnswers": [
+      "SKIN",
+      "SKINS",
+      "SKINNED",
+      "SKINNING"
+    ],
+    "clues": [
+      {
+        "word": "CRAWL",
+        "connection": "Makes your skin crawl"
+      },
+      {
+        "word": "THICK",
+        "connection": "Thick-skinned"
+      },
+      {
+        "word": "DEEP",
+        "connection": "Skin deep"
+      },
+      {
+        "word": "CARE",
+        "connection": "Skincare"
+      },
+      {
+        "word": "BANANA",
+        "connection": "Banana skin"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "sourcePool": "futureDaily",
+    "answer": "BONE",
+    "acceptedAnswers": [
+      "BONE",
+      "BONES",
+      "BONED"
+    ],
+    "clues": [
+      {
+        "word": "TROM",
+        "connection": "Trombone"
+      },
+      {
+        "word": "DRY",
+        "connection": "Bone dry"
+      },
+      {
+        "word": "LAZY",
+        "connection": "Lazy bones"
+      },
+      {
+        "word": "WISH",
+        "connection": "Wishbone"
+      },
+      {
+        "word": "BACK",
+        "connection": "Backbone"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "sourcePool": "futureDaily",
+    "answer": "TOOTH",
+    "acceptedAnswers": [
+      "TOOTH",
+      "TEETH",
+      "TOOTHED"
+    ],
+    "clues": [
+      {
+        "word": "FAIRY",
+        "connection": "Tooth fairy"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet tooth"
+      },
+      {
+        "word": "SABER",
+        "connection": "Saber-toothed"
+      },
+      {
+        "word": "PASTE",
+        "connection": "Toothpaste"
+      },
+      {
+        "word": "BRUSH",
+        "connection": "Toothbrush"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "sourcePool": "futureDaily",
+    "answer": "SPINE",
+    "acceptedAnswers": [
+      "SPINE",
+      "SPINES",
+      "SPINAL"
+    ],
+    "clues": [
+      {
+        "word": "LESS",
+        "connection": "Spineless"
+      },
+      {
+        "word": "TINGLING",
+        "connection": "Spine-tingling"
+      },
+      {
+        "word": "CHILL",
+        "connection": "Chill down your spine"
+      },
+      {
+        "word": "BOOK",
+        "connection": "Spine of a book"
+      },
+      {
+        "word": "CORD",
+        "connection": "Spinal cord"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "sourcePool": "futureDaily",
+    "answer": "PALM",
+    "acceptedAnswers": [
+      "PALM",
+      "PALMS",
+      "PALMED"
+    ],
+    "clues": [
+      {
+        "word": "GREASE",
+        "connection": "Grease someone's palm"
+      },
+      {
+        "word": "SUNDAY",
+        "connection": "Palm Sunday"
+      },
+      {
+        "word": "READ",
+        "connection": "Palm reading"
+      },
+      {
+        "word": "TREE",
+        "connection": "Palm tree"
+      },
+      {
+        "word": "HAND",
+        "connection": "Palm of your hand"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "sourcePool": "futureDaily",
+    "answer": "STORM",
+    "acceptedAnswers": [
+      "STORM",
+      "STORMS",
+      "STORMED",
+      "STORMING"
+    ],
+    "clues": [
+      {
+        "word": "BRAIN",
+        "connection": "Brainstorm"
+      },
+      {
+        "word": "BARN",
+        "connection": "Barnstormer"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firestorm"
+      },
+      {
+        "word": "THUNDER",
+        "connection": "Thunderstorm"
+      },
+      {
+        "word": "SNOW",
+        "connection": "Snowstorm"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "sourcePool": "futureDaily",
+    "answer": "STONE",
+    "acceptedAnswers": [
+      "STONE",
+      "STONES",
+      "STONED"
+    ],
+    "clues": [
+      {
+        "word": "MILE",
+        "connection": "Milestone"
+      },
+      {
+        "word": "LIME",
+        "connection": "Limestone"
+      },
+      {
+        "word": "STEPPING",
+        "connection": "Stepping stone"
+      },
+      {
+        "word": "KIDNEY",
+        "connection": "Kidney stone"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling Stones"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "sourcePool": "futureDaily",
+    "answer": "ROOT",
+    "acceptedAnswers": [
+      "ROOT",
+      "ROOTS",
+      "ROOTED",
+      "ROOTING"
+    ],
+    "clues": [
+      {
+        "word": "SQUARE",
+        "connection": "Square root"
+      },
+      {
+        "word": "GRASS",
+        "connection": "Grassroots"
+      },
+      {
+        "word": "CANAL",
+        "connection": "Root canal"
+      },
+      {
+        "word": "BEER",
+        "connection": "Root beer"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree roots"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "sourcePool": "futureDaily",
+    "answer": "FLOWER",
+    "acceptedAnswers": [
+      "FLOWER",
+      "FLOWERS",
+      "FLOWERED",
+      "FLOWERING"
+    ],
+    "clues": [
+      {
+        "word": "WALL",
+        "connection": "Wallflower"
+      },
+      {
+        "word": "CAULI",
+        "connection": "Cauliflower"
+      },
+      {
+        "word": "SUN",
+        "connection": "Sunflower"
+      },
+      {
+        "word": "BED",
+        "connection": "Flower bed"
+      },
+      {
+        "word": "POWER",
+        "connection": "Flower power"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "sourcePool": "futureDaily",
+    "answer": "BRANCH",
+    "acceptedAnswers": [
+      "BRANCH",
+      "BRANCHES",
+      "BRANCHED",
+      "BRANCHING"
+    ],
+    "clues": [
+      {
+        "word": "OLIVE",
+        "connection": "Olive branch"
+      },
+      {
+        "word": "EXECUTIVE",
+        "connection": "Executive branch"
+      },
+      {
+        "word": "OUT",
+        "connection": "Branch out"
+      },
+      {
+        "word": "MANAGER",
+        "connection": "Branch manager"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree branch"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "sourcePool": "futureDaily",
+    "answer": "FIELD",
+    "acceptedAnswers": [
+      "FIELD",
+      "FIELDS",
+      "FIELDED"
+    ],
+    "clues": [
+      {
+        "word": "MINE",
+        "connection": "Minefield"
+      },
+      {
+        "word": "LEFT",
+        "connection": "Out of left field"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Field trip"
+      },
+      {
+        "word": "CORN",
+        "connection": "Cornfield"
+      },
+      {
+        "word": "PLAYING",
+        "connection": "Playing field"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "sourcePool": "futureDaily",
+    "answer": "CLOUD",
+    "acceptedAnswers": [
+      "CLOUD",
+      "CLOUDS",
+      "CLOUDED",
+      "CLOUDY"
+    ],
+    "clues": [
+      {
+        "word": "STORAGE",
+        "connection": "Cloud storage"
+      },
+      {
+        "word": "NINE",
+        "connection": "Cloud nine"
+      },
+      {
+        "word": "MUSHROOM",
+        "connection": "Mushroom cloud"
+      },
+      {
+        "word": "THUNDER",
+        "connection": "Thundercloud"
+      },
+      {
+        "word": "RAIN",
+        "connection": "Rain cloud"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "sourcePool": "futureDaily",
+    "answer": "FROST",
+    "acceptedAnswers": [
+      "FROST",
+      "FROSTS",
+      "FROSTED",
+      "FROSTY"
+    ],
+    "clues": [
+      {
+        "word": "ROBERT",
+        "connection": "Robert Frost (poet)"
+      },
+      {
+        "word": "BITE",
+        "connection": "Frostbite"
+      },
+      {
+        "word": "MORNING",
+        "connection": "Morning frost"
+      },
+      {
+        "word": "JACK",
+        "connection": "Jack Frost"
+      },
+      {
+        "word": "GLASS",
+        "connection": "Frosted glass"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "sourcePool": "futureDaily",
+    "answer": "SNOW",
+    "acceptedAnswers": [
+      "SNOW",
+      "SNOWS",
+      "SNOWED",
+      "SNOWING",
+      "SNOWY"
+    ],
+    "clues": [
+      {
+        "word": "JOB",
+        "connection": "Snow job (deception)"
+      },
+      {
+        "word": "BALL",
+        "connection": "Snowball"
+      },
+      {
+        "word": "FLAKE",
+        "connection": "Snowflake"
+      },
+      {
+        "word": "WHITE",
+        "connection": "Snow White"
+      },
+      {
+        "word": "MAN",
+        "connection": "Snowman"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "sourcePool": "futureDaily",
+    "answer": "ICE",
+    "acceptedAnswers": [
+      "ICE",
+      "ICED",
+      "ICY",
+      "ICING"
+    ],
+    "clues": [
+      {
+        "word": "CUBE",
+        "connection": "Ice cube"
+      },
+      {
+        "word": "THIN",
+        "connection": "On thin ice"
+      },
+      {
+        "word": "DRY",
+        "connection": "Dry ice"
+      },
+      {
+        "word": "CREAM",
+        "connection": "Ice cream"
+      },
+      {
+        "word": "BREAK",
+        "connection": "Icebreaker"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "sourcePool": "futureDaily",
+    "answer": "SAND",
+    "acceptedAnswers": [
+      "SAND",
+      "SANDS",
+      "SANDED",
+      "SANDING",
+      "SANDY"
+    ],
+    "clues": [
+      {
+        "word": "BEACH",
+        "connection": "Beach sand"
+      },
+      {
+        "word": "CASTLE",
+        "connection": "Sandcastle"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quicksand"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Sandpaper"
+      },
+      {
+        "word": "STORM",
+        "connection": "Sandstorm"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "sourcePool": "futureDaily",
+    "answer": "WOOD",
+    "acceptedAnswers": [
+      "WOOD",
+      "WOODS",
+      "WOODED",
+      "WOODEN"
+    ],
+    "clues": [
+      {
+        "word": "DRIFT",
+        "connection": "Driftwood"
+      },
+      {
+        "word": "DEAD",
+        "connection": "Deadwood"
+      },
+      {
+        "word": "HOLLY",
+        "connection": "Hollywood"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firewood"
+      },
+      {
+        "word": "PECKER",
+        "connection": "Woodpecker"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "sourcePool": "futureDaily",
+    "answer": "DUST",
+    "acceptedAnswers": [
+      "DUST",
+      "DUSTED",
+      "DUSTING",
+      "DUSTY"
+    ],
+    "clues": [
+      {
+        "word": "PAN",
+        "connection": "Dustpan"
+      },
+      {
+        "word": "STAR",
+        "connection": "Stardust"
+      },
+      {
+        "word": "SAW",
+        "connection": "Sawdust"
+      },
+      {
+        "word": "BITE",
+        "connection": "Bite the dust"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold dust"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "sourcePool": "futureDaily",
+    "answer": "SEED",
+    "acceptedAnswers": [
+      "SEED",
+      "SEEDS",
+      "SEEDED",
+      "SEEDING"
+    ],
+    "clues": [
+      {
+        "word": "SESAME",
+        "connection": "Sesame seed"
+      },
+      {
+        "word": "BIRD",
+        "connection": "Birdseed"
+      },
+      {
+        "word": "DOUBT",
+        "connection": "Seed of doubt"
+      },
+      {
+        "word": "SUN",
+        "connection": "Sunflower seed"
+      },
+      {
+        "word": "PLANT",
+        "connection": "Plant a seed"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "sourcePool": "futureDaily",
+    "answer": "LEAF",
+    "acceptedAnswers": [
+      "LEAF",
+      "LEAVES",
+      "LEAFED",
+      "LEAFY"
+    ],
+    "clues": [
+      {
+        "word": "TURN",
+        "connection": "Turn over a new leaf"
+      },
+      {
+        "word": "BAY",
+        "connection": "Bay leaf"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold leaf"
+      },
+      {
+        "word": "TEA",
+        "connection": "Tea leaf"
+      },
+      {
+        "word": "MAPLE",
+        "connection": "Maple leaf"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "sourcePool": "futureDaily",
+    "answer": "WIND",
+    "acceptedAnswers": [
+      "WIND",
+      "WINDS",
+      "WINDED",
+      "WINDING"
+    ],
+    "clues": [
+      {
+        "word": "SECOND",
+        "connection": "Second wind"
+      },
+      {
+        "word": "WHIRL",
+        "connection": "Whirlwind"
+      },
+      {
+        "word": "SHIELD",
+        "connection": "Windshield"
+      },
+      {
+        "word": "TRADE",
+        "connection": "Trade winds"
+      },
+      {
+        "word": "MILL",
+        "connection": "Windmill"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "sourcePool": "futureDaily",
+    "answer": "LAKE",
+    "acceptedAnswers": [
+      "LAKE",
+      "LAKES"
+    ],
+    "clues": [
+      {
+        "word": "SWAN",
+        "connection": "Swan Lake"
+      },
+      {
+        "word": "SALT",
+        "connection": "Salt Lake City"
+      },
+      {
+        "word": "GREAT",
+        "connection": "Great Lakes"
+      },
+      {
+        "word": "DISTRICT",
+        "connection": "Lake District"
+      },
+      {
+        "word": "FISHING",
+        "connection": "Fishing in a lake"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "sourcePool": "futureDaily",
+    "answer": "RIVER",
+    "acceptedAnswers": [
+      "RIVER",
+      "RIVERS"
+    ],
+    "clues": [
+      {
+        "word": "BED",
+        "connection": "Riverbed"
+      },
+      {
+        "word": "SELL",
+        "connection": "Sell someone down the river"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Riverside"
+      },
+      {
+        "word": "AMAZON",
+        "connection": "Amazon River"
+      },
+      {
+        "word": "BANK",
+        "connection": "River bank"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "sourcePool": "futureDaily",
+    "answer": "HILL",
+    "acceptedAnswers": [
+      "HILL",
+      "HILLS"
+    ],
+    "clues": [
+      {
+        "word": "ANT",
+        "connection": "Anthill"
+      },
+      {
+        "word": "OVER",
+        "connection": "Over the hill"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Downhill"
+      },
+      {
+        "word": "UP",
+        "connection": "Uphill battle"
+      },
+      {
+        "word": "CLIMB",
+        "connection": "Climb a hill"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "sourcePool": "futureDaily",
+    "answer": "MOON",
+    "acceptedAnswers": [
+      "MOON",
+      "MOONS",
+      "MOONED",
+      "MOONING"
+    ],
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "sourcePool": "futureDaily",
+    "answer": "SUN",
+    "acceptedAnswers": [
+      "SUN",
+      "SUNS",
+      "SUNNED",
+      "SUNNY"
+    ],
+    "clues": [
+      {
+        "word": "DOWN",
+        "connection": "Sundown"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Sunflower"
+      },
+      {
+        "word": "BURN",
+        "connection": "Sunburn"
+      },
+      {
+        "word": "RISE",
+        "connection": "Sunrise"
+      },
+      {
+        "word": "SCREEN",
+        "connection": "Sunscreen"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "sourcePool": "futureDaily",
+    "answer": "STAR",
+    "acceptedAnswers": [
+      "STAR",
+      "STARS",
+      "STARRED",
+      "STARRING",
+      "STARRY"
+    ],
+    "clues": [
+      {
+        "word": "ALL",
+        "connection": "All-star"
+      },
+      {
+        "word": "SHOOTING",
+        "connection": "Shooting star"
+      },
+      {
+        "word": "FISH",
+        "connection": "Starfish"
+      },
+      {
+        "word": "WARS",
+        "connection": "Star Wars"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Starry night"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "sourcePool": "futureDaily",
+    "answer": "EARTH",
+    "acceptedAnswers": [
+      "EARTH",
+      "EARTHS",
+      "EARTHED",
+      "EARTHY"
+    ],
+    "clues": [
+      {
+        "word": "SALT",
+        "connection": "Salt of the earth"
+      },
+      {
+        "word": "SCORCHED",
+        "connection": "Scorched earth"
+      },
+      {
+        "word": "QUAKE",
+        "connection": "Earthquake"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Down to earth"
+      },
+      {
+        "word": "WORM",
+        "connection": "Earthworm"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "sourcePool": "futureDaily",
+    "answer": "TIDE",
+    "acceptedAnswers": [
+      "TIDE",
+      "TIDES",
+      "TIDAL"
+    ],
+    "clues": [
+      {
+        "word": "TURNING",
+        "connection": "Turning of the tide"
+      },
+      {
+        "word": "RIP",
+        "connection": "Riptide"
+      },
+      {
+        "word": "CRIMSON",
+        "connection": "Crimson Tide"
+      },
+      {
+        "word": "HIGH",
+        "connection": "High tide"
+      },
+      {
+        "word": "LOW",
+        "connection": "Low tide"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "sourcePool": "futureDaily",
+    "answer": "ROSE",
+    "acceptedAnswers": [
+      "ROSE",
+      "ROSES"
+    ],
+    "clues": [
+      {
+        "word": "PRIM",
+        "connection": "Primrose"
+      },
+      {
+        "word": "COMPASS",
+        "connection": "Compass rose"
+      },
+      {
+        "word": "BUD",
+        "connection": "Rosebud"
+      },
+      {
+        "word": "THORN",
+        "connection": "Every rose has its thorn"
+      },
+      {
+        "word": "RED",
+        "connection": "Red rose"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "sourcePool": "futureDaily",
+    "answer": "DOOR",
+    "acceptedAnswers": [
+      "DOOR",
+      "DOORS"
+    ],
+    "clues": [
+      {
+        "word": "TRAP",
+        "connection": "Trapdoor"
+      },
+      {
+        "word": "REVOLVING",
+        "connection": "Revolving door"
+      },
+      {
+        "word": "NEXT",
+        "connection": "Next door"
+      },
+      {
+        "word": "BELL",
+        "connection": "Doorbell"
+      },
+      {
+        "word": "STEP",
+        "connection": "Doorstep"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "sourcePool": "futureDaily",
+    "answer": "WALL",
+    "acceptedAnswers": [
+      "WALL",
+      "WALLS",
+      "WALLED"
+    ],
+    "clues": [
+      {
+        "word": "FIRE",
+        "connection": "Firewall"
+      },
+      {
+        "word": "STONE",
+        "connection": "Stonewall"
+      },
+      {
+        "word": "STREET",
+        "connection": "Wall Street"
+      },
+      {
+        "word": "BRICK",
+        "connection": "Brick wall"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Wallpaper"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "sourcePool": "futureDaily",
+    "answer": "TABLE",
+    "acceptedAnswers": [
+      "TABLE",
+      "TABLES",
+      "TABLED"
+    ],
+    "clues": [
+      {
+        "word": "TURN",
+        "connection": "Turntable"
+      },
+      {
+        "word": "TIME",
+        "connection": "Timetable"
+      },
+      {
+        "word": "ROUND",
+        "connection": "Round table"
+      },
+      {
+        "word": "WAIT",
+        "connection": "Wait tables"
+      },
+      {
+        "word": "DINNER",
+        "connection": "Dinner table"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "sourcePool": "futureDaily",
+    "answer": "WIRE",
+    "acceptedAnswers": [
+      "WIRE",
+      "WIRES",
+      "WIRED",
+      "WIRING"
+    ],
+    "clues": [
+      {
+        "word": "TRIP",
+        "connection": "Tripwire"
+      },
+      {
+        "word": "LESS",
+        "connection": "Wireless"
+      },
+      {
+        "word": "HIGH",
+        "connection": "High-wire act"
+      },
+      {
+        "word": "BARBED",
+        "connection": "Barbed wire"
+      },
+      {
+        "word": "LIVE",
+        "connection": "Live wire"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "sourcePool": "futureDaily",
+    "answer": "PIN",
+    "acceptedAnswers": [
+      "PIN",
+      "PINS",
+      "PINNED",
+      "PINNING"
+    ],
+    "clues": [
+      {
+        "word": "KING",
+        "connection": "Kingpin"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling pin"
+      },
+      {
+        "word": "TAIL",
+        "connection": "Pin the tail on the donkey"
+      },
+      {
+        "word": "CUSHION",
+        "connection": "Pincushion"
+      },
+      {
+        "word": "SAFETY",
+        "connection": "Safety pin"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "sourcePool": "futureDaily",
+    "answer": "BAR",
+    "acceptedAnswers": [
+      "BAR",
+      "BARS",
+      "BARRED",
+      "BARRING"
+    ],
+    "clues": [
+      {
+        "word": "BEHIND",
+        "connection": "Behind bars"
+      },
+      {
+        "word": "CROW",
+        "connection": "Crowbar"
+      },
+      {
+        "word": "HANDLE",
+        "connection": "Handlebar"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Sidebar"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold bar"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "sourcePool": "futureDaily",
+    "answer": "BOX",
+    "acceptedAnswers": [
+      "BOX",
+      "BOXES",
+      "BOXED",
+      "BOXING"
+    ],
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora's box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "sourcePool": "futureDaily",
+    "answer": "NET",
+    "acceptedAnswers": [
+      "NET",
+      "NETS",
+      "NETTED",
+      "NETTING"
+    ],
+    "clues": [
+      {
+        "word": "SAFETY",
+        "connection": "Safety net"
+      },
+      {
+        "word": "BASKET",
+        "connection": "Basketball net"
+      },
+      {
+        "word": "HAIR",
+        "connection": "Hairnet"
+      },
+      {
+        "word": "DRAG",
+        "connection": "Dragnet"
+      },
+      {
+        "word": "FISHING",
+        "connection": "Fishing net"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "sourcePool": "futureDaily",
+    "answer": "HOOK",
+    "acceptedAnswers": [
+      "HOOK",
+      "HOOKS",
+      "HOOKED",
+      "HOOKING"
+    ],
+    "clues": [
+      {
+        "word": "OFF",
+        "connection": "Off the hook"
+      },
+      {
+        "word": "SINKER",
+        "connection": "Hook, line and sinker"
+      },
+      {
+        "word": "CROCHET",
+        "connection": "Crochet hook"
+      },
+      {
+        "word": "FISH",
+        "connection": "Fish hook"
+      },
+      {
+        "word": "CAPTAIN",
+        "connection": "Captain Hook"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "sourcePool": "futureDaily",
+    "answer": "PIPE",
+    "acceptedAnswers": [
+      "PIPE",
+      "PIPES",
+      "PIPED",
+      "PIPING"
+    ],
+    "clues": [
+      {
+        "word": "DREAM",
+        "connection": "Pipe dream"
+      },
+      {
+        "word": "BAG",
+        "connection": "Bagpipes"
+      },
+      {
+        "word": "LINE",
+        "connection": "Pipeline"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Pipe down"
+      },
+      {
+        "word": "SMOKING",
+        "connection": "Smoking pipe"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "sourcePool": "futureDaily",
+    "answer": "BELT",
+    "acceptedAnswers": [
+      "BELT",
+      "BELTS",
+      "BELTED"
+    ],
+    "clues": [
+      {
+        "word": "RUST",
+        "connection": "Rust Belt"
+      },
+      {
+        "word": "BIBLE",
+        "connection": "Bible Belt"
+      },
+      {
+        "word": "BLACK",
+        "connection": "Black belt"
+      },
+      {
+        "word": "SEAT",
+        "connection": "Seat belt"
+      },
+      {
+        "word": "BUCKLE",
+        "connection": "Belt buckle"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "sourcePool": "futureDaily",
+    "answer": "CAP",
+    "acceptedAnswers": [
+      "CAP",
+      "CAPS",
+      "CAPPED",
+      "CAPPING"
+    ],
+    "clues": [
+      {
+        "word": "BOTTLE",
+        "connection": "Bottle cap"
+      },
+      {
+        "word": "KNEE",
+        "connection": "Kneecap"
+      },
+      {
+        "word": "ICE",
+        "connection": "Ice cap"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "HANDI",
+        "connection": "Handicap"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "sourcePool": "futureDaily",
+    "answer": "BLOCK",
+    "acceptedAnswers": [
+      "BLOCK",
+      "BLOCKS",
+      "BLOCKED",
+      "BLOCKING"
+    ],
+    "clues": [
+      {
+        "word": "WRITER",
+        "connection": "Writer's block"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Roadblock"
+      },
+      {
+        "word": "CHIP",
+        "connection": "Chip off the old block"
+      },
+      {
+        "word": "MENTAL",
+        "connection": "Mental block"
+      },
+      {
+        "word": "BUILDING",
+        "connection": "Building block"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "sourcePool": "futureDaily",
+    "answer": "ROPE",
+    "acceptedAnswers": [
+      "ROPE",
+      "ROPES",
+      "ROPED"
+    ],
+    "clues": [
+      {
+        "word": "SHOW",
+        "connection": "Show someone the ropes"
+      },
+      {
+        "word": "TIGHT",
+        "connection": "Tightrope"
+      },
+      {
+        "word": "SKIP",
+        "connection": "Skipping rope"
+      },
+      {
+        "word": "JUMP",
+        "connection": "Jump rope"
+      },
+      {
+        "word": "TUG",
+        "connection": "Tug of war rope"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "sourcePool": "futureDaily",
+    "answer": "PLUG",
+    "acceptedAnswers": [
+      "PLUG",
+      "PLUGS",
+      "PLUGGED",
+      "PLUGGING"
+    ],
+    "clues": [
+      {
+        "word": "PULL",
+        "connection": "Pull the plug"
+      },
+      {
+        "word": "SPARK",
+        "connection": "Spark plug"
+      },
+      {
+        "word": "EAR",
+        "connection": "Earplug"
+      },
+      {
+        "word": "BATH",
+        "connection": "Bath plug"
+      },
+      {
+        "word": "ELECTRIC",
+        "connection": "Electric plug"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "sourcePool": "futureDaily",
+    "answer": "CARD",
+    "acceptedAnswers": [
+      "CARD",
+      "CARDS",
+      "CARDED"
+    ],
+    "clues": [
+      {
+        "word": "WILD",
+        "connection": "Wildcard"
+      },
+      {
+        "word": "POST",
+        "connection": "Postcard"
+      },
+      {
+        "word": "SCORE",
+        "connection": "Scorecard"
+      },
+      {
+        "word": "REPORT",
+        "connection": "Report card"
+      },
+      {
+        "word": "PLAYING",
+        "connection": "Playing card"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "sourcePool": "futureDaily",
+    "answer": "CAN",
+    "acceptedAnswers": [
+      "CAN",
+      "CANS",
+      "CANNED",
+      "CANNING"
+    ],
+    "clues": [
+      {
+        "word": "WORMS",
+        "connection": "Can of worms"
+      },
+      {
+        "word": "TRASH",
+        "connection": "Trash can"
+      },
+      {
+        "word": "WATERING",
+        "connection": "Watering can"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Spray can"
+      },
+      {
+        "word": "TIN",
+        "connection": "Tin can"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "sourcePool": "futureDaily",
+    "answer": "BED",
+    "acceptedAnswers": [
+      "BED",
+      "BEDS",
+      "BEDDED"
+    ],
+    "clues": [
+      {
+        "word": "HOT",
+        "connection": "Hotbed"
+      },
+      {
+        "word": "RIVER",
+        "connection": "Riverbed"
+      },
+      {
+        "word": "ROSE",
+        "connection": "Bed of roses"
+      },
+      {
+        "word": "BUG",
+        "connection": "Bed bug"
+      },
+      {
+        "word": "TIME",
+        "connection": "Bedtime"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "sourcePool": "futureDaily",
+    "answer": "CUT",
+    "acceptedAnswers": [
+      "CUT",
+      "CUTS",
+      "CUTTING"
+    ],
+    "clues": [
+      {
+        "word": "SHORT",
+        "connection": "Shortcut"
+      },
+      {
+        "word": "CLEAR",
+        "connection": "Clear cut"
+      },
+      {
+        "word": "TAX",
+        "connection": "Tax cut"
+      },
+      {
+        "word": "POWER",
+        "connection": "Power cut"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Paper cut"
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "sourcePool": "futureDaily",
+    "answer": "ROOM",
+    "acceptedAnswers": [
+      "ROOM",
+      "ROOMS",
+      "ROOMED"
+    ],
+    "clues": [
+      {
+        "word": "SHOW",
+        "connection": "Showroom"
+      },
+      {
+        "word": "ELBOW",
+        "connection": "Elbow room"
+      },
+      {
+        "word": "MUSH",
+        "connection": "Mushroom"
+      },
+      {
+        "word": "DARK",
+        "connection": "Darkroom"
+      },
+      {
+        "word": "CLASS",
+        "connection": "Classroom"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "sourcePool": "futureDaily",
+    "answer": "HOUSE",
+    "acceptedAnswers": [
+      "HOUSE",
+      "HOUSES",
+      "HOUSED",
+      "HOUSING"
+    ],
+    "clues": [
+      {
+        "word": "WARE",
+        "connection": "Warehouse"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full house"
+      },
+      {
+        "word": "DOG",
+        "connection": "Doghouse"
+      },
+      {
+        "word": "GREEN",
+        "connection": "Greenhouse"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firehouse"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "sourcePool": "futureDaily",
+    "answer": "LOCK",
+    "acceptedAnswers": [
+      "LOCK",
+      "LOCKS",
+      "LOCKED",
+      "LOCKING"
+    ],
+    "clues": [
+      {
+        "word": "GRID",
+        "connection": "Gridlock"
+      },
+      {
+        "word": "SMITH",
+        "connection": "Locksmith"
+      },
+      {
+        "word": "DEAD",
+        "connection": "Deadlock"
+      },
+      {
+        "word": "PAD",
+        "connection": "Padlock"
+      },
+      {
+        "word": "KEY",
+        "connection": "Lock and key"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "sourcePool": "futureDaily",
+    "answer": "FLOOR",
+    "acceptedAnswers": [
+      "FLOOR",
+      "FLOORS",
+      "FLOORED",
+      "FLOORING"
+    ],
+    "clues": [
+      {
+        "word": "DANCE",
+        "connection": "Dance floor"
+      },
+      {
+        "word": "GROUND",
+        "connection": "Ground floor"
+      },
+      {
+        "word": "BOARD",
+        "connection": "Floorboard"
+      },
+      {
+        "word": "PLAN",
+        "connection": "Floor plan"
+      },
+      {
+        "word": "SHOW",
+        "connection": "Showroom floor"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "sourcePool": "futureDaily",
+    "answer": "CHAIR",
+    "acceptedAnswers": [
+      "CHAIR",
+      "CHAIRS",
+      "CHAIRED"
+    ],
+    "clues": [
+      {
+        "word": "ELECTRIC",
+        "connection": "Electric chair"
+      },
+      {
+        "word": "ARM",
+        "connection": "Armchair"
+      },
+      {
+        "word": "HIGH",
+        "connection": "Highchair"
+      },
+      {
+        "word": "WHEEL",
+        "connection": "Wheelchair"
+      },
+      {
+        "word": "ROCKING",
+        "connection": "Rocking chair"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "sourcePool": "futureDaily",
+    "answer": "CLOCK",
+    "acceptedAnswers": [
+      "CLOCK",
+      "CLOCKS",
+      "CLOCKED",
+      "CLOCKING"
+    ],
+    "clues": [
+      {
+        "word": "BIO",
+        "connection": "Biological clock"
+      },
+      {
+        "word": "WISE",
+        "connection": "Clockwise"
+      },
+      {
+        "word": "ALARM",
+        "connection": "Alarm clock"
+      },
+      {
+        "word": "WORK",
+        "connection": "Clockwork"
+      },
+      {
+        "word": "TOWER",
+        "connection": "Clock tower"
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "sourcePool": "futureDaily",
+    "answer": "WINDOW",
+    "acceptedAnswers": [
+      "WINDOW",
+      "WINDOWS"
+    ],
+    "clues": [
+      {
+        "word": "OPPORTUNITY",
+        "connection": "Window of opportunity"
+      },
+      {
+        "word": "SHOP",
+        "connection": "Window shopping"
+      },
+      {
+        "word": "FRENCH",
+        "connection": "French windows"
+      },
+      {
+        "word": "LEDGE",
+        "connection": "Window ledge"
+      },
+      {
+        "word": "PANE",
+        "connection": "Window pane"
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "sourcePool": "futureDaily",
+    "answer": "POOL",
+    "acceptedAnswers": [
+      "POOL",
+      "POOLS",
+      "POOLED",
+      "POOLING"
+    ],
+    "clues": [
+      {
+        "word": "CAR",
+        "connection": "Carpool"
+      },
+      {
+        "word": "GENE",
+        "connection": "Gene pool"
+      },
+      {
+        "word": "DEAD",
+        "connection": "Deadpool"
+      },
+      {
+        "word": "TABLE",
+        "connection": "Pool table"
+      },
+      {
+        "word": "SWIMMING",
+        "connection": "Swimming pool"
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "sourcePool": "futureDaily",
+    "answer": "BAND",
+    "acceptedAnswers": [
+      "BAND",
+      "BANDS",
+      "BANDED"
+    ],
+    "clues": [
+      {
+        "word": "BROAD",
+        "connection": "Broadband"
+      },
+      {
+        "word": "RUBBER",
+        "connection": "Rubber band"
+      },
+      {
+        "word": "ARM",
+        "connection": "Armband"
+      },
+      {
+        "word": "WAGON",
+        "connection": "Bandwagon"
+      },
+      {
+        "word": "WEDDING",
+        "connection": "Wedding band"
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "sourcePool": "futureDaily",
+    "answer": "CARPET",
+    "acceptedAnswers": [
+      "CARPET",
+      "CARPETS",
+      "CARPETED"
+    ],
+    "clues": [
+      {
+        "word": "MAGIC",
+        "connection": "Magic carpet"
+      },
+      {
+        "word": "SWEEP",
+        "connection": "Sweep under the carpet"
+      },
+      {
+        "word": "BOMB",
+        "connection": "Carpet bomb"
+      },
+      {
+        "word": "RED",
+        "connection": "Red carpet"
+      },
+      {
+        "word": "FLOOR",
+        "connection": "Carpet on the floor"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "sourcePool": "futureDaily",
+    "answer": "MIRROR",
+    "acceptedAnswers": [
+      "MIRROR",
+      "MIRRORS",
+      "MIRRORED"
+    ],
+    "clues": [
+      {
+        "word": "SMOKE",
+        "connection": "Smoke and mirrors"
+      },
+      {
+        "word": "REAR",
+        "connection": "Rear-view mirror"
+      },
+      {
+        "word": "IMAGE",
+        "connection": "Mirror image"
+      },
+      {
+        "word": "WING",
+        "connection": "Wing mirror"
+      },
+      {
+        "word": "BATHROOM",
+        "connection": "Bathroom mirror"
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "sourcePool": "futureDaily",
+    "answer": "DRAW",
+    "acceptedAnswers": [
+      "DRAW",
+      "DRAWS",
+      "DREW",
+      "DRAWN",
+      "DRAWING"
+    ],
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "sourcePool": "futureDaily",
+    "answer": "RUN",
+    "acceptedAnswers": [
+      "RUN",
+      "RUNS",
+      "RUNNING",
+      "RAN"
+    ],
+    "clues": [
+      {
+        "word": "LONG",
+        "connection": "In the long run"
+      },
+      {
+        "word": "WAY",
+        "connection": "Runway"
+      },
+      {
+        "word": "HOME",
+        "connection": "Home run"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Run-down"
+      },
+      {
+        "word": "OUT",
+        "connection": "Run out"
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "sourcePool": "futureDaily",
+    "answer": "PLAY",
+    "acceptedAnswers": [
+      "PLAY",
+      "PLAYS",
+      "PLAYED",
+      "PLAYING"
+    ],
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horseplay"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Swordplay"
+      },
+      {
+        "word": "FAIR",
+        "connection": "Fair play"
+      },
+      {
+        "word": "FOUL",
+        "connection": "Foul play"
+      },
+      {
+        "word": "CHILD",
+        "connection": "Child's play"
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "sourcePool": "futureDaily",
+    "answer": "DRIVE",
+    "acceptedAnswers": [
+      "DRIVE",
+      "DRIVES",
+      "DROVE",
+      "DRIVEN",
+      "DRIVING"
+    ],
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Overdrive"
+      },
+      {
+        "word": "HARD",
+        "connection": "Hard drive"
+      },
+      {
+        "word": "TEST",
+        "connection": "Test drive"
+      },
+      {
+        "word": "WAY",
+        "connection": "Driveway"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Drive down the road"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "sourcePool": "futureDaily",
+    "answer": "PRESS",
+    "acceptedAnswers": [
+      "PRESS",
+      "PRESSED",
+      "PRESSING",
+      "PRESSES"
+    ],
+    "clues": [
+      {
+        "word": "BUTTON",
+        "connection": "Press a button"
+      },
+      {
+        "word": "IRON",
+        "connection": "Iron press"
+      },
+      {
+        "word": "DRILL",
+        "connection": "Drill press"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Pressed flower"
+      },
+      {
+        "word": "CONFERENCE",
+        "connection": "Press conference"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "sourcePool": "futureDaily",
+    "answer": "MARK",
+    "acceptedAnswers": [
+      "MARK",
+      "MARKS",
+      "MARKED",
+      "MARKING"
+    ],
+    "clues": [
+      {
+        "word": "HALL",
+        "connection": "Hallmark"
+      },
+      {
+        "word": "BOOK",
+        "connection": "Bookmark"
+      },
+      {
+        "word": "TRADE",
+        "connection": "Trademark"
+      },
+      {
+        "word": "QUESTION",
+        "connection": "Question mark"
+      },
+      {
+        "word": "TARGET",
+        "connection": "Hit the mark"
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "sourcePool": "futureDaily",
+    "answer": "HOLD",
+    "acceptedAnswers": [
+      "HOLD",
+      "HOLDS",
+      "HELD",
+      "HOLDING"
+    ],
+    "clues": [
+      {
+        "word": "UP",
+        "connection": "Hold-up"
+      },
+      {
+        "word": "STRONG",
+        "connection": "Stronghold"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Household"
+      },
+      {
+        "word": "FOOT",
+        "connection": "Foothold"
+      },
+      {
+        "word": "BREATH",
+        "connection": "Hold your breath"
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "sourcePool": "futureDaily",
+    "answer": "DROP",
+    "acceptedAnswers": [
+      "DROP",
+      "DROPS",
+      "DROPPED",
+      "DROPPING"
+    ],
+    "clues": [
+      {
+        "word": "NAME",
+        "connection": "Name-dropping"
+      },
+      {
+        "word": "BACK",
+        "connection": "Backdrop"
+      },
+      {
+        "word": "RAIN",
+        "connection": "Raindrop"
+      },
+      {
+        "word": "OUT",
+        "connection": "Drop out"
+      },
+      {
+        "word": "DEW",
+        "connection": "Dewdrop"
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "sourcePool": "futureDaily",
+    "answer": "CHARGE",
+    "acceptedAnswers": [
+      "CHARGE",
+      "CHARGES",
+      "CHARGED",
+      "CHARGING"
+    ],
+    "clues": [
+      {
+        "word": "DEPTH",
+        "connection": "Depth charge"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free of charge"
+      },
+      {
+        "word": "BATTERY",
+        "connection": "Charge a battery"
+      },
+      {
+        "word": "COVER",
+        "connection": "Cover charge"
+      },
+      {
+        "word": "CAVALRY",
+        "connection": "Cavalry charge"
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "sourcePool": "futureDaily",
+    "answer": "LAND",
+    "acceptedAnswers": [
+      "LAND",
+      "LANDS",
+      "LANDED",
+      "LANDING"
+    ],
+    "clues": [
+      {
+        "word": "WASTE",
+        "connection": "Wasteland"
+      },
+      {
+        "word": "DREAM",
+        "connection": "Dreamland"
+      },
+      {
+        "word": "MARK",
+        "connection": "Landmark"
+      },
+      {
+        "word": "LORD",
+        "connection": "Landlord"
+      },
+      {
+        "word": "PROMISED",
+        "connection": "Promised land"
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "sourcePool": "futureDaily",
+    "answer": "STAND",
+    "acceptedAnswers": [
+      "STAND",
+      "STANDS",
+      "STOOD",
+      "STANDING"
+    ],
+    "clues": [
+      {
+        "word": "GRAND",
+        "connection": "Grandstand"
+      },
+      {
+        "word": "BAND",
+        "connection": "Bandstand"
+      },
+      {
+        "word": "LAST",
+        "connection": "Last stand"
+      },
+      {
+        "word": "ONE",
+        "connection": "One-night stand"
+      },
+      {
+        "word": "TAXI",
+        "connection": "Taxi stand"
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "sourcePool": "futureDaily",
+    "answer": "STRIKE",
+    "acceptedAnswers": [
+      "STRIKE",
+      "STRIKES",
+      "STRUCK",
+      "STRIKING"
+    ],
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Strike gold"
+      },
+      {
+        "word": "BOWLING",
+        "connection": "Bowling strike"
+      },
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning strike"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airstrike"
+      },
+      {
+        "word": "MATCH",
+        "connection": "Strike a match"
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "sourcePool": "futureDaily",
+    "answer": "TURN",
+    "acceptedAnswers": [
+      "TURN",
+      "TURNS",
+      "TURNED",
+      "TURNING"
+    ],
+    "clues": [
+      {
+        "word": "TABLES",
+        "connection": "Turn the tables"
+      },
+      {
+        "word": "COAT",
+        "connection": "Turncoat"
+      },
+      {
+        "word": "AROUND",
+        "connection": "Turnaround"
+      },
+      {
+        "word": "U",
+        "connection": "U-turn"
+      },
+      {
+        "word": "LEFT",
+        "connection": "Turn left"
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "sourcePool": "futureDaily",
+    "answer": "SWING",
+    "acceptedAnswers": [
+      "SWING",
+      "SWINGS",
+      "SWUNG",
+      "SWINGING"
+    ],
+    "clues": [
+      {
+        "word": "MOOD",
+        "connection": "Mood swing"
+      },
+      {
+        "word": "FULL",
+        "connection": "In full swing"
+      },
+      {
+        "word": "VOTE",
+        "connection": "Swing vote"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Swinging door"
+      },
+      {
+        "word": "PORCH",
+        "connection": "Porch swing"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "sourcePool": "futureDaily",
+    "answer": "ROLL",
+    "acceptedAnswers": [
+      "ROLL",
+      "ROLLS",
+      "ROLLED",
+      "ROLLING"
+    ],
+    "clues": [
+      {
+        "word": "BARREL",
+        "connection": "Barrel roll"
+      },
+      {
+        "word": "HONOUR",
+        "connection": "Honour roll"
+      },
+      {
+        "word": "ROCK",
+        "connection": "Rock and roll"
+      },
+      {
+        "word": "BREAD",
+        "connection": "Bread roll"
+      },
+      {
+        "word": "DICE",
+        "connection": "Roll the dice"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "sourcePool": "futureDaily",
+    "answer": "SLIP",
+    "acceptedAnswers": [
+      "SLIP",
+      "SLIPS",
+      "SLIPPED",
+      "SLIPPING"
+    ],
+    "clues": [
+      {
+        "word": "FREUDIAN",
+        "connection": "Freudian slip"
+      },
+      {
+        "word": "PINK",
+        "connection": "Pink slip (fired)"
+      },
+      {
+        "word": "STREAM",
+        "connection": "Slipstream"
+      },
+      {
+        "word": "KNOT",
+        "connection": "Slipknot"
+      },
+      {
+        "word": "BANANA",
+        "connection": "Slip on a banana"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "sourcePool": "futureDaily",
+    "answer": "TRIP",
+    "acceptedAnswers": [
+      "TRIP",
+      "TRIPS",
+      "TRIPPED",
+      "TRIPPING"
+    ],
+    "clues": [
+      {
+        "word": "GUILT",
+        "connection": "Guilt trip"
+      },
+      {
+        "word": "EGO",
+        "connection": "Ego trip"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Road trip"
+      },
+      {
+        "word": "ROUND",
+        "connection": "Round trip"
+      },
+      {
+        "word": "FIELD",
+        "connection": "Field trip"
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "sourcePool": "futureDaily",
+    "answer": "BLOW",
+    "acceptedAnswers": [
+      "BLOW",
+      "BLOWS",
+      "BLEW",
+      "BLOWN",
+      "BLOWING"
+    ],
+    "clues": [
+      {
+        "word": "WHISTLE",
+        "connection": "Whistleblower"
+      },
+      {
+        "word": "MIND",
+        "connection": "Mind-blowing"
+      },
+      {
+        "word": "SNOW",
+        "connection": "Snowblower"
+      },
+      {
+        "word": "OVER",
+        "connection": "Blow over"
+      },
+      {
+        "word": "CANDLE",
+        "connection": "Blow out a candle"
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "sourcePool": "futureDaily",
+    "answer": "CATCH",
+    "acceptedAnswers": [
+      "CATCH",
+      "CATCHES",
+      "CAUGHT",
+      "CATCHING"
+    ],
+    "clues": [
+      {
+        "word": "TWENTY",
+        "connection": "Catch-22"
+      },
+      {
+        "word": "PHRASE",
+        "connection": "Catchphrase"
+      },
+      {
+        "word": "EYE",
+        "connection": "Eye-catching"
+      },
+      {
+        "word": "GOOD",
+        "connection": "Good catch"
+      },
+      {
+        "word": "BALL",
+        "connection": "Catch a ball"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "sourcePool": "futureDaily",
+    "answer": "SHOT",
+    "acceptedAnswers": [
+      "SHOT",
+      "SHOTS"
+    ],
+    "clues": [
+      {
+        "word": "LONG",
+        "connection": "Long shot"
+      },
+      {
+        "word": "BUCK",
+        "connection": "Buckshot"
+      },
+      {
+        "word": "SCREEN",
+        "connection": "Screenshot"
+      },
+      {
+        "word": "MUG",
+        "connection": "Mugshot"
+      },
+      {
+        "word": "GUN",
+        "connection": "Gunshot"
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "sourcePool": "futureDaily",
+    "answer": "LIFT",
+    "acceptedAnswers": [
+      "LIFT",
+      "LIFTS",
+      "LIFTED",
+      "LIFTING"
+    ],
+    "clues": [
+      {
+        "word": "SHOP",
+        "connection": "Shoplifting"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airlift"
+      },
+      {
+        "word": "FACE",
+        "connection": "Facelift"
+      },
+      {
+        "word": "SPIRIT",
+        "connection": "Lift your spirits"
+      },
+      {
+        "word": "SKI",
+        "connection": "Ski lift"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "sourcePool": "futureDaily",
+    "answer": "SPOT",
+    "acceptedAnswers": [
+      "SPOT",
+      "SPOTS",
+      "SPOTTED",
+      "SPOTTING"
+    ],
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunspot"
+      },
+      {
+        "word": "BLIND",
+        "connection": "Blind spot"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hotspot"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Spotlight"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet spot"
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "sourcePool": "futureDaily",
+    "answer": "DRAG",
+    "acceptedAnswers": [
+      "DRAG",
+      "DRAGS",
+      "DRAGGED",
+      "DRAGGING"
+    ],
+    "clues": [
+      {
+        "word": "QUEEN",
+        "connection": "Drag queen"
+      },
+      {
+        "word": "RACE",
+        "connection": "Drag race"
+      },
+      {
+        "word": "MAIN",
+        "connection": "Main drag"
+      },
+      {
+        "word": "NET",
+        "connection": "Dragnet"
+      },
+      {
+        "word": "FEET",
+        "connection": "Drag your feet"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "sourcePool": "futureDaily",
+    "answer": "SNAP",
+    "acceptedAnswers": [
+      "SNAP",
+      "SNAPS",
+      "SNAPPED",
+      "SNAPPING"
+    ],
+    "clues": [
+      {
+        "word": "GINGER",
+        "connection": "Gingersnap"
+      },
+      {
+        "word": "COLD",
+        "connection": "Cold snap"
+      },
+      {
+        "word": "CHAT",
+        "connection": "Snapchat"
+      },
+      {
+        "word": "DECISION",
+        "connection": "Snap decision"
+      },
+      {
+        "word": "FINGER",
+        "connection": "Snap your fingers"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "sourcePool": "futureDaily",
+    "answer": "BRICK",
+    "acceptedAnswers": [
+      "BRICK",
+      "BRICKS",
+      "BRICKED"
+    ],
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Gold brick (swindle)"
+      },
+      {
+        "word": "LAYER",
+        "connection": "Bricklayer"
+      },
+      {
+        "word": "WALL",
+        "connection": "Brick wall"
+      },
+      {
+        "word": "YELLOW",
+        "connection": "Yellow brick road"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Brick house"
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "sourcePool": "futureDaily",
+    "answer": "PUSH",
+    "acceptedAnswers": [
+      "PUSH",
+      "PUSHES",
+      "PUSHED",
+      "PUSHING"
+    ],
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Pushover"
+      },
+      {
+        "word": "UP",
+        "connection": "Push-up"
+      },
+      {
+        "word": "BUTTON",
+        "connection": "Push-button"
+      },
+      {
+        "word": "BACK",
+        "connection": "Pushback"
+      },
+      {
+        "word": "PRAM",
+        "connection": "Push a pram"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "sourcePool": "futureDaily",
+    "answer": "PULL",
+    "acceptedAnswers": [
+      "PULL",
+      "PULLS",
+      "PULLED",
+      "PULLING"
+    ],
+    "clues": [
+      {
+        "word": "HEART",
+        "connection": "Pull at heartstrings"
+      },
+      {
+        "word": "STRINGS",
+        "connection": "Pull strings"
+      },
+      {
+        "word": "PLUG",
+        "connection": "Pull the plug"
+      },
+      {
+        "word": "WEIGHT",
+        "connection": "Pull your weight"
+      },
+      {
+        "word": "TRIGGER",
+        "connection": "Pull the trigger"
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "sourcePool": "futureDaily",
+    "answer": "SET",
+    "acceptedAnswers": [
+      "SET",
+      "SETS",
+      "SETTING"
+    ],
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunset"
+      },
+      {
+        "word": "MIND",
+        "connection": "Mindset"
+      },
+      {
+        "word": "BACK",
+        "connection": "Setback"
+      },
+      {
+        "word": "UP",
+        "connection": "Setup"
+      },
+      {
+        "word": "CHESS",
+        "connection": "Chess set"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "sourcePool": "futureDaily",
+    "answer": "STICK",
+    "acceptedAnswers": [
+      "STICK",
+      "STICKS",
+      "STUCK",
+      "STICKING"
+    ],
+    "clues": [
+      {
+        "word": "LIP",
+        "connection": "Lipstick"
+      },
+      {
+        "word": "CHOP",
+        "connection": "Chopstick"
+      },
+      {
+        "word": "DRUM",
+        "connection": "Drumstick"
+      },
+      {
+        "word": "CANDLE",
+        "connection": "Candlestick"
+      },
+      {
+        "word": "HOCKEY",
+        "connection": "Hockey stick"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "sourcePool": "futureDaily",
+    "answer": "KICK",
+    "acceptedAnswers": [
+      "KICK",
+      "KICKS",
+      "KICKED",
+      "KICKING"
+    ],
+    "clues": [
+      {
+        "word": "SIDE",
+        "connection": "Sidekick"
+      },
+      {
+        "word": "BUCKET",
+        "connection": "Kick the bucket"
+      },
+      {
+        "word": "START",
+        "connection": "Kickstart"
+      },
+      {
+        "word": "PENALTY",
+        "connection": "Penalty kick"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free kick"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "sourcePool": "futureDaily",
+    "answer": "CRACK",
+    "acceptedAnswers": [
+      "CRACK",
+      "CRACKS",
+      "CRACKED",
+      "CRACKING"
+    ],
+    "clues": [
+      {
+        "word": "WISE",
+        "connection": "Wisecrack"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firecracker"
+      },
+      {
+        "word": "DAWN",
+        "connection": "Crack of dawn"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Crackdown"
+      },
+      {
+        "word": "NUT",
+        "connection": "Nutcracker"
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "sourcePool": "futureDaily",
+    "answer": "SLIDE",
+    "acceptedAnswers": [
+      "SLIDE",
+      "SLIDES",
+      "SLID",
+      "SLIDING"
+    ],
+    "clues": [
+      {
+        "word": "LAND",
+        "connection": "Landslide"
+      },
+      {
+        "word": "HAIR",
+        "connection": "Hair slide"
+      },
+      {
+        "word": "WATER",
+        "connection": "Waterslide"
+      },
+      {
+        "word": "POWER",
+        "connection": "PowerPoint slide"
+      },
+      {
+        "word": "PLAY",
+        "connection": "Playground slide"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "sourcePool": "futureDaily",
+    "answer": "SPIN",
+    "acceptedAnswers": [
+      "SPIN",
+      "SPINS",
+      "SPUN",
+      "SPINNING"
+    ],
+    "clues": [
+      {
+        "word": "TAIL",
+        "connection": "Tailspin"
+      },
+      {
+        "word": "DOCTOR",
+        "connection": "Spin doctor"
+      },
+      {
+        "word": "OFF",
+        "connection": "Spin-off"
+      },
+      {
+        "word": "WHEEL",
+        "connection": "Spinning wheel"
+      },
+      {
+        "word": "TOP",
+        "connection": "Spinning top"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "sourcePool": "futureDaily",
+    "answer": "WRAP",
+    "acceptedAnswers": [
+      "WRAP",
+      "WRAPS",
+      "WRAPPED",
+      "WRAPPING"
+    ],
+    "clues": [
+      {
+        "word": "SHRINK",
+        "connection": "Shrink-wrap"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Under wraps"
+      },
+      {
+        "word": "GIFT",
+        "connection": "Gift wrap"
+      },
+      {
+        "word": "BUBBLE",
+        "connection": "Bubble wrap"
+      },
+      {
+        "word": "CHRISTMAS",
+        "connection": "Christmas wrapping paper"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "sourcePool": "futureDaily",
+    "answer": "FENCE",
+    "acceptedAnswers": [
+      "FENCE",
+      "FENCES",
+      "FENCED",
+      "FENCING"
+    ],
+    "clues": [
+      {
+        "word": "SITTING",
+        "connection": "Sitting on the fence"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Fencing (the sport)"
+      },
+      {
+        "word": "PICKET",
+        "connection": "Picket fence"
+      },
+      {
+        "word": "GARDEN",
+        "connection": "Garden fence"
+      },
+      {
+        "word": "POST",
+        "connection": "Fence post"
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "sourcePool": "futureDaily",
+    "answer": "TICK",
+    "acceptedAnswers": [
+      "TICK",
+      "TICKS",
+      "TICKED",
+      "TICKING"
+    ],
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Clock ticking"
+      },
+      {
+        "word": "BOMB",
+        "connection": "Ticking time bomb"
+      },
+      {
+        "word": "OFF",
+        "connection": "Tick someone off"
+      },
+      {
+        "word": "BOX",
+        "connection": "Tick the box"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Tick or cross"
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "sourcePool": "futureDaily",
+    "answer": "TAP",
+    "acceptedAnswers": [
+      "TAP",
+      "TAPS",
+      "TAPPED",
+      "TAPPING"
+    ],
+    "clues": [
+      {
+        "word": "WIRE",
+        "connection": "Wiretap"
+      },
+      {
+        "word": "DANCE",
+        "connection": "Tap dance"
+      },
+      {
+        "word": "SHOULDER",
+        "connection": "Tap on the shoulder"
+      },
+      {
+        "word": "BEER",
+        "connection": "Beer on tap"
+      },
+      {
+        "word": "WATER",
+        "connection": "Tap water"
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "sourcePool": "futureDaily",
+    "answer": "DASH",
+    "acceptedAnswers": [
+      "DASH",
+      "DASHES",
+      "DASHED",
+      "DASHING"
+    ],
+    "clues": [
+      {
+        "word": "HOPES",
+        "connection": "Dash someone's hopes"
+      },
+      {
+        "word": "BOARD",
+        "connection": "Dashboard"
+      },
+      {
+        "word": "HUNDRED",
+        "connection": "Hundred-metre dash"
+      },
+      {
+        "word": "DOOR",
+        "connection": "DoorDash"
+      },
+      {
+        "word": "SALT",
+        "connection": "A dash of salt"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "sourcePool": "futureDaily",
+    "answer": "SWEEP",
+    "acceptedAnswers": [
+      "SWEEP",
+      "SWEEPS",
+      "SWEPT",
+      "SWEEPING"
+    ],
+    "clues": [
+      {
+        "word": "CLEAN",
+        "connection": "Clean sweep"
+      },
+      {
+        "word": "CHIMNEY",
+        "connection": "Chimney sweep"
+      },
+      {
+        "word": "MINE",
+        "connection": "Minesweeper"
+      },
+      {
+        "word": "STAKE",
+        "connection": "Sweepstakes"
+      },
+      {
+        "word": "FLOOR",
+        "connection": "Sweep the floor"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "sourcePool": "futureDaily",
+    "answer": "DEAL",
+    "acceptedAnswers": [
+      "DEAL",
+      "DEALS",
+      "DEALT",
+      "DEALING"
+    ],
+    "clues": [
+      {
+        "word": "WHEEL",
+        "connection": "Wheel and deal"
+      },
+      {
+        "word": "RAW",
+        "connection": "Raw deal"
+      },
+      {
+        "word": "BIG",
+        "connection": "Big deal"
+      },
+      {
+        "word": "NEW",
+        "connection": "New Deal"
+      },
+      {
+        "word": "CARDS",
+        "connection": "Deal the cards"
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "sourcePool": "futureDaily",
+    "answer": "COLD",
+    "acceptedAnswers": [
+      "COLD",
+      "COLDER",
+      "COLDEST"
+    ],
+    "clues": [
+      {
+        "word": "SHOULDER",
+        "connection": "Cold shoulder"
+      },
+      {
+        "word": "CASE",
+        "connection": "Cold case"
+      },
+      {
+        "word": "FEET",
+        "connection": "Cold feet"
+      },
+      {
+        "word": "TURKEY",
+        "connection": "Cold turkey"
+      },
+      {
+        "word": "WAR",
+        "connection": "Cold War"
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "sourcePool": "futureDaily",
+    "answer": "HOT",
+    "acceptedAnswers": [
+      "HOT",
+      "HOTTER",
+      "HOTTEST"
+    ],
+    "clues": [
+      {
+        "word": "DOG",
+        "connection": "Hot dog"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Hot-headed"
+      },
+      {
+        "word": "POTATO",
+        "connection": "Hot potato"
+      },
+      {
+        "word": "ROD",
+        "connection": "Hot rod"
+      },
+      {
+        "word": "WATER",
+        "connection": "Hot water"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "sourcePool": "futureDaily",
+    "answer": "DEEP",
+    "acceptedAnswers": [
+      "DEEP",
+      "DEEPER",
+      "DEEPEST"
+    ],
+    "clues": [
+      {
+        "word": "SKIN",
+        "connection": "Skin deep"
+      },
+      {
+        "word": "STATE",
+        "connection": "Deep state"
+      },
+      {
+        "word": "END",
+        "connection": "Deep end"
+      },
+      {
+        "word": "FREEZE",
+        "connection": "Deep freeze"
+      },
+      {
+        "word": "SEA",
+        "connection": "Deep sea"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "sourcePool": "futureDaily",
+    "answer": "DARK",
+    "acceptedAnswers": [
+      "DARK",
+      "DARKER",
+      "DARKEST",
+      "DARKNESS"
+    ],
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Dark horse"
+      },
+      {
+        "word": "WEB",
+        "connection": "Dark web"
+      },
+      {
+        "word": "ROOM",
+        "connection": "Darkroom"
+      },
+      {
+        "word": "AGES",
+        "connection": "Dark Ages"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "After dark"
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "sourcePool": "futureDaily",
+    "answer": "WILD",
+    "acceptedAnswers": [
+      "WILD",
+      "WILDER",
+      "WILDEST"
+    ],
+    "clues": [
+      {
+        "word": "CARD",
+        "connection": "Wildcard"
+      },
+      {
+        "word": "GOOSE",
+        "connection": "Wild goose chase"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Wildfire"
+      },
+      {
+        "word": "WEST",
+        "connection": "Wild West"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Wildlife"
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "sourcePool": "futureDaily",
+    "answer": "LONG",
+    "acceptedAnswers": [
+      "LONG",
+      "LONGER",
+      "LONGEST"
+    ],
+    "clues": [
+      {
+        "word": "WINDED",
+        "connection": "Long-winded"
+      },
+      {
+        "word": "SHOT",
+        "connection": "Long shot"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Lifelong"
+      },
+      {
+        "word": "ISLAND",
+        "connection": "Long Island"
+      },
+      {
+        "word": "SLEEVE",
+        "connection": "Long sleeve"
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "sourcePool": "futureDaily",
+    "answer": "SHORT",
+    "acceptedAnswers": [
+      "SHORT",
+      "SHORTER",
+      "SHORTEST",
+      "SHORTS"
+    ],
+    "clues": [
+      {
+        "word": "SELL",
+        "connection": "Short sell"
+      },
+      {
+        "word": "CIRCUIT",
+        "connection": "Short circuit"
+      },
+      {
+        "word": "CHANGE",
+        "connection": "Shortchanged"
+      },
+      {
+        "word": "HAND",
+        "connection": "Shorthand"
+      },
+      {
+        "word": "CUT",
+        "connection": "Shortcut"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "sourcePool": "futureDaily",
+    "answer": "FLAT",
+    "acceptedAnswers": [
+      "FLAT",
+      "FLATS",
+      "FLATTEN"
+    ],
+    "clues": [
+      {
+        "word": "EARTH",
+        "connection": "Flat earther"
+      },
+      {
+        "word": "TYRE",
+        "connection": "Flat tyre"
+      },
+      {
+        "word": "LINE",
+        "connection": "Flatline"
+      },
+      {
+        "word": "MATE",
+        "connection": "Flatmate"
+      },
+      {
+        "word": "IRON",
+        "connection": "Flat iron"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "sourcePool": "futureDaily",
+    "answer": "COOL",
+    "acceptedAnswers": [
+      "COOL",
+      "COOLER",
+      "COOLEST",
+      "COOLED",
+      "COOLING"
+    ],
+    "clues": [
+      {
+        "word": "CUCUMBER",
+        "connection": "Cool as a cucumber"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Cooldown"
+      },
+      {
+        "word": "JAZZ",
+        "connection": "Cool jazz"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Cool-headed"
+      },
+      {
+        "word": "POOL",
+        "connection": "Cooling pool"
+      }
+    ]
+  },
+  {
+    "id": 169,
+    "sourcePool": "futureDaily",
+    "answer": "ROUGH",
+    "acceptedAnswers": [
+      "ROUGH",
+      "ROUGHER",
+      "ROUGHEST",
+      "ROUGHED"
+    ],
+    "clues": [
+      {
+        "word": "DIAMOND",
+        "connection": "Diamond in the rough"
+      },
+      {
+        "word": "DRAFT",
+        "connection": "Rough draft"
+      },
+      {
+        "word": "RIDER",
+        "connection": "Rough Riders"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Roughhouse"
+      },
+      {
+        "word": "PATCH",
+        "connection": "Rough patch"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "sourcePool": "futureDaily",
+    "answer": "SOFT",
+    "acceptedAnswers": [
+      "SOFT",
+      "SOFTER",
+      "SOFTEST"
+    ],
+    "clues": [
+      {
+        "word": "WARE",
+        "connection": "Software"
+      },
+      {
+        "word": "SPOT",
+        "connection": "Soft spot"
+      },
+      {
+        "word": "BALL",
+        "connection": "Softball"
+      },
+      {
+        "word": "SPOKEN",
+        "connection": "Soft-spoken"
+      },
+      {
+        "word": "SERVE",
+        "connection": "Soft serve (ice cream)"
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "sourcePool": "futureDaily",
+    "answer": "HARD",
+    "acceptedAnswers": [
+      "HARD",
+      "HARDER",
+      "HARDEST"
+    ],
+    "clues": [
+      {
+        "word": "DIE",
+        "connection": "Die Hard"
+      },
+      {
+        "word": "BALL",
+        "connection": "Hardball"
+      },
+      {
+        "word": "COPY",
+        "connection": "Hard copy"
+      },
+      {
+        "word": "CORE",
+        "connection": "Hardcore"
+      },
+      {
+        "word": "ROCK",
+        "connection": "Hard rock"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "sourcePool": "futureDaily",
+    "answer": "FINE",
+    "acceptedAnswers": [
+      "FINE",
+      "FINES",
+      "FINED",
+      "FINER",
+      "FINEST"
+    ],
+    "clues": [
+      {
+        "word": "TUNE",
+        "connection": "Fine-tune"
+      },
+      {
+        "word": "ART",
+        "connection": "Fine art"
+      },
+      {
+        "word": "PRINT",
+        "connection": "Fine print"
+      },
+      {
+        "word": "DINING",
+        "connection": "Fine dining"
+      },
+      {
+        "word": "WINE",
+        "connection": "Fine wine"
+      }
+    ]
+  },
+  {
+    "id": 173,
+    "sourcePool": "futureDaily",
+    "answer": "FAIR",
+    "acceptedAnswers": [
+      "FAIR",
+      "FAIRS",
+      "FAIRER",
+      "FAIREST"
+    ],
+    "clues": [
+      {
+        "word": "GROUND",
+        "connection": "Fairground"
+      },
+      {
+        "word": "WEATHER",
+        "connection": "Fair weather friend"
+      },
+      {
+        "word": "TRADE",
+        "connection": "Fair trade"
+      },
+      {
+        "word": "GAME",
+        "connection": "Fair game"
+      },
+      {
+        "word": "COUNTY",
+        "connection": "County fair"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "sourcePool": "futureDaily",
+    "answer": "FREE",
+    "acceptedAnswers": [
+      "FREE",
+      "FREED",
+      "FREEING"
+    ],
+    "clues": [
+      {
+        "word": "LANCE",
+        "connection": "Freelance"
+      },
+      {
+        "word": "RANGE",
+        "connection": "Free range"
+      },
+      {
+        "word": "LOAD",
+        "connection": "Freeloader"
+      },
+      {
+        "word": "STYLE",
+        "connection": "Freestyle"
+      },
+      {
+        "word": "FALL",
+        "connection": "Freefall"
+      }
+    ]
+  },
+  {
+    "id": 175,
+    "sourcePool": "futureDaily",
+    "answer": "OPEN",
+    "acceptedAnswers": [
+      "OPEN",
+      "OPENS",
+      "OPENED",
+      "OPENING"
+    ],
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Open book"
+      },
+      {
+        "word": "ENDED",
+        "connection": "Open-ended"
+      },
+      {
+        "word": "HEART",
+        "connection": "Open-hearted"
+      },
+      {
+        "word": "WIDE",
+        "connection": "Wide open"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Open door"
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "sourcePool": "futureDaily",
+    "answer": "CLOSE",
+    "acceptedAnswers": [
+      "CLOSE",
+      "CLOSES",
+      "CLOSED",
+      "CLOSING"
+    ],
+    "clues": [
+      {
+        "word": "CALL",
+        "connection": "Close call"
+      },
+      {
+        "word": "KNIT",
+        "connection": "Close-knit"
+      },
+      {
+        "word": "SHAVE",
+        "connection": "Close shave"
+      },
+      {
+        "word": "RANGE",
+        "connection": "Close range"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Close the door"
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "sourcePool": "futureDaily",
+    "answer": "CLEAR",
+    "acceptedAnswers": [
+      "CLEAR",
+      "CLEARS",
+      "CLEARED",
+      "CLEARING",
+      "CLEARER"
+    ],
+    "clues": [
+      {
+        "word": "COAST",
+        "connection": "Coast is clear"
+      },
+      {
+        "word": "CRYSTAL",
+        "connection": "Crystal clear"
+      },
+      {
+        "word": "CUT",
+        "connection": "Clear-cut"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Clear-headed"
+      },
+      {
+        "word": "SKY",
+        "connection": "Clear sky"
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "sourcePool": "futureDaily",
+    "answer": "THIN",
+    "acceptedAnswers": [
+      "THIN",
+      "THINNER",
+      "THINNEST"
+    ],
+    "clues": [
+      {
+        "word": "AIR",
+        "connection": "Thin air"
+      },
+      {
+        "word": "ICE",
+        "connection": "On thin ice"
+      },
+      {
+        "word": "WEAR",
+        "connection": "Wearing thin"
+      },
+      {
+        "word": "SKIN",
+        "connection": "Thin-skinned"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Paper thin"
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "sourcePool": "futureDaily",
+    "answer": "THICK",
+    "acceptedAnswers": [
+      "THICK",
+      "THICKER",
+      "THICKEST"
+    ],
+    "clues": [
+      {
+        "word": "BLOOD",
+        "connection": "Blood is thicker than water"
+      },
+      {
+        "word": "PLOT",
+        "connection": "The plot thickens"
+      },
+      {
+        "word": "SKIN",
+        "connection": "Thick-skinned"
+      },
+      {
+        "word": "THIEVES",
+        "connection": "Thick as thieves"
+      },
+      {
+        "word": "SKULL",
+        "connection": "Thick skull"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "sourcePool": "futureDaily",
+    "answer": "DOUBLE",
+    "acceptedAnswers": [
+      "DOUBLE",
+      "DOUBLES",
+      "DOUBLED",
+      "DOUBLING"
+    ],
+    "clues": [
+      {
+        "word": "TROUBLE",
+        "connection": "Double trouble"
+      },
+      {
+        "word": "DUTCH",
+        "connection": "Double Dutch"
+      },
+      {
+        "word": "TAKE",
+        "connection": "Double take"
+      },
+      {
+        "word": "EDGE",
+        "connection": "Double-edged sword"
+      },
+      {
+        "word": "AGENT",
+        "connection": "Double agent"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "sourcePool": "futureDaily",
+    "answer": "SINGLE",
+    "acceptedAnswers": [
+      "SINGLE",
+      "SINGLES",
+      "SINGLED"
+    ],
+    "clues": [
+      {
+        "word": "HANDED",
+        "connection": "Single-handedly"
+      },
+      {
+        "word": "MINDED",
+        "connection": "Single-minded"
+      },
+      {
+        "word": "OUT",
+        "connection": "Single out"
+      },
+      {
+        "word": "FILE",
+        "connection": "Single file"
+      },
+      {
+        "word": "MALT",
+        "connection": "Single malt"
+      }
+    ]
+  },
+  {
+    "id": 182,
+    "sourcePool": "futureDaily",
+    "answer": "SPARE",
+    "acceptedAnswers": [
+      "SPARE",
+      "SPARES",
+      "SPARED",
+      "SPARING"
+    ],
+    "clues": [
+      {
+        "word": "BOWLING",
+        "connection": "Bowling spare"
+      },
+      {
+        "word": "RIB",
+        "connection": "Spare rib"
+      },
+      {
+        "word": "ROOM",
+        "connection": "Spare room"
+      },
+      {
+        "word": "CHANGE",
+        "connection": "Spare change"
+      },
+      {
+        "word": "TYRE",
+        "connection": "Spare tyre"
+      }
+    ]
+  },
+  {
+    "id": 183,
+    "sourcePool": "futureDaily",
+    "answer": "BLANK",
+    "acceptedAnswers": [
+      "BLANK",
+      "BLANKS",
+      "BLANKED"
+    ],
+    "clues": [
+      {
+        "word": "POINT",
+        "connection": "Point blank"
+      },
+      {
+        "word": "DRAW",
+        "connection": "Draw a blank"
+      },
+      {
+        "word": "CANVAS",
+        "connection": "Blank canvas"
+      },
+      {
+        "word": "SPACE",
+        "connection": "Blank space"
+      },
+      {
+        "word": "CHEQUE",
+        "connection": "Blank cheque"
+      }
+    ]
+  },
+  {
+    "id": 184,
+    "sourcePool": "futureDaily",
+    "answer": "RAW",
+    "acceptedAnswers": [
+      "RAW",
+      "RAWER",
+      "RAWEST"
+    ],
+    "clues": [
+      {
+        "word": "DEAL",
+        "connection": "Raw deal"
+      },
+      {
+        "word": "NERVE",
+        "connection": "Raw nerve"
+      },
+      {
+        "word": "MATERIAL",
+        "connection": "Raw material"
+      },
+      {
+        "word": "TALENT",
+        "connection": "Raw talent"
+      },
+      {
+        "word": "FISH",
+        "connection": "Raw fish (sushi)"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "sourcePool": "futureDaily",
+    "answer": "STRAIGHT",
+    "acceptedAnswers": [
+      "STRAIGHT",
+      "STRAIGHTER",
+      "STRAIGHTEST"
+    ],
+    "clues": [
+      {
+        "word": "NARROW",
+        "connection": "Straight and narrow"
+      },
+      {
+        "word": "JACKET",
+        "connection": "Straitjacket"
+      },
+      {
+        "word": "FACE",
+        "connection": "Straight-faced"
+      },
+      {
+        "word": "FORWARD",
+        "connection": "Straightforward"
+      },
+      {
+        "word": "LINE",
+        "connection": "Straight line"
+      }
+    ]
+  },
+  {
+    "id": 186,
+    "sourcePool": "futureDaily",
+    "answer": "ROUND",
+    "acceptedAnswers": [
+      "ROUND",
+      "ROUNDS",
+      "ROUNDED",
+      "ROUNDING"
+    ],
+    "clues": [
+      {
+        "word": "MERRY",
+        "connection": "Merry-go-round"
+      },
+      {
+        "word": "ABOUT",
+        "connection": "Roundabout"
+      },
+      {
+        "word": "TABLE",
+        "connection": "Round table"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Round trip"
+      },
+      {
+        "word": "BOXING",
+        "connection": "Boxing round"
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "sourcePool": "futureDaily",
+    "answer": "SQUARE",
+    "acceptedAnswers": [
+      "SQUARE",
+      "SQUARES",
+      "SQUARED"
+    ],
+    "clues": [
+      {
+        "word": "BACK",
+        "connection": "Back to square one"
+      },
+      {
+        "word": "ROOT",
+        "connection": "Square root"
+      },
+      {
+        "word": "MEAL",
+        "connection": "Square meal"
+      },
+      {
+        "word": "TIME",
+        "connection": "Times Square"
+      },
+      {
+        "word": "PEG",
+        "connection": "Square peg in a round hole"
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "sourcePool": "futureDaily",
+    "answer": "NARROW",
+    "acceptedAnswers": [
+      "NARROW",
+      "NARROWS",
+      "NARROWED",
+      "NARROWING"
+    ],
+    "clues": [
+      {
+        "word": "ESCAPE",
+        "connection": "Narrow escape"
+      },
+      {
+        "word": "STRAIGHT",
+        "connection": "Straight and narrow"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Narrow down"
+      },
+      {
+        "word": "BOAT",
+        "connection": "Narrowboat"
+      },
+      {
+        "word": "MINDED",
+        "connection": "Narrow-minded"
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "sourcePool": "futureDaily",
+    "answer": "LEVEL",
+    "acceptedAnswers": [
+      "LEVEL",
+      "LEVELS",
+      "LEVELLED",
+      "LEVELLING"
+    ],
+    "clues": [
+      {
+        "word": "SPIRIT",
+        "connection": "Spirit level"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Level-headed"
+      },
+      {
+        "word": "ENTRY",
+        "connection": "Entry level"
+      },
+      {
+        "word": "PLAYING",
+        "connection": "Level playing field"
+      },
+      {
+        "word": "SEA",
+        "connection": "Sea level"
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "sourcePool": "futureDaily",
+    "answer": "HORSE",
+    "acceptedAnswers": [
+      "HORSE",
+      "HORSES"
+    ],
+    "clues": [
+      {
+        "word": "SEA",
+        "connection": "Seahorse"
+      },
+      {
+        "word": "DARK",
+        "connection": "Dark horse"
+      },
+      {
+        "word": "POWER",
+        "connection": "Horsepower"
+      },
+      {
+        "word": "TROJAN",
+        "connection": "Trojan horse"
+      },
+      {
+        "word": "SHOE",
+        "connection": "Horseshoe"
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "sourcePool": "futureDaily",
+    "answer": "DOG",
+    "acceptedAnswers": [
+      "DOG",
+      "DOGS",
+      "DOGGED"
+    ],
+    "clues": [
+      {
+        "word": "UNDER",
+        "connection": "Underdog"
+      },
+      {
+        "word": "TOP",
+        "connection": "Top dog"
+      },
+      {
+        "word": "BULL",
+        "connection": "Bulldog"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hot dog"
+      },
+      {
+        "word": "WATCH",
+        "connection": "Watchdog"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "sourcePool": "futureDaily",
+    "answer": "CAT",
+    "acceptedAnswers": [
+      "CAT",
+      "CATS"
+    ],
+    "clues": [
+      {
+        "word": "COPY",
+        "connection": "Copycat"
+      },
+      {
+        "word": "TOM",
+        "connection": "Tomcat"
+      },
+      {
+        "word": "WILD",
+        "connection": "Wildcat"
+      },
+      {
+        "word": "NAP",
+        "connection": "Catnap"
+      },
+      {
+        "word": "FISH",
+        "connection": "Catfish"
+      }
+    ]
+  },
+  {
+    "id": 193,
+    "sourcePool": "futureDaily",
+    "answer": "FISH",
+    "acceptedAnswers": [
+      "FISH",
+      "FISHES",
+      "FISHED",
+      "FISHING"
+    ],
+    "clues": [
+      {
+        "word": "SWORD",
+        "connection": "Swordfish"
+      },
+      {
+        "word": "BLOW",
+        "connection": "Blowfish"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Goldfish"
+      },
+      {
+        "word": "STAR",
+        "connection": "Starfish"
+      },
+      {
+        "word": "JELLY",
+        "connection": "Jellyfish"
+      }
+    ]
+  },
+  {
+    "id": 194,
+    "sourcePool": "futureDaily",
+    "answer": "BIRD",
+    "acceptedAnswers": [
+      "BIRD",
+      "BIRDS"
+    ],
+    "clues": [
+      {
+        "word": "EARLY",
+        "connection": "Early bird"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladybird"
+      },
+      {
+        "word": "THUNDER",
+        "connection": "Thunderbird"
+      },
+      {
+        "word": "BLACK",
+        "connection": "Blackbird"
+      },
+      {
+        "word": "SONG",
+        "connection": "Birdsong"
+      }
+    ]
+  },
+  {
+    "id": 195,
+    "sourcePool": "futureDaily",
+    "answer": "BEAR",
+    "acceptedAnswers": [
+      "BEAR",
+      "BEARS",
+      "BORE",
+      "BORNE",
+      "BEARING"
+    ],
+    "clues": [
+      {
+        "word": "FRUIT",
+        "connection": "Bear fruit"
+      },
+      {
+        "word": "GRUDGE",
+        "connection": "Bear a grudge"
+      },
+      {
+        "word": "POLAR",
+        "connection": "Polar bear"
+      },
+      {
+        "word": "TEDDY",
+        "connection": "Teddy bear"
+      },
+      {
+        "word": "HUG",
+        "connection": "Bear hug"
+      }
+    ]
+  },
+  {
+    "id": 196,
+    "sourcePool": "futureDaily",
+    "answer": "BULL",
+    "acceptedAnswers": [
+      "BULL",
+      "BULLS"
+    ],
+    "clues": [
+      {
+        "word": "PIT",
+        "connection": "Pit bull"
+      },
+      {
+        "word": "HORN",
+        "connection": "Bullhorn"
+      },
+      {
+        "word": "EYE",
+        "connection": "Bull's-eye"
+      },
+      {
+        "word": "RED",
+        "connection": "Red rag to a bull"
+      },
+      {
+        "word": "MARKET",
+        "connection": "Bull market"
+      }
+    ]
+  },
+  {
+    "id": 197,
+    "sourcePool": "futureDaily",
+    "answer": "FLY",
+    "acceptedAnswers": [
+      "FLY",
+      "FLIES",
+      "FLEW",
+      "FLOWN",
+      "FLYING"
+    ],
+    "clues": [
+      {
+        "word": "BUTTER",
+        "connection": "Butterfly"
+      },
+      {
+        "word": "BAR",
+        "connection": "Barfly"
+      },
+      {
+        "word": "DRAGON",
+        "connection": "Dragonfly"
+      },
+      {
+        "word": "WHEEL",
+        "connection": "Flywheel"
+      },
+      {
+        "word": "FISHING",
+        "connection": "Fly-fishing"
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "sourcePool": "futureDaily",
+    "answer": "FOX",
+    "acceptedAnswers": [
+      "FOX",
+      "FOXES",
+      "FOXED"
+    ],
+    "clues": [
+      {
+        "word": "OUT",
+        "connection": "Outfox"
+      },
+      {
+        "word": "TROT",
+        "connection": "Foxtrot"
+      },
+      {
+        "word": "SILVER",
+        "connection": "Silver fox"
+      },
+      {
+        "word": "HOLE",
+        "connection": "Foxhole"
+      },
+      {
+        "word": "CUB",
+        "connection": "Fox cub"
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "sourcePool": "futureDaily",
+    "answer": "BUG",
+    "acceptedAnswers": [
+      "BUG",
+      "BUGS",
+      "BUGGED",
+      "BUGGING"
+    ],
+    "clues": [
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning bug"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladybug"
+      },
+      {
+        "word": "PHONE",
+        "connection": "Phone bug (listening device)"
+      },
+      {
+        "word": "BED",
+        "connection": "Bed bug"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Bug spray"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "sourcePool": "futureDaily",
+    "answer": "DUCK",
+    "acceptedAnswers": [
+      "DUCK",
+      "DUCKS",
+      "DUCKED",
+      "DUCKING"
+    ],
+    "clues": [
+      {
+        "word": "LAME",
+        "connection": "Lame duck"
+      },
+      {
+        "word": "SITTING",
+        "connection": "Sitting duck"
+      },
+      {
+        "word": "UGLY",
+        "connection": "Ugly duckling"
+      },
+      {
+        "word": "DONALD",
+        "connection": "Donald Duck"
+      },
+      {
+        "word": "RUBBER",
+        "connection": "Rubber duck"
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "sourcePool": "futureDaily",
+    "answer": "WOLF",
+    "acceptedAnswers": [
+      "WOLF",
+      "WOLVES"
+    ],
+    "clues": [
+      {
+        "word": "LONE",
+        "connection": "Lone wolf"
+      },
+      {
+        "word": "SHEEP",
+        "connection": "Wolf in sheep's clothing"
+      },
+      {
+        "word": "CRY",
+        "connection": "Cry wolf"
+      },
+      {
+        "word": "WERE",
+        "connection": "Werewolf"
+      },
+      {
+        "word": "PACK",
+        "connection": "Wolf pack"
+      }
+    ]
+  },
+  {
+    "id": 202,
+    "sourcePool": "futureDaily",
+    "answer": "MOUSE",
+    "acceptedAnswers": [
+      "MOUSE",
+      "MICE"
+    ],
+    "clues": [
+      {
+        "word": "QUIET",
+        "connection": "Quiet as a mouse"
+      },
+      {
+        "word": "TRAP",
+        "connection": "Mousetrap"
+      },
+      {
+        "word": "PAD",
+        "connection": "Mouse pad"
+      },
+      {
+        "word": "MICKEY",
+        "connection": "Mickey Mouse"
+      },
+      {
+        "word": "COMPUTER",
+        "connection": "Computer mouse"
+      }
+    ]
+  },
+  {
+    "id": 203,
+    "sourcePool": "futureDaily",
+    "answer": "CROW",
+    "acceptedAnswers": [
+      "CROW",
+      "CROWS",
+      "CROWED"
+    ],
+    "clues": [
+      {
+        "word": "SCARE",
+        "connection": "Scarecrow"
+      },
+      {
+        "word": "BAR",
+        "connection": "Crowbar"
+      },
+      {
+        "word": "FEET",
+        "connection": "Crow's feet (wrinkles)"
+      },
+      {
+        "word": "FLIES",
+        "connection": "As the crow flies"
+      },
+      {
+        "word": "ROOSTER",
+        "connection": "Rooster crows"
+      }
+    ]
+  },
+  {
+    "id": 204,
+    "sourcePool": "futureDaily",
+    "answer": "SNAKE",
+    "acceptedAnswers": [
+      "SNAKE",
+      "SNAKES",
+      "SNAKED",
+      "SNAKING"
+    ],
+    "clues": [
+      {
+        "word": "RATTLE",
+        "connection": "Rattlesnake"
+      },
+      {
+        "word": "GRASS",
+        "connection": "Snake in the grass"
+      },
+      {
+        "word": "CHARMER",
+        "connection": "Snake charmer"
+      },
+      {
+        "word": "LADDER",
+        "connection": "Snakes and ladders"
+      },
+      {
+        "word": "BITE",
+        "connection": "Snake bite"
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "sourcePool": "futureDaily",
+    "answer": "HAWK",
+    "acceptedAnswers": [
+      "HAWK",
+      "HAWKS",
+      "HAWKED",
+      "HAWKING"
+    ],
+    "clues": [
+      {
+        "word": "WAR",
+        "connection": "War hawk"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Nighthawk"
+      },
+      {
+        "word": "MO",
+        "connection": "Mohawk"
+      },
+      {
+        "word": "TONY",
+        "connection": "Tony Hawk"
+      },
+      {
+        "word": "EYE",
+        "connection": "Hawk-eye"
+      }
+    ]
+  },
+  {
+    "id": 206,
+    "sourcePool": "futureDaily",
+    "answer": "MONKEY",
+    "acceptedAnswers": [
+      "MONKEY",
+      "MONKEYS"
+    ],
+    "clues": [
+      {
+        "word": "WRENCH",
+        "connection": "Monkey wrench"
+      },
+      {
+        "word": "BUSINESS",
+        "connection": "Monkey business"
+      },
+      {
+        "word": "BARS",
+        "connection": "Monkey bars"
+      },
+      {
+        "word": "SPIDER",
+        "connection": "Spider monkey"
+      },
+      {
+        "word": "BRASS",
+        "connection": "Brass monkey"
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "sourcePool": "futureDaily",
+    "answer": "WORM",
+    "acceptedAnswers": [
+      "WORM",
+      "WORMS",
+      "WORMED"
+    ],
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Bookworm"
+      },
+      {
+        "word": "GLOW",
+        "connection": "Glowworm"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silkworm"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Earthworm"
+      },
+      {
+        "word": "CAN",
+        "connection": "Can of worms"
+      }
+    ]
+  },
+  {
+    "id": 208,
+    "sourcePool": "futureDaily",
+    "answer": "GUARD",
+    "acceptedAnswers": [
+      "GUARD",
+      "GUARDS",
+      "GUARDED",
+      "GUARDING"
+    ],
+    "clues": [
+      {
+        "word": "BODY",
+        "connection": "Bodyguard"
+      },
+      {
+        "word": "OFF",
+        "connection": "Off guard"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Lifeguard"
+      },
+      {
+        "word": "OLD",
+        "connection": "Old guard"
+      },
+      {
+        "word": "MOUTH",
+        "connection": "Mouthguard"
+      }
+    ]
+  },
+  {
+    "id": 209,
+    "sourcePool": "futureDaily",
+    "answer": "LAMB",
+    "acceptedAnswers": [
+      "LAMB",
+      "LAMBS"
+    ],
+    "clues": [
+      {
+        "word": "SILENCE",
+        "connection": "Silence of the Lambs"
+      },
+      {
+        "word": "GENTLE",
+        "connection": "Gentle as a lamb"
+      },
+      {
+        "word": "CHOP",
+        "connection": "Lamb chop"
+      },
+      {
+        "word": "SPRING",
+        "connection": "Spring lamb"
+      },
+      {
+        "word": "MARY",
+        "connection": "Mary had a little lamb"
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "sourcePool": "futureDaily",
+    "answer": "BLACK",
+    "acceptedAnswers": [
+      "BLACK",
+      "BLACKS",
+      "BLACKED"
+    ],
+    "clues": [
+      {
+        "word": "SMITH",
+        "connection": "Blacksmith"
+      },
+      {
+        "word": "MARKET",
+        "connection": "Black market"
+      },
+      {
+        "word": "SHEEP",
+        "connection": "Black sheep"
+      },
+      {
+        "word": "OUT",
+        "connection": "Blackout"
+      },
+      {
+        "word": "BIRD",
+        "connection": "Blackbird"
+      }
+    ]
+  },
+  {
+    "id": 211,
+    "sourcePool": "futureDaily",
+    "answer": "WHITE",
+    "acceptedAnswers": [
+      "WHITE",
+      "WHITES"
+    ],
+    "clues": [
+      {
+        "word": "WASH",
+        "connection": "Whitewash"
+      },
+      {
+        "word": "COLLAR",
+        "connection": "White collar"
+      },
+      {
+        "word": "NOISE",
+        "connection": "White noise"
+      },
+      {
+        "word": "FLAG",
+        "connection": "White flag"
+      },
+      {
+        "word": "EGG",
+        "connection": "Egg white"
+      }
+    ]
+  },
+  {
+    "id": 212,
+    "sourcePool": "futureDaily",
+    "answer": "RED",
+    "acceptedAnswers": [
+      "RED",
+      "REDS"
+    ],
+    "clues": [
+      {
+        "word": "HERRING",
+        "connection": "Red herring"
+      },
+      {
+        "word": "TAPE",
+        "connection": "Red tape"
+      },
+      {
+        "word": "CARPET",
+        "connection": "Red carpet"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Red Cross"
+      },
+      {
+        "word": "CARD",
+        "connection": "Red card"
+      }
+    ]
+  },
+  {
+    "id": 213,
+    "sourcePool": "futureDaily",
+    "answer": "BLUE",
+    "acceptedAnswers": [
+      "BLUE",
+      "BLUES"
+    ],
+    "clues": [
+      {
+        "word": "PRINT",
+        "connection": "Blueprint"
+      },
+      {
+        "word": "COLLAR",
+        "connection": "Blue collar"
+      },
+      {
+        "word": "CHIP",
+        "connection": "Blue chip"
+      },
+      {
+        "word": "TOOTH",
+        "connection": "Bluetooth"
+      },
+      {
+        "word": "SKY",
+        "connection": "Blue sky"
+      }
+    ]
+  },
+  {
+    "id": 214,
+    "sourcePool": "futureDaily",
+    "answer": "GREEN",
+    "acceptedAnswers": [
+      "GREEN",
+      "GREENS",
+      "GREENER"
+    ],
+    "clues": [
+      {
+        "word": "EVER",
+        "connection": "Evergreen"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Greenhouse"
+      },
+      {
+        "word": "THUMB",
+        "connection": "Green thumb"
+      },
+      {
+        "word": "CARD",
+        "connection": "Green card"
+      },
+      {
+        "word": "GRASS",
+        "connection": "Green grass"
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "sourcePool": "futureDaily",
+    "answer": "SILVER",
+    "acceptedAnswers": [
+      "SILVER",
+      "SILVERS"
+    ],
+    "clues": [
+      {
+        "word": "QUICK",
+        "connection": "Quicksilver"
+      },
+      {
+        "word": "LINING",
+        "connection": "Silver lining"
+      },
+      {
+        "word": "BULLET",
+        "connection": "Silver bullet"
+      },
+      {
+        "word": "SCREEN",
+        "connection": "Silver screen"
+      },
+      {
+        "word": "TONGUE",
+        "connection": "Silver tongue"
+      }
+    ]
+  },
+  {
+    "id": 216,
+    "sourcePool": "futureDaily",
+    "answer": "GOLD",
+    "acceptedAnswers": [
+      "GOLD",
+      "GOLDS",
+      "GOLDEN"
+    ],
+    "clues": [
+      {
+        "word": "MARI",
+        "connection": "Marigold"
+      },
+      {
+        "word": "MINE",
+        "connection": "Gold mine"
+      },
+      {
+        "word": "RUSH",
+        "connection": "Gold rush"
+      },
+      {
+        "word": "STANDARD",
+        "connection": "Gold standard"
+      },
+      {
+        "word": "FISH",
+        "connection": "Goldfish"
+      }
+    ]
+  },
+  {
+    "id": 217,
+    "sourcePool": "futureDaily",
+    "answer": "COPPER",
+    "acceptedAnswers": [
+      "COPPER",
+      "COPPERS"
+    ],
+    "clues": [
+      {
+        "word": "SLANG",
+        "connection": "Copper (slang for police)"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Copperhead (snake)"
+      },
+      {
+        "word": "FIELD",
+        "connection": "Copperfield (David)"
+      },
+      {
+        "word": "WIRE",
+        "connection": "Copper wire"
+      },
+      {
+        "word": "PENNY",
+        "connection": "Copper penny"
+      }
+    ]
+  },
+  {
+    "id": 218,
+    "sourcePool": "futureDaily",
+    "answer": "STEEL",
+    "acceptedAnswers": [
+      "STEEL",
+      "STEELS",
+      "STEELED"
+    ],
+    "clues": [
+      {
+        "word": "NERVES",
+        "connection": "Nerves of steel"
+      },
+      {
+        "word": "STAINLESS",
+        "connection": "Stainless steel"
+      },
+      {
+        "word": "DRUM",
+        "connection": "Steel drum"
+      },
+      {
+        "word": "WOOL",
+        "connection": "Steel wool"
+      },
+      {
+        "word": "BEAM",
+        "connection": "Steel beam"
+      }
+    ]
+  },
+  {
+    "id": 219,
+    "sourcePool": "futureDaily",
+    "answer": "LEAD",
+    "acceptedAnswers": [
+      "LEAD",
+      "LEADS",
+      "LED",
+      "LEADING"
+    ],
+    "clues": [
+      {
+        "word": "PENCIL",
+        "connection": "Lead pencil"
+      },
+      {
+        "word": "BALLOON",
+        "connection": "Lead balloon"
+      },
+      {
+        "word": "ROLE",
+        "connection": "Lead role"
+      },
+      {
+        "word": "PIPE",
+        "connection": "Lead pipe"
+      },
+      {
+        "word": "SINGER",
+        "connection": "Lead singer"
+      }
+    ]
+  },
+  {
+    "id": 220,
+    "sourcePool": "futureDaily",
+    "answer": "TOAST",
+    "acceptedAnswers": [
+      "TOAST",
+      "TOASTS",
+      "TOASTED",
+      "TOASTING"
+    ],
+    "clues": [
+      {
+        "word": "FRENCH",
+        "connection": "French toast"
+      },
+      {
+        "word": "TOWN",
+        "connection": "Toast of the town"
+      },
+      {
+        "word": "CHAMPAGNE",
+        "connection": "Raise a toast"
+      },
+      {
+        "word": "BUTTER",
+        "connection": "Buttered toast"
+      },
+      {
+        "word": "BURNT",
+        "connection": "Burnt toast"
+      }
+    ]
+  },
+  {
+    "id": 221,
+    "sourcePool": "futureDaily",
+    "answer": "CAKE",
+    "acceptedAnswers": [
+      "CAKE",
+      "CAKES",
+      "CAKED"
+    ],
+    "clues": [
+      {
+        "word": "CUP",
+        "connection": "Cupcake"
+      },
+      {
+        "word": "PIECE",
+        "connection": "Piece of cake"
+      },
+      {
+        "word": "PAN",
+        "connection": "Pancake"
+      },
+      {
+        "word": "CHEESE",
+        "connection": "Cheesecake"
+      },
+      {
+        "word": "BIRTHDAY",
+        "connection": "Birthday cake"
+      }
+    ]
+  },
+  {
+    "id": 222,
+    "sourcePool": "futureDaily",
+    "answer": "CREAM",
+    "acceptedAnswers": [
+      "CREAM",
+      "CREAMS",
+      "CREAMED",
+      "CREAMY"
+    ],
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Suncream"
+      },
+      {
+        "word": "CROP",
+        "connection": "Cream of the crop"
+      },
+      {
+        "word": "SOUR",
+        "connection": "Sour cream"
+      },
+      {
+        "word": "ICE",
+        "connection": "Ice cream"
+      },
+      {
+        "word": "WHIPPED",
+        "connection": "Whipped cream"
+      }
+    ]
+  },
+  {
+    "id": 223,
+    "sourcePool": "futureDaily",
+    "answer": "SUGAR",
+    "acceptedAnswers": [
+      "SUGAR",
+      "SUGARS",
+      "SUGARED",
+      "SUGARY"
+    ],
+    "clues": [
+      {
+        "word": "COAT",
+        "connection": "Sugarcoat"
+      },
+      {
+        "word": "CANE",
+        "connection": "Sugar cane"
+      },
+      {
+        "word": "DADDY",
+        "connection": "Sugar daddy"
+      },
+      {
+        "word": "CUBE",
+        "connection": "Sugar cube"
+      },
+      {
+        "word": "BROWN",
+        "connection": "Brown sugar"
+      }
+    ]
+  },
+  {
+    "id": 224,
+    "sourcePool": "futureDaily",
+    "answer": "SALT",
+    "acceptedAnswers": [
+      "SALT",
+      "SALTS",
+      "SALTED",
+      "SALTY"
+    ],
+    "clues": [
+      {
+        "word": "WOUND",
+        "connection": "Rub salt in the wound"
+      },
+      {
+        "word": "GRAIN",
+        "connection": "Take with a grain of salt"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Salt of the earth"
+      },
+      {
+        "word": "LAKE",
+        "connection": "Salt lake"
+      },
+      {
+        "word": "PEPPER",
+        "connection": "Salt and pepper"
+      }
+    ]
+  },
+  {
+    "id": 225,
+    "sourcePool": "futureDaily",
+    "answer": "PEPPER",
+    "acceptedAnswers": [
+      "PEPPER",
+      "PEPPERS",
+      "PEPPERED"
+    ],
+    "clues": [
+      {
+        "word": "SERGEANT",
+        "connection": "Sgt. Pepper's"
+      },
+      {
+        "word": "CORN",
+        "connection": "Peppercorn"
+      },
+      {
+        "word": "MINT",
+        "connection": "Peppermint"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Pepper spray"
+      },
+      {
+        "word": "SALT",
+        "connection": "Salt and pepper"
+      }
+    ]
+  },
+  {
+    "id": 226,
+    "sourcePool": "futureDaily",
+    "answer": "NUT",
+    "acceptedAnswers": [
+      "NUT",
+      "NUTS",
+      "NUTTY"
+    ],
+    "clues": [
+      {
+        "word": "TOUGH",
+        "connection": "Tough nut to crack"
+      },
+      {
+        "word": "SHELL",
+        "connection": "Nutshell"
+      },
+      {
+        "word": "DOUGH",
+        "connection": "Doughnut"
+      },
+      {
+        "word": "COCO",
+        "connection": "Coconut"
+      },
+      {
+        "word": "BOLT",
+        "connection": "Nut and bolt"
+      }
+    ]
+  },
+  {
+    "id": 227,
+    "sourcePool": "futureDaily",
+    "answer": "BEAN",
+    "acceptedAnswers": [
+      "BEAN",
+      "BEANS"
+    ],
+    "clues": [
+      {
+        "word": "SPILL",
+        "connection": "Spill the beans"
+      },
+      {
+        "word": "JELLY",
+        "connection": "Jelly bean"
+      },
+      {
+        "word": "COFFEE",
+        "connection": "Coffee bean"
+      },
+      {
+        "word": "RUNNER",
+        "connection": "Runner bean"
+      },
+      {
+        "word": "MR",
+        "connection": "Mr. Bean"
+      }
+    ]
+  },
+  {
+    "id": 228,
+    "sourcePool": "futureDaily",
+    "answer": "FRUIT",
+    "acceptedAnswers": [
+      "FRUIT",
+      "FRUITS",
+      "FRUITED",
+      "FRUITY"
+    ],
+    "clues": [
+      {
+        "word": "FORBIDDEN",
+        "connection": "Forbidden fruit"
+      },
+      {
+        "word": "GRAPE",
+        "connection": "Grapefruit"
+      },
+      {
+        "word": "PASSION",
+        "connection": "Passion fruit"
+      },
+      {
+        "word": "BASKET",
+        "connection": "Fruit basket"
+      },
+      {
+        "word": "SALAD",
+        "connection": "Fruit salad"
+      }
+    ]
+  },
+  {
+    "id": 229,
+    "sourcePool": "futureDaily",
+    "answer": "JUICE",
+    "acceptedAnswers": [
+      "JUICE",
+      "JUICES",
+      "JUICED",
+      "JUICY"
+    ],
+    "clues": [
+      {
+        "word": "CREATIVE",
+        "connection": "Creative juices"
+      },
+      {
+        "word": "STEW",
+        "connection": "Stew in your own juices"
+      },
+      {
+        "word": "LEMON",
+        "connection": "Lemon juice"
+      },
+      {
+        "word": "ORANGE",
+        "connection": "Orange juice"
+      },
+      {
+        "word": "APPLE",
+        "connection": "Apple juice"
+      }
+    ]
+  },
+  {
+    "id": 230,
+    "sourcePool": "futureDaily",
+    "answer": "HONEY",
+    "acceptedAnswers": [
+      "HONEY",
+      "HONEYS"
+    ],
+    "clues": [
+      {
+        "word": "MOON",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "TRAP",
+        "connection": "Honeytrap"
+      },
+      {
+        "word": "COMB",
+        "connection": "Honeycomb"
+      },
+      {
+        "word": "BEE",
+        "connection": "Honeybee"
+      },
+      {
+        "word": "POT",
+        "connection": "Honey pot"
+      }
+    ]
+  },
+  {
+    "id": 231,
+    "sourcePool": "futureDaily",
+    "answer": "CHERRY",
+    "acceptedAnswers": [
+      "CHERRY",
+      "CHERRIES"
+    ],
+    "clues": [
+      {
+        "word": "PICK",
+        "connection": "Cherry-pick"
+      },
+      {
+        "word": "TOP",
+        "connection": "Cherry on top"
+      },
+      {
+        "word": "BLOSSOM",
+        "connection": "Cherry blossom"
+      },
+      {
+        "word": "BOMB",
+        "connection": "Cherry bomb"
+      },
+      {
+        "word": "PIE",
+        "connection": "Cherry pie"
+      }
+    ]
+  },
+  {
+    "id": 232,
+    "sourcePool": "futureDaily",
+    "answer": "APPLE",
+    "acceptedAnswers": [
+      "APPLE",
+      "APPLES"
+    ],
+    "clues": [
+      {
+        "word": "ADAM",
+        "connection": "Adam's apple"
+      },
+      {
+        "word": "BIG",
+        "connection": "Big Apple (New York)"
+      },
+      {
+        "word": "PINE",
+        "connection": "Pineapple"
+      },
+      {
+        "word": "EYE",
+        "connection": "Apple of my eye"
+      },
+      {
+        "word": "PIE",
+        "connection": "Apple pie"
+      }
+    ]
+  },
+  {
+    "id": 233,
+    "sourcePool": "futureDaily",
+    "answer": "LEMON",
+    "acceptedAnswers": [
+      "LEMON",
+      "LEMONS"
+    ],
+    "clues": [
+      {
+        "word": "LIFE",
+        "connection": "When life gives you lemons"
+      },
+      {
+        "word": "ADE",
+        "connection": "Lemonade"
+      },
+      {
+        "word": "DROP",
+        "connection": "Lemon drop"
+      },
+      {
+        "word": "SQUEEZE",
+        "connection": "Squeeze a lemon"
+      },
+      {
+        "word": "ZEST",
+        "connection": "Lemon zest"
+      }
+    ]
+  },
+  {
+    "id": 234,
+    "sourcePool": "futureDaily",
+    "answer": "TIME",
+    "acceptedAnswers": [
+      "TIME",
+      "TIMES",
+      "TIMED",
+      "TIMING"
+    ],
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Overtime"
+      },
+      {
+        "word": "BED",
+        "connection": "Bedtime"
+      },
+      {
+        "word": "HALF",
+        "connection": "Halftime"
+      },
+      {
+        "word": "BOMB",
+        "connection": "Time bomb"
+      },
+      {
+        "word": "OUT",
+        "connection": "Timeout"
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "sourcePool": "futureDaily",
+    "answer": "NIGHT",
+    "acceptedAnswers": [
+      "NIGHT",
+      "NIGHTS",
+      "NIGHTLY"
+    ],
+    "clues": [
+      {
+        "word": "FORT",
+        "connection": "Fortnight"
+      },
+      {
+        "word": "MID",
+        "connection": "Midnight"
+      },
+      {
+        "word": "MARE",
+        "connection": "Nightmare"
+      },
+      {
+        "word": "CAP",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "OWL",
+        "connection": "Night owl"
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "sourcePool": "futureDaily",
+    "answer": "DAY",
+    "acceptedAnswers": [
+      "DAY",
+      "DAYS"
+    ],
+    "clues": [
+      {
+        "word": "BIRTH",
+        "connection": "Birthday"
+      },
+      {
+        "word": "EVERY",
+        "connection": "Everyday"
+      },
+      {
+        "word": "HOL",
+        "connection": "Holiday"
+      },
+      {
+        "word": "RAINY",
+        "connection": "Rainy day"
+      },
+      {
+        "word": "BREAK",
+        "connection": "Daybreak"
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "sourcePool": "futureDaily",
+    "answer": "POWER",
+    "acceptedAnswers": [
+      "POWER",
+      "POWERS",
+      "POWERED",
+      "POWERFUL"
+    ],
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horsepower"
+      },
+      {
+        "word": "MAN",
+        "connection": "Manpower"
+      },
+      {
+        "word": "WILL",
+        "connection": "Willpower"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower power"
+      },
+      {
+        "word": "STATION",
+        "connection": "Power station"
+      }
+    ]
+  },
+  {
+    "id": 238,
+    "sourcePool": "futureDaily",
+    "answer": "WORK",
+    "acceptedAnswers": [
+      "WORK",
+      "WORKS",
+      "WORKED",
+      "WORKING"
+    ],
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Clockwork"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Fireworks"
+      },
+      {
+        "word": "TEAM",
+        "connection": "Teamwork"
+      },
+      {
+        "word": "NET",
+        "connection": "Network"
+      },
+      {
+        "word": "HOME",
+        "connection": "Homework"
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "sourcePool": "futureDaily",
+    "answer": "SHOW",
+    "acceptedAnswers": [
+      "SHOW",
+      "SHOWS",
+      "SHOWED",
+      "SHOWING"
+    ],
+    "clues": [
+      {
+        "word": "SIDE",
+        "connection": "Sideshow"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Roadshow"
+      },
+      {
+        "word": "SLIDE",
+        "connection": "Slideshow"
+      },
+      {
+        "word": "TALK",
+        "connection": "Talk show"
+      },
+      {
+        "word": "GAME",
+        "connection": "Game show"
+      }
+    ]
+  },
+  {
+    "id": 240,
+    "sourcePool": "futureDaily",
+    "answer": "STOP",
+    "acceptedAnswers": [
+      "STOP",
+      "STOPS",
+      "STOPPED",
+      "STOPPING"
+    ],
+    "clues": [
+      {
+        "word": "NON",
+        "connection": "Non-stop"
+      },
+      {
+        "word": "BACK",
+        "connection": "Backstop"
+      },
+      {
+        "word": "PIT",
+        "connection": "Pit stop"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Doorstop"
+      },
+      {
+        "word": "BUS",
+        "connection": "Bus stop"
+      }
+    ]
+  },
+  {
+    "id": 241,
+    "sourcePool": "futureDaily",
+    "answer": "SIGN",
+    "acceptedAnswers": [
+      "SIGN",
+      "SIGNS",
+      "SIGNED",
+      "SIGNING"
+    ],
+    "clues": [
+      {
+        "word": "VITAL",
+        "connection": "Vital signs"
+      },
+      {
+        "word": "CALL",
+        "connection": "Call sign"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Road sign"
+      },
+      {
+        "word": "STAR",
+        "connection": "Star sign"
+      },
+      {
+        "word": "STOP",
+        "connection": "Stop sign"
+      }
+    ]
+  },
+  {
+    "id": 242,
+    "sourcePool": "futureDaily",
+    "answer": "NOTE",
+    "acceptedAnswers": [
+      "NOTE",
+      "NOTES",
+      "NOTED"
+    ],
+    "clues": [
+      {
+        "word": "FOOT",
+        "connection": "Footnote"
+      },
+      {
+        "word": "KEY",
+        "connection": "Keynote"
+      },
+      {
+        "word": "WORTHY",
+        "connection": "Noteworthy"
+      },
+      {
+        "word": "STICKY",
+        "connection": "Sticky note"
+      },
+      {
+        "word": "MUSIC",
+        "connection": "Musical note"
+      }
+    ]
+  },
+  {
+    "id": 243,
+    "sourcePool": "futureDaily",
+    "answer": "GAME",
+    "acceptedAnswers": [
+      "GAME",
+      "GAMES",
+      "GAMED",
+      "GAMING"
+    ],
+    "clues": [
+      {
+        "word": "END",
+        "connection": "Endgame"
+      },
+      {
+        "word": "NAME",
+        "connection": "The name of the game"
+      },
+      {
+        "word": "BLAME",
+        "connection": "Blame game"
+      },
+      {
+        "word": "BOARD",
+        "connection": "Board game"
+      },
+      {
+        "word": "FAIR",
+        "connection": "Fair game"
+      }
+    ]
+  },
+  {
+    "id": 244,
+    "sourcePool": "futureDaily",
+    "answer": "LOVE",
+    "acceptedAnswers": [
+      "LOVE",
+      "LOVES",
+      "LOVED",
+      "LOVING"
+    ],
+    "clues": [
+      {
+        "word": "PUPPY",
+        "connection": "Puppy love"
+      },
+      {
+        "word": "TOUGH",
+        "connection": "Tough love"
+      },
+      {
+        "word": "SEAT",
+        "connection": "Loveseat"
+      },
+      {
+        "word": "LETTER",
+        "connection": "Love letter"
+      },
+      {
+        "word": "TENNIS",
+        "connection": "Love (tennis zero)"
+      }
+    ]
+  },
+  {
+    "id": 245,
+    "sourcePool": "futureDaily",
+    "answer": "ROAD",
+    "acceptedAnswers": [
+      "ROAD",
+      "ROADS"
+    ],
+    "clues": [
+      {
+        "word": "CROSS",
+        "connection": "Crossroads"
+      },
+      {
+        "word": "RAIL",
+        "connection": "Railroad"
+      },
+      {
+        "word": "BLOCK",
+        "connection": "Roadblock"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silk Road"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Road trip"
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "sourcePool": "futureDaily",
+    "answer": "BOAT",
+    "acceptedAnswers": [
+      "BOAT",
+      "BOATS",
+      "BOATED",
+      "BOATING"
+    ],
+    "clues": [
+      {
+        "word": "SAME",
+        "connection": "In the same boat"
+      },
+      {
+        "word": "DREAM",
+        "connection": "Dreamboat"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Lifeboat"
+      },
+      {
+        "word": "GRAVY",
+        "connection": "Gravy boat"
+      },
+      {
+        "word": "SAIL",
+        "connection": "Sailboat"
+      }
+    ]
+  },
+  {
+    "id": 247,
+    "sourcePool": "futureDaily",
+    "answer": "SHIP",
+    "acceptedAnswers": [
+      "SHIP",
+      "SHIPS",
+      "SHIPPED",
+      "SHIPPING"
+    ],
+    "clues": [
+      {
+        "word": "WORK",
+        "connection": "Workmanship"
+      },
+      {
+        "word": "OWNER",
+        "connection": "Ownership"
+      },
+      {
+        "word": "FLAG",
+        "connection": "Flagship"
+      },
+      {
+        "word": "BATTLE",
+        "connection": "Battleship"
+      },
+      {
+        "word": "ROCKET",
+        "connection": "Rocket ship"
+      }
+    ]
+  },
+  {
+    "id": 248,
+    "sourcePool": "futureDaily",
+    "answer": "PORT",
+    "acceptedAnswers": [
+      "PORT",
+      "PORTS"
+    ],
+    "clues": [
+      {
+        "word": "PASS",
+        "connection": "Passport"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airport"
+      },
+      {
+        "word": "STORM",
+        "connection": "Any port in a storm"
+      },
+      {
+        "word": "WINE",
+        "connection": "Port wine"
+      },
+      {
+        "word": "DOCK",
+        "connection": "Port dock"
+      }
+    ]
+  },
+  {
+    "id": 249,
+    "sourcePool": "futureDaily",
+    "answer": "TRAIN",
+    "acceptedAnswers": [
+      "TRAIN",
+      "TRAINS",
+      "TRAINED",
+      "TRAINING"
+    ],
+    "clues": [
+      {
+        "word": "THOUGHT",
+        "connection": "Train of thought"
+      },
+      {
+        "word": "GRAVY",
+        "connection": "Gravy train"
+      },
+      {
+        "word": "BRAIN",
+        "connection": "Brain training"
+      },
+      {
+        "word": "WRECK",
+        "connection": "Train wreck"
+      },
+      {
+        "word": "STATION",
+        "connection": "Train station"
+      }
+    ]
+  },
+  {
+    "id": 250,
+    "sourcePool": "futureDaily",
+    "answer": "RACE",
+    "acceptedAnswers": [
+      "RACE",
+      "RACES",
+      "RACED",
+      "RACING"
+    ],
+    "clues": [
+      {
+        "word": "RAT",
+        "connection": "Rat race"
+      },
+      {
+        "word": "ARMS",
+        "connection": "Arms race"
+      },
+      {
+        "word": "DRAG",
+        "connection": "Drag race"
+      },
+      {
+        "word": "HORSE",
+        "connection": "Horse race"
+      },
+      {
+        "word": "HUMAN",
+        "connection": "Human race"
+      }
+    ]
+  },
+  {
+    "id": 251,
+    "sourcePool": "futureDaily",
+    "answer": "WAR",
+    "acceptedAnswers": [
+      "WAR",
+      "WARS"
+    ],
+    "clues": [
+      {
+        "word": "TUG",
+        "connection": "Tug of war"
+      },
+      {
+        "word": "COLD",
+        "connection": "Cold war"
+      },
+      {
+        "word": "STAR",
+        "connection": "Star Wars"
+      },
+      {
+        "word": "ZONE",
+        "connection": "War zone"
+      },
+      {
+        "word": "WORLD",
+        "connection": "World war"
+      }
+    ]
+  },
+  {
+    "id": 252,
+    "sourcePool": "futureDaily",
+    "answer": "FIRE",
+    "acceptedAnswers": [
+      "FIRE",
+      "FIRES",
+      "FIRED",
+      "FIRING"
+    ],
+    "clues": [
+      {
+        "word": "HELL",
+        "connection": "Hellfire"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Crossfire"
+      },
+      {
+        "word": "SURE",
+        "connection": "Surefire"
+      },
+      {
+        "word": "RAPID",
+        "connection": "Rapid fire"
+      },
+      {
+        "word": "CEASE",
+        "connection": "Ceasefire"
+      }
+    ]
+  },
+  {
+    "id": 253,
+    "sourcePool": "futureDaily",
+    "answer": "WATER",
+    "acceptedAnswers": [
+      "WATER",
+      "WATERS",
+      "WATERED",
+      "WATERING"
+    ],
+    "clues": [
+      {
+        "word": "BREAK",
+        "connection": "Breakwater"
+      },
+      {
+        "word": "MARK",
+        "connection": "Watermark"
+      },
+      {
+        "word": "MUDDY",
+        "connection": "Muddy the waters"
+      },
+      {
+        "word": "FALL",
+        "connection": "Waterfall"
+      },
+      {
+        "word": "DEEP",
+        "connection": "Deep water"
+      }
+    ]
+  },
+  {
+    "id": 254,
+    "sourcePool": "futureDaily",
+    "answer": "EDGE",
+    "acceptedAnswers": [
+      "EDGE",
+      "EDGES",
+      "EDGED",
+      "EDGING"
+    ],
+    "clues": [
+      {
+        "word": "CUTTING",
+        "connection": "Cutting edge"
+      },
+      {
+        "word": "RAZOR",
+        "connection": "Razor's edge"
+      },
+      {
+        "word": "WATER",
+        "connection": "Water's edge"
+      },
+      {
+        "word": "KNIFE",
+        "connection": "Knife edge"
+      },
+      {
+        "word": "CLIFF",
+        "connection": "Cliff edge"
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "sourcePool": "futureDaily",
+    "answer": "CORE",
+    "acceptedAnswers": [
+      "CORE",
+      "CORES",
+      "CORED"
+    ],
+    "clues": [
+      {
+        "word": "HARD",
+        "connection": "Hardcore"
+      },
+      {
+        "word": "VALUES",
+        "connection": "Core values"
+      },
+      {
+        "word": "APPLE",
+        "connection": "Apple core"
+      },
+      {
+        "word": "ROTTEN",
+        "connection": "Rotten to the core"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Earth's core"
+      }
+    ]
+  },
+  {
+    "id": 256,
+    "sourcePool": "futureDaily",
+    "answer": "TOWER",
+    "acceptedAnswers": [
+      "TOWER",
+      "TOWERS",
+      "TOWERED",
+      "TOWERING"
+    ],
+    "clues": [
+      {
+        "word": "IVORY",
+        "connection": "Ivory tower"
+      },
+      {
+        "word": "EIFFEL",
+        "connection": "Eiffel Tower"
+      },
+      {
+        "word": "CONTROL",
+        "connection": "Control tower"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock tower"
+      },
+      {
+        "word": "WATER",
+        "connection": "Water tower"
+      }
+    ]
+  },
+  {
+    "id": 257,
+    "sourcePool": "futureDaily",
+    "answer": "SHADOW",
+    "acceptedAnswers": [
+      "SHADOW",
+      "SHADOWS",
+      "SHADOWED",
+      "SHADOWING"
+    ],
+    "clues": [
+      {
+        "word": "FIVE",
+        "connection": "Five o'clock shadow"
+      },
+      {
+        "word": "EYE",
+        "connection": "Eye shadow"
+      },
+      {
+        "word": "CABINET",
+        "connection": "Shadow cabinet"
+      },
+      {
+        "word": "PUPPET",
+        "connection": "Shadow puppet"
+      },
+      {
+        "word": "CAST",
+        "connection": "Cast a shadow"
+      }
+    ]
+  },
+  {
+    "id": 258,
+    "sourcePool": "futureDaily",
+    "answer": "POCKET",
+    "acceptedAnswers": [
+      "POCKET",
+      "POCKETS",
+      "POCKETED"
+    ],
+    "clues": [
+      {
+        "word": "PICK",
+        "connection": "Pickpocket"
+      },
+      {
+        "word": "AIR",
+        "connection": "Air pocket"
+      },
+      {
+        "word": "DEEP",
+        "connection": "Deep pockets"
+      },
+      {
+        "word": "POOL",
+        "connection": "Pool pocket"
+      },
+      {
+        "word": "WATCH",
+        "connection": "Pocket watch"
+      }
+    ]
+  },
+  {
+    "id": 259,
+    "sourcePool": "futureDaily",
+    "answer": "PATCH",
+    "acceptedAnswers": [
+      "PATCH",
+      "PATCHES",
+      "PATCHED",
+      "PATCHING"
+    ],
+    "clues": [
+      {
+        "word": "ROUGH",
+        "connection": "Rough patch"
+      },
+      {
+        "word": "EYE",
+        "connection": "Eye patch"
+      },
+      {
+        "word": "NICOTINE",
+        "connection": "Nicotine patch"
+      },
+      {
+        "word": "CABBAGE",
+        "connection": "Cabbage patch"
+      },
+      {
+        "word": "PUMPKIN",
+        "connection": "Pumpkin patch"
+      }
+    ]
+  },
+  {
+    "id": 260,
+    "sourcePool": "futureDaily",
+    "answer": "WATCH",
+    "acceptedAnswers": [
+      "WATCH",
+      "WATCHES",
+      "WATCHED",
+      "WATCHING"
+    ],
+    "clues": [
+      {
+        "word": "BIRD",
+        "connection": "Birdwatching"
+      },
+      {
+        "word": "DOG",
+        "connection": "Watchdog"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Night watch"
+      },
+      {
+        "word": "TOWER",
+        "connection": "Watchtower"
+      },
+      {
+        "word": "WRIST",
+        "connection": "Wristwatch"
+      }
+    ]
+  },
+  {
+    "id": 261,
+    "sourcePool": "futureDaily",
+    "answer": "GATE",
+    "acceptedAnswers": [
+      "GATE",
+      "GATES",
+      "GATED"
+    ],
+    "clues": [
+      {
+        "word": "FLOOD",
+        "connection": "Floodgate"
+      },
+      {
+        "word": "TAIL",
+        "connection": "Tailgate"
+      },
+      {
+        "word": "WATER",
+        "connection": "Watergate"
+      },
+      {
+        "word": "GOLDEN",
+        "connection": "Golden Gate"
+      },
+      {
+        "word": "GARDEN",
+        "connection": "Garden gate"
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "sourcePool": "futureDaily",
+    "answer": "COAT",
+    "acceptedAnswers": [
+      "COAT",
+      "COATS",
+      "COATED",
+      "COATING"
+    ],
+    "clues": [
+      {
+        "word": "TURN",
+        "connection": "Turncoat"
+      },
+      {
+        "word": "SUGAR",
+        "connection": "Sugarcoat"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Undercoat"
+      },
+      {
+        "word": "TOP",
+        "connection": "Topcoat"
+      },
+      {
+        "word": "RAIN",
+        "connection": "Raincoat"
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "sourcePool": "futureDaily",
+    "answer": "POST",
+    "acceptedAnswers": [
+      "POST",
+      "POSTS",
+      "POSTED",
+      "POSTING"
+    ],
+    "clues": [
+      {
+        "word": "OUT",
+        "connection": "Outpost"
+      },
+      {
+        "word": "LAMP",
+        "connection": "Lamppost"
+      },
+      {
+        "word": "SIGN",
+        "connection": "Signpost"
+      },
+      {
+        "word": "CARD",
+        "connection": "Postcard"
+      },
+      {
+        "word": "BOX",
+        "connection": "Post box"
+      }
+    ]
+  },
+  {
+    "id": 264,
+    "sourcePool": "futureDaily",
+    "answer": "STEP",
+    "acceptedAnswers": [
+      "STEP",
+      "STEPS",
+      "STEPPED",
+      "STEPPING"
+    ],
+    "clues": [
+      {
+        "word": "DOOR",
+        "connection": "Doorstep"
+      },
+      {
+        "word": "FOOT",
+        "connection": "Footstep"
+      },
+      {
+        "word": "TWO",
+        "connection": "Two-step"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quickstep"
+      },
+      {
+        "word": "FIRST",
+        "connection": "First step"
+      }
+    ]
+  },
+  {
+    "id": 265,
+    "sourcePool": "futureDaily",
+    "answer": "SCORE",
+    "acceptedAnswers": [
+      "SCORE",
+      "SCORES",
+      "SCORED",
+      "SCORING"
+    ],
+    "clues": [
+      {
+        "word": "FOUR",
+        "connection": "Four score (and seven years)"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Underscore"
+      },
+      {
+        "word": "SETTLE",
+        "connection": "Settle a score"
+      },
+      {
+        "word": "CARD",
+        "connection": "Scorecard"
+      },
+      {
+        "word": "HIGH",
+        "connection": "High score"
+      }
+    ]
+  },
+  {
+    "id": 266,
+    "sourcePool": "futureDaily",
+    "answer": "STAMP",
+    "acceptedAnswers": [
+      "STAMP",
+      "STAMPS",
+      "STAMPED",
+      "STAMPING"
+    ],
+    "clues": [
+      {
+        "word": "RUBBER",
+        "connection": "Rubber stamp"
+      },
+      {
+        "word": "COLLECT",
+        "connection": "Stamp collecting"
+      },
+      {
+        "word": "POST",
+        "connection": "Postage stamp"
+      },
+      {
+        "word": "GROUND",
+        "connection": "Stamping ground"
+      },
+      {
+        "word": "PASSPORT",
+        "connection": "Passport stamp"
+      }
+    ]
+  },
+  {
+    "id": 267,
+    "sourcePool": "futureDaily",
+    "answer": "BUTTON",
+    "acceptedAnswers": [
+      "BUTTON",
+      "BUTTONS",
+      "BUTTONED"
+    ],
+    "clues": [
+      {
+        "word": "BELLY",
+        "connection": "Belly button"
+      },
+      {
+        "word": "CUTE",
+        "connection": "Cute as a button"
+      },
+      {
+        "word": "PUSH",
+        "connection": "Push-button"
+      },
+      {
+        "word": "PANIC",
+        "connection": "Panic button"
+      },
+      {
+        "word": "MASH",
+        "connection": "Button mashing"
+      }
+    ]
+  },
+  {
+    "id": 268,
+    "sourcePool": "futureDaily",
+    "answer": "MARKET",
+    "acceptedAnswers": [
+      "MARKET",
+      "MARKETS",
+      "MARKETED",
+      "MARKETING"
+    ],
+    "clues": [
+      {
+        "word": "FLEA",
+        "connection": "Flea market"
+      },
+      {
+        "word": "SUPER",
+        "connection": "Supermarket"
+      },
+      {
+        "word": "STOCK",
+        "connection": "Stock market"
+      },
+      {
+        "word": "BLACK",
+        "connection": "Black market"
+      },
+      {
+        "word": "BULL",
+        "connection": "Bull market"
+      }
+    ]
+  },
+  {
+    "id": 269,
+    "sourcePool": "futureDaily",
+    "answer": "GARDEN",
+    "acceptedAnswers": [
+      "GARDEN",
+      "GARDENS",
+      "GARDENED",
+      "GARDENING"
+    ],
+    "clues": [
+      {
+        "word": "BEER",
+        "connection": "Beer garden"
+      },
+      {
+        "word": "MADISON",
+        "connection": "Madison Square Garden"
+      },
+      {
+        "word": "ROOF",
+        "connection": "Roof garden"
+      },
+      {
+        "word": "SECRET",
+        "connection": "Secret garden"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower garden"
+      }
+    ]
+  },
+  {
+    "id": 270,
+    "sourcePool": "futureDaily",
+    "answer": "MASTER",
+    "acceptedAnswers": [
+      "MASTER",
+      "MASTERS",
+      "MASTERED",
+      "MASTERING"
+    ],
+    "clues": [
+      {
+        "word": "GRAND",
+        "connection": "Grandmaster"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Headmaster"
+      },
+      {
+        "word": "WEB",
+        "connection": "Webmaster"
+      },
+      {
+        "word": "CLASS",
+        "connection": "Masterclass"
+      },
+      {
+        "word": "PIECE",
+        "connection": "Masterpiece"
+      }
+    ]
+  },
+  {
+    "id": 271,
+    "sourcePool": "futureDaily",
+    "answer": "WHEEL",
+    "acceptedAnswers": [
+      "WHEEL",
+      "WHEELS",
+      "WHEELED"
+    ],
+    "clues": [
+      {
+        "word": "CART",
+        "connection": "Cartwheel"
+      },
+      {
+        "word": "FLY",
+        "connection": "Flywheel"
+      },
+      {
+        "word": "HAMSTER",
+        "connection": "Hamster wheel"
+      },
+      {
+        "word": "STEERING",
+        "connection": "Steering wheel"
+      },
+      {
+        "word": "SPARE",
+        "connection": "Spare wheel"
+      }
+    ]
+  },
+  {
+    "id": 272,
+    "sourcePool": "futureDaily",
+    "answer": "BOOT",
+    "acceptedAnswers": [
+      "BOOT",
+      "BOOTS",
+      "BOOTED",
+      "BOOTING"
+    ],
+    "clues": [
+      {
+        "word": "CAMP",
+        "connection": "Boot camp"
+      },
+      {
+        "word": "LEG",
+        "connection": "Bootleg"
+      },
+      {
+        "word": "CAR",
+        "connection": "Car boot"
+      },
+      {
+        "word": "COWBOY",
+        "connection": "Cowboy boots"
+      },
+      {
+        "word": "MUDDY",
+        "connection": "Muddy boots"
+      }
+    ]
+  },
+  {
+    "id": 273,
+    "sourcePool": "futureDaily",
+    "answer": "TAIL",
+    "acceptedAnswers": [
+      "TAIL",
+      "TAILS",
+      "TAILED",
+      "TAILING"
+    ],
+    "clues": [
+      {
+        "word": "COCK",
+        "connection": "Cocktail"
+      },
+      {
+        "word": "PONY",
+        "connection": "Ponytail"
+      },
+      {
+        "word": "DOVE",
+        "connection": "Dovetail"
+      },
+      {
+        "word": "FAIRY",
+        "connection": "Fairy tale (tail/tale)"
+      },
+      {
+        "word": "SPIN",
+        "connection": "Tailspin"
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "sourcePool": "futureDaily",
+    "answer": "CAMP",
+    "acceptedAnswers": [
+      "CAMP",
+      "CAMPS",
+      "CAMPED",
+      "CAMPING"
+    ],
+    "clues": [
+      {
+        "word": "BOOT",
+        "connection": "Boot camp"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Campfire"
+      },
+      {
+        "word": "BASE",
+        "connection": "Base camp"
+      },
+      {
+        "word": "SUMMER",
+        "connection": "Summer camp"
+      },
+      {
+        "word": "TENT",
+        "connection": "Camp tent"
+      }
+    ]
+  },
+  {
+    "id": 275,
+    "sourcePool": "futureDaily",
+    "answer": "MASK",
+    "acceptedAnswers": [
+      "MASK",
+      "MASKS",
+      "MASKED",
+      "MASKING"
+    ],
+    "clues": [
+      {
+        "word": "OXYGEN",
+        "connection": "Oxygen mask"
+      },
+      {
+        "word": "GAS",
+        "connection": "Gas mask"
+      },
+      {
+        "word": "FACE",
+        "connection": "Face mask"
+      },
+      {
+        "word": "SKI",
+        "connection": "Ski mask"
+      },
+      {
+        "word": "HALLOWEEN",
+        "connection": "Halloween mask"
+      }
+    ]
+  },
+  {
+    "id": 276,
+    "sourcePool": "futureDaily",
+    "answer": "GIFT",
+    "acceptedAnswers": [
+      "GIFT",
+      "GIFTS",
+      "GIFTED"
+    ],
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Don't look a gift horse in the mouth"
+      },
+      {
+        "word": "WRAP",
+        "connection": "Gift wrap"
+      },
+      {
+        "word": "GAB",
+        "connection": "Gift of the gab"
+      },
+      {
+        "word": "CARD",
+        "connection": "Gift card"
+      },
+      {
+        "word": "BIRTHDAY",
+        "connection": "Birthday gift"
+      }
+    ]
+  },
+  {
+    "id": 277,
+    "sourcePool": "futureDaily",
+    "answer": "NERVE",
+    "acceptedAnswers": [
+      "NERVE",
+      "NERVES"
+    ],
+    "clues": [
+      {
+        "word": "STEEL",
+        "connection": "Nerves of steel"
+      },
+      {
+        "word": "RAW",
+        "connection": "Raw nerve"
+      },
+      {
+        "word": "WRACKING",
+        "connection": "Nerve-wracking"
+      },
+      {
+        "word": "LAST",
+        "connection": "Last nerve"
+      },
+      {
+        "word": "DAMAGE",
+        "connection": "Nerve damage"
+      }
+    ]
+  },
+  {
+    "id": 278,
+    "sourcePool": "futureDaily",
+    "answer": "HEAT",
+    "acceptedAnswers": [
+      "HEAT",
+      "HEATS",
+      "HEATED",
+      "HEATING"
+    ],
+    "clues": [
+      {
+        "word": "DEAD",
+        "connection": "Dead heat"
+      },
+      {
+        "word": "WAVE",
+        "connection": "Heatwave"
+      },
+      {
+        "word": "STROKE",
+        "connection": "Heatstroke"
+      },
+      {
+        "word": "KITCHEN",
+        "connection": "Can't stand the heat"
+      },
+      {
+        "word": "MOMENT",
+        "connection": "Heat of the moment"
+      }
+    ]
+  },
+  {
+    "id": 279,
+    "sourcePool": "futureDaily",
+    "answer": "SPACE",
+    "acceptedAnswers": [
+      "SPACE",
+      "SPACES",
+      "SPACED"
+    ],
+    "clues": [
+      {
+        "word": "CYBER",
+        "connection": "Cyberspace"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Blank space"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airspace"
+      },
+      {
+        "word": "OUTER",
+        "connection": "Outer space"
+      },
+      {
+        "word": "PARKING",
+        "connection": "Parking space"
+      }
+    ]
+  },
+  {
+    "id": 280,
+    "sourcePool": "futureDaily",
+    "answer": "CORNER",
+    "acceptedAnswers": [
+      "CORNER",
+      "CORNERS",
+      "CORNERED",
+      "CORNERING"
+    ],
+    "clues": [
+      {
+        "word": "CUT",
+        "connection": "Cut corners"
+      },
+      {
+        "word": "STONE",
+        "connection": "Cornerstone"
+      },
+      {
+        "word": "TIGHT",
+        "connection": "In a tight corner"
+      },
+      {
+        "word": "SHOP",
+        "connection": "Corner shop"
+      },
+      {
+        "word": "ROUND",
+        "connection": "Round the corner"
+      }
+    ]
+  },
+  {
+    "id": 281,
+    "sourcePool": "futureDaily",
+    "answer": "CHARM",
+    "acceptedAnswers": [
+      "CHARM",
+      "CHARMS",
+      "CHARMED",
+      "CHARMING"
+    ],
+    "clues": [
+      {
+        "word": "LUCKY",
+        "connection": "Lucky charm"
+      },
+      {
+        "word": "PRINCE",
+        "connection": "Prince Charming"
+      },
+      {
+        "word": "BRACELET",
+        "connection": "Charm bracelet"
+      },
+      {
+        "word": "THIRD",
+        "connection": "Third time's a charm"
+      },
+      {
+        "word": "OFFENSIVE",
+        "connection": "Charm offensive"
+      }
+    ]
+  },
+  {
+    "id": 282,
+    "sourcePool": "futureDaily",
+    "answer": "SHADE",
+    "acceptedAnswers": [
+      "SHADE",
+      "SHADES",
+      "SHADED",
+      "SHADING",
+      "SHADY"
+    ],
+    "clues": [
+      {
+        "word": "LAMP",
+        "connection": "Lampshade"
+      },
+      {
+        "word": "THROW",
+        "connection": "Throw shade"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree shade"
+      },
+      {
+        "word": "SUN",
+        "connection": "Sunshade"
+      },
+      {
+        "word": "COOL",
+        "connection": "Cool shade"
+      }
+    ]
+  },
+  {
+    "id": 283,
+    "sourcePool": "futureDaily",
+    "answer": "WISH",
+    "acceptedAnswers": [
+      "WISH",
+      "WISHES",
+      "WISHED",
+      "WISHING"
+    ],
+    "clues": [
+      {
+        "word": "BONE",
+        "connection": "Wishbone"
+      },
+      {
+        "word": "DEATH",
+        "connection": "Death wish"
+      },
+      {
+        "word": "WELL",
+        "connection": "Wishing well"
+      },
+      {
+        "word": "THINKING",
+        "connection": "Wishful thinking"
+      },
+      {
+        "word": "STAR",
+        "connection": "Wish upon a star"
+      }
+    ]
+  },
+  {
+    "id": 284,
+    "sourcePool": "futureDaily",
+    "answer": "MAP",
+    "acceptedAnswers": [
+      "MAP",
+      "MAPS",
+      "MAPPED",
+      "MAPPING"
+    ],
+    "clues": [
+      {
+        "word": "ROAD",
+        "connection": "Roadmap"
+      },
+      {
+        "word": "OFF",
+        "connection": "Off the map"
+      },
+      {
+        "word": "TREASURE",
+        "connection": "Treasure map"
+      },
+      {
+        "word": "MIND",
+        "connection": "Mind map"
+      },
+      {
+        "word": "WORLD",
+        "connection": "World map"
+      }
+    ]
+  }
+]
