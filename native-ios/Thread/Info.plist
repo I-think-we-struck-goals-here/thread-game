@@ -50,6 +50,10 @@
 	<string>$(THREAD_ENABLE_ICLOUD_SYNC)</string>
 	<key>ThreadEnableRemotePush</key>
 	<string>$(THREAD_ENABLE_REMOTE_PUSH)</string>
+	<key>ThreadFinalReminderHour</key>
+	<string>$(THREAD_FINAL_REMINDER_HOUR)</string>
+	<key>ThreadFinalReminderMinute</key>
+	<string>$(THREAD_FINAL_REMINDER_MINUTE)</string>
 	<key>ThreadICloudContainerIdentifier</key>
 	<string>$(THREAD_ICLOUD_CONTAINER_IDENTIFIER)</string>
 	<key>ThreadPushAPIKey</key>

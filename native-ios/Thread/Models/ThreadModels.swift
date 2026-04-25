@@ -73,7 +73,7 @@ struct ThreadPreferences: Codable, Hashable {
         analyticsEnabled: Bool,
         aggregateSharingEnabled: Bool,
         hapticsEnabled: Bool,
-        dailyRemindersEnabled: Bool = true,
+        dailyRemindersEnabled: Bool = Self.default.dailyRemindersEnabled,
         updatedAt: Date? = nil
     ) {
         self.analyticsEnabled = analyticsEnabled
@@ -148,6 +148,13 @@ struct ThreadNotificationPromptState: Codable, Hashable {
         try container.encode(promptCount, forKey: .promptCount)
         try container.encodeIfPresent(lastPromptAt, forKey: .lastPromptAt)
     }
+}
+
+enum ThreadFirstDailyNudgeStage: String, Codable, Hashable {
+    case unseen
+    case initial
+    case followup
+    case completed
 }
 
 struct DailyHistoryEntry: Codable, Hashable, Identifiable {
@@ -232,5 +239,16 @@ enum GuessNormalizer {
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
             .uppercased()
+    }
+}
+
+enum ThreadGuessLengthPolicy {
+    static let minimumCap = 12
+
+    static func maxGuessLength(for round: ThreadRound) -> Int {
+        let acceptedAnswerLengths = round.acceptedAnswers.map { GuessNormalizer.normalize($0).count }
+        let clueWordLengths = round.clues.map { GuessNormalizer.normalize($0.word).count }
+        let answerLength = GuessNormalizer.normalize(round.answer).count
+        return max(minimumCap, ([answerLength] + acceptedAnswerLengths + clueWordLengths).max() ?? minimumCap)
     }
 }

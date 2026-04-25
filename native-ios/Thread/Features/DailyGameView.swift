@@ -9,6 +9,8 @@ struct ThreadRoundView: View {
     let autoAdvanceOnFailure: Bool
     let hapticsEnabled: Bool
     let onRoundStarted: ((Bool) -> Void)?
+    let firstDailyNudgeStage: ThreadFirstDailyNudgeStage?
+    let onFirstDailyNudgeSubmission: ((GuessSubmissionOutcome) -> Void)?
     let onComplete: (ThreadRoundCompletion) -> Void
     let onViewStats: (() -> Void)?
     let onOpenSettings: (() -> Void)?
@@ -33,6 +35,8 @@ struct ThreadRoundView: View {
         hapticsEnabled: Bool = true,
         onPersistSnapshot: @escaping (GameSnapshot) -> Void = { _ in },
         onRoundStarted: ((Bool) -> Void)? = nil,
+        firstDailyNudgeStage: ThreadFirstDailyNudgeStage? = nil,
+        onFirstDailyNudgeSubmission: ((GuessSubmissionOutcome) -> Void)? = nil,
         onComplete: @escaping (ThreadRoundCompletion) -> Void,
         onViewStats: (() -> Void)? = nil,
         onOpenSettings: (() -> Void)? = nil,
@@ -45,6 +49,8 @@ struct ThreadRoundView: View {
         self.autoAdvanceOnFailure = autoAdvanceOnFailure
         self.hapticsEnabled = hapticsEnabled
         self.onRoundStarted = onRoundStarted
+        self.firstDailyNudgeStage = firstDailyNudgeStage
+        self.onFirstDailyNudgeSubmission = onFirstDailyNudgeSubmission
         self.onComplete = onComplete
         self.onViewStats = onViewStats
         self.onOpenSettings = onOpenSettings
@@ -212,6 +218,15 @@ struct ThreadRoundView: View {
                 .padding(.bottom, 18)
             }
 
+            if let firstDailyNudgeStage {
+                HStack(spacing: 0) {
+                    Spacer(minLength: 0)
+                    FirstDailyNudgeCard(stage: firstDailyNudgeStage)
+                }
+                .padding(.bottom, 14)
+                .transition(ThreadMotion.revealTransition)
+            }
+
             Text(prompt)
                 .font(ThreadFont.body(12, weight: .medium))
                 .tracking(2.5)
@@ -302,29 +317,14 @@ struct ThreadRoundView: View {
     private func composerBar(bottomInset: CGFloat) -> some View {
         VStack(spacing: 12) {
             VStack(spacing: 10) {
-                ZStack {
-                    if viewModel.guess.isEmpty {
-                        Text("Your guess...")
-                            .font(ThreadFont.display(24, weight: .light))
-                            .tracking(3)
-                            .foregroundStyle(ThreadPalette.faint.opacity(0.7))
-                            .allowsHitTesting(false)
-                    }
-
-                    Text(viewModel.guess)
-                        .font(ThreadFont.display(24, weight: .light))
-                        .tracking(3)
-                        .foregroundStyle(ThreadPalette.ink)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.7)
-                        .accessibilityLabel("Your guess")
-                        .accessibilityValue(viewModel.guess.isEmpty ? "Empty" : viewModel.guess)
-                }
+                CenteredGuessComposerView(guess: viewModel.guess)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("Your guess")
+                    .accessibilityValue(viewModel.guess.isEmpty ? "Empty" : viewModel.guess)
+                    .accessibilityHint("Type using the keyboard below.")
                 .frame(height: 34)
 
-                Rectangle()
-                    .fill(ThreadPalette.ink)
-                    .frame(height: 2)
+                composerUnderline
             }
             .frame(maxWidth: contentWidth)
 
@@ -350,6 +350,7 @@ struct ThreadRoundView: View {
     }
 
     private func handleSubmit() {
+        let hadSubmittedGuessBefore = viewModel.hasSubmittedGuess
         let outcome = viewModel.submitGuess()
 
         switch outcome {
@@ -366,6 +367,10 @@ struct ThreadRoundView: View {
             if autoAdvanceOnFailure {
                 onComplete(viewModel.completionSummary())
             }
+        }
+
+        if !hadSubmittedGuessBefore {
+            onFirstDailyNudgeSubmission?(outcome)
         }
     }
 
@@ -482,13 +487,33 @@ struct ThreadRoundView: View {
     }
 
     private var maxGuessLength: Int {
-        viewModel.round.acceptedAnswers
-            .map { GuessNormalizer.normalize($0).count }
-            .max() ?? GuessNormalizer.normalize(viewModel.round.answer).count
+        ThreadGuessLengthPolicy.maxGuessLength(for: viewModel.round)
     }
 
     private var attemptsAreaHeight: CGFloat {
         viewModel.feedback == nil ? 46 : 28
+    }
+
+    private var composerUnderline: some View {
+        Rectangle()
+            .fill(
+                LinearGradient(
+                    colors: [
+                        ThreadPalette.ink.opacity(viewModel.guess.isEmpty ? 0.55 : 0.72),
+                        ThreadPalette.ink,
+                        ThreadPalette.ink.opacity(viewModel.guess.isEmpty ? 0.55 : 0.72),
+                    ],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .frame(height: 2)
+            .shadow(
+                color: ThreadPalette.glow.opacity(viewModel.guess.isEmpty ? 0.82 : 0.45),
+                radius: viewModel.guess.isEmpty ? 8 : 4,
+                x: 0,
+                y: 0
+            )
     }
 
     private var attemptsLine: Text {
@@ -521,6 +546,118 @@ struct ThreadRoundView: View {
             return "Clue \(index + 1). \(clue.word). \(clue.connection)."
         }
         return "Clue \(index + 1). \(clue.word)."
+    }
+}
+
+private struct FirstDailyNudgeCard: View {
+    let stage: ThreadFirstDailyNudgeStage
+
+    private var title: String {
+        switch stage {
+        case .initial:
+            return "Take a guess"
+        case .followup:
+            return "Find it quickly"
+        case .unseen, .completed:
+            return ""
+        }
+    }
+
+    private var bodyText: String {
+        switch stage {
+        case .initial:
+            return "Misses reveal the next clue"
+        case .followup:
+            return "Fewer clues score better"
+        case .unseen, .completed:
+            return ""
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(ThreadFont.display(18, weight: .regular))
+                .foregroundStyle(ThreadPalette.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.9)
+
+            Text(bodyText)
+                .font(ThreadFont.body(11.5, weight: .regular))
+                .foregroundStyle(ThreadPalette.muted)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(.horizontal, 11)
+        .padding(.vertical, 10)
+        .frame(maxWidth: 184, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(ThreadPalette.surface.opacity(0.94))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(ThreadPalette.border.opacity(0.95), lineWidth: 1)
+        )
+        .shadow(color: ThreadPalette.ink.opacity(0.07), radius: 14, x: 0, y: 8)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct CenteredGuessComposerView: View {
+    let guess: String
+
+    @State private var renderedGuessWidth: CGFloat = 0
+
+    private let displaySize: CGFloat = 24
+    private let tracking: CGFloat = 3
+    private let caretGap: CGFloat = 5
+
+    var body: some View {
+        GeometryReader { proxy in
+            let resolvedGuessWidth = min(renderedGuessWidth, max(0, proxy.size.width - 10))
+            let caretOffset = guess.isEmpty ? 0 : min((resolvedGuessWidth / 2) + caretGap, (proxy.size.width / 2) - 4)
+
+            ZStack {
+                if !guess.isEmpty {
+                    Text(verbatim: guess)
+                        .font(ThreadFont.display(displaySize, weight: .light))
+                        .tracking(tracking)
+                        .foregroundStyle(ThreadPalette.ink)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                        .background(
+                            GeometryReader { textProxy in
+                                Color.clear.preference(key: ComposerGuessWidthPreferenceKey.self, value: textProxy.size.width)
+                            }
+                        )
+                }
+
+                TimelineView(.periodic(from: .now, by: 0.6)) { context in
+                    let pulseVisible = Int(context.date.timeIntervalSinceReferenceDate / 0.6).isMultiple(of: 2)
+
+                    RoundedRectangle(cornerRadius: 999, style: .continuous)
+                        .fill(ThreadPalette.ink)
+                        .frame(width: 1.5, height: 26)
+                        .shadow(color: ThreadPalette.glow.opacity(0.9), radius: 4, x: 0, y: 0)
+                        .opacity(pulseVisible ? 0.94 : 0)
+                        .offset(x: caretOffset, y: -1)
+                        .animation(.linear(duration: 0.16), value: pulseVisible)
+                }
+                .allowsHitTesting(false)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .onPreferenceChange(ComposerGuessWidthPreferenceKey.self) { width in
+            renderedGuessWidth = width
+        }
+    }
+}
+
+private struct ComposerGuessWidthPreferenceKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
 

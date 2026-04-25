@@ -114,12 +114,17 @@ Defined in [`project.yml`](/Users/zacellis/thread-game-site/native-ios/project.y
 Current effective behavior:
 
 - `Debug`
+  - display name: `Daily Thread Dev`
+  - bundle identifier: `co.dailythread.threadapp.dev`
   - analytics base URL: on
   - analytics build channel: `debug`
   - iCloud sync: off
   - reset progress on launch: off
+  - installs side by side with the live App Store app, so first-run flows can be tested without overwriting production stats
 
 - `Release`
+  - display name: `Daily Thread`
+  - bundle identifier: `co.dailythread.threadapp`
   - analytics base URL: on
   - analytics build channel: `release`
   - iCloud sync: on

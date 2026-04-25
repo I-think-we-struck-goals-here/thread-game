@@ -3,8 +3,13 @@ import SwiftUI
 @MainActor
 struct SettingsView: View {
     @Environment(\.openURL) private var openURL
+    private let reminderSchedule = ThreadReminderSchedule.fromBundle()
 
     let preferences: ThreadPreferences
+    let displayedDailyRemindersEnabled: Bool
+    let notificationAuthorizationStatus: ThreadNotificationAuthorizationStatus
+    let notificationDebugSummary: String
+    let notificationDebugFeedback: String?
     let externalLinks: ThreadExternalLinks
     let onBack: () -> Void
     let onSetAnalyticsEnabled: (Bool) -> Void
@@ -15,6 +20,8 @@ struct SettingsView: View {
     let onOpenPrivacy: () -> Void
     let onClearLocalProgress: () -> Void
     let onReplayLaunchReveal: () -> Void
+    let onRefreshNotificationDiagnostics: () -> Void
+    let onSendDebugReminder: () -> Void
 
     var body: some View {
         ThreadScreenContainer {
@@ -33,7 +40,7 @@ struct SettingsView: View {
                     Toggle(isOn: dailyRemindersBinding) {
                         settingsRow(
                             title: "Daily reminders",
-                            body: "Get a reminder at 9:00 AM when the new Thread goes live, and another at 9:00 PM if there are still a few hours left to solve it."
+                            body: dailyRemindersDescription
                         )
                     }
                     .tint(ThreadPalette.accent)
@@ -128,52 +135,66 @@ struct SettingsView: View {
 
                 VStack(spacing: 12) {
                     Button {
+                        onSendDebugReminder()
+                    } label: {
+                        debugToolRow(
+                            title: debugReminderActionTitle,
+                            body: debugReminderActionBody,
+                            icon: debugReminderActionIcon
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Button {
+                        onRefreshNotificationDiagnostics()
+                    } label: {
+                        debugToolRow(
+                            title: "Refresh notification diagnostics",
+                            body: "Inspect authorization state and pending reminders",
+                            icon: "arrow.clockwise"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    if let notificationDebugFeedback {
+                        Text(notificationDebugFeedback)
+                            .font(ThreadFont.body(12, weight: .semibold))
+                            .foregroundStyle(ThreadPalette.accent)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 4)
+                    }
+
+                    Text(notificationDebugSummary)
+                        .font(ThreadFont.body(12, weight: .medium))
+                        .foregroundStyle(ThreadPalette.muted)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 4)
+
+                    Button {
                         onClearLocalProgress()
                     } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Reset app to first launch")
-                                    .font(ThreadFont.body(15, weight: .semibold))
-                                    .foregroundStyle(ThreadPalette.failure)
-
-                                Text("Clear saved history, in-progress daily state, and tutorial completion on this device. Preferences stay intact.")
-                                    .font(ThreadFont.body(13, weight: .medium))
-                                    .foregroundStyle(ThreadPalette.muted)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
-
-                            Spacer(minLength: 0)
-
-                            Image(systemName: "trash")
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(ThreadPalette.failure)
-                        }
+                        debugToolRow(
+                            title: "Reset app to first launch",
+                            body: "Clear saved history, in-progress daily state, and tutorial completion on this device. Preferences stay intact.",
+                            icon: "trash",
+                            titleColor: ThreadPalette.failure,
+                            iconColor: ThreadPalette.failure
+                        )
                     }
-                    .threadButton(.secondary)
+                    .buttonStyle(ThreadDebugToolButtonStyle())
 
                     Button {
                         onReplayLaunchReveal()
                     } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Replay launch animation")
-                                    .font(ThreadFont.body(15, weight: .semibold))
-                                    .foregroundStyle(ThreadPalette.ink)
-
-                                Text("Replay the current Thread intro reveal without clearing your saved progress.")
-                                    .font(ThreadFont.body(13, weight: .medium))
-                                    .foregroundStyle(ThreadPalette.muted)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
-
-                            Spacer(minLength: 0)
-
-                            Image(systemName: "sparkles")
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundStyle(ThreadPalette.faint)
-                        }
+                        debugToolRow(
+                            title: "Replay launch animation",
+                            body: "Replay the current Thread intro reveal without clearing your saved progress",
+                            icon: "sparkles"
+                        )
                     }
-                    .threadButton(.secondary)
+                    .buttonStyle(ThreadDebugToolButtonStyle())
                 }
             }
 #endif
@@ -200,7 +221,7 @@ struct SettingsView: View {
 
     private var dailyRemindersBinding: Binding<Bool> {
         Binding(
-            get: { preferences.dailyRemindersEnabled },
+            get: { displayedDailyRemindersEnabled },
             set: { newValue in
                 onSetDailyRemindersEnabled(newValue)
             }
@@ -215,6 +236,44 @@ struct SettingsView: View {
             }
         )
     }
+
+    private var dailyRemindersDescription: String {
+        "Get a reminder at \(formattedReminderTime(hour: 9, minute: 0)) when the new Thread goes live, and another at \(formattedReminderTime(hour: reminderSchedule.finalReminderHour, minute: reminderSchedule.finalReminderMinute)) if there are still a few hours left to solve it."
+    }
+
+    private var debugReminderActionTitle: String {
+        switch notificationAuthorizationStatus {
+        case .notDetermined:
+            return "Allow notifications + test"
+        case .denied, .unsupported:
+            return "Notifications blocked"
+        case .authorized, .provisional, .ephemeral:
+            return "Send test reminder"
+        }
+    }
+
+    private var debugReminderActionBody: String {
+        switch notificationAuthorizationStatus {
+        case .notDetermined:
+            return "Request iOS permission, then schedule a local notification in 10 seconds"
+        case .denied, .unsupported:
+            return "This app cannot schedule reminders until notifications are enabled in iOS Settings"
+        case .authorized, .provisional, .ephemeral:
+            return "Schedule a local notification in 10 seconds"
+        }
+    }
+
+    private var debugReminderActionIcon: String {
+        switch notificationAuthorizationStatus {
+        case .notDetermined:
+            return "bell.badge"
+        case .denied, .unsupported:
+            return "exclamationmark.bubble"
+        case .authorized, .provisional, .ephemeral:
+            return "bell.badge"
+        }
+    }
+
     private var supportDestination: URL? {
         externalLinks.supportURL ?? externalLinks.supportEmailURL
     }
@@ -249,6 +308,53 @@ struct SettingsView: View {
         }
         .padding(.vertical, 4)
     }
+
+    private func formattedReminderTime(hour: Int, minute: Int) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = .autoupdatingCurrent
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+
+        let components = DateComponents(hour: hour, minute: minute)
+        let calendar = Calendar.autoupdatingCurrent
+        let fallback = String(format: "%02d:%02d", hour, minute)
+
+        guard let date = calendar.date(from: components) else {
+            return fallback
+        }
+
+        return formatter.string(from: date)
+    }
+
+    @ViewBuilder
+    private func debugToolRow(
+        title: String,
+        body: String,
+        icon: String,
+        titleColor: Color = ThreadPalette.ink,
+        iconColor: Color = ThreadPalette.faint
+    ) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(ThreadFont.body(15, weight: .semibold))
+                    .foregroundStyle(titleColor)
+
+                Text(body)
+                    .font(ThreadFont.body(13, weight: .medium))
+                    .foregroundStyle(ThreadPalette.muted)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 0)
+
+            Image(systemName: icon)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(iconColor)
+                .padding(.top, 2)
+        }
+    }
+
     @ViewBuilder
     private func externalLinkRow(title: String, body: String) -> some View {
         HStack(alignment: .top, spacing: 12) {
@@ -273,5 +379,25 @@ struct SettingsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
         .padding(.vertical, 14)
+    }
+}
+
+private struct ThreadDebugToolButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(ThreadPalette.surface)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(ThreadPalette.border, lineWidth: 1)
+            )
+            .opacity(configuration.isPressed ? 0.86 : 1)
+            .scaleEffect(configuration.isPressed ? 0.992 : 1)
+            .animation(.easeOut(duration: 0.14), value: configuration.isPressed)
     }
 }

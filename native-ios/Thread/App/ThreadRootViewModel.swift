@@ -33,7 +33,25 @@ final class ThreadRootViewModel: ObservableObject {
     @Published private(set) var notificationAuthorizationStatus: ThreadNotificationAuthorizationStatus = .notDetermined
     @Published private(set) var remotePushStatus: ThreadRemotePushStatus = .disabled
     @Published private(set) var launchRevealReplayToken = 0
+    @Published private(set) var firstDailyNudgeStage: ThreadFirstDailyNudgeStage = .unseen
+    @Published private(set) var pendingDailyRemindersEnableRequest = false
+    @Published private(set) var notificationAuthorizationRequestInFlight = false
+    @Published private(set) var notificationDebugSummary = "Not loaded"
+    @Published private(set) var notificationDebugFeedback: String?
     @Published var notificationPrompt: ThreadNotificationPrompt?
+
+    var visibleFirstDailyNudgeStage: ThreadFirstDailyNudgeStage? {
+        switch firstDailyNudgeStage {
+        case .initial, .followup:
+            return firstDailyNudgeStage
+        case .unseen, .completed:
+            return nil
+        }
+    }
+
+    var displayedDailyRemindersEnabled: Bool {
+        preferences.dailyRemindersEnabled || pendingDailyRemindersEnableRequest
+    }
 
     private let repository: ThreadRepository
     private let store: LocalThreadStore
@@ -49,7 +67,9 @@ final class ThreadRootViewModel: ObservableObject {
     private var returnScreen: ThreadScreen = .daily
     private var snapshotSyncTask: Task<Void, Never>?
     private var notificationPromptTask: Task<Void, Never>?
+    private var firstDailyNudgeTask: Task<Void, Never>?
     private var analyticsSessionStartedAt: Date?
+    private var pendingDebugReminderAfterAuthorization = false
 
     init(
         repository: ThreadRepository = ThreadRepository(),
@@ -114,6 +134,8 @@ final class ThreadRootViewModel: ObservableObject {
             )
             screen = defaultScreen
             await refreshNotificationsState()
+            await refreshNotificationDebugSummary()
+            notificationDebugFeedback = nil
             if UIApplication.shared.applicationState == .active {
                 startAnalyticsSessionIfNeeded()
             }
@@ -148,6 +170,7 @@ final class ThreadRootViewModel: ObservableObject {
 
     func skipTutorial() {
         store.tutorialCompleted = true
+        prepareFirstDailyNudgeIfNeeded()
         track(.tutorialSkipped())
         screen = .daily
     }
@@ -165,6 +188,10 @@ final class ThreadRootViewModel: ObservableObject {
 
     func finishPracticeRound(index: Int, round: ThreadRound, completion: ThreadRoundCompletion) {
         practiceScores.append(completion.score)
+        if completion.score != nil {
+            store.hasSolvedPracticeRound = true
+            completeFirstDailyNudge()
+        }
         track(
             .roundFinished(
                 mode: "practice",
@@ -184,6 +211,7 @@ final class ThreadRootViewModel: ObservableObject {
     }
 
     func continueFromPracticeSummary() {
+        refreshFirstDailyNudgeStage()
         screen = .daily
     }
 
@@ -248,6 +276,7 @@ final class ThreadRootViewModel: ObservableObject {
         currentDailySnapshot = nil
         store.clearSnapshot(for: todayDateKey)
         snapshotSyncTask?.cancel()
+        completeFirstDailyNudge()
         let completedDailyCount = history.count
         track(
             .roundFinished(
@@ -370,30 +399,96 @@ final class ThreadRootViewModel: ObservableObject {
     }
 
     func setDailyRemindersEnabled(_ isEnabled: Bool) {
-        updatePreferences { $0.dailyRemindersEnabled = isEnabled }
-        track(.preferenceChanged(key: "daily_reminders_enabled", enabled: isEnabled))
-
         Task {
-            if isEnabled {
-                let status = await notifications.authorizationStatus()
-                notificationAuthorizationStatus = status
-
-                if status.isGranted {
-                    await notifications.scheduleDailyReminders(context: reminderContext())
-                    notificationPrompt = nil
-                    return
+            guard isEnabled else {
+                pendingDailyRemindersEnableRequest = false
+                pendingDebugReminderAfterAuthorization = false
+                if preferences.dailyRemindersEnabled {
+                    updatePreferences { $0.dailyRemindersEnabled = false }
+                    track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
                 }
-
-                presentNotificationPrompt(status: status)
-            } else {
                 notificationPrompt = nil
                 await notifications.removeDailyReminders()
+                await refreshNotificationDebugSummary()
+                notificationDebugFeedback = "Daily reminders turned off"
+                return
             }
+
+            let status = await notifications.authorizationStatus()
+            notificationAuthorizationStatus = status
+
+            guard status.isGranted else {
+                pendingDailyRemindersEnableRequest = (status == .notDetermined)
+                if preferences.dailyRemindersEnabled {
+                    updatePreferences { $0.dailyRemindersEnabled = false }
+                    track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
+                }
+                presentNotificationPrompt(status: status)
+                notificationDebugFeedback = status == .notDetermined
+                    ? "Confirm the permission prompt to enable reminders for this app"
+                    : "Notifications are off for this app in iOS Settings"
+                return
+            }
+
+            pendingDailyRemindersEnableRequest = false
+            if !preferences.dailyRemindersEnabled {
+                updatePreferences { $0.dailyRemindersEnabled = true }
+                track(.preferenceChanged(key: "daily_reminders_enabled", enabled: true))
+            }
+
+            notificationPrompt = nil
+            await notifications.scheduleDailyReminders(context: reminderContext())
+            await refreshNotificationDebugSummary()
+            notificationDebugFeedback = "Daily reminders enabled"
         }
     }
 
     func dismissNotificationPrompt() {
+        pendingDailyRemindersEnableRequest = false
+        notificationAuthorizationRequestInFlight = false
+        pendingDebugReminderAfterAuthorization = false
         notificationPrompt = nil
+        notificationDebugFeedback = "Notification prompt dismissed"
+    }
+
+    func refreshNotificationDiagnostics() {
+        Task {
+            await refreshNotificationsState()
+            notificationDebugFeedback = "Notification diagnostics refreshed"
+        }
+    }
+
+    func sendDebugReminder() {
+        Task {
+            var status = await notifications.authorizationStatus()
+            notificationAuthorizationStatus = status
+
+            if status == .notDetermined {
+                notificationAuthorizationRequestInFlight = true
+                notificationDebugFeedback = "Requesting notification permission for this app"
+                let requestedStatus = await notifications.requestAuthorization()
+                notificationAuthorizationRequestInFlight = false
+                notificationAuthorizationStatus = requestedStatus
+                track(.notificationPermissionResult(status: requestedStatus))
+                status = requestedStatus
+            }
+
+            guard status.isGranted else {
+                pendingDebugReminderAfterAuthorization = false
+                if status != .notDetermined {
+                    presentNotificationPrompt(status: status)
+                }
+                notificationDebugFeedback = status == .denied
+                    ? "Notifications are disabled for this app in iOS Settings"
+                    : "Notification permission was not granted for this app"
+                await refreshNotificationDebugSummary(statusOverride: status)
+                return
+            }
+
+            await notifications.scheduleDebugReminder(after: 10)
+            await refreshNotificationDebugSummary(statusOverride: status)
+            notificationDebugFeedback = "Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
+        }
     }
 
     func handleRemotePushTokenUpdate(_ token: String?) async {
@@ -441,25 +536,53 @@ final class ThreadRootViewModel: ObservableObject {
 
         switch prompt.kind {
         case .requestAuthorization:
+            notificationAuthorizationRequestInFlight = true
+            try? await Task.sleep(for: .milliseconds(300))
             let status = await notifications.requestAuthorization()
+            notificationAuthorizationRequestInFlight = false
             notificationAuthorizationStatus = status
             track(.notificationPermissionResult(status: status))
 
             if status.isGranted {
                 if !preferences.dailyRemindersEnabled {
                     updatePreferences { $0.dailyRemindersEnabled = true }
+                    track(.preferenceChanged(key: "daily_reminders_enabled", enabled: true))
                 }
                 await notifications.scheduleDailyReminders(context: reminderContext())
+                pendingDailyRemindersEnableRequest = false
+                await registerForRemotePushIfNeeded()
+                if pendingDebugReminderAfterAuthorization {
+                    await notifications.scheduleDebugReminder(after: 10)
+                    notificationDebugFeedback = "Permission granted. Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
+                } else {
+                    notificationDebugFeedback = "Permission granted. Daily reminders enabled"
+                }
+            } else if preferences.dailyRemindersEnabled {
+                updatePreferences { $0.dailyRemindersEnabled = false }
+                track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
+                pendingDailyRemindersEnableRequest = false
+                notificationDebugFeedback = "Permission denied. Daily reminders remain off"
+            } else {
+                pendingDailyRemindersEnableRequest = false
+                notificationDebugFeedback = "Permission not granted for this app"
             }
+            pendingDebugReminderAfterAuthorization = false
+            await refreshNotificationDebugSummary()
 
         case .openSettings:
+            pendingDailyRemindersEnableRequest = false
+            notificationAuthorizationRequestInFlight = false
+            pendingDebugReminderAfterAuthorization = false
             track(.notificationSettingsOpened())
+            notificationDebugFeedback = "Open iOS Settings to enable notifications for this app"
             break
         }
     }
 
     func resetTutorialProgress() {
         store.resetTutorial()
+        firstDailyNudgeTask?.cancel()
+        firstDailyNudgeStage = .unseen
         returnScreen = .tutorial
         screen = .tutorial
     }
@@ -471,6 +594,7 @@ final class ThreadRootViewModel: ObservableObject {
         store.notificationPromptState = .default
         snapshotSyncTask?.cancel()
         notificationPromptTask?.cancel()
+        firstDailyNudgeTask?.cancel()
 
         practiceScores = []
         history = []
@@ -478,6 +602,12 @@ final class ThreadRootViewModel: ObservableObject {
         currentDailySnapshot = nil
         notificationPrompt = nil
         bootErrorMessage = nil
+        firstDailyNudgeStage = .unseen
+        pendingDailyRemindersEnableRequest = false
+        notificationAuthorizationRequestInFlight = false
+        notificationDebugSummary = "Not loaded"
+        notificationDebugFeedback = nil
+        pendingDebugReminderAfterAuthorization = false
 
         if let scheduler {
             applyTodayState(using: scheduler)
@@ -511,6 +641,21 @@ final class ThreadRootViewModel: ObservableObject {
 
     func trackPrivacyOpened() {
         track(.privacyOpened())
+    }
+
+    func handleFirstDailyNudgeSubmission(outcome: GuessSubmissionOutcome) {
+        guard firstDailyNudgeStage == .initial else { return }
+
+        switch outcome {
+        case .revealedNextClue, .failed:
+            store.firstDailyNudgeStage = .followup
+            firstDailyNudgeStage = .followup
+            scheduleFirstDailyNudgeCompletion()
+        case .solved:
+            completeFirstDailyNudge()
+        case .ignored, .alreadyComplete, .duplicate:
+            break
+        }
     }
 
     func waitForNextDailyRefresh() async {
@@ -621,6 +766,16 @@ final class ThreadRootViewModel: ObservableObject {
             $0.dateKey == todayDateKey && $0.roundID == round.id
         }
         currentDailySnapshot = store.loadSnapshot(for: todayDateKey, roundID: round.id)
+        if currentDailyResult != nil, currentDailySnapshot != nil {
+            currentDailySnapshot = nil
+            store.clearSnapshot(for: todayDateKey)
+            let dateKey = todayDateKey
+            let privateCloudSync = self.privateCloudSync
+            Task {
+                await privateCloudSync.deleteSnapshot(for: dateKey)
+            }
+        }
+        refreshFirstDailyNudgeStage()
 
         if hadInvalidTodayHistory || hadInvalidTodaySnapshot {
             let privateCloudSync = self.privateCloudSync
@@ -657,13 +812,34 @@ final class ThreadRootViewModel: ObservableObject {
         let status = await notifications.authorizationStatus()
         notificationAuthorizationStatus = status
 
-        if preferences.dailyRemindersEnabled && status.isGranted {
+        if status.isGranted && pendingDailyRemindersEnableRequest && !preferences.dailyRemindersEnabled {
+            updatePreferences { $0.dailyRemindersEnabled = true }
+            await notifications.scheduleDailyReminders(context: reminderContext())
+            pendingDailyRemindersEnableRequest = false
+            await registerForRemotePushIfNeeded()
+            if pendingDebugReminderAfterAuthorization {
+                await notifications.scheduleDebugReminder(after: 10)
+                notificationDebugFeedback = "Permission detected. Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
+                pendingDebugReminderAfterAuthorization = false
+            }
+        } else if notificationAuthorizationRequestInFlight {
+            return
+        } else if preferences.dailyRemindersEnabled && status.isGranted {
             await notifications.scheduleDailyReminders(context: reminderContext())
             await registerForRemotePushIfNeeded()
         } else {
+            pendingDailyRemindersEnableRequest = false
+            if preferences.dailyRemindersEnabled && !status.isGranted {
+                updatePreferences { $0.dailyRemindersEnabled = false }
+            }
             await notifications.removeDailyReminders()
             remotePushStatus = pushConfiguration.isEnabled ? .awaitingAuthorization : .disabled
+            if !status.isGranted {
+                pendingDebugReminderAfterAuthorization = false
+            }
         }
+
+        await refreshNotificationDebugSummary(statusOverride: status)
     }
 
     private func scheduleMilestoneNotificationPrompt(expectedPromptCount: Int) {
@@ -795,5 +971,124 @@ final class ThreadRootViewModel: ObservableObject {
         await MainActor.run {
             UIApplication.shared.registerForRemoteNotifications()
         }
+    }
+
+    private func refreshNotificationDebugSummary(
+        statusOverride: ThreadNotificationAuthorizationStatus? = nil
+    ) async {
+        let status: ThreadNotificationAuthorizationStatus
+        if let statusOverride {
+            status = statusOverride
+        } else {
+            status = await notifications.authorizationStatus()
+        }
+        let pendingRequests = await notifications.debugPendingRequests()
+
+        let formatter = DateFormatter()
+        formatter.locale = .autoupdatingCurrent
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+
+        let lines: [String]
+        if pendingRequests.isEmpty {
+            lines = [
+                "Bundle: \(Bundle.main.bundleIdentifier ?? "unknown")",
+                "Authorization: \(status.rawValue)",
+                status == .notDetermined
+                    ? "Permission has not been requested for this app yet"
+                    : "Pending reminders: none"
+            ]
+        } else {
+            lines = [
+                "Bundle: \(Bundle.main.bundleIdentifier ?? "unknown")",
+                "Authorization: \(status.rawValue)",
+                "Pending reminders:"
+            ] + pendingRequests.map { request in
+                let triggerText = request.nextTriggerDate.map { formatter.string(from: $0) } ?? "unknown time"
+                return "• \(request.identifier) at \(triggerText)"
+            }
+        }
+
+        notificationDebugSummary = lines.joined(separator: "\n")
+    }
+
+    private func formattedDebugTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = .autoupdatingCurrent
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .none
+        return formatter.string(from: date)
+    }
+
+    private func prepareFirstDailyNudgeIfNeeded() {
+        guard history.isEmpty else {
+            completeFirstDailyNudge()
+            return
+        }
+
+        guard !store.hasSolvedPracticeRound else {
+            completeFirstDailyNudge()
+            return
+        }
+
+        if store.firstDailyNudgeStage == .unseen {
+            store.firstDailyNudgeStage = .initial
+            store.firstDailyNudgeDateKey = todayDateKey
+        }
+
+        refreshFirstDailyNudgeStage()
+    }
+
+    private func refreshFirstDailyNudgeStage() {
+        guard dailyRound != nil else {
+            firstDailyNudgeTask?.cancel()
+            firstDailyNudgeStage = .unseen
+            return
+        }
+
+        guard store.tutorialCompleted,
+              history.isEmpty,
+              currentDailyResult == nil,
+              !store.hasSolvedPracticeRound else {
+            firstDailyNudgeTask?.cancel()
+            firstDailyNudgeStage = .unseen
+            return
+        }
+
+        if let firstDailyNudgeDateKey = store.firstDailyNudgeDateKey,
+           firstDailyNudgeDateKey != todayDateKey {
+            completeFirstDailyNudge()
+            return
+        }
+
+        switch store.firstDailyNudgeStage {
+        case .initial, .followup:
+            firstDailyNudgeStage = store.firstDailyNudgeStage
+        case .unseen:
+            firstDailyNudgeStage = .unseen
+        case .completed:
+            firstDailyNudgeTask?.cancel()
+            firstDailyNudgeStage = .completed
+        }
+    }
+
+    private func scheduleFirstDailyNudgeCompletion() {
+        firstDailyNudgeTask?.cancel()
+        firstDailyNudgeTask = Task { @MainActor [weak self] in
+            do {
+                try await Task.sleep(for: .seconds(4))
+            } catch {
+                return
+            }
+
+            guard let self else { return }
+            completeFirstDailyNudge()
+        }
+    }
+
+    private func completeFirstDailyNudge() {
+        firstDailyNudgeTask?.cancel()
+        store.firstDailyNudgeStage = .completed
+        firstDailyNudgeStage = .completed
     }
 }

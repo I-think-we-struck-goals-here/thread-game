@@ -7,6 +7,24 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(GuessNormalizer.normalize("silver   tongue"), "SILVER TONGUE")
     }
 
+    func testGuessLengthPolicyDoesNotLeakShortAnswerLength() {
+        let round = ThreadRound(
+            id: 1,
+            sourcePool: "practice",
+            answer: "STAR",
+            acceptedAnswers: ["STAR"],
+            clues: [
+                RoundClue(word: "WARS", connection: "Star Wars"),
+                RoundClue(word: "SHOOTING", connection: "Shooting star"),
+                RoundClue(word: "HOLLYWOOD", connection: "Hollywood star"),
+                RoundClue(word: "NIGHT", connection: "Stars at night"),
+                RoundClue(word: "FISH", connection: "Starfish"),
+            ]
+        )
+
+        XCTAssertEqual(ThreadGuessLengthPolicy.maxGuessLength(for: round), 12)
+    }
+
     func testSchedulerUsesAnchorDateForDayNumbers() {
         let rounds = [
             ThreadRound(id: 1, sourcePool: "test", answer: "HEAD", acceptedAnswers: ["HEAD"], clues: sampleClues),
@@ -125,50 +143,126 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(decoded.analyticsEnabled, false)
         XCTAssertEqual(decoded.aggregateSharingEnabled, true)
         XCTAssertEqual(decoded.hapticsEnabled, false)
-        XCTAssertEqual(decoded.dailyRemindersEnabled, true)
+        XCTAssertEqual(decoded.dailyRemindersEnabled, false)
         XCTAssertNil(decoded.updatedAt)
     }
 
-    func testNotificationPromptPolicyWaitsUntilSecondDayThenRepromptsAfterAWeek() {
-        let preferences = ThreadPreferences.default
-        let secondDayState = ThreadNotificationPromptState(
-            seenDateKeys: ["2026-04-04", "2026-04-05"],
-            promptCount: 0,
-            lastPromptAt: nil
+    @MainActor
+    func testEnablingDailyRemindersWithoutAuthorizationShowsPromptButDoesNotEnablePreference() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .notDetermined)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
         )
 
-        let firstPrompt = ThreadNotificationPromptPolicy.nextPrompt(
-            preferences: preferences,
-            authorizationStatus: .notDetermined,
-            promptState: secondDayState,
-            now: date("2026-04-05T09:00:00Z")
+        viewModel.setDailyRemindersEnabled(true)
+        await settleAsyncWork()
+
+        XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
+        XCTAssertEqual(viewModel.notificationPrompt?.kind, .requestAuthorization)
+        XCTAssertEqual(await notifications.scheduledReminderCount(), 0)
+    }
+
+    @MainActor
+    func testConfirmingNotificationPromptEnablesPreferenceAndSchedulesReminders() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .notDetermined, requestResultStatus: .authorized)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
         )
 
-        XCTAssertEqual(firstPrompt?.kind, .requestAuthorization)
+        viewModel.setDailyRemindersEnabled(true)
+        await settleAsyncWork()
+        await viewModel.confirmNotificationPrompt()
+        await settleAsyncWork()
 
-        let tooSoonState = ThreadNotificationPromptState(
-            seenDateKeys: ["2026-04-04", "2026-04-05", "2026-04-06"],
-            promptCount: 1,
-            lastPromptAt: date("2026-04-05T09:00:00Z")
+        XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertNil(viewModel.notificationPrompt)
+        XCTAssertEqual(await notifications.requestAuthorizationCount(), 1)
+        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
+    }
+
+    @MainActor
+    func testDismissingReminderPromptResetsDisplayedToggleState() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .notDetermined)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
         )
 
-        XCTAssertNil(
-            ThreadNotificationPromptPolicy.nextPrompt(
-                preferences: preferences,
-                authorizationStatus: .denied,
-                promptState: tooSoonState,
-                now: date("2026-04-10T09:00:00Z")
-            )
+        viewModel.setDailyRemindersEnabled(true)
+        await settleAsyncWork()
+        viewModel.dismissNotificationPrompt()
+
+        XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertFalse(viewModel.displayedDailyRemindersEnabled)
+        XCTAssertNil(viewModel.notificationPrompt)
+    }
+
+    @MainActor
+    func testEnablingDailyRemindersWithGrantedAuthorizationSchedulesImmediately() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .authorized)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
         )
 
-        let secondPrompt = ThreadNotificationPromptPolicy.nextPrompt(
-            preferences: preferences,
-            authorizationStatus: .denied,
-            promptState: tooSoonState,
-            now: date("2026-04-12T10:00:00Z")
+        viewModel.setDailyRemindersEnabled(true)
+        await settleAsyncWork()
+
+        XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertNil(viewModel.notificationPrompt)
+        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
+    }
+
+    @MainActor
+    func testPendingReminderEnableReconcilesAfterAuthorizationAppearsOnRefresh() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .notDetermined)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
         )
 
-        XCTAssertEqual(secondPrompt?.kind, .openSettings)
+        await viewModel.bootstrapIfNeeded()
+        viewModel.setDailyRemindersEnabled(true)
+        await settleAsyncWork()
+
+        XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
+        XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
+
+        await notifications.setStatus(.authorized)
+        await viewModel.handleScenePhaseChange(.active)
+        await settleAsyncWork()
+
+        XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
+        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
     }
 
     @MainActor
@@ -649,6 +743,45 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(merged, local)
     }
 
+    func testCloudSyncMergerDropsSnapshotWhenHistoryExistsForSameDay() {
+        let dateKey = "2026-04-04"
+        let snapshot = GameSnapshot(
+            roundID: 12,
+            dateKey: dateKey,
+            revealedClueCount: 5,
+            guess: "",
+            attempts: ["BELL", "CROWN", "BRASS", "STONE"],
+            isSolved: false,
+            isFailed: false,
+            updatedAt: date("2026-04-04T08:01:00Z")
+        )
+
+        let merged = ThreadCloudSyncMerger.merge(
+            local: ThreadCloudSyncState(
+                preferences: .default,
+                history: [
+                    DailyHistoryEntry(
+                        dateKey: dateKey,
+                        roundID: 12,
+                        answer: "RING",
+                        score: nil,
+                        completedAt: date("2026-04-04T08:02:00Z"),
+                        aggregateSubmittedAt: nil
+                    )
+                ],
+                snapshots: [dateKey: snapshot]
+            ),
+            remote: ThreadCloudSyncState(
+                preferences: .default,
+                history: [],
+                snapshots: [:]
+            )
+        )
+
+        XCTAssertNil(merged.snapshots[dateKey])
+        XCTAssertEqual(merged.history.count, 1)
+    }
+
     @MainActor
     func testGameViewModelCompletionSummaryPreservesSavedTimingContext() {
         let snapshot = GameSnapshot(
@@ -728,5 +861,79 @@ final class ThreadCoreTests: XCTestCase {
             RoundClue(word: "LINE", connection: "Headline"),
             RoundClue(word: "BED", connection: "Bed head"),
         ]
+    }
+
+    @MainActor
+    private func settleAsyncWork() async {
+        await Task.yield()
+        await Task.yield()
+    }
+}
+
+actor TestNotificationService: ThreadNotificationManaging {
+    private var status: ThreadNotificationAuthorizationStatus
+    private let requestResultStatus: ThreadNotificationAuthorizationStatus?
+    private var requestCount = 0
+    private var scheduledContexts: [ThreadReminderContext] = []
+    private var removedCount = 0
+    private var debugRequests: [ThreadDebugNotificationRequest] = []
+
+    init(
+        status: ThreadNotificationAuthorizationStatus,
+        requestResultStatus: ThreadNotificationAuthorizationStatus? = nil
+    ) {
+        self.status = status
+        self.requestResultStatus = requestResultStatus
+    }
+
+    func authorizationStatus() async -> ThreadNotificationAuthorizationStatus {
+        status
+    }
+
+    func requestAuthorization() async -> ThreadNotificationAuthorizationStatus {
+        requestCount += 1
+        if let requestResultStatus {
+            status = requestResultStatus
+        }
+        return status
+    }
+
+    func scheduleDailyReminders(context: ThreadReminderContext) async {
+        scheduledContexts.append(context)
+    }
+
+    func removeDailyReminders() async {
+        removedCount += 1
+    }
+
+    func debugPendingRequests() async -> [ThreadDebugNotificationRequest] {
+        debugRequests
+    }
+
+    func scheduleDebugReminder(after seconds: TimeInterval) async {
+        debugRequests.append(
+            ThreadDebugNotificationRequest(
+                identifier: "thread.debug-reminder.test",
+                title: "Thread debug reminder",
+                body: "If you can see this, local notifications are working.",
+                nextTriggerDate: Date().addingTimeInterval(seconds)
+            )
+        )
+    }
+
+    func requestAuthorizationCount() -> Int {
+        requestCount
+    }
+
+    func scheduledReminderCount() -> Int {
+        scheduledContexts.count
+    }
+
+    func removeCount() -> Int {
+        removedCount
+    }
+
+    func setStatus(_ newStatus: ThreadNotificationAuthorizationStatus) {
+        status = newStatus
     }
 }

@@ -37,6 +37,8 @@ protocol ThreadNotificationManaging: Sendable {
     func requestAuthorization() async -> ThreadNotificationAuthorizationStatus
     func scheduleDailyReminders(context: ThreadReminderContext) async
     func removeDailyReminders() async
+    func debugPendingRequests() async -> [ThreadDebugNotificationRequest]
+    func scheduleDebugReminder(after seconds: TimeInterval) async
 }
 
 struct ThreadReminderContext: Sendable {
@@ -44,6 +46,43 @@ struct ThreadReminderContext: Sendable {
     let hasSolvedToday: Bool
     let nextDailyRefreshDate: Date?
     let now: Date
+}
+
+struct ThreadReminderSchedule {
+    let finalReminderHour: Int
+    let finalReminderMinute: Int
+
+    static let `default` = ThreadReminderSchedule(
+        finalReminderHour: 21,
+        finalReminderMinute: 0
+    )
+
+    static func fromBundle(_ bundle: Bundle = .main) -> ThreadReminderSchedule {
+        ThreadReminderSchedule(
+            finalReminderHour: value(for: "ThreadFinalReminderHour", defaultValue: Self.default.finalReminderHour, bundle: bundle),
+            finalReminderMinute: value(for: "ThreadFinalReminderMinute", defaultValue: Self.default.finalReminderMinute, bundle: bundle)
+        )
+    }
+
+    private static func value(for key: String, defaultValue: Int, bundle: Bundle) -> Int {
+        if let number = bundle.object(forInfoDictionaryKey: key) as? NSNumber {
+            return number.intValue
+        }
+
+        if let rawValue = bundle.object(forInfoDictionaryKey: key) as? String,
+           let parsed = Int(rawValue.trimmingCharacters(in: .whitespacesAndNewlines)) {
+            return parsed
+        }
+
+        return defaultValue
+    }
+}
+
+struct ThreadDebugNotificationRequest: Sendable, Equatable {
+    let identifier: String
+    let title: String
+    let body: String
+    let nextTriggerDate: Date?
 }
 
 actor ThreadNotificationService: ThreadNotificationManaging {
@@ -55,9 +94,14 @@ actor ThreadNotificationService: ThreadNotificationManaging {
     }
 
     private let center: UNUserNotificationCenter
+    private let schedule: ThreadReminderSchedule
 
-    init(center: UNUserNotificationCenter = .current()) {
+    init(
+        center: UNUserNotificationCenter = .current(),
+        schedule: ThreadReminderSchedule = .fromBundle()
+    ) {
         self.center = center
+        self.schedule = schedule
     }
 
     func authorizationStatus() async -> ThreadNotificationAuthorizationStatus {
@@ -124,6 +168,59 @@ actor ThreadNotificationService: ThreadNotificationManaging {
         center.removeDeliveredNotifications(withIdentifiers: Identifier.all)
     }
 
+    func debugPendingRequests() async -> [ThreadDebugNotificationRequest] {
+        let requests = await center.pendingNotificationRequests()
+        return requests.map { request in
+            ThreadDebugNotificationRequest(
+                identifier: request.identifier,
+                title: request.content.title,
+                body: request.content.body,
+                nextTriggerDate: debugNextTriggerDate(for: request.trigger)
+            )
+        }
+        .sorted { lhs, rhs in
+            switch (lhs.nextTriggerDate, rhs.nextTriggerDate) {
+            case let (left?, right?):
+                return left < right
+            case (.some, .none):
+                return true
+            case (.none, .some):
+                return false
+            case (.none, .none):
+                return lhs.identifier < rhs.identifier
+            }
+        }
+    }
+
+    func scheduleDebugReminder(after seconds: TimeInterval) async {
+        guard await authorizationStatus().isGranted else { return }
+
+        let content = UNMutableNotificationContent()
+        content.title = "Thread debug reminder"
+        content.body = "If you can see this, local notifications are working."
+        content.sound = .default
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, seconds), repeats: false)
+        let request = UNNotificationRequest(
+            identifier: "thread.debug-reminder.\(UUID().uuidString)",
+            content: content,
+            trigger: trigger
+        )
+
+        try? await center.add(request)
+    }
+
+    private func debugNextTriggerDate(for trigger: UNNotificationTrigger?) -> Date? {
+        switch trigger {
+        case let calendarTrigger as UNCalendarNotificationTrigger:
+            return calendarTrigger.nextTriggerDate()
+        case let timeIntervalTrigger as UNTimeIntervalNotificationTrigger:
+            return timeIntervalTrigger.nextTriggerDate()
+        default:
+            return nil
+        }
+    }
+
     private func map(_ status: UNAuthorizationStatus) -> ThreadNotificationAuthorizationStatus {
         switch status {
         case .notDetermined:
@@ -147,8 +244,8 @@ actor ThreadNotificationService: ThreadNotificationManaging {
 
         guard
             let eveningToday = calendar.date(
-                bySettingHour: 21,
-                minute: 0,
+                bySettingHour: schedule.finalReminderHour,
+                minute: schedule.finalReminderMinute,
                 second: 0,
                 of: now
             )

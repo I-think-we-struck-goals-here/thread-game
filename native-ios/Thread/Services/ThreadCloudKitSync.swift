@@ -92,6 +92,9 @@ enum ThreadCloudSyncMerger {
                 partialResult[key] = merged
             }
         }
+        .filter { key, _ in
+            !mergedHistory.contains(where: { $0.dateKey == key })
+        }
 
         return ThreadCloudSyncState(
             preferences: mergedPreferences,
@@ -504,6 +507,13 @@ actor ThreadCloudKitSyncService: ThreadPrivateCloudSyncing {
             if remoteState.snapshots[dateKey] != snapshot {
                 try await saveSnapshotRecord(snapshot)
             }
+        }
+
+        let mergedSnapshotKeys = Set(mergedState.snapshots.keys)
+        let staleRemoteSnapshotKeys = Set(remoteState.snapshots.keys).subtracting(mergedSnapshotKeys)
+
+        for dateKey in staleRemoteSnapshotKeys {
+            try await deleteRecord(id: snapshotRecordID(for: dateKey))
         }
     }
 

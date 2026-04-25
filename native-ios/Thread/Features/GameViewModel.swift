@@ -72,6 +72,10 @@ final class ThreadGameViewModel: ObservableObject {
         isSolved || isFailed
     }
 
+    var hasSubmittedGuess: Bool {
+        firstSubmittedGuessAt != nil
+    }
+
     var score: Int? {
         isSolved ? revealedClueCount : nil
     }

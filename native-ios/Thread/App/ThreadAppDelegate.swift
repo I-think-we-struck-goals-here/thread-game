@@ -1,10 +1,19 @@
 import Foundation
 import UIKit
+import UserNotifications
 
 @MainActor
-final class ThreadAppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
+final class ThreadAppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNotificationCenterDelegate {
     @Published var latestRemotePushToken: String?
     @Published var remotePushRegistrationError: String?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        return true
+    }
 
     func application(
         _ application: UIApplication,
@@ -19,5 +28,13 @@ final class ThreadAppDelegate: NSObject, UIApplicationDelegate, ObservableObject
         didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
         remotePushRegistrationError = error.localizedDescription
+    }
+
+    nonisolated func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([.banner, .list, .sound])
     }
 }

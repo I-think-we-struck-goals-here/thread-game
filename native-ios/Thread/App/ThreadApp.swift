@@ -24,6 +24,9 @@ struct ThreadRootView: View {
     @State private var showsDailyReveal = false
     @State private var hasShownInitialDailyReveal = false
 
+    private let dailyRevealDisplayDuration: Duration = .milliseconds(350)
+    private let dailyRevealFadeDuration: Double = 0.2
+
     var body: some View {
         ZStack {
             ThreadBackground()
@@ -164,6 +167,8 @@ struct ThreadRootView: View {
                             resumedSavedProgress: resumedSavedProgress
                         )
                     },
+                    firstDailyNudgeStage: viewModel.visibleFirstDailyNudgeStage,
+                    onFirstDailyNudgeSubmission: viewModel.handleFirstDailyNudgeSubmission,
                     onComplete: viewModel.completeDaily,
                     onViewStats: viewModel.openStats,
                     onOpenSettings: viewModel.openSettings
@@ -214,6 +219,10 @@ struct ThreadRootView: View {
         case .settings:
             SettingsView(
                 preferences: viewModel.preferences,
+                displayedDailyRemindersEnabled: viewModel.displayedDailyRemindersEnabled,
+                notificationAuthorizationStatus: viewModel.notificationAuthorizationStatus,
+                notificationDebugSummary: viewModel.notificationDebugSummary,
+                notificationDebugFeedback: viewModel.notificationDebugFeedback,
                 externalLinks: viewModel.externalLinks,
                 onBack: viewModel.closeSettings,
                 onSetAnalyticsEnabled: viewModel.setAnalyticsEnabled,
@@ -223,7 +232,9 @@ struct ThreadRootView: View {
                 onOpenSupport: viewModel.trackSupportOpened,
                 onOpenPrivacy: viewModel.trackPrivacyOpened,
                 onClearLocalProgress: viewModel.clearLocalProgress,
-                onReplayLaunchReveal: viewModel.replayLaunchReveal
+                onReplayLaunchReveal: viewModel.replayLaunchReveal,
+                onRefreshNotificationDiagnostics: viewModel.refreshNotificationDiagnostics,
+                onSendDebugReminder: viewModel.sendDebugReminder
             )
 
         case .error:
@@ -267,9 +278,9 @@ struct ThreadRootView: View {
             showsDailyReveal = true
 
             Task {
-                try? await Task.sleep(for: .milliseconds(850))
+                try? await Task.sleep(for: dailyRevealDisplayDuration)
                 await MainActor.run {
-                    withAnimation(.easeOut(duration: 0.28)) {
+                    withAnimation(.easeOut(duration: dailyRevealFadeDuration)) {
                         showsDailyReveal = false
                     }
                 }

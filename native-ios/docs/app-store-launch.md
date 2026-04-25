@@ -38,6 +38,8 @@ Important:
 - the release build is now pointed at the stable Vercel backend host for analytics
 - the Vercel project now has Postgres-backed analytics persistence configured
 - release and debug analytics are separated by build channel
+- the debug build now installs side by side as `Daily Thread Dev` with bundle identifier `co.dailythread.threadapp.dev`
+- debug keeps iCloud sync off and should be used for first-run / reminder / onboarding QA when you do not want to overwrite the live app on a device
 
 ## App Privacy answers for the current default launch build
 

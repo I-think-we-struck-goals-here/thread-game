@@ -9,6 +9,9 @@ final class LocalThreadStore {
         static let installationID = "thread.native.installationID"
         static let preferences = "thread.native.preferences"
         static let notificationPromptState = "thread.native.notificationPromptState"
+        static let hasSolvedPracticeRound = "thread.native.hasSolvedPracticeRound"
+        static let firstDailyNudgeStage = "thread.native.firstDailyNudgeStage"
+        static let firstDailyNudgeDateKey = "thread.native.firstDailyNudgeDateKey"
     }
 
     private let defaults: UserDefaults
@@ -68,6 +71,29 @@ final class LocalThreadStore {
             guard let data = try? encoder.encode(newValue) else { return }
             defaults.set(data, forKey: Keys.notificationPromptState)
         }
+    }
+
+    var hasSolvedPracticeRound: Bool {
+        get { defaults.bool(forKey: Keys.hasSolvedPracticeRound) }
+        set { defaults.set(newValue, forKey: Keys.hasSolvedPracticeRound) }
+    }
+
+    var firstDailyNudgeStage: ThreadFirstDailyNudgeStage {
+        get {
+            guard let rawValue = defaults.string(forKey: Keys.firstDailyNudgeStage),
+                  let stage = ThreadFirstDailyNudgeStage(rawValue: rawValue) else {
+                return .unseen
+            }
+            return stage
+        }
+        set {
+            defaults.set(newValue.rawValue, forKey: Keys.firstDailyNudgeStage)
+        }
+    }
+
+    var firstDailyNudgeDateKey: String? {
+        get { defaults.string(forKey: Keys.firstDailyNudgeDateKey) }
+        set { defaults.set(newValue, forKey: Keys.firstDailyNudgeDateKey) }
     }
 
     @discardableResult
@@ -168,10 +194,16 @@ final class LocalThreadStore {
     func resetForFreshLaunch() {
         resetTutorial()
         clearGameplayProgress()
+        hasSolvedPracticeRound = false
+        firstDailyNudgeStage = .unseen
+        firstDailyNudgeDateKey = nil
     }
 
     func resetTutorial() {
         defaults.set(false, forKey: Keys.tutorialCompleted)
+        hasSolvedPracticeRound = false
+        firstDailyNudgeStage = .unseen
+        firstDailyNudgeDateKey = nil
     }
 
     private func loadSnapshotMap() -> [String: GameSnapshot] {
