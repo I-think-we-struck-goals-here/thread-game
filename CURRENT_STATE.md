@@ -151,9 +151,11 @@ Verified implemented areas:
   - exported package: `/private/tmp/ThreadApp-1.0.3-6-AppStoreExport/Daily Thread.ipa`
   - distribution summary reports `versionNumber = 1.0.3`, `buildNumber = 6`, `arm64`, `Cloud Managed Apple Distribution`, `get-task-allow = false`, iCloud Production entitlements, and App Store provisioning profile `iOS Team Store Provisioning Profile: co.dailythread.threadapp`
   - this archive/export predates the reminder fixes and the current `1.1.0 (10)` Archive work; do not upload it
-- Fresh `1.1.0 (10)` signed archive and App Store Connect export passed on 2026-07-24:
-  - archive: `/private/tmp/ThreadApp-1.1.0-10-Final.xcarchive`
-  - exported IPA: `/private/tmp/ThreadApp-1.1.0-10-Final-Export/Daily Thread.ipa`
+- Fresh clean-source `1.1.0 (10)` signed archive and App Store Connect export passed on 2026-07-24:
+  - archive: `/private/tmp/ThreadApp-1.1.0-10-Publish.xcarchive`
+  - exported IPA: `/private/tmp/ThreadApp-1.1.0-10-Publish-Export/Daily Thread.ipa`
+  - IPA SHA-256: `f996680fe42a3e3597f1455358a299d7ec19602014dda46ac4f41ece4be3d26e`
+  - the publish asset catalog excludes the untracked, unreferenced `ThreadLaunchScreenIcon` imageset
   - distribution summary reports `1.1.0 (10)`, `arm64`, Cloud Managed Apple Distribution, Production CloudKit, `get-task-allow = false`, and App Store provisioning for `co.dailythread.threadapp`
   - effective build settings disable Mac and Vision compatibility; exported `UIDeviceFamily` is `[1]`
   - use this archive lineage for validation/upload; do not use the older `1.0.3` archive

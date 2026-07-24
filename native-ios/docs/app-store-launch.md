@@ -92,8 +92,10 @@ As of 2026-07-24:
 - the local StoreKit transaction automation path is unreliable in the installed Xcode 26.5 toolchain, so interactive purchase/restore remains a required Xcode and TestFlight check
 - Settings daily-reminder toggle regression is fixed and covered by `testAlertDismissalDuringConfirmDoesNotCancelReminderEnable`
 - stale evening-reminder regression is fixed and covered by `testCompletingDailyReschedulesRemindersWithoutEveningReminder`
-- final signed archive passed at `/private/tmp/ThreadApp-1.1.0-10-Final.xcarchive`
-- final App Store Connect export passed at `/private/tmp/ThreadApp-1.1.0-10-Final-Export/Daily Thread.ipa`
+- clean publish archive passed at `/private/tmp/ThreadApp-1.1.0-10-Publish.xcarchive`
+- clean App Store Connect export passed at `/private/tmp/ThreadApp-1.1.0-10-Publish-Export/Daily Thread.ipa`
+- the publish IPA is approximately `5.3 MB` with a `3.7 MB` asset catalog and SHA-256 `f996680fe42a3e3597f1455358a299d7ec19602014dda46ac4f41ece4be3d26e`
+- the publish asset catalog excludes the untracked, unreferenced `ThreadLaunchScreenIcon` imageset
 - export reports Cloud Managed Apple Distribution, Production CloudKit, `get-task-allow = false`, and the App Store provisioning profile for `co.dailythread.threadapp`
 - effective build settings disable Mac and Vision compatibility; exported `UIDeviceFamily` is iPhone-only
 - do not upload an older Organizer archive
