@@ -183,6 +183,8 @@ The intended app update scope is:
 
 Before submission, the remaining release checks are a signed-device/TestFlight purchase and restore pass, an IAP review screenshot, and attaching the IAP to the `1.1.0` app version for its first review.
 
+The clean `1.1.0 (10)` archive upload succeeded through Xcode at 13:09 London time on 2026-07-24. App Store Connect reported that the uploaded package was processing.
+
 ## Historical 1.0.5 Patch Slice
 
 The intended app update scope is now explicit:
@@ -358,7 +360,7 @@ These are real unknowns, not things that should be guessed from the current tree
 
 1. Run the app from Xcode with `StoreKit/Archive.storekit` selected and capture the paywall screenshot required by IAP review.
 2. Test buy, cancel, pending/Ask to Buy, restore, relaunch entitlement, and refund/revocation in the local StoreKit environment.
-3. Upload a fresh signed `1.1.0 (10)` archive and repeat purchase/restore on TestFlight with a sandbox tester.
+3. After build `10` finishes processing, make it available in TestFlight and repeat purchase/restore with a sandbox tester.
 4. In App Store Connect, attach `Thread Archive` to the `1.1.0` version and submit the app and first IAP together.
 5. Confirm daily stats, streaks, reminders, and today's saved game remain unchanged after Archive play.
 6. Decide later whether Archive progress should join the existing private CloudKit model; it is device-local today.

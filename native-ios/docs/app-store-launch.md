@@ -99,6 +99,7 @@ As of 2026-07-24:
 - export reports Cloud Managed Apple Distribution, Production CloudKit, `get-task-allow = false`, and the App Store provisioning profile for `co.dailythread.threadapp`
 - effective build settings disable Mac and Vision compatibility; exported `UIDeviceFamily` is iPhone-only
 - do not upload an older Organizer archive
+- clean `1.1.0 (10)` upload succeeded through Xcode at 13:09 London time on 2026-07-24; App Store Connect reported that the package was processing
 - no TestFlight sandbox purchase/restore pass exists yet
 - public App Review URLs returned `200`:
   - `https://daily-thread.co/privacy/`
@@ -168,7 +169,7 @@ Before TestFlight / App Review:
 - Capture the Archive paywall for the IAP review screenshot
 - Confirm the IAP metadata and product ID exactly match the app
 - Test purchase, cancel, pending/Ask to Buy, restore, relaunch entitlement, and refund/revocation with the local StoreKit configuration
-- Upload `1.1.0 (10)` to TestFlight and repeat purchase and restore with a sandbox tester
+- After build `10` finishes processing, make it available in TestFlight and repeat purchase and restore with a sandbox tester
 - Attach `Thread Archive` to the `1.1.0` app version before sending both for first review
 
 ## Device QA checklist
