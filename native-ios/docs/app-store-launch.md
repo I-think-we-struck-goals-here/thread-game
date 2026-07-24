@@ -102,7 +102,7 @@ As of 2026-07-24:
   - `https://daily-thread.co/privacy/`
   - `https://daily-thread.co/support/`
   - `https://daily-thread.co/terms/`
-- the corrected IAP/privacy/support copy is local and still needs a selective commit and GitHub Pages deployment before App Review
+- the corrected IAP/privacy/support copy is live on GitHub Pages and was verified after deployment on 2026-07-24
 
 ## App Privacy answers for the current default launch build
 

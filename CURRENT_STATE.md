@@ -159,11 +159,11 @@ Verified implemented areas:
   - use this archive lineage for validation/upload; do not use the older `1.0.3` archive
 - Latest simulator audit command:
   - `xcodebuild -project ThreadApp.xcodeproj -scheme ThreadApp -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' -derivedDataPath /private/tmp/thread-ios-archive-storekit-final2-tests test -quiet`
-- Public App Review URLs checked on 2026-05-23:
+- Public App Review URLs checked after the 2026-07-24 GitHub Pages deployment:
   - `https://daily-thread.co/privacy/` returned `200`
   - `https://daily-thread.co/support/` returned `200`
   - `https://daily-thread.co/terms/` returned `200`
-- The IAP-aware privacy/terms copy and corrected public reset guidance are updated locally but not yet proven live on GitHub Pages.
+- The live pages now include the Archive IAP terms, the current support email, and guidance that matches the Release app's lack of a progress-reset control.
 - Fresh simulator smoke check installed and launched `/private/tmp/thread-ios-tests-direct-start/Build/Products/Debug-iphonesimulator/Thread.app`; it reached the live daily game screen directly after the native launch screen.
 - First-screen polish simulator smoke check installed and launched `/private/tmp/thread-ios-tests-first-screen-polish/Build/Products/Debug-iphonesimulator/Thread.app`; screenshot captured at `/private/tmp/thread-first-screen-polish-smoke.png`.
 - Solved-state screenshots show the answer plus `1 day streak` before `See results`.
@@ -179,7 +179,7 @@ The intended app update scope is:
 4. purchase, pending, cancellation, restore, revocation, and product-unavailable UX
 5. the previously prepared stale evening-reminder hardening
 
-Before submission, the remaining release checks are a signed-device/TestFlight purchase and restore pass, an IAP review screenshot, attaching the IAP to the `1.1.0` app version for its first review, and deploying the corrected privacy/support/terms pages.
+Before submission, the remaining release checks are a signed-device/TestFlight purchase and restore pass, an IAP review screenshot, and attaching the IAP to the `1.1.0` app version for its first review.
 
 ## Historical 1.0.5 Patch Slice
 
@@ -360,8 +360,7 @@ These are real unknowns, not things that should be guessed from the current tree
 4. In App Store Connect, attach `Thread Archive` to the `1.1.0` version and submit the app and first IAP together.
 5. Confirm daily stats, streaks, reminders, and today's saved game remain unchanged after Archive play.
 6. Decide later whether Archive progress should join the existing private CloudKit model; it is device-local today.
-7. Commit and deploy only the IAP-required public privacy/support/terms corrections; keep unrelated website/backend/dashboard work out of the Archive release.
-8. Replace or pin the bundled future schedule before 26 November 2026; modifying the current future pool can remap historical Archive dates.
+7. Replace or pin the bundled future schedule before 26 November 2026; modifying the current future pool can remap historical Archive dates.
 
 ## Recommended Starting Point For The Next Session
 
