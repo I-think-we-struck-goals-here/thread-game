@@ -5,6 +5,9 @@ struct StatsView: View {
 
     let history: [DailyHistoryEntry]
     let todayKey: String
+    let currentStreakValue: Int
+    let bestStreakValue: Int
+    let streakBadges: [ThreadStreakBadgeDisplay]
     let onBack: () -> Void
     let onOpenSettings: () -> Void
 
@@ -44,18 +47,24 @@ struct StatsView: View {
                     LazyVGrid(columns: metricColumns, spacing: 8) {
                         MetricTile(label: "Played", value: "\(stats.totalPlayed)")
                         MetricTile(label: "Solved", value: "\(stats.solveRate)%")
-                        MetricTile(label: "Average", value: averageDisplay)
-                        MetricTile(label: "Best", value: bestDisplay)
-                        MetricTile(label: "Current streak", value: "\(stats.currentStreak)")
-                        MetricTile(label: "Best streak", value: "\(stats.bestStreak)")
+                        MetricTile(label: "Current streak", value: "\(currentStreakValue)")
+                        MetricTile(label: "Best streak", value: "\(bestStreakValue)")
                     }
 
                     ThreadCard {
-                        Text("Score distribution")
-                            .font(ThreadFont.body(12, weight: .semibold))
-                            .tracking(2.4)
-                            .textCase(.uppercase)
-                            .foregroundStyle(ThreadPalette.faint)
+                        HStack(alignment: .firstTextBaseline, spacing: 12) {
+                            Text("Scores")
+                                .font(ThreadFont.body(12, weight: .semibold))
+                                .tracking(2.4)
+                                .textCase(.uppercase)
+                                .foregroundStyle(ThreadPalette.faint)
+
+                            Spacer(minLength: 0)
+
+                            Text(averageHeaderText)
+                                .font(ThreadFont.body(12, weight: .medium))
+                                .foregroundStyle(ThreadPalette.faint)
+                        }
 
                         VStack(spacing: 8) {
                             ForEach(1...5, id: \.self) { score in
@@ -73,6 +82,17 @@ struct StatsView: View {
                             )
                         }
                     }
+
+                    ThreadCard {
+                        Text("Streak badges")
+                            .font(ThreadFont.body(12, weight: .semibold))
+                            .tracking(2.4)
+                            .textCase(.uppercase)
+                            .foregroundStyle(ThreadPalette.faint)
+
+                        ThreadStreakBadgeRailView(badges: streakBadges)
+                    }
+
                     ThreadCard {
                         Text("Recent threads")
                             .font(ThreadFont.body(12, weight: .semibold))
@@ -138,14 +158,12 @@ struct StatsView: View {
         return average.formatted(.number.precision(.fractionLength(0...2)))
     }
 
-    private var metricColumns: [GridItem] {
-        let count = horizontalSizeClass == .regular ? 3 : 2
-        return Array(repeating: GridItem(.flexible(), spacing: 12), count: count)
+    private var averageHeaderText: String {
+        stats.averageClues == nil ? "Average —" : "Average \(averageDisplay) clues"
     }
 
-    private var bestDisplay: String {
-        guard let best = stats.bestScore else { return "—" }
-        return "\(best) clues"
+    private var metricColumns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 12), count: 2)
     }
 
     private var maxBarCount: Int {

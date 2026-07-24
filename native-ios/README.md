@@ -11,28 +11,25 @@ It is not a wrapper around the website. The website remains separate and the app
 - App Store name: `Daily Thread`
 - In-app wordmark: `THREAD`
 - Gameplay: local-first and offline-first
-- Day rollover: device local midnight
+- Day rollover: midnight `Europe/London`, matching the website daily puzzle
 - Cross-device sync: private iCloud sync in `Release`
 - Website sync: none
 - Remote push: off
 - Local reminders: supported
 - First-party analytics: supported
 - Anonymous aggregate daily score upload: off
+- Archive: playable paid feature in the current development tree, gated by a non-consumable StoreKit 2 entitlement; Archive progress is device-local
 
 ## What is separate from the website
 
-The app and website intentionally behave differently in two important ways:
+The app and website intentionally share the same daily puzzle schedule, but remain separate in one important way:
 
-1. Day boundary
-- Website unlocks the next thread at midnight `Europe/London`
-- App unlocks the next thread at midnight in the device's local time zone
-
-2. User progress
+1. User progress
 - Website progress is website-local
 - App progress is app-local plus private iCloud sync in `Release`
 - There is no account-based sync between website and app
 
-They still share the same round order and puzzle IDs.
+They share the same round order, puzzle IDs, and `Europe/London` midnight rollover so the website and app show the same daily puzzle.
 
 ## Main files
 
@@ -50,10 +47,16 @@ They still share the same round order and puzzle IDs.
   - bundled daily puzzle dataset for the app
 - [`Thread/Features/`](/Users/zacellis/thread-game-site/native-ios/Thread/Features)
   - gameplay, tutorial, results, settings, stats screens
+- [`Thread/Features/ArchiveView.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Features/ArchiveView.swift)
+  - purchase/restore paywall, past-Thread list, filters, completion state, and archived result review
+- [`Thread/Services/ThreadArchivePurchases.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Services/ThreadArchivePurchases.swift)
+  - StoreKit 2 product loading, verified purchase, restore, and entitlement updates
+- [`StoreKit/Archive.storekit`](/Users/zacellis/thread-game-site/native-ios/StoreKit/Archive.storekit)
+  - local StoreKit configuration for Xcode purchase testing; it is not bundled in Release
 - [`Thread/Shared/ThreadTheme.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Shared/ThreadTheme.swift)
   - palette, typography, spacing, motion tokens
 - [`Thread/Shared/ThreadUI.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Shared/ThreadUI.swift)
-  - shared UI primitives and launch/reveal components
+  - shared UI primitives, stats pieces, badge components, and overlays
 
 ## Build and run
 
@@ -116,7 +119,7 @@ Current effective behavior:
 - `Debug`
   - display name: `Daily Thread Dev`
   - bundle identifier: `co.dailythread.threadapp.dev`
-  - analytics base URL: on
+  - analytics base URL: off
   - analytics build channel: `debug`
   - iCloud sync: off
   - reset progress on launch: off
@@ -125,7 +128,7 @@ Current effective behavior:
 - `Release`
   - display name: `Daily Thread`
   - bundle identifier: `co.dailythread.threadapp`
-  - analytics base URL: on
+  - analytics base URL: off
   - analytics build channel: `release`
   - iCloud sync: on
   - reset progress on launch: off
@@ -138,8 +141,44 @@ Current effective behavior:
   - app opens directly to the current daily thread
 - If today's daily is already completed:
   - app opens to the compact already-played state
-- Cold launch no longer uses a separate loading splash
-- Startup now resolves directly into the `Thread #...` reveal
+- The native iOS launch screen uses only the matching warm background instead of the system white default; no logo image is shown during launch
+- After the native launch screen, SwiftUI routes directly to the first local app screen
+- The first resolved SwiftUI screen gets a one-time `0.16s` non-blocking opacity/settle polish pass; Reduce Motion disables it
+- There is no custom SwiftUI launch reveal, logo splash, launch streak overlay, or root screen transition
+- Streak messaging now belongs to the solved daily success state and the one-time streak badge unlock overlay
+
+## Archive paid-feature phase
+
+The current native development tree includes the first Archive implementation:
+
+- entry point: calendar button on the daily, results, and already-played screens
+- content: every Thread before the current `Europe/London` day, newest first
+- filters: `Unplayed`, `Finished`, and `All`
+- unfinished Archive rounds persist and resume locally
+- finished Archive rounds reveal the answer, score, date, and clue connections
+- a Thread already completed as the live daily is shown as finished in the Archive
+- Archive plays are intentionally excluded from daily stats, streaks, badges, reminders, aggregate score submission, and the daily result flow
+
+Current technical boundary:
+
+- Archive history and snapshots use separate `UserDefaults` records
+- Archive entry points are available in Debug and Release, but opening Archive requires the verified non-consumable entitlement
+- Archive progress is currently device-local and is not in CloudKit
+- StoreKit product ID: `co.dailythread.threadapp.archive`
+- App Store Connect product: `Daily Thread Archive`, displayed as `Thread Archive`, configured at `£0.99`
+- the paywall uses Apple's localized product price and includes an explicit `Restore purchase` action
+- entitlement restoration follows the user's Apple Account; Archive play history and in-progress rounds do not transfer yet
+- the Xcode scheme uses `StoreKit/Archive.storekit` for local purchase testing
+- before App Review, complete a signed-device/TestFlight purchase and restore pass and attach the Archive paywall screenshot to the IAP review metadata
+
+The March 2026 schedule reset is handled explicitly: Threads `#1-43` use the legacy sequence through 30 March, and Thread `#44` on 31 March starts the seeded future pool. Today and future dates are never added to the Archive.
+
+Release constraints:
+
+- existing round IDs and content are immutable once their date has passed
+- adding, removing, or reordering the seeded future pool can remap scheduled dates
+- the current 240-round future pool begins repeating on 26 November 2026
+- Archive availability is based on the device's view of the London date; a server-authoritative schedule is a later backend phase
 
 ## Notifications and reminders
 
@@ -177,12 +216,12 @@ Relevant files:
 
 ## Analytics
 
-The app uses first-party analytics only.
+The app contains an optional first-party analytics client, but remote analytics is disabled for `1.1.0`.
 
 Behavior:
 
 - falls back to local logging if no analytics base URL is configured
-- uploads anonymous product events when the remote analytics endpoint is configured
+- uploads anonymous product events only when a verified remote analytics endpoint is configured
 - distinguishes `debug` and `release` using `ThreadAnalyticsBuildChannel`
 
 Important:
@@ -208,6 +247,8 @@ Synced data:
 - daily history
 - in-progress daily snapshots
 
+Archive history and Archive snapshots are not synced. StoreKit can restore access on another device, but it does not transfer Archive completion or in-progress state.
+
 Design rules:
 
 - local-first always
@@ -228,13 +269,16 @@ Release settings should only expose real user preferences and support/privacy li
 Debug-only local QA tools are hidden behind `#if DEBUG` in:
 
 - [`Thread/Features/SettingsView.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Features/SettingsView.swift)
+- [`Thread/App/ThreadRootViewModel.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/App/ThreadRootViewModel.swift)
+- [`Thread/Services/ThreadNotifications.swift`](/Users/zacellis/thread-game-site/native-ios/Thread/Services/ThreadNotifications.swift)
 
 Those tools currently include:
 
 - `Reset app to first launch`
-- `Replay launch animation`
+- notification diagnostics and test reminder
+- streak badge stats/unlock previews
 
-They should never be surfaced in `Release`.
+They should never be surfaced or compiled into active `Release` code paths. Before uploading, scan the Release binary for these labels if this area has changed.
 
 ## Updating future daily puzzles
 
@@ -268,7 +312,6 @@ node ../scripts/export-thread-rounds.mjs
 ## Practical handoff notes
 
 - Treat `project.yml` as the source of truth, not the generated `.xcodeproj`.
-- Do not assume the website and app share a day boundary.
 - Do not assume the app and website should sync user progress.
 - If privacy, analytics, reminders, or CloudKit behavior changes, update:
   - this README
@@ -292,8 +335,7 @@ Do not assume the bundled file order is the live daily order.
 Important:
 
 - the app can select from the `futureDaily` pool using a seeded shuffle
-- the app uses the device's local time zone for day rollover
-- the website does not share that same day boundary
+- the app and website both use midnight `Europe/London` for daily puzzle rollover
 
 ### If I change a future app puzzle, do I need a new binary?
 
@@ -311,9 +353,8 @@ Changing a future app puzzle means:
 
 These can drift independently if changed carelessly:
 
-- day boundary
-  - website: `Europe/London`
-  - app: device local time zone
+- daily puzzle schedule
+  - website and app: midnight `Europe/London`
 - per-user progress
   - website: website-local
   - app: app-local plus private iCloud in `Release`
@@ -425,7 +466,6 @@ Before editing:
 - treat native-ios/project.yml as the build-settings source of truth
 
 Do not assume:
-- app and website share the same day boundary
 - app and website share user progress
 - the generated ThreadApp.xcodeproj is the source of truth
 - daily-rounds.json file order is the live schedule

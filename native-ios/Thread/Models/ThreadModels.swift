@@ -157,6 +157,89 @@ enum ThreadFirstDailyNudgeStage: String, Codable, Hashable {
     case completed
 }
 
+enum ThreadStreakBadgeMilestone: Int, CaseIterable, Codable, Hashable, Identifiable {
+    case day7 = 7
+    case day14 = 14
+    case day30 = 30
+    case day50 = 50
+    case day100 = 100
+    case day200 = 200
+    case day365 = 365
+
+    var id: Int { rawValue }
+
+    var days: Int { rawValue }
+
+    var assetName: String {
+        switch self {
+        case .day7: return "StreakBadge7"
+        case .day14: return "StreakBadge14"
+        case .day30: return "StreakBadge30"
+        case .day50: return "StreakBadge50"
+        case .day100: return "StreakBadge100"
+        case .day200: return "StreakBadge200"
+        case .day365: return "StreakBadge365"
+        }
+    }
+
+    var title: String {
+        "\(days) day streak"
+    }
+}
+
+struct ThreadStreakBadgeDisplay: Hashable, Identifiable {
+    let milestone: ThreadStreakBadgeMilestone
+    let isEarned: Bool
+
+    var id: Int { milestone.id }
+}
+
+#if DEBUG
+struct ThreadDebugBadgePreviewState: Codable, Hashable {
+    var currentStreakOverride: Int?
+    var bestStreakOverride: Int?
+    var unlockPreviewMilestone: ThreadStreakBadgeMilestone?
+
+    static let `default` = ThreadDebugBadgePreviewState(
+        currentStreakOverride: nil,
+        bestStreakOverride: nil,
+        unlockPreviewMilestone: nil
+    )
+
+    var hasAnyOverride: Bool {
+        currentStreakOverride != nil
+            || bestStreakOverride != nil
+            || unlockPreviewMilestone != nil
+    }
+}
+#endif
+
+enum ThreadStreakBadgeLogic {
+    static func displayItems(bestStreak: Int) -> [ThreadStreakBadgeDisplay] {
+        ThreadStreakBadgeMilestone.allCases.map { milestone in
+            ThreadStreakBadgeDisplay(
+                milestone: milestone,
+                isEarned: bestStreak >= milestone.days
+            )
+        }
+    }
+
+    static func newlyUnlockedMilestone(
+        projectedSolvedStreak: Int?,
+        bestStreakBeforeToday: Int,
+        shownMilestones: Set<ThreadStreakBadgeMilestone>
+    ) -> ThreadStreakBadgeMilestone? {
+        guard let projectedSolvedStreak,
+              let milestone = ThreadStreakBadgeMilestone(rawValue: projectedSolvedStreak),
+              bestStreakBeforeToday < milestone.days,
+              !shownMilestones.contains(milestone) else {
+            return nil
+        }
+
+        return milestone
+    }
+}
+
 struct DailyHistoryEntry: Codable, Hashable, Identifiable {
     let dateKey: String
     let roundID: Int
@@ -176,6 +259,45 @@ struct DailyHistoryEntry: Codable, Hashable, Identifiable {
             completedAt: completedAt,
             aggregateSubmittedAt: date
         )
+    }
+}
+
+struct ThreadArchivePuzzle: Hashable, Identifiable {
+    let dateKey: String
+    let roundNumber: Int
+    let round: ThreadRound
+
+    var id: String { dateKey }
+}
+
+struct ThreadArchiveHistoryEntry: Codable, Hashable, Identifiable {
+    let dateKey: String
+    let roundID: Int
+    let answer: String
+    let score: Int?
+    let completedAt: Date
+
+    var id: String { dateKey }
+}
+
+enum ThreadArchiveItemStatus: Hashable {
+    case unplayed
+    case inProgress(revealedClueCount: Int)
+    case finished(score: Int?)
+}
+
+struct ThreadArchiveItem: Hashable, Identifiable {
+    let puzzle: ThreadArchivePuzzle
+    let status: ThreadArchiveItemStatus
+    let completedAnswer: String?
+
+    var id: String { puzzle.id }
+
+    var isFinished: Bool {
+        if case .finished = status {
+            return true
+        }
+        return false
     }
 }
 

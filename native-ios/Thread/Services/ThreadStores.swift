@@ -6,12 +6,18 @@ final class LocalThreadStore {
         static let tutorialCompleted = "thread.native.tutorialCompleted"
         static let history = "thread.native.history"
         static let snapshots = "thread.native.snapshots"
+        static let archiveHistory = "thread.native.archiveHistory"
+        static let archiveSnapshots = "thread.native.archiveSnapshots"
         static let installationID = "thread.native.installationID"
         static let preferences = "thread.native.preferences"
         static let notificationPromptState = "thread.native.notificationPromptState"
         static let hasSolvedPracticeRound = "thread.native.hasSolvedPracticeRound"
         static let firstDailyNudgeStage = "thread.native.firstDailyNudgeStage"
         static let firstDailyNudgeDateKey = "thread.native.firstDailyNudgeDateKey"
+        static let shownStreakBadgeMilestones = "thread.native.shownStreakBadgeMilestones"
+#if DEBUG
+        static let debugBadgePreviewState = "thread.native.debugBadgePreviewState"
+#endif
     }
 
     private let defaults: UserDefaults
@@ -94,6 +100,45 @@ final class LocalThreadStore {
     var firstDailyNudgeDateKey: String? {
         get { defaults.string(forKey: Keys.firstDailyNudgeDateKey) }
         set { defaults.set(newValue, forKey: Keys.firstDailyNudgeDateKey) }
+    }
+
+    var shownStreakBadgeMilestones: Set<ThreadStreakBadgeMilestone> {
+        get {
+            guard let data = defaults.data(forKey: Keys.shownStreakBadgeMilestones),
+                  let rawValues = try? decoder.decode([Int].self, from: data) else {
+                return []
+            }
+
+            return Set(rawValues.compactMap(ThreadStreakBadgeMilestone.init(rawValue:)))
+        }
+        set {
+            let rawValues = newValue.map(\.rawValue).sorted()
+            guard let data = try? encoder.encode(rawValues) else { return }
+            defaults.set(data, forKey: Keys.shownStreakBadgeMilestones)
+        }
+    }
+
+#if DEBUG
+    var debugBadgePreviewState: ThreadDebugBadgePreviewState {
+        get {
+            guard let data = defaults.data(forKey: Keys.debugBadgePreviewState),
+                  let state = try? decoder.decode(ThreadDebugBadgePreviewState.self, from: data) else {
+                return .default
+            }
+
+            return state
+        }
+        set {
+            guard let data = try? encoder.encode(newValue) else { return }
+            defaults.set(data, forKey: Keys.debugBadgePreviewState)
+        }
+    }
+#endif
+
+    func markStreakBadgeMilestoneShown(_ milestone: ThreadStreakBadgeMilestone) {
+        var shown = shownStreakBadgeMilestones
+        shown.insert(milestone)
+        shownStreakBadgeMilestones = shown
     }
 
     @discardableResult
@@ -186,9 +231,66 @@ final class LocalThreadStore {
         defaults.removeObject(forKey: Keys.history)
     }
 
+    func loadArchiveHistory() -> [ThreadArchiveHistoryEntry] {
+        guard let data = defaults.data(forKey: Keys.archiveHistory) else { return [] }
+
+        do {
+            return try decoder.decode([ThreadArchiveHistoryEntry].self, from: data)
+                .sorted { $0.dateKey > $1.dateKey }
+        } catch {
+            return []
+        }
+    }
+
+    @discardableResult
+    func upsertArchiveHistoryEntry(_ entry: ThreadArchiveHistoryEntry) -> [ThreadArchiveHistoryEntry] {
+        var entries = loadArchiveHistory().filter { $0.dateKey != entry.dateKey }
+        entries.append(entry)
+        let sorted = entries.sorted { $0.dateKey > $1.dateKey }
+
+        if let data = try? encoder.encode(sorted) {
+            defaults.set(data, forKey: Keys.archiveHistory)
+        }
+
+        return sorted
+    }
+
+    func loadArchiveSnapshot(for dateKey: String, roundID: Int) -> GameSnapshot? {
+        loadArchiveSnapshotMap()[dateKey].flatMap { snapshot in
+            snapshot.roundID == roundID ? snapshot : nil
+        }
+    }
+
+    func loadAllArchiveSnapshots() -> [String: GameSnapshot] {
+        loadArchiveSnapshotMap()
+    }
+
+    func saveArchiveSnapshot(_ snapshot: GameSnapshot) {
+        guard let dateKey = snapshot.dateKey else { return }
+        var snapshots = loadArchiveSnapshotMap()
+        snapshots[dateKey] = snapshot
+        persistArchiveSnapshotMap(snapshots)
+    }
+
+    func clearArchiveSnapshot(for dateKey: String) {
+        var snapshots = loadArchiveSnapshotMap()
+        snapshots.removeValue(forKey: dateKey)
+        persistArchiveSnapshotMap(snapshots)
+    }
+
+    func clearArchiveProgress() {
+        defaults.removeObject(forKey: Keys.archiveHistory)
+        defaults.removeObject(forKey: Keys.archiveSnapshots)
+    }
+
     func clearGameplayProgress() {
         clearHistory()
         clearAllSnapshots()
+        clearArchiveProgress()
+        shownStreakBadgeMilestones = []
+#if DEBUG
+        debugBadgePreviewState = .default
+#endif
     }
 
     func resetForFreshLaunch() {
@@ -220,4 +322,15 @@ final class LocalThreadStore {
         guard let data = try? encoder.encode(snapshots) else { return }
         defaults.set(data, forKey: Keys.snapshots)
     }
+
+    private func loadArchiveSnapshotMap() -> [String: GameSnapshot] {
+        guard let data = defaults.data(forKey: Keys.archiveSnapshots) else { return [:] }
+        return (try? decoder.decode([String: GameSnapshot].self, from: data)) ?? [:]
+    }
+
+    private func persistArchiveSnapshotMap(_ snapshots: [String: GameSnapshot]) {
+        guard let data = try? encoder.encode(snapshots) else { return }
+        defaults.set(data, forKey: Keys.archiveSnapshots)
+    }
+
 }

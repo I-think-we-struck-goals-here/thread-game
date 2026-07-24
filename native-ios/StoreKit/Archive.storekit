@@ -1,0 +1,33 @@
+{
+  "identifier" : "DA11A7C1",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "A12C4E70",
+      "localizations" : [
+        {
+          "description" : "Play every past Daily Thread.",
+          "displayName" : "Thread Archive",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "co.dailythread.threadapp.archive",
+      "referenceName" : "Daily Thread Archive",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

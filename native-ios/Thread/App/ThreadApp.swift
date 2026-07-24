@@ -5,44 +5,65 @@ import UIKit
 struct ThreadNativeApp: App {
     @UIApplicationDelegateAdaptor(ThreadAppDelegate.self) private var appDelegate
     @StateObject private var viewModel = ThreadRootViewModel()
+    @StateObject private var archivePurchaseController = ThreadArchivePurchaseController()
 
     var body: some Scene {
         WindowGroup {
             ThreadRootView(
                 viewModel: viewModel,
-                appDelegate: appDelegate
+                appDelegate: appDelegate,
+                archivePurchaseController: archivePurchaseController
             )
         }
     }
 }
 
 struct ThreadRootView: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
     @ObservedObject var viewModel: ThreadRootViewModel
     @ObservedObject var appDelegate: ThreadAppDelegate
-    @State private var showsDailyReveal = false
-    @State private var hasShownInitialDailyReveal = false
-
-    private let dailyRevealDisplayDuration: Duration = .milliseconds(350)
-    private let dailyRevealFadeDuration: Double = 0.2
+    @ObservedObject var archivePurchaseController: ThreadArchivePurchaseController
+    @State private var hasPresentedInitialResolvedScreen = false
+    @State private var initialResolvedScreenVisible = false
+    @State private var isArchivePaywallPresented = false
 
     var body: some View {
         ZStack {
             ThreadBackground()
 
             screenView
-                .transition(ThreadMotion.pageTransition)
+                .modifier(
+                    ThreadInitialResolvedScreenEntrance(
+                        screen: viewModel.screen,
+                        isVisible: initialResolvedScreenVisible,
+                        reduceMotion: reduceMotion
+                    )
+                )
 
-            if showsDailyReveal {
-                ThreadDailyRevealView(roundNumber: viewModel.dailyRoundNumber)
-                    .transition(.opacity)
-                    .zIndex(1)
+#if DEBUG
+            if let previewMilestone = viewModel.debugBadgePreviewState.unlockPreviewMilestone {
+                ThreadStreakBadgeUnlockOverlay(
+                    milestone: previewMilestone,
+                    buttonTitle: "Close preview",
+                    onContinue: viewModel.clearDebugBadgeUnlockPreview
+                )
+                .zIndex(2)
             }
+#endif
         }
-        .animation(ThreadMotion.defaultSpring, value: viewModel.screen)
         .task {
             await viewModel.bootstrapIfNeeded()
+        }
+        .task {
+            await archivePurchaseController.start()
+        }
+        .onAppear {
+            presentInitialResolvedScreenIfNeeded(viewModel.screen)
+        }
+        .onChange(of: viewModel.screen) { _, newScreen in
+            presentInitialResolvedScreenIfNeeded(newScreen)
         }
         .task(id: viewModel.todayDateKey) {
             await viewModel.waitForNextDailyRefresh()
@@ -60,11 +81,15 @@ struct ThreadRootView: View {
         .onChange(of: appDelegate.remotePushRegistrationError) { _, message in
             viewModel.handleRemotePushRegistrationError(message)
         }
-        .onChange(of: viewModel.screen) { _, newValue in
-            showDailyRevealIfNeeded(for: newValue)
+        .onChange(of: archivePurchaseController.isEntitled) { _, isEntitled in
+            handleArchiveEntitlementChange(isEntitled)
         }
-        .onChange(of: viewModel.launchRevealReplayToken) { _, _ in
-            showDailyReveal(force: true, for: viewModel.screen)
+        .sheet(isPresented: $isArchivePaywallPresented) {
+            ArchivePaywallView(
+                purchaseController: archivePurchaseController,
+                onClose: { isArchivePaywallPresented = false },
+                onUnlocked: unlockArchive
+            )
         }
         .alert(item: notificationPromptBinding) { prompt in
             switch prompt.kind {
@@ -74,7 +99,7 @@ struct ThreadRootView: View {
                     message: Text(prompt.message),
                     primaryButton: .default(Text(prompt.confirmTitle)) {
                         Task {
-                            await viewModel.confirmNotificationPrompt()
+                            await viewModel.confirmNotificationPrompt(prompt)
                         }
                     },
                     secondaryButton: .cancel(Text("Not now")) {
@@ -168,8 +193,12 @@ struct ThreadRootView: View {
                         )
                     },
                     firstDailyNudgeStage: viewModel.visibleFirstDailyNudgeStage,
+                    completionStreakCount: viewModel.projectedSolvedDailyStreakCount,
+                    completionBadgeUnlock: viewModel.pendingStreakBadgeUnlockMilestone,
+                    onCompletionBadgeUnlockPresented: viewModel.markStreakBadgeUnlockPresented,
                     onFirstDailyNudgeSubmission: viewModel.handleFirstDailyNudgeSubmission,
                     onComplete: viewModel.completeDaily,
+                    onOpenArchive: archiveOpenAction,
                     onViewStats: viewModel.openStats,
                     onOpenSettings: viewModel.openSettings
                 )
@@ -177,7 +206,7 @@ struct ThreadRootView: View {
             }
 
         case .results:
-            if let round = viewModel.dailyRound, let result = viewModel.currentDailyResult {
+            if let round = viewModel.dailyRound, let result = viewModel.displayedDailyResult {
                 ResultsView(
                     round: round,
                     roundNumber: viewModel.dailyRoundNumber,
@@ -186,6 +215,7 @@ struct ThreadRootView: View {
                     score: result.score,
                     nextUnlockDate: viewModel.nextDailyRefreshDate,
                     hapticsEnabled: viewModel.preferences.hapticsEnabled,
+                    onOpenArchive: archiveOpenAction,
                     onViewStats: viewModel.openStats,
                     onShare: viewModel.confirmSharedResults,
                     onOpenSettings: viewModel.openSettings
@@ -193,7 +223,7 @@ struct ThreadRootView: View {
             }
 
         case .alreadyPlayed:
-            if let round = viewModel.dailyRound, let entry = viewModel.currentDailyResult {
+            if let round = viewModel.dailyRound, let entry = viewModel.displayedDailyResult {
                 AlreadyPlayedView(
                     round: round,
                     roundNumber: viewModel.dailyRoundNumber,
@@ -202,27 +232,70 @@ struct ThreadRootView: View {
                     entry: entry,
                     nextUnlockDate: viewModel.nextDailyRefreshDate,
                     hapticsEnabled: viewModel.preferences.hapticsEnabled,
+                    onOpenArchive: archiveOpenAction,
                     onViewStats: viewModel.openStats,
                     onShare: viewModel.confirmSharedResults,
                     onOpenSettings: viewModel.openSettings
                 )
             }
 
+        case .archive:
+            archiveView
+
+        case .archiveRound(let dateKey):
+            if let item = viewModel.archiveItem(for: dateKey), !item.isFinished {
+                let puzzle = item.puzzle
+                ThreadRoundView(
+                    round: puzzle.round,
+                    dateKey: puzzle.dateKey,
+                    snapshot: viewModel.archiveSnapshot(for: puzzle),
+                    kicker: "Archive · Thread #\(puzzle.roundNumber)",
+                    completionButtonTitle: "Back to Archive",
+                    autoAdvanceOnFailure: true,
+                    hapticsEnabled: viewModel.preferences.hapticsEnabled,
+                    onPersistSnapshot: viewModel.updateArchiveSnapshot,
+                    onRoundStarted: { resumedSavedProgress in
+                        viewModel.trackArchiveRoundStarted(
+                            puzzle: puzzle,
+                            resumedSavedProgress: resumedSavedProgress
+                        )
+                    },
+                    onComplete: { completion in
+                        viewModel.completeArchive(puzzle: puzzle, completion: completion)
+                    },
+                    onBack: viewModel.closeArchiveDetail
+                )
+                .id("archive-\(puzzle.dateKey)-\(puzzle.round.id)")
+            } else {
+                archiveView
+            }
+
+        case .archiveResult(let dateKey):
+            if let item = viewModel.archiveItem(for: dateKey), item.isFinished {
+                ArchiveResultView(
+                    item: item,
+                    onBack: viewModel.closeArchiveDetail
+                )
+            } else {
+                archiveView
+            }
+
         case .stats:
             StatsView(
                 history: viewModel.history,
                 todayKey: viewModel.todayDateKey,
+                currentStreakValue: viewModel.displayedStatsCurrentStreak,
+                bestStreakValue: viewModel.displayedStatsBestStreak,
+                streakBadges: viewModel.displayedStreakBadges,
                 onBack: viewModel.closeStats,
                 onOpenSettings: viewModel.openSettings
             )
 
         case .settings:
+#if DEBUG
             SettingsView(
                 preferences: viewModel.preferences,
                 displayedDailyRemindersEnabled: viewModel.displayedDailyRemindersEnabled,
-                notificationAuthorizationStatus: viewModel.notificationAuthorizationStatus,
-                notificationDebugSummary: viewModel.notificationDebugSummary,
-                notificationDebugFeedback: viewModel.notificationDebugFeedback,
                 externalLinks: viewModel.externalLinks,
                 onBack: viewModel.closeSettings,
                 onSetAnalyticsEnabled: viewModel.setAnalyticsEnabled,
@@ -231,11 +304,40 @@ struct ThreadRootView: View {
                 onSetDailyRemindersEnabled: viewModel.setDailyRemindersEnabled,
                 onOpenSupport: viewModel.trackSupportOpened,
                 onOpenPrivacy: viewModel.trackPrivacyOpened,
+                notificationAuthorizationStatus: viewModel.notificationAuthorizationStatus,
+                notificationDebugSummary: viewModel.notificationDebugSummary,
+                notificationDebugFeedback: viewModel.notificationDebugFeedback,
+                badgeDebugSummary: viewModel.badgeDebugSummary,
                 onClearLocalProgress: viewModel.clearLocalProgress,
-                onReplayLaunchReveal: viewModel.replayLaunchReveal,
                 onRefreshNotificationDiagnostics: viewModel.refreshNotificationDiagnostics,
-                onSendDebugReminder: viewModel.sendDebugReminder
+                onSendDebugReminder: viewModel.sendDebugReminder,
+                onPreviewBadgeCollectionNext: {
+                    viewModel.previewBadgeCollection(currentStreak: 20, bestStreak: 20)
+                    viewModel.openStats()
+                },
+                onPreviewBadgeCollectionEarned30: {
+                    viewModel.previewBadgeCollection(currentStreak: 32, bestStreak: 32)
+                    viewModel.openStats()
+                },
+                onPreviewBadgeUnlock7: { viewModel.previewBadgeUnlock(.day7) },
+                onPreviewBadgeUnlock14: { viewModel.previewBadgeUnlock(.day14) },
+                onPreviewBadgeUnlock30: { viewModel.previewBadgeUnlock(.day30) },
+                onClearBadgeDebugPreviews: viewModel.clearBadgeDebugPreviews
             )
+#else
+            SettingsView(
+                preferences: viewModel.preferences,
+                displayedDailyRemindersEnabled: viewModel.displayedDailyRemindersEnabled,
+                externalLinks: viewModel.externalLinks,
+                onBack: viewModel.closeSettings,
+                onSetAnalyticsEnabled: viewModel.setAnalyticsEnabled,
+                onSetAggregateSharingEnabled: viewModel.setAggregateSharingEnabled,
+                onSetHapticsEnabled: viewModel.setHapticsEnabled,
+                onSetDailyRemindersEnabled: viewModel.setDailyRemindersEnabled,
+                onOpenSupport: viewModel.trackSupportOpened,
+                onOpenPrivacy: viewModel.trackPrivacyOpened
+            )
+#endif
 
         case .error:
             ThreadScreenContainer {
@@ -255,39 +357,91 @@ struct ThreadRootView: View {
         }
     }
 
+    private var archiveView: some View {
+        ArchiveView(
+            items: viewModel.archiveItems,
+            onBack: viewModel.closeArchive,
+            onSelect: viewModel.openArchiveItem
+        )
+    }
+
+    private var archiveOpenAction: (() -> Void)? {
+        requestArchiveAccess
+    }
+
+    private func requestArchiveAccess() {
+        if archivePurchaseController.isEntitled {
+            viewModel.openArchive()
+        } else {
+            isArchivePaywallPresented = true
+        }
+    }
+
+    private func unlockArchive() {
+        isArchivePaywallPresented = false
+        guard viewModel.screen != .archive else { return }
+        viewModel.openArchive()
+    }
+
+    private func handleArchiveEntitlementChange(_ isEntitled: Bool) {
+        if isEntitled {
+            if isArchivePaywallPresented {
+                unlockArchive()
+            }
+            return
+        }
+
+        switch viewModel.screen {
+        case .archive, .archiveRound, .archiveResult:
+            viewModel.closeArchive()
+        default:
+            break
+        }
+    }
+
     private var notificationPromptBinding: Binding<ThreadNotificationPrompt?> {
         Binding(
             get: { viewModel.notificationPrompt },
             set: { newValue in
                 if newValue == nil {
-                    viewModel.dismissNotificationPrompt()
+                    viewModel.clearNotificationPromptPresentation()
                 }
             }
         )
     }
 
-    private func showDailyRevealIfNeeded(for screen: ThreadScreen) {
-        showDailyReveal(force: false, for: screen)
-    }
+    private func presentInitialResolvedScreenIfNeeded(_ screen: ThreadScreen) {
+        guard screen != .loading else { return }
+        guard !hasPresentedInitialResolvedScreen else { return }
 
-    private func showDailyReveal(force: Bool, for screen: ThreadScreen) {
-        guard force || !hasShownInitialDailyReveal else { return }
-        switch screen {
-        case .daily, .alreadyPlayed:
-            hasShownInitialDailyReveal = true
-            showsDailyReveal = true
+        hasPresentedInitialResolvedScreen = true
 
-            Task {
-                try? await Task.sleep(for: dailyRevealDisplayDuration)
-                await MainActor.run {
-                    withAnimation(.easeOut(duration: dailyRevealFadeDuration)) {
-                        showsDailyReveal = false
-                    }
-                }
+        if reduceMotion {
+            initialResolvedScreenVisible = true
+            return
+        }
+
+        initialResolvedScreenVisible = false
+        DispatchQueue.main.async {
+            withAnimation(.easeOut(duration: 0.16)) {
+                initialResolvedScreenVisible = true
             }
+        }
+    }
+}
 
-        default:
-            break
+private struct ThreadInitialResolvedScreenEntrance: ViewModifier {
+    let screen: ThreadScreen
+    let isVisible: Bool
+    let reduceMotion: Bool
+
+    func body(content: Content) -> some View {
+        if screen == .loading || reduceMotion {
+            content
+        } else {
+            content
+                .opacity(isVisible ? 1 : 0.97)
+                .offset(y: isVisible ? 0 : 5)
         }
     }
 }

@@ -43,6 +43,22 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(scheduler.todayDateKey(now: date("2026-04-04T23:30:00Z")), "2026-04-05")
     }
 
+    func testDefaultSchedulerUsesWebsiteLondonBoundary() {
+        let rounds = [
+            ThreadRound(id: 1, sourcePool: "test", answer: "HEAD", acceptedAnswers: ["HEAD"], clues: sampleClues),
+            ThreadRound(id: 2, sourcePool: "test", answer: "HAND", acceptedAnswers: ["HAND"], clues: sampleClues),
+        ]
+
+        let scheduler = DailyScheduler(
+            rounds: rounds,
+            anchorComponents: DateComponents(year: 2026, month: 4, day: 4)
+        )
+
+        XCTAssertEqual(scheduler.timeZone.identifier, DailyScheduler.canonicalTimeZoneID)
+        XCTAssertEqual(scheduler.todayDateKey(now: date("2026-04-04T23:30:00Z")), "2026-04-05")
+        XCTAssertEqual(scheduler.roundForToday(now: date("2026-04-04T23:30:00Z")).id, 2)
+    }
+
     func testSchedulerComputesNextUnlockAtLondonMidnight() {
         let scheduler = DailyScheduler(
             rounds: [
@@ -56,6 +72,51 @@ final class ThreadCoreTests: XCTestCase {
             ISO8601DateFormatter().string(from: scheduler.nextUnlockDate(now: date("2026-04-04T22:15:00Z"))),
             "2026-04-04T23:00:00Z"
         )
+    }
+
+    func testSchedulerBuildsArchiveAcrossReplacementPoolBoundary() {
+        let rounds = [
+            ThreadRound(id: 1, sourcePool: "legacyDaily", answer: "HEAD", acceptedAnswers: ["HEAD"], clues: sampleClues),
+            ThreadRound(id: 2, sourcePool: "legacyDaily", answer: "HAND", acceptedAnswers: ["HAND"], clues: sampleClues),
+            ThreadRound(id: 3, sourcePool: "futureDaily", answer: "FOOT", acceptedAnswers: ["FOOT"], clues: sampleClues),
+            ThreadRound(id: 4, sourcePool: "futureDaily", answer: "RING", acceptedAnswers: ["RING"], clues: sampleClues),
+        ]
+        let scheduler = DailyScheduler(
+            rounds: rounds,
+            timeZoneID: "Europe/London",
+            anchorComponents: DateComponents(year: 2026, month: 4, day: 1),
+            roundSelectionAnchorComponents: DateComponents(year: 2026, month: 4, day: 3),
+            futureShuffleSeed: 42
+        )
+
+        let archive = scheduler.archivePuzzles(now: date("2026-04-05T10:00:00Z"))
+
+        XCTAssertEqual(archive.map(\.dateKey), ["2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04"])
+        XCTAssertEqual(archive.map(\.roundNumber), [1, 2, 3, 4])
+        XCTAssertEqual(archive[0].round.id, 1)
+        XCTAssertEqual(archive[1].round.id, 2)
+        XCTAssertEqual(archive[2].round.sourcePool, "futureDaily")
+        XCTAssertEqual(archive[3].round.sourcePool, "futureDaily")
+    }
+
+    func testBundledScheduleMapsMarchResetToThread44() throws {
+        let scheduler = DailyScheduler(rounds: try ThreadRepository().loadDailyRounds())
+        let lastLegacyDate = date("2026-03-30T12:00:00Z")
+        let resetDate = date("2026-03-31T12:00:00Z")
+
+        XCTAssertEqual(scheduler.dayNumber(now: lastLegacyDate), 43)
+        XCTAssertEqual(scheduler.round(for: lastLegacyDate).id, 43)
+        XCTAssertEqual(scheduler.dayNumber(now: resetDate), 44)
+        XCTAssertEqual(scheduler.round(for: resetDate).sourcePool, "futureDaily")
+    }
+
+    func testArchiveStopsBeforeCurrentLondonDayAcrossDSTBoundary() throws {
+        let scheduler = DailyScheduler(rounds: try ThreadRepository().loadDailyRounds())
+        let archive = scheduler.archivePuzzles(now: date("2026-03-31T10:00:00Z"))
+
+        XCTAssertEqual(archive.count, 43)
+        XCTAssertEqual(archive.first?.dateKey, "2026-02-16")
+        XCTAssertEqual(archive.last?.dateKey, "2026-03-30")
     }
 
     @MainActor
@@ -121,6 +182,59 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(summary.missedCount, 1)
     }
 
+    func testStreakBadgeLogicEarnsMilestonesUpToBestStreak() {
+        let displays = ThreadStreakBadgeLogic.displayItems(bestStreak: 32)
+
+        XCTAssertEqual(displays.filter(\.isEarned).map(\.milestone), [.day7, .day14, .day30])
+        XCTAssertEqual(displays.filter { !$0.isEarned }.map(\.milestone), [.day50, .day100, .day200, .day365])
+    }
+
+    func testStreakBadgeLogicReturnsNewUnlockAtExactMilestone() {
+        let milestone = ThreadStreakBadgeLogic.newlyUnlockedMilestone(
+            projectedSolvedStreak: 7,
+            bestStreakBeforeToday: 6,
+            shownMilestones: []
+        )
+
+        XCTAssertEqual(milestone, .day7)
+    }
+
+    func testStreakBadgeLogicDoesNotRepeatShownUnlock() {
+        let milestone = ThreadStreakBadgeLogic.newlyUnlockedMilestone(
+            projectedSolvedStreak: 30,
+            bestStreakBeforeToday: 29,
+            shownMilestones: [.day30]
+        )
+
+        XCTAssertNil(milestone)
+    }
+
+#if DEBUG
+    @MainActor
+    func testDebugBadgePreviewStatePersistsOverrides() {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let viewModel = ThreadRootViewModel(store: store)
+
+        viewModel.previewBadgeCollection(currentStreak: 14, bestStreak: 30)
+        XCTAssertEqual(store.debugBadgePreviewState.currentStreakOverride, 14)
+        XCTAssertEqual(store.debugBadgePreviewState.bestStreakOverride, 30)
+
+        viewModel.previewBadgeUnlock(.day7)
+        XCTAssertEqual(store.debugBadgePreviewState.unlockPreviewMilestone, .day7)
+
+        let reloadedViewModel = ThreadRootViewModel(store: store)
+        XCTAssertEqual(reloadedViewModel.debugBadgePreviewState.currentStreakOverride, 14)
+        XCTAssertEqual(reloadedViewModel.debugBadgePreviewState.bestStreakOverride, 30)
+        XCTAssertEqual(reloadedViewModel.debugBadgePreviewState.unlockPreviewMilestone, .day7)
+
+        viewModel.clearBadgeDebugPreviews()
+        XCTAssertEqual(store.debugBadgePreviewState, .default)
+    }
+#endif
+
     func testShareTextBuilderMatchesScoreRow() {
         let text = ShareTextBuilder.resultText(roundNumber: 42, score: 3)
 
@@ -161,12 +275,13 @@ final class ThreadCoreTests: XCTestCase {
         )
 
         viewModel.setDailyRemindersEnabled(true)
-        await settleAsyncWork()
+        await waitUntil { viewModel.notificationPrompt?.kind == .requestAuthorization }
 
         XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
         XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
         XCTAssertEqual(viewModel.notificationPrompt?.kind, .requestAuthorization)
-        XCTAssertEqual(await notifications.scheduledReminderCount(), 0)
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(scheduledReminderCount, 0)
     }
 
     @MainActor
@@ -183,14 +298,48 @@ final class ThreadCoreTests: XCTestCase {
         )
 
         viewModel.setDailyRemindersEnabled(true)
-        await settleAsyncWork()
+        await waitUntil { viewModel.notificationPrompt?.kind == .requestAuthorization }
         await viewModel.confirmNotificationPrompt()
-        await settleAsyncWork()
+        await waitUntil { viewModel.preferences.dailyRemindersEnabled }
 
         XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
         XCTAssertNil(viewModel.notificationPrompt)
-        XCTAssertEqual(await notifications.requestAuthorizationCount(), 1)
-        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
+        let requestAuthorizationCount = await notifications.requestAuthorizationCount()
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(requestAuthorizationCount, 1)
+        XCTAssertEqual(scheduledReminderCount, 1)
+    }
+
+    @MainActor
+    func testAlertDismissalDuringConfirmDoesNotCancelReminderEnable() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .notDetermined, requestResultStatus: .authorized)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
+        )
+
+        viewModel.setDailyRemindersEnabled(true)
+        await waitUntil { viewModel.notificationPrompt?.kind == .requestAuthorization }
+        let prompt = try! XCTUnwrap(viewModel.notificationPrompt)
+
+        viewModel.clearNotificationPromptPresentation()
+        XCTAssertNil(viewModel.notificationPrompt)
+        XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
+
+        await viewModel.confirmNotificationPrompt(prompt)
+        await waitUntil { viewModel.preferences.dailyRemindersEnabled }
+
+        XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertFalse(viewModel.pendingDailyRemindersEnableRequest)
+        let requestAuthorizationCount = await notifications.requestAuthorizationCount()
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(requestAuthorizationCount, 1)
+        XCTAssertEqual(scheduledReminderCount, 1)
     }
 
     @MainActor
@@ -207,7 +356,7 @@ final class ThreadCoreTests: XCTestCase {
         )
 
         viewModel.setDailyRemindersEnabled(true)
-        await settleAsyncWork()
+        await waitUntil { viewModel.notificationPrompt?.kind == .requestAuthorization }
         viewModel.dismissNotificationPrompt()
 
         XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
@@ -229,11 +378,59 @@ final class ThreadCoreTests: XCTestCase {
         )
 
         viewModel.setDailyRemindersEnabled(true)
-        await settleAsyncWork()
+        await waitUntil { viewModel.preferences.dailyRemindersEnabled }
 
         XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
         XCTAssertNil(viewModel.notificationPrompt)
-        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(scheduledReminderCount, 1)
+    }
+
+    @MainActor
+    func testEnablingDailyRemindersWhenDeniedShowsSettingsPromptWithoutEnabling() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .denied)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
+        )
+
+        viewModel.setDailyRemindersEnabled(true)
+        await waitUntil { viewModel.notificationPrompt?.kind == .openSettings }
+
+        XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertFalse(viewModel.displayedDailyRemindersEnabled)
+        XCTAssertEqual(viewModel.notificationPrompt?.kind, .openSettings)
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(scheduledReminderCount, 0)
+    }
+
+    @MainActor
+    func testDisablingDailyRemindersRemovesScheduledReminders() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let notifications = TestNotificationService(status: .authorized)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
+        )
+
+        viewModel.setDailyRemindersEnabled(true)
+        await waitUntil { viewModel.preferences.dailyRemindersEnabled }
+        viewModel.setDailyRemindersEnabled(false)
+        await waitUntil { !viewModel.preferences.dailyRemindersEnabled }
+
+        XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
+        XCTAssertFalse(viewModel.displayedDailyRemindersEnabled)
+        let removeCount = await notifications.removeCount()
+        XCTAssertEqual(removeCount, 1)
     }
 
     @MainActor
@@ -251,18 +448,19 @@ final class ThreadCoreTests: XCTestCase {
 
         await viewModel.bootstrapIfNeeded()
         viewModel.setDailyRemindersEnabled(true)
-        await settleAsyncWork()
+        await waitUntil { viewModel.notificationPrompt?.kind == .requestAuthorization }
 
         XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
         XCTAssertFalse(viewModel.preferences.dailyRemindersEnabled)
 
         await notifications.setStatus(.authorized)
         await viewModel.handleScenePhaseChange(.active)
-        await settleAsyncWork()
+        await waitUntil { viewModel.preferences.dailyRemindersEnabled }
 
         XCTAssertTrue(viewModel.preferences.dailyRemindersEnabled)
         XCTAssertTrue(viewModel.displayedDailyRemindersEnabled)
-        XCTAssertEqual(await notifications.scheduledReminderCount(), 1)
+        let scheduledReminderCount = await notifications.scheduledReminderCount()
+        XCTAssertEqual(scheduledReminderCount, 1)
     }
 
     @MainActor
@@ -339,6 +537,41 @@ final class ThreadCoreTests: XCTestCase {
 
         store.clearSnapshot(for: "2026-04-04")
         XCTAssertNil(store.loadSnapshot(for: "2026-04-04", roundID: 77))
+    }
+
+    @MainActor
+    func testLocalThreadStorePersistsArchiveProgressSeparately() {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+        let store = LocalThreadStore(defaults: defaults)
+        let snapshot = GameSnapshot(
+            roundID: 12,
+            dateKey: "2026-04-04",
+            revealedClueCount: 3,
+            guess: "RI",
+            attempts: ["BELL", "CROWN"],
+            isSolved: false,
+            isFailed: false
+        )
+        let entry = ThreadArchiveHistoryEntry(
+            dateKey: "2026-04-03",
+            roundID: 11,
+            answer: "HEAD",
+            score: 2,
+            completedAt: date("2026-04-05T08:00:00Z")
+        )
+
+        store.saveArchiveSnapshot(snapshot)
+        _ = store.upsertArchiveHistoryEntry(entry)
+
+        XCTAssertEqual(store.loadArchiveSnapshot(for: "2026-04-04", roundID: 12), snapshot)
+        XCTAssertEqual(store.loadArchiveHistory(), [entry])
+        XCTAssertTrue(store.loadHistory().isEmpty)
+        XCTAssertTrue(store.loadAllSnapshots().isEmpty)
+
+        store.clearArchiveProgress()
+        XCTAssertTrue(store.loadArchiveHistory().isEmpty)
+        XCTAssertTrue(store.loadAllArchiveSnapshots().isEmpty)
     }
 
     @MainActor
@@ -428,12 +661,33 @@ final class ThreadCoreTests: XCTestCase {
                 isFailed: false
             )
         )
-
+        _ = store.upsertArchiveHistoryEntry(
+            ThreadArchiveHistoryEntry(
+                dateKey: "2026-04-03",
+                roundID: 11,
+                answer: "HEAD",
+                score: 3,
+                completedAt: date("2026-04-03T08:00:00Z")
+            )
+        )
+        store.saveArchiveSnapshot(
+            GameSnapshot(
+                roundID: 10,
+                dateKey: "2026-04-02",
+                revealedClueCount: 3,
+                guess: "HA",
+                attempts: ["BELL", "CROWN"],
+                isSolved: false,
+                isFailed: false
+            )
+        )
         store.clearGameplayProgress()
 
         XCTAssertTrue(store.tutorialCompleted)
         XCTAssertTrue(store.loadHistory().isEmpty)
         XCTAssertNil(store.loadSnapshot(for: "2026-04-04", roundID: 12))
+        XCTAssertTrue(store.loadArchiveHistory().isEmpty)
+        XCTAssertTrue(store.loadAllArchiveSnapshots().isEmpty)
         XCTAssertEqual(store.preferences.analyticsEnabled, false)
         XCTAssertEqual(store.preferences.aggregateSharingEnabled, true)
         XCTAssertEqual(store.preferences.hapticsEnabled, false)
@@ -517,7 +771,8 @@ final class ThreadCoreTests: XCTestCase {
         let configured = ThreadExternalLinks(
             supportURL: URL(string: "https://daily-thread.co/support"),
             supportEmailAddress: "zmailinglist@gmail.com",
-            privacyPolicyURL: URL(string: "https://daily-thread.co/privacy")
+            privacyPolicyURL: URL(string: "https://daily-thread.co/privacy"),
+            appStoreURL: nil
         )
 
         XCTAssertEqual(configured.supportEmailURL?.absoluteString, "mailto:zmailinglist@gmail.com")
@@ -526,7 +781,8 @@ final class ThreadCoreTests: XCTestCase {
         let empty = ThreadExternalLinks(
             supportURL: nil,
             supportEmailAddress: nil,
-            privacyPolicyURL: nil
+            privacyPolicyURL: nil,
+            appStoreURL: nil
         )
 
         XCTAssertNil(empty.supportEmailURL)
@@ -550,7 +806,7 @@ final class ThreadCoreTests: XCTestCase {
     }
 
     @MainActor
-    func testClearLocalProgressRoutesImmediatelyToDailyWhenTutorialAlreadyCompleted() {
+    func testClearLocalProgressRoutesImmediatelyToTutorialFirstLaunch() async {
         let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
         defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
 
@@ -579,10 +835,13 @@ final class ThreadCoreTests: XCTestCase {
         )
 
         let viewModel = ThreadRootViewModel(store: store)
+        store.tutorialCompleted = true
+        await viewModel.bootstrapIfNeeded()
         viewModel.openSettings()
         viewModel.clearLocalProgress()
+        await waitUntil { viewModel.screen == .tutorial }
 
-        XCTAssertEqual(viewModel.screen, .daily)
+        XCTAssertEqual(viewModel.screen, .tutorial)
         XCTAssertTrue(viewModel.history.isEmpty)
         XCTAssertNil(viewModel.snapshotForCurrentDailyRound())
         XCTAssertTrue(store.loadHistory().isEmpty)
@@ -825,6 +1084,7 @@ final class ThreadCoreTests: XCTestCase {
                 score: 3,
                 cluesUsed: 3,
                 wrongGuessCount: 2,
+                totalGuessCount: 5,
                 solveDurationSeconds: 94,
                 timeToFirstGuessSeconds: 12,
                 resumedSavedProgress: false
@@ -839,6 +1099,542 @@ final class ThreadCoreTests: XCTestCase {
         XCTAssertEqual(event.properties["current_streak_bucket"], "4-6")
         XCTAssertNil(event.properties["guess"])
         XCTAssertNil(event.properties["apple_id"])
+    }
+
+    @MainActor
+    func testCompletingDailyKeepsDisplayableResultForResultsScreen() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let viewModel = ThreadRootViewModel(
+            store: LocalThreadStore(defaults: defaults),
+            analytics: NoopAnalyticsClient(),
+            notifications: TestNotificationService(status: .authorized)
+        )
+
+        await viewModel.bootstrapIfNeeded()
+
+        guard let round = viewModel.dailyRound else {
+            return XCTFail("Expected daily round to load")
+        }
+
+        viewModel.completeDaily(
+            completion: ThreadRoundCompletion(
+                score: 5,
+                cluesUsed: 5,
+                wrongGuessCount: 0,
+                totalGuessCount: 1,
+                solveDurationSeconds: 20,
+                timeToFirstGuessSeconds: 12,
+                resumedSavedProgress: false
+            )
+        )
+
+        XCTAssertEqual(viewModel.screen, .results)
+        XCTAssertEqual(viewModel.displayedDailyResult?.roundID, round.id)
+        XCTAssertEqual(viewModel.displayedDailyResult?.dateKey, viewModel.todayDateKey)
+        XCTAssertEqual(viewModel.displayedDailyResult?.score, 5)
+        XCTAssertEqual(viewModel.projectedSolvedDailyStreakCount, 1)
+    }
+
+    @MainActor
+    func testCompletingArchiveDoesNotChangeDailyStatsOrStreak() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+        let store = LocalThreadStore(defaults: defaults)
+        store.tutorialCompleted = true
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: NoopThreadPrivateCloudSyncService(),
+            notifications: TestNotificationService(status: .authorized)
+        )
+
+        await viewModel.bootstrapIfNeeded()
+        guard let item = viewModel.archiveItems.last else {
+            return XCTFail("Expected at least one archived Thread")
+        }
+
+        viewModel.openArchive()
+        viewModel.openArchiveItem(item.puzzle.dateKey)
+        XCTAssertEqual(viewModel.screen, .archiveRound(item.puzzle.dateKey))
+
+        let snapshot = GameSnapshot(
+            roundID: item.puzzle.round.id,
+            dateKey: item.puzzle.dateKey,
+            revealedClueCount: 2,
+            guess: "",
+            attempts: ["BELL"],
+            isSolved: false,
+            isFailed: false
+        )
+        viewModel.updateArchiveSnapshot(snapshot)
+        XCTAssertEqual(store.loadArchiveSnapshot(for: item.puzzle.dateKey, roundID: item.puzzle.round.id), snapshot)
+
+        viewModel.completeArchive(
+            puzzle: item.puzzle,
+            completion: ThreadRoundCompletion(
+                score: 3,
+                cluesUsed: 3,
+                wrongGuessCount: 2,
+                totalGuessCount: 3,
+                solveDurationSeconds: 40,
+                timeToFirstGuessSeconds: 10,
+                resumedSavedProgress: false
+            )
+        )
+
+        XCTAssertEqual(viewModel.screen, .archive)
+        XCTAssertEqual(viewModel.archiveHistory.first?.dateKey, item.puzzle.dateKey)
+        XCTAssertNil(store.loadArchiveSnapshot(for: item.puzzle.dateKey, roundID: item.puzzle.round.id))
+        XCTAssertTrue(viewModel.history.isEmpty)
+        XCTAssertEqual(viewModel.displayedStatsSummary.totalPlayed, 0)
+        XCTAssertEqual(viewModel.displayedStatsCurrentStreak, 0)
+
+        viewModel.openArchiveItem(item.puzzle.dateKey)
+        XCTAssertEqual(viewModel.screen, .archiveResult(item.puzzle.dateKey))
+    }
+
+    @MainActor
+    func testPastDailySnapshotMigratesIntoArchiveWithoutLosingProgress() async throws {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+        let store = LocalThreadStore(defaults: defaults)
+        store.tutorialCompleted = true
+
+        let scheduler = DailyScheduler(rounds: try ThreadRepository().loadDailyRounds())
+        let yesterday = try XCTUnwrap(
+            scheduler.calendar.date(byAdding: .day, value: -1, to: scheduler.startOfDay(for: .now))
+        )
+        let dateKey = DateKeyFormatter.storage.string(from: yesterday, timeZone: scheduler.timeZone)
+        let round = scheduler.round(for: yesterday)
+        let snapshot = GameSnapshot(
+            roundID: round.id,
+            dateKey: dateKey,
+            revealedClueCount: 3,
+            guess: "HEAD",
+            attempts: ["TAIL", "BED"],
+            isSolved: false,
+            isFailed: false
+        )
+        store.saveSnapshot(snapshot)
+
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: NoopThreadPrivateCloudSyncService(),
+            notifications: TestNotificationService(status: .authorized)
+        )
+        await viewModel.bootstrapIfNeeded()
+
+        XCTAssertNil(store.loadSnapshot(for: dateKey, roundID: round.id))
+        XCTAssertEqual(store.loadArchiveSnapshot(for: dateKey, roundID: round.id), snapshot)
+        XCTAssertEqual(
+            viewModel.archiveItem(for: dateKey)?.status,
+            .inProgress(revealedClueCount: 3)
+        )
+    }
+
+    @MainActor
+    func testSolvedPastDailySnapshotMigratesIntoFinishedArchiveHistory() async throws {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+        let store = LocalThreadStore(defaults: defaults)
+        store.tutorialCompleted = true
+
+        let scheduler = DailyScheduler(rounds: try ThreadRepository().loadDailyRounds())
+        let yesterday = try XCTUnwrap(
+            scheduler.calendar.date(byAdding: .day, value: -1, to: scheduler.startOfDay(for: .now))
+        )
+        let dateKey = DateKeyFormatter.storage.string(from: yesterday, timeZone: scheduler.timeZone)
+        let round = scheduler.round(for: yesterday)
+        store.saveSnapshot(
+            GameSnapshot(
+                roundID: round.id,
+                dateKey: dateKey,
+                revealedClueCount: 2,
+                guess: round.answer,
+                attempts: ["WRONG"],
+                isSolved: true,
+                isFailed: false
+            )
+        )
+
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: NoopThreadPrivateCloudSyncService(),
+            notifications: TestNotificationService(status: .authorized)
+        )
+        await viewModel.bootstrapIfNeeded()
+
+        XCTAssertNil(store.loadSnapshot(for: dateKey, roundID: round.id))
+        XCTAssertNil(store.loadArchiveSnapshot(for: dateKey, roundID: round.id))
+        XCTAssertEqual(viewModel.archiveHistory.first?.dateKey, dateKey)
+        XCTAssertEqual(viewModel.archiveHistory.first?.score, 2)
+        XCTAssertEqual(viewModel.archiveItem(for: dateKey)?.status, .finished(score: 2))
+    }
+
+    @MainActor
+    func testCompletingDailyReschedulesRemindersWithoutEveningReminder() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        store.preferences = ThreadPreferences(
+            analyticsEnabled: true,
+            aggregateSharingEnabled: true,
+            hapticsEnabled: true,
+            dailyRemindersEnabled: true
+        )
+        let notifications = TestNotificationService(status: .authorized)
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            notifications: notifications
+        )
+
+        await viewModel.bootstrapIfNeeded()
+        viewModel.completeDaily(
+            completion: ThreadRoundCompletion(
+                score: 5,
+                cluesUsed: 5,
+                wrongGuessCount: 0,
+                totalGuessCount: 1,
+                solveDurationSeconds: 20,
+                timeToFirstGuessSeconds: 12,
+                resumedSavedProgress: false
+            )
+        )
+        let clock = ContinuousClock()
+        let deadline = clock.now + .seconds(1)
+        var scheduledContexts = await notifications.scheduledReminderContexts()
+        while !scheduledContexts.contains(where: { $0.hasSolvedToday }) && clock.now < deadline {
+            try? await Task.sleep(for: .milliseconds(10))
+            scheduledContexts = await notifications.scheduledReminderContexts()
+        }
+
+        XCTAssertEqual(scheduledContexts.last?.hasSolvedToday, true)
+    }
+
+    @MainActor
+    func testBootstrapShowsLocalDailyBeforeCloudSyncFinishes() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        store.tutorialCompleted = true
+        let cloud = SequencedPrivateCloudSyncService(
+            responses: [nil],
+            delayedSyncNumbers: [1]
+        )
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: cloud,
+            notifications: TestNotificationService(status: .authorized)
+        )
+
+        let bootstrapTask = Task { @MainActor in
+            await viewModel.bootstrapIfNeeded()
+        }
+        await cloud.waitForSyncToSuspend(number: 1)
+
+        let isSyncSuspended = await cloud.isSyncSuspended(number: 1)
+        XCTAssertTrue(isSyncSuspended)
+        XCTAssertEqual(viewModel.screen, .daily)
+
+        await cloud.resumeSync(number: 1)
+        await bootstrapTask.value
+    }
+
+    @MainActor
+    func testBootstrapCloudHistoryReconcilesToAlreadyPlayed() async throws {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        let dailyRounds = try ThreadRepository().loadDailyRounds()
+        let scheduler = DailyScheduler(
+            rounds: dailyRounds
+        )
+        let todaysRound = scheduler.roundForToday()
+        let todaysDateKey = scheduler.todayDateKey()
+        let cloudEntry = DailyHistoryEntry(
+            dateKey: todaysDateKey,
+            roundID: todaysRound.id,
+            answer: todaysRound.answer,
+            score: 3,
+            completedAt: date("2026-04-04T08:00:00Z"),
+            aggregateSubmittedAt: nil
+        )
+        let cloud = SequencedPrivateCloudSyncService(
+            responses: [
+                ThreadCloudSyncState(
+                    preferences: .default,
+                    history: [cloudEntry],
+                    snapshots: [:]
+                )
+            ]
+        )
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: cloud,
+            notifications: TestNotificationService(status: .authorized)
+        )
+
+        await viewModel.bootstrapIfNeeded()
+
+        XCTAssertEqual(viewModel.screen, .alreadyPlayed)
+        XCTAssertEqual(viewModel.displayedDailyResult, cloudEntry)
+        XCTAssertTrue(store.tutorialCompleted)
+    }
+
+    @MainActor
+    func testCloudSyncFinishingAfterCompletionDoesNotClearResultsScreen() async {
+        let defaults = UserDefaults(suiteName: "ThreadCoreTests.\(#function)")!
+        defaults.removePersistentDomain(forName: "ThreadCoreTests.\(#function)")
+
+        let store = LocalThreadStore(defaults: defaults)
+        store.tutorialCompleted = true
+        let cloud = SequencedPrivateCloudSyncService(
+            responses: [
+                nil,
+                ThreadCloudSyncState(
+                    preferences: .default,
+                    history: [],
+                    snapshots: [:]
+                )
+            ],
+            delayedSyncNumbers: [2]
+        )
+        let viewModel = ThreadRootViewModel(
+            store: store,
+            analytics: NoopAnalyticsClient(),
+            privateCloudSync: cloud,
+            notifications: TestNotificationService(status: .authorized)
+        )
+
+        await viewModel.bootstrapIfNeeded()
+
+        guard let round = viewModel.dailyRound else {
+            return XCTFail("Expected daily round to load")
+        }
+
+        let refreshTask = Task { @MainActor in
+            await viewModel.handleScenePhaseChange(.active)
+        }
+        await cloud.waitForSyncToSuspend(number: 2)
+
+        viewModel.completeDaily(
+            completion: ThreadRoundCompletion(
+                score: 4,
+                cluesUsed: 4,
+                wrongGuessCount: 0,
+                totalGuessCount: 1,
+                solveDurationSeconds: 25,
+                timeToFirstGuessSeconds: 10,
+                resumedSavedProgress: false
+            )
+        )
+
+        await cloud.resumeSync(number: 2)
+        await refreshTask.value
+
+        XCTAssertEqual(viewModel.screen, .results)
+        XCTAssertEqual(viewModel.displayedDailyResult?.roundID, round.id)
+        XCTAssertEqual(viewModel.displayedDailyResult?.dateKey, viewModel.todayDateKey)
+        XCTAssertEqual(viewModel.displayedDailyResult?.score, 4)
+        XCTAssertEqual(store.loadHistory().first?.score, 4)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerLoadsProductAndExistingEntitlement() async {
+        let service = TestArchivePurchaseService(isEntitled: true)
+        let controller = ThreadArchivePurchaseController(service: service)
+
+        await controller.start()
+
+        XCTAssertTrue(controller.isEntitled)
+        XCTAssertEqual(controller.product?.displayName, "Thread Archive")
+        XCTAssertEqual(controller.product?.displayPrice, "£0.99")
+        XCTAssertNil(controller.message)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerUnlocksAfterVerifiedPurchase() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            purchaseOutcome: .purchased
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        let unlocked = await controller.purchase()
+
+        XCTAssertTrue(unlocked)
+        XCTAssertTrue(controller.isEntitled)
+        XCTAssertNil(controller.message)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerKeepsPendingPurchaseLocked() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            purchaseOutcome: .pending
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        let unlocked = await controller.purchase()
+
+        XCTAssertFalse(unlocked)
+        XCTAssertFalse(controller.isEntitled)
+        XCTAssertEqual(
+            controller.message,
+            "Purchase pending approval. The Archive will unlock automatically once approved."
+        )
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerReportsMissingRestore() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            restoredEntitlement: false
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        let restored = await controller.restore()
+
+        XCTAssertFalse(restored)
+        XCTAssertFalse(controller.isEntitled)
+        XCTAssertEqual(controller.message, "No Archive purchase was found for this Apple Account.")
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerRestoresExistingPurchase() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            restoredEntitlement: true
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        let restored = await controller.restore()
+
+        XCTAssertTrue(restored)
+        XCTAssertTrue(controller.isEntitled)
+        XCTAssertEqual(controller.message, "Archive purchase restored.")
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerDoesNotUnlockAfterCancellation() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            purchaseOutcome: .cancelled
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        let unlocked = await controller.purchase()
+
+        XCTAssertFalse(unlocked)
+        XCTAssertFalse(controller.isEntitled)
+        XCTAssertNil(controller.message)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerRetriesFailedProductLoad() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            productLoadFailuresRemaining: 1
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+
+        await controller.start()
+        XCTAssertNil(controller.product)
+        XCTAssertEqual(
+            controller.message,
+            ThreadArchiveStoreError.productUnavailable.localizedDescription
+        )
+
+        await controller.retryProductLoad()
+
+        XCTAssertEqual(controller.product?.displayName, "Thread Archive")
+        XCTAssertNil(controller.message)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerKeepsNewerEntitlementUpdateDuringStartup() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            entitlementLookupDelay: .milliseconds(100)
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+
+        let startTask = Task {
+            await controller.start()
+        }
+        await Task.yield()
+        await service.sendEntitlementUpdate(true)
+        await startTask.value
+
+        XCTAssertTrue(controller.isEntitled)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerKeepsSuccessfulRestoreDuringStartup() async {
+        let service = TestArchivePurchaseService(
+            isEntitled: false,
+            restoredEntitlement: true,
+            entitlementLookupDelay: .milliseconds(100)
+        )
+        let controller = ThreadArchivePurchaseController(service: service)
+
+        let startTask = Task {
+            await controller.start()
+        }
+        await Task.yield()
+        let restored = await controller.restore()
+        await startTask.value
+
+        XCTAssertTrue(restored)
+        XCTAssertTrue(controller.isEntitled)
+    }
+
+    @MainActor
+    func testArchivePurchaseControllerLocksAfterRevocationUpdate() async {
+        let service = TestArchivePurchaseService(isEntitled: true)
+        let controller = ThreadArchivePurchaseController(service: service)
+        await controller.start()
+
+        await service.sendEntitlementUpdate(false)
+        await waitUntil {
+            !controller.isEntitled
+        }
+
+        XCTAssertFalse(controller.isEntitled)
+    }
+
+    func testArchiveStoreKitConfigurationMatchesProductionProduct() throws {
+        let configurationURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("StoreKit/Archive.storekit")
+        let data = try Data(contentsOf: configurationURL)
+        let object = try XCTUnwrap(JSONSerialization.jsonObject(with: data) as? [String: Any])
+        let products = try XCTUnwrap(object["products"] as? [[String: Any]])
+        let product = try XCTUnwrap(products.first)
+        let localizations = try XCTUnwrap(product["localizations"] as? [[String: Any]])
+        let english = try XCTUnwrap(localizations.first(where: { $0["locale"] as? String == "en_GB" }))
+
+        XCTAssertEqual(product["productID"] as? String, StoreKitThreadArchivePurchaseService.productID)
+        XCTAssertEqual(product["type"] as? String, "NonConsumable")
+        XCTAssertEqual(product["displayPrice"] as? String, "0.99")
+        XCTAssertEqual(english["displayName"] as? String, "Thread Archive")
+        XCTAssertEqual(english["description"] as? String, "Play every past Daily Thread.")
     }
 
     private func date(_ raw: String) -> Date {
@@ -867,6 +1663,90 @@ final class ThreadCoreTests: XCTestCase {
     private func settleAsyncWork() async {
         await Task.yield()
         await Task.yield()
+    }
+
+    @MainActor
+    private func waitUntil(
+        timeout: Duration = .seconds(1),
+        pollInterval: Duration = .milliseconds(10),
+        _ condition: @escaping @MainActor () -> Bool
+    ) async {
+        let clock = ContinuousClock()
+        let deadline = clock.now + timeout
+
+        while !condition() {
+            guard clock.now < deadline else { return }
+            try? await Task.sleep(for: pollInterval)
+        }
+    }
+
+}
+
+actor TestArchivePurchaseService: ThreadArchivePurchaseServicing {
+    nonisolated private let entitlementUpdateStream: AsyncStream<Bool>
+    nonisolated private let entitlementUpdateContinuation: AsyncStream<Bool>.Continuation
+    private let product = ThreadArchiveStoreProduct(
+        displayName: "Thread Archive",
+        description: "Play every past Daily Thread.",
+        displayPrice: "£0.99"
+    )
+    private var isEntitled: Bool
+    private let purchaseOutcome: ThreadArchivePurchaseOutcome
+    private let restoredEntitlement: Bool
+    private let entitlementLookupDelay: Duration?
+    private var productLoadFailuresRemaining: Int
+
+    init(
+        isEntitled: Bool,
+        purchaseOutcome: ThreadArchivePurchaseOutcome = .cancelled,
+        restoredEntitlement: Bool = false,
+        entitlementLookupDelay: Duration? = nil,
+        productLoadFailuresRemaining: Int = 0
+    ) {
+        let (stream, continuation) = AsyncStream<Bool>.makeStream()
+        self.entitlementUpdateStream = stream
+        self.entitlementUpdateContinuation = continuation
+        self.isEntitled = isEntitled
+        self.purchaseOutcome = purchaseOutcome
+        self.restoredEntitlement = restoredEntitlement
+        self.entitlementLookupDelay = entitlementLookupDelay
+        self.productLoadFailuresRemaining = productLoadFailuresRemaining
+    }
+
+    func loadProduct() async throws -> ThreadArchiveStoreProduct {
+        if productLoadFailuresRemaining > 0 {
+            productLoadFailuresRemaining -= 1
+            throw ThreadArchiveStoreError.productUnavailable
+        }
+        return product
+    }
+
+    func hasCurrentEntitlement() async -> Bool {
+        if let entitlementLookupDelay {
+            try? await Task.sleep(for: entitlementLookupDelay)
+        }
+        return isEntitled
+    }
+
+    func purchase() async throws -> ThreadArchivePurchaseOutcome {
+        if purchaseOutcome == .purchased {
+            isEntitled = true
+        }
+        return purchaseOutcome
+    }
+
+    func restore() async throws -> Bool {
+        isEntitled = restoredEntitlement
+        return restoredEntitlement
+    }
+
+    func sendEntitlementUpdate(_ value: Bool) {
+        isEntitled = value
+        entitlementUpdateContinuation.yield(value)
+    }
+
+    nonisolated func entitlementUpdates() -> AsyncStream<Bool> {
+        entitlementUpdateStream
     }
 }
 
@@ -929,11 +1809,77 @@ actor TestNotificationService: ThreadNotificationManaging {
         scheduledContexts.count
     }
 
+    func scheduledReminderContexts() -> [ThreadReminderContext] {
+        scheduledContexts
+    }
+
     func removeCount() -> Int {
         removedCount
     }
 
     func setStatus(_ newStatus: ThreadNotificationAuthorizationStatus) {
         status = newStatus
+    }
+}
+
+actor SequencedPrivateCloudSyncService: ThreadPrivateCloudSyncing {
+    private var responses: [ThreadCloudSyncState?]
+    private let delayedSyncNumbers: Set<Int>
+    private var syncCount = 0
+    private var suspendedSyncs: Set<Int> = []
+    private var continuations: [Int: CheckedContinuation<Void, Never>] = [:]
+
+    init(
+        responses: [ThreadCloudSyncState?],
+        delayedSyncNumbers: Set<Int> = []
+    ) {
+        self.responses = responses
+        self.delayedSyncNumbers = delayedSyncNumbers
+    }
+
+    func synchronize(localState: ThreadCloudSyncState) async -> ThreadCloudSyncState {
+        syncCount += 1
+        let currentSyncNumber = syncCount
+
+        if delayedSyncNumbers.contains(currentSyncNumber) {
+            await withCheckedContinuation { continuation in
+                suspendedSyncs.insert(currentSyncNumber)
+                continuations[currentSyncNumber] = continuation
+            }
+        }
+
+        if responses.isEmpty {
+            return localState
+        }
+
+        return responses.removeFirst() ?? localState
+    }
+
+    func upsertPreferences(_ preferences: ThreadPreferences) async {}
+    func upsertHistoryEntry(_ entry: DailyHistoryEntry) async {}
+    func saveSnapshot(_ snapshot: GameSnapshot) async {}
+    func deleteSnapshot(for dateKey: String) async {}
+    func clearHistoryAndSnapshots(historyDateKeys: [String], snapshotDateKeys: [String]) async {}
+
+    func waitForSyncToSuspend(
+        number: Int,
+        timeout: Duration = .seconds(1),
+        pollInterval: Duration = .milliseconds(10)
+    ) async {
+        let clock = ContinuousClock()
+        let deadline = clock.now + timeout
+
+        while !suspendedSyncs.contains(number) {
+            guard clock.now < deadline else { return }
+            try? await Task.sleep(for: pollInterval)
+        }
+    }
+
+    func isSyncSuspended(number: Int) -> Bool {
+        suspendedSyncs.contains(number)
+    }
+
+    func resumeSync(number: Int) {
+        continuations.removeValue(forKey: number)?.resume()
     }
 }

@@ -10,6 +10,7 @@ struct AlreadyPlayedView: View {
     let entry: DailyHistoryEntry
     let nextUnlockDate: Date?
     let hapticsEnabled: Bool
+    let onOpenArchive: (() -> Void)?
     let onViewStats: () -> Void
     let onShare: () -> Void
     let onOpenSettings: () -> Void
@@ -21,6 +22,9 @@ struct AlreadyPlayedView: View {
             ThreadScreenContainer {
                 VStack(spacing: 12) {
                     ThreadTopBar(
+                        leading: onOpenArchive.map {
+                            ThreadBarAction(systemName: "calendar", label: "Archive", action: $0)
+                        },
                         trailing: [
                             ThreadBarAction(systemName: "chart.bar.xaxis", label: "Stats", action: onViewStats),
                             ThreadBarAction(systemName: "gearshape", label: "Settings", action: onOpenSettings),

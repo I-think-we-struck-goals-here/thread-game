@@ -64,9 +64,6 @@ enum ThreadMotion {
     static let defaultSpring = Animation.spring(response: 0.42, dampingFraction: 0.88)
     static let quickSpring = Animation.spring(response: 0.22, dampingFraction: 0.86)
     static let ambientPulse = Animation.easeInOut(duration: 1.25).repeatForever(autoreverses: true)
-    static var pageTransition: AnyTransition {
-        .opacity.combined(with: .scale(scale: 0.992))
-    }
 
     static var revealTransition: AnyTransition {
         .opacity.combined(with: .move(edge: .top))

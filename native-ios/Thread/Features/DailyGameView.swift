@@ -10,8 +10,13 @@ struct ThreadRoundView: View {
     let hapticsEnabled: Bool
     let onRoundStarted: ((Bool) -> Void)?
     let firstDailyNudgeStage: ThreadFirstDailyNudgeStage?
+    let completionStreakCount: Int?
+    let completionBadgeUnlock: ThreadStreakBadgeMilestone?
+    let onCompletionBadgeUnlockPresented: ((ThreadStreakBadgeMilestone) -> Void)?
     let onFirstDailyNudgeSubmission: ((GuessSubmissionOutcome) -> Void)?
     let onComplete: (ThreadRoundCompletion) -> Void
+    let onBack: (() -> Void)?
+    let onOpenArchive: (() -> Void)?
     let onViewStats: (() -> Void)?
     let onOpenSettings: (() -> Void)?
     let secondaryActionTitle: String?
@@ -36,8 +41,13 @@ struct ThreadRoundView: View {
         onPersistSnapshot: @escaping (GameSnapshot) -> Void = { _ in },
         onRoundStarted: ((Bool) -> Void)? = nil,
         firstDailyNudgeStage: ThreadFirstDailyNudgeStage? = nil,
+        completionStreakCount: Int? = nil,
+        completionBadgeUnlock: ThreadStreakBadgeMilestone? = nil,
+        onCompletionBadgeUnlockPresented: ((ThreadStreakBadgeMilestone) -> Void)? = nil,
         onFirstDailyNudgeSubmission: ((GuessSubmissionOutcome) -> Void)? = nil,
         onComplete: @escaping (ThreadRoundCompletion) -> Void,
+        onBack: (() -> Void)? = nil,
+        onOpenArchive: (() -> Void)? = nil,
         onViewStats: (() -> Void)? = nil,
         onOpenSettings: (() -> Void)? = nil,
         secondaryActionTitle: String? = nil,
@@ -50,8 +60,13 @@ struct ThreadRoundView: View {
         self.hapticsEnabled = hapticsEnabled
         self.onRoundStarted = onRoundStarted
         self.firstDailyNudgeStage = firstDailyNudgeStage
+        self.completionStreakCount = completionStreakCount
+        self.completionBadgeUnlock = completionBadgeUnlock
+        self.onCompletionBadgeUnlockPresented = onCompletionBadgeUnlockPresented
         self.onFirstDailyNudgeSubmission = onFirstDailyNudgeSubmission
         self.onComplete = onComplete
+        self.onBack = onBack
+        self.onOpenArchive = onOpenArchive
         self.onViewStats = onViewStats
         self.onOpenSettings = onOpenSettings
         self.secondaryActionTitle = secondaryActionTitle
@@ -79,6 +94,17 @@ struct ThreadRoundView: View {
                     ipadRoundLayout(bottomInset: bottomInset, headerTopPadding: headerTopPadding, contentTopPadding: contentTopPadding)
                 } else {
                     phoneRoundLayout(bottomInset: bottomInset, headerTopPadding: headerTopPadding, contentTopPadding: contentTopPadding)
+                }
+
+                if let completionBadgeUnlock, viewModel.isComplete {
+                    ThreadStreakBadgeUnlockOverlay(
+                        milestone: completionBadgeUnlock,
+                        buttonTitle: completionButtonTitle
+                    ) {
+                        onCompletionBadgeUnlockPresented?(completionBadgeUnlock)
+                        onComplete(viewModel.completionSummary())
+                    }
+                    .zIndex(2)
                 }
             }
             .safeAreaInset(edge: .bottom, spacing: 0) {
@@ -166,6 +192,7 @@ struct ThreadRoundView: View {
 
     private var topBar: some View {
         ThreadTopBar(
+            leading: leadingBarAction,
             trailing: [
                 onViewStats.map {
                     ThreadBarAction(systemName: "chart.bar.xaxis", label: "Stats", action: $0)
@@ -175,6 +202,22 @@ struct ThreadRoundView: View {
                 },
             ].compactMap { $0 }
         )
+    }
+
+    private var leadingBarAction: ThreadBarAction? {
+        if let onBack {
+            return ThreadBarAction(systemName: "chevron.left", label: "Back") {
+                if viewModel.isComplete {
+                    onComplete(viewModel.completionSummary())
+                } else {
+                    onBack()
+                }
+            }
+        }
+        if let onOpenArchive {
+            return ThreadBarAction(systemName: "calendar", label: "Archive", action: onOpenArchive)
+        }
+        return nil
     }
 
     private var headerCluster: some View {
@@ -289,6 +332,13 @@ struct ThreadRoundView: View {
                         .font(ThreadFont.body(12.5, weight: .regular))
                         .foregroundStyle(ThreadPalette.muted)
                         .multilineTextAlignment(.center)
+
+                    if viewModel.score != nil, let completionStreakCount {
+                        Text("🔥 \(completionStreakCount) day streak")
+                            .font(ThreadFont.body(12, weight: .semibold))
+                            .foregroundStyle(ThreadPalette.accent)
+                            .multilineTextAlignment(.center)
+                    }
 
                     Button(completionButtonTitle) {
                         onComplete(viewModel.completionSummary())

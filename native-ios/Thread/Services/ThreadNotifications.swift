@@ -37,8 +37,10 @@ protocol ThreadNotificationManaging: Sendable {
     func requestAuthorization() async -> ThreadNotificationAuthorizationStatus
     func scheduleDailyReminders(context: ThreadReminderContext) async
     func removeDailyReminders() async
+#if DEBUG
     func debugPendingRequests() async -> [ThreadDebugNotificationRequest]
     func scheduleDebugReminder(after seconds: TimeInterval) async
+#endif
 }
 
 struct ThreadReminderContext: Sendable {
@@ -78,12 +80,14 @@ struct ThreadReminderSchedule {
     }
 }
 
+#if DEBUG
 struct ThreadDebugNotificationRequest: Sendable, Equatable {
     let identifier: String
     let title: String
     let body: String
     let nextTriggerDate: Date?
 }
+#endif
 
 actor ThreadNotificationService: ThreadNotificationManaging {
     private enum Identifier {
@@ -120,9 +124,8 @@ actor ThreadNotificationService: ThreadNotificationManaging {
     }
 
     func scheduleDailyReminders(context: ThreadReminderContext) async {
-        guard await authorizationStatus().isGranted else { return }
-
         await removeDailyReminders()
+        guard await authorizationStatus().isGranted else { return }
 
         let morningContent = UNMutableNotificationContent()
         morningContent.title = "A new Thread is live"
@@ -168,6 +171,7 @@ actor ThreadNotificationService: ThreadNotificationManaging {
         center.removeDeliveredNotifications(withIdentifiers: Identifier.all)
     }
 
+#if DEBUG
     func debugPendingRequests() async -> [ThreadDebugNotificationRequest] {
         let requests = await center.pendingNotificationRequests()
         return requests.map { request in
@@ -220,6 +224,7 @@ actor ThreadNotificationService: ThreadNotificationManaging {
             return nil
         }
     }
+#endif
 
     private func map(_ status: UNAuthorizationStatus) -> ThreadNotificationAuthorizationStatus {
         switch status {

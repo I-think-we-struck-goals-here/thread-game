@@ -142,6 +142,10 @@ struct AnalyticsEvent: Hashable, Sendable {
         AnalyticsEvent("stats_opened")
     }
 
+    static func archiveOpened() -> AnalyticsEvent {
+        AnalyticsEvent("archive_opened")
+    }
+
     static func settingsOpened() -> AnalyticsEvent {
         AnalyticsEvent("settings_opened")
     }
@@ -359,20 +363,24 @@ enum ThreadLaunchConfiguration {
 
         return false
     }
+
 }
 
 struct DailyScheduler {
+    static let canonicalTimeZoneID = "Europe/London"
+
     let rounds: [ThreadRound]
     let timeZone: TimeZone
     let calendar: Calendar
     let anchorDate: Date
     let roundSelectionAnchorDate: Date
+    private let legacyRounds: [ThreadRound]
     private let scheduledRounds: [ThreadRound]
     private let usesFutureSchedule: Bool
 
     init(
         rounds: [ThreadRound],
-        timeZoneID: String = "Europe/London",
+        timeZoneID: String = DailyScheduler.canonicalTimeZoneID,
         anchorComponents: DateComponents = DateComponents(year: 2026, month: 2, day: 16),
         roundSelectionAnchorComponents: DateComponents = DateComponents(year: 2026, month: 3, day: 31),
         futureShuffleSeed: UInt64 = 20_260_331
@@ -387,6 +395,8 @@ struct DailyScheduler {
         self.roundSelectionAnchorDate = calendar.date(from: roundSelectionAnchorComponents) ?? .now
 
         let futureRounds = rounds.filter { $0.sourcePool == "futureDaily" }
+        let legacyRounds = rounds.filter { $0.sourcePool == "legacyDaily" }
+        self.legacyRounds = legacyRounds.isEmpty ? rounds : legacyRounds
         if futureRounds.isEmpty {
             self.scheduledRounds = rounds
             self.usesFutureSchedule = false
@@ -409,9 +419,48 @@ struct DailyScheduler {
     }
 
     func roundForToday(now: Date = .now) -> ThreadRound {
+        round(for: now)
+    }
+
+    func round(for date: Date) -> ThreadRound {
         precondition(!scheduledRounds.isEmpty, "DailyScheduler requires at least one round")
-        let cycleDayNumber = usesFutureSchedule ? roundSelectionDayNumber(now: now) : dayNumber(now: now)
+
+        if usesFutureSchedule, startOfDay(for: date) < startOfDay(for: roundSelectionAnchorDate) {
+            let legacyIndex = dayNumber(now: date) - 1
+            if legacyRounds.indices.contains(legacyIndex) {
+                return legacyRounds[legacyIndex]
+            }
+        }
+
+        let cycleDayNumber = usesFutureSchedule ? roundSelectionDayNumber(now: date) : dayNumber(now: date)
         return scheduledRounds[(cycleDayNumber - 1) % scheduledRounds.count]
+    }
+
+    func round(withID id: Int) -> ThreadRound? {
+        rounds.first { $0.id == id }
+    }
+
+    func archivePuzzles(now: Date = .now) -> [ThreadArchivePuzzle] {
+        let today = startOfDay(for: now)
+        var date = startOfDay(for: anchorDate)
+        var puzzles: [ThreadArchivePuzzle] = []
+
+        while date < today {
+            puzzles.append(
+                ThreadArchivePuzzle(
+                    dateKey: DateKeyFormatter.storage.string(from: date, timeZone: timeZone),
+                    roundNumber: dayNumber(now: date),
+                    round: round(for: date)
+                )
+            )
+
+            guard let nextDate = calendar.date(byAdding: .day, value: 1, to: date) else {
+                break
+            }
+            date = nextDate
+        }
+
+        return puzzles
     }
 
     func todayDateKey(now: Date = .now) -> String {
@@ -485,11 +534,35 @@ enum DateKeyFormatter {
         locale: Locale(identifier: "en_GB_POSIX")
     )
 
+    static let archiveDisplay = DateKeyFormatterFactory(
+        dateFormat: "d MMM yyyy",
+        locale: Locale(identifier: "en_GB_POSIX")
+    )
+
+    static let archiveMonthDisplay = DateKeyFormatterFactory(
+        dateFormat: "MMMM yyyy",
+        locale: Locale(identifier: "en_GB_POSIX")
+    )
+
     static func formatForDisplay(_ dateKey: String) -> String {
         guard let date = storage.parse(dateKey, timeZone: .gmt) else {
             return dateKey
         }
         return shortDisplay.string(from: date, timeZone: .gmt)
+    }
+
+    static func formatForArchive(_ dateKey: String) -> String {
+        guard let date = storage.parse(dateKey, timeZone: .gmt) else {
+            return dateKey
+        }
+        return archiveDisplay.string(from: date, timeZone: .gmt)
+    }
+
+    static func archiveMonthKey(_ dateKey: String) -> String {
+        guard let date = storage.parse(dateKey, timeZone: .gmt) else {
+            return dateKey
+        }
+        return archiveMonthDisplay.string(from: date, timeZone: .gmt)
     }
 
     static func dayDiff(from: String, to: String) -> Int {

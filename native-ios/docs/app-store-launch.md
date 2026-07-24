@@ -11,39 +11,104 @@ This file is the source of truth for the launch build and App Store submission.
 - Remote push broadcasts: off
 - Local reminders feature: on
 - Private iCloud sync: on for `Release`
-- First-party analytics endpoint: on in `Release`
+- First-party analytics endpoint: off in `Release`
 - Anonymous aggregate endpoint: off unless `THREAD_AGGREGATE_BASE_URL` is set
 
 ## Release config from the project
 
 From `native-ios/project.yml`:
 
+- `MARKETING_VERSION = 1.1.0`
+- `CURRENT_PROJECT_VERSION = 10`
 - `THREAD_DISPLAY_NAME = Daily Thread`
 - `THREAD_BUNDLE_IDENTIFIER = co.dailythread.threadapp`
 - `THREAD_ENABLE_ICLOUD_SYNC = YES` in `Release`
 - `THREAD_ENABLE_REMOTE_PUSH = NO`
-- `THREAD_ANALYTICS_BASE_URL = "https://thread-game-site-zac-pools-projects.vercel.app"` in `Release`
+- `THREAD_ANALYTICS_BASE_URL = ""`
 - `THREAD_AGGREGATE_BASE_URL = ""`
 
 That means the default release build currently ships with:
 
 - local gameplay and local reminders
 - private CloudKit sync for personal app data
+- StoreKit 2 access to the non-consumable paid Archive
 - no remote push registration
-- anonymous first-party analytics event upload
+- no first-party analytics event upload
 - no anonymous aggregate score upload
 
 Important:
 
-- the release build is now pointed at the stable Vercel backend host for analytics
-- the Vercel project now has Postgres-backed analytics persistence configured
-- release and debug analytics are separated by build channel
+- the configured Vercel analytics endpoint returned `404` for the real `POST /v1/events` contract during the 2026-07-24 release audit
+- remote analytics is intentionally disabled in both Debug and Release until the backend is deployed and verified separately
 - the debug build now installs side by side as `Daily Thread Dev` with bundle identifier `co.dailythread.threadapp.dev`
 - debug keeps iCloud sync off and should be used for first-run / reminder / onboarding QA when you do not want to overwrite the live app on a device
+
+## 1.1.0 Archive update scope
+
+The approved release-facing slice for `1.1.0` is:
+
+- playable Archive for every Thread before today
+- Archive progress stored independently from daily history and snapshots
+- a non-consumable StoreKit 2 entitlement protecting Archive in Debug and Release
+- localized-price purchase paywall, explicit restore, pending/cancel/error handling, entitlement updates, and revocation handling
+- stale 9:00 PM local reminder hardening already prepared in the same native tree
+
+Do not bundle unrelated website, backend, private dashboard, or local Xcode user-state changes into this app update. The privacy, support, and terms corrections required by the Archive IAP are part of release readiness and must be deployed before App Review.
+
+Archive App Store Connect product:
+
+- reference name: `Daily Thread Archive`
+- display name: `Thread Archive`
+- product ID: `co.dailythread.threadapp.archive`
+- Apple ID: `6793079865`
+- type: non-consumable
+- UK price: `£0.99`
+- description: `Play every past Daily Thread.`
+- availability: all 175 current countries/regions plus future countries/regions
+- Family Sharing: off
+- current state: `Prepare for Submission`
+
+The first IAP must be attached to and submitted with the new `1.1.0` app version. Archive access can restore on another device through the Apple Account, but Archive completion and in-progress state remain device-local.
+
+Suggested App Store release note:
+
+```text
+Introducing the Archive: unlock and play every past Daily Thread. This update also improves reminder reliability.
+```
+
+## Latest local validation
+
+As of 2026-07-24:
+
+- simulator tests passed on iPhone 17 / iOS 26.5: `64 tests, 0 failures`
+- Release iPhoneOS build passed with signing disabled after regenerating the Xcode project from `project.yml`
+- Release product reports version `1.1.0`, build `10`, bundle ID `co.dailythread.threadapp`
+- Release product reports empty analytics and aggregate base URLs
+- Release binary string scan found no Debug reset, notification-test, or badge-preview labels
+- `StoreKit/Archive.storekit` is selected for the Xcode Run action and is not bundled into the Release app
+- automated StoreKit coverage verifies entitlement, verified purchase, cancellation, pending purchase, successful and unsuccessful restore, startup races, revocation, product retry, and the exact local product configuration
+- past unfinished daily snapshots migrate into separate Archive progress after daily rollover; completed snapshots migrate into Archive history
+- badge images use complete 1x/2x/3x slots; the unsigned Release app is approximately `10 MB` with a `3.9 MB` asset catalog
+- the local StoreKit transaction automation path is unreliable in the installed Xcode 26.5 toolchain, so interactive purchase/restore remains a required Xcode and TestFlight check
+- Settings daily-reminder toggle regression is fixed and covered by `testAlertDismissalDuringConfirmDoesNotCancelReminderEnable`
+- stale evening-reminder regression is fixed and covered by `testCompletingDailyReschedulesRemindersWithoutEveningReminder`
+- final signed archive passed at `/private/tmp/ThreadApp-1.1.0-10-Final.xcarchive`
+- final App Store Connect export passed at `/private/tmp/ThreadApp-1.1.0-10-Final-Export/Daily Thread.ipa`
+- export reports Cloud Managed Apple Distribution, Production CloudKit, `get-task-allow = false`, and the App Store provisioning profile for `co.dailythread.threadapp`
+- effective build settings disable Mac and Vision compatibility; exported `UIDeviceFamily` is iPhone-only
+- do not upload an older Organizer archive
+- no TestFlight sandbox purchase/restore pass exists yet
+- public App Review URLs returned `200`:
+  - `https://daily-thread.co/privacy/`
+  - `https://daily-thread.co/support/`
+  - `https://daily-thread.co/terms/`
+- the corrected IAP/privacy/support copy is local and still needs a selective commit and GitHub Pages deployment before App Review
 
 ## App Privacy answers for the current default launch build
 
 These answers are based on the release config above.
+
+The Archive IAP does not add a first-party payment backend or new developer-collected data. Apple handles payment and StoreKit entitlement delivery; Archive play state remains local.
 
 ### Tracking
 
@@ -51,47 +116,11 @@ These answers are based on the release config above.
 
 ### Data collection
 
-The current release build should be answered as collecting:
+Both developer-operated endpoints are empty in the audited Release build. The app does not transmit analytics or aggregate results to a developer server.
 
-1. `Gameplay Content`
-- Included because the app can sync puzzle history and in-progress game state through the user's private iCloud account using CloudKit.
-- Linked to the user: `Yes`
-- Used for tracking: `No`
-- Purpose: `App Functionality`
+Private gameplay sync uses the user's private CloudKit database, and StoreKit handles the purchase. Apple says developers are not responsible for disclosing data collected by Apple. Based on the exact audited build, the developer-operated collection answer is therefore `No` unless another App Store Connect practice outside this codebase applies.
 
-2. `Other Data`
-- Included because the app can sync app preferences such as haptics, reminder preference, analytics preference, and aggregate-sharing preference through private CloudKit.
-- Linked to the user: `Yes`
-- Used for tracking: `No`
-- Purpose: `App Functionality`
-
-### Also included in the default launch build
-
-Because the release build now points at the anonymous analytics endpoint, also include:
-
-1. `Product Interaction`
-- Linked to the user: `No`
-- Used for tracking: `No`
-- Purpose: `Analytics`
-
-2. `Other Usage Data`
-- Linked to the user: `No`
-- Used for tracking: `No`
-- Purpose: `Analytics`
-
-Reason:
-
-- the analytics payload includes screen and gameplay event data such as tutorial completion, round started/finished, clue count, solve duration, share taps, reminder prompt outcomes, app version, and device class
-- the analytics payload also includes anonymous session duration and exact streak/guess counts
-- the event stream is session-scoped rather than account-based
-
-### Not included in the default launch build
-
-Do **not** include these unless you enable the corresponding backend before submission:
-
-- `Identifiers`
-
-Apple App Analytics and App Store infrastructure are separate from your own custom backend. This file only covers what the app itself sends or stores off-device.
+Recheck and publish the App Privacy answers in App Store Connect before submission. If remote analytics or aggregate upload is enabled later, the answer must change before that build ships.
 
 ## If you enable the anonymous aggregate endpoint before submission
 
@@ -129,10 +158,16 @@ Before TestFlight / App Review:
 - Confirm `https://daily-thread.co/privacy/` is live
 - Confirm `https://daily-thread.co/support/` is live
 - Confirm `https://daily-thread.co/terms/` is live
+- Confirm the deployed privacy policy describes the Archive IAP and no longer says the app has no purchases
 - Confirm App Store Connect category is `Games` with `Word` and `Puzzle`
 - Confirm App Privacy answers match the exact release flags
 - Confirm screenshots exist for iPhone
 - Confirm support email and public copy are correct
+- Capture the Archive paywall for the IAP review screenshot
+- Confirm the IAP metadata and product ID exactly match the app
+- Test purchase, cancel, pending/Ask to Buy, restore, relaunch entitlement, and refund/revocation with the local StoreKit configuration
+- Upload `1.1.0 (10)` to TestFlight and repeat purchase and restore with a sandbox tester
+- Attach `Thread Archive` to the `1.1.0` app version before sending both for first review
 
 ## Device QA checklist
 
@@ -150,6 +185,9 @@ Verify:
 - solved state fits on one screen
 - stats screen distribution labels do not wrap incorrectly
 - settings and stats icons sit at the same height across screens
+- Archive paywall shows the localized price and Restore purchase action
+- Archive list scrolling, filters, play/resume, solved/failed completion, result review, and back navigation
+- Archive play does not alter daily stats, streaks, badges, reminders, or today's saved game
 - reminders prompt appears on the intended schedule
 - app relaunch behavior matches the current build config
 
@@ -157,9 +195,10 @@ Verify:
 
 These are the mistakes most likely to cause a bad release patch:
 
-1. Assuming website and app use the same day boundary
-- website: midnight `Europe/London`
-- app: midnight in the device's local time zone
+1. Assuming website and app share user progress
+- website and app now share the same daily puzzle schedule: midnight `Europe/London`
+- website progress remains website-local
+- app progress remains app-local plus private iCloud sync in `Release`
 
 2. Assuming future app puzzle changes can ship without a new binary
 - the app's future rounds are bundled locally
@@ -170,8 +209,8 @@ These are the mistakes most likely to cause a bad release patch:
 - regenerate the Xcode project
 
 4. Assuming debug and release analytics are the same stream
-- they can hit the same backend
-- they are separated by build channel
+- remote analytics is disabled in both configurations for `1.1.0`
+- enabling it later requires a verified endpoint plus matching privacy disclosures
 
 5. Assuming reminder prompt behavior is generic app-open logic
 - current release-intent behavior is milestone-based:
@@ -181,3 +220,15 @@ These are the mistakes most likely to cause a bad release patch:
 6. Assuming repo version/build metadata is always identical to the currently live App Store build
 - check App Store Connect before preparing the next patch release
 - do not normalize version/build numbers blindly if the repo has not yet been reconciled
+
+7. Assuming StoreKit restoration also restores Archive progress
+- StoreKit restores the non-consumable entitlement through the Apple Account
+- Archive history and in-progress snapshots remain device-local in `1.1.0`
+- do not describe Archive progress as cross-device synced in App Store copy
+
+8. Assuming bundled Archive dates are server-authoritative
+- Archive availability follows the device's view of the current London date
+- changing the device clock can expose a future bundled Thread
+- existing round IDs and content must remain immutable because Archive result reconstruction uses the bundled round data
+- the current 240-round seeded future pool begins repeating on 26 November 2026
+- adding, removing, or reordering that pool can remap dates; replace it with a pinned/server schedule before extending content

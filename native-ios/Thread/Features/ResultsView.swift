@@ -10,6 +10,7 @@ struct ResultsView: View {
     let score: Int?
     let nextUnlockDate: Date?
     let hapticsEnabled: Bool
+    let onOpenArchive: (() -> Void)?
     let onViewStats: () -> Void
     let onShare: () -> Void
     let onOpenSettings: () -> Void
@@ -20,6 +21,9 @@ struct ResultsView: View {
         ThreadScreenContainer {
             VStack(spacing: 12) {
                 ThreadTopBar(
+                    leading: onOpenArchive.map {
+                        ThreadBarAction(systemName: "calendar", label: "Archive", action: $0)
+                    },
                     trailing: [
                         ThreadBarAction(systemName: "chart.bar.xaxis", label: "Stats", action: onViewStats),
                         ThreadBarAction(systemName: "gearshape", label: "Settings", action: onOpenSettings),
@@ -114,7 +118,7 @@ struct ResultsView: View {
                             .threadButton(.secondary)
                             .frame(maxWidth: 260)
 
-                        Text("New thread at midnight")
+                        Text("New thread at midnight London time")
                             .font(ThreadFont.body(11, weight: .medium))
                             .foregroundStyle(ThreadPalette.faint)
                             .padding(.top, 4)

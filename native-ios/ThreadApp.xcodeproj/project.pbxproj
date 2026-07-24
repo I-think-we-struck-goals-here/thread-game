@@ -24,6 +24,7 @@
 		6D99D3CD97EF618EF4CD1B84 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09B420DD919A0A2EA4576A6C /* DMSans-Regular.ttf */; };
 		84B6EFBCEDEBCF25EC8E9CCF /* AlreadyPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87691DBD3C6DD2452EE223 /* AlreadyPlayedView.swift */; };
 		88DBE723A074D2F989638D3B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1671CFCDA5FF7098982E3DCF /* PrivacyInfo.xcprivacy */; };
+		92494188DC01EFC98784B919 /* ThreadArchivePurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDA5E9F172DBCC3E77E7FD /* ThreadArchivePurchases.swift */; };
 		93E3A87E48DAAB14F9A2056F /* ThreadServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618B2DD716F7336C557B1917 /* ThreadServices.swift */; };
 		9A9CC00EDC9399F0B142541D /* CormorantGaramond-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F30C5688881FDA2C8488E2E /* CormorantGaramond-SemiBold.ttf */; };
 		9E3189F54870CA890E502C59 /* ThreadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E869D358A23CA8C6ABDB2E /* ThreadApp.swift */; };
@@ -42,6 +43,7 @@
 		E58E73E2FDDCC868572D9CD2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46826B4867111CA0ADE16710 /* SettingsView.swift */; };
 		E97B00268742B2C1B570A1B8 /* DMSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 075832A1266280F13C705CC8 /* DMSans-SemiBold.ttf */; };
 		EDA43E6DE736F5CC6E4AA5C7 /* CormorantGaramond-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA7C6C3221E5934D9D9B81D /* CormorantGaramond-Bold.ttf */; };
+		F2273A2333D512CDB4AF989F /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD629C52886434390B687D /* ArchiveView.swift */; };
 		F5142421425E6E13E1BD70DE /* ThreadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11B55EF875295C887EB66B6 /* ThreadRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04BD629C52886434390B687D /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
 		05A268B10416D82D20669423 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		075832A1266280F13C705CC8 /* DMSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		09B420DD919A0A2EA4576A6C /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		1AA7C6C3221E5934D9D9B81D /* CormorantGaramond-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Bold.ttf"; sourceTree = "<group>"; };
 		1ADA8E722CF6C45639476B8D /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		23D8306FBB1563F8D165A875 /* ThreadRootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadRootViewModel.swift; sourceTree = "<group>"; };
+		25BDA5E9F172DBCC3E77E7FD /* ThreadArchivePurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadArchivePurchases.swift; sourceTree = "<group>"; };
 		2F044401BC94CA04DFFFF324 /* ThreadStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadStores.swift; sourceTree = "<group>"; };
 		2F87691DBD3C6DD2452EE223 /* AlreadyPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyPlayedView.swift; sourceTree = "<group>"; };
 		37FE6A24FFF25BF99CDF16C5 /* ThreadPushServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadPushServices.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		55CBE651928E199FFE7CA548 /* DailyGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGameView.swift; sourceTree = "<group>"; };
 		5BC30A07EAB52597D03EB10C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618B2DD716F7336C557B1917 /* ThreadServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadServices.swift; sourceTree = "<group>"; };
+		62FA2F5370FE10D43E639255 /* Archive.storekit */ = {isa = PBXFileReference; path = Archive.storekit; sourceTree = "<group>"; };
 		6F9D20E24D8B8F4955AAFD3B /* daily-rounds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "daily-rounds.json"; sourceTree = "<group>"; };
 		7468EC62F3F572A3F6A0F421 /* ThreadCloudKitSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCloudKitSync.swift; sourceTree = "<group>"; };
 		8ADB483F1A23BC654D3C7927 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF4731619A068114025995E /* ThreadAnalyticsRemoteServices.swift */,
+				25BDA5E9F172DBCC3E77E7FD /* ThreadArchivePurchases.swift */,
 				7468EC62F3F572A3F6A0F421 /* ThreadCloudKitSync.swift */,
 				131AA0D95ABBB2E54A7CAF62 /* ThreadNotifications.swift */,
 				37FE6A24FFF25BF99CDF16C5 /* ThreadPushServices.swift */,
@@ -147,6 +153,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		588F507CEF07222BD06835BE /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				62FA2F5370FE10D43E639255 /* Archive.storekit */,
+			);
+			path = StoreKit;
+			sourceTree = "<group>";
+		};
 		7ADB64D1C2CD43E4AA71DCEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2F87691DBD3C6DD2452EE223 /* AlreadyPlayedView.swift */,
+				04BD629C52886434390B687D /* ArchiveView.swift */,
 				55CBE651928E199FFE7CA548 /* DailyGameView.swift */,
 				8ADB483F1A23BC654D3C7927 /* GameViewModel.swift */,
 				976DF122A0E3810754497BC2 /* PracticeSummaryView.swift */,
@@ -197,6 +212,7 @@
 		BD64754B7C6140E00EA62C07 = {
 			isa = PBXGroup;
 			children = (
+				588F507CEF07222BD06835BE /* StoreKit */,
 				879EDF76A43A2AF2CE9F56DE /* Thread */,
 				91E22708E2633162C37567F5 /* ThreadTests */,
 				7ADB64D1C2CD43E4AA71DCEA /* Products */,
@@ -336,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B6EFBCEDEBCF25EC8E9CCF /* AlreadyPlayedView.swift in Sources */,
+				F2273A2333D512CDB4AF989F /* ArchiveView.swift in Sources */,
 				598ADF0068D73CCCE365F2BF /* DailyGameView.swift in Sources */,
 				D184231A49CF2E4E88EC3BD1 /* GameViewModel.swift in Sources */,
 				5272A914DACCBE67CB31E553 /* PracticeSummaryView.swift in Sources */,
@@ -345,6 +362,7 @@
 				D38CDB16C86DED71E37BCF2D /* ThreadAnalyticsRemoteServices.swift in Sources */,
 				9E3189F54870CA890E502C59 /* ThreadApp.swift in Sources */,
 				6CB4C2F904FC3F7DBE8B3657 /* ThreadAppDelegate.swift in Sources */,
+				92494188DC01EFC98784B919 /* ThreadArchivePurchases.swift in Sources */,
 				CA6899235144D8E7707176A6 /* ThreadCloudKitSync.swift in Sources */,
 				CB86ABBC5EC7A30342FF347C /* ThreadModels.swift in Sources */,
 				0E44B663ABED9350E2E8FB7B /* ThreadNotifications.swift in Sources */,
@@ -409,6 +427,8 @@
 				PRODUCT_NAME = Thread;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -464,7 +484,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -477,7 +497,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,7 +508,7 @@
 				THREAD_AGGREGATE_API_KEY = "";
 				THREAD_AGGREGATE_BASE_URL = "";
 				THREAD_ANALYTICS_API_KEY = "";
-				THREAD_ANALYTICS_BASE_URL = "https://thread-game-site-zac-pools-projects.vercel.app";
+				THREAD_ANALYTICS_BASE_URL = "";
 				THREAD_ANALYTICS_BUILD_CHANNEL = release;
 				THREAD_APP_STORE_URL = "https://apps.apple.com/gb/app/daily-thread/id6761757949";
 				THREAD_BUNDLE_IDENTIFIER = co.dailythread.threadapp;
@@ -528,6 +548,8 @@
 				PRODUCT_NAME = Thread;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -566,7 +588,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -585,7 +607,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -597,7 +619,7 @@
 				THREAD_AGGREGATE_API_KEY = "";
 				THREAD_AGGREGATE_BASE_URL = "";
 				THREAD_ANALYTICS_API_KEY = "";
-				THREAD_ANALYTICS_BASE_URL = "https://thread-game-site-zac-pools-projects.vercel.app";
+				THREAD_ANALYTICS_BASE_URL = "";
 				THREAD_ANALYTICS_BUILD_CHANNEL = debug;
 				THREAD_APP_STORE_URL = "https://apps.apple.com/gb/app/daily-thread/id6761757949";
 				THREAD_BUNDLE_IDENTIFIER = co.dailythread.threadapp.dev;

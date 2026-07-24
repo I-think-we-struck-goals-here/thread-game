@@ -7,9 +7,6 @@ struct SettingsView: View {
 
     let preferences: ThreadPreferences
     let displayedDailyRemindersEnabled: Bool
-    let notificationAuthorizationStatus: ThreadNotificationAuthorizationStatus
-    let notificationDebugSummary: String
-    let notificationDebugFeedback: String?
     let externalLinks: ThreadExternalLinks
     let onBack: () -> Void
     let onSetAnalyticsEnabled: (Bool) -> Void
@@ -18,10 +15,21 @@ struct SettingsView: View {
     let onSetDailyRemindersEnabled: (Bool) -> Void
     let onOpenSupport: () -> Void
     let onOpenPrivacy: () -> Void
+#if DEBUG
+    let notificationAuthorizationStatus: ThreadNotificationAuthorizationStatus
+    let notificationDebugSummary: String
+    let notificationDebugFeedback: String?
+    let badgeDebugSummary: String
     let onClearLocalProgress: () -> Void
-    let onReplayLaunchReveal: () -> Void
     let onRefreshNotificationDiagnostics: () -> Void
     let onSendDebugReminder: () -> Void
+    let onPreviewBadgeCollectionNext: () -> Void
+    let onPreviewBadgeCollectionEarned30: () -> Void
+    let onPreviewBadgeUnlock7: () -> Void
+    let onPreviewBadgeUnlock14: () -> Void
+    let onPreviewBadgeUnlock30: () -> Void
+    let onClearBadgeDebugPreviews: () -> Void
+#endif
 
     var body: some View {
         ThreadScreenContainer {
@@ -185,13 +193,74 @@ struct SettingsView: View {
                     }
                     .buttonStyle(ThreadDebugToolButtonStyle())
 
-                    Button {
-                        onReplayLaunchReveal()
-                    } label: {
+                }
+            }
+
+            ThreadCard {
+                Text("Badge previews")
+                    .font(ThreadFont.body(12, weight: .semibold))
+                    .tracking(2)
+                    .textCase(.uppercase)
+                    .foregroundStyle(ThreadPalette.faint)
+
+                VStack(spacing: 12) {
+                    Button(action: onPreviewBadgeCollectionNext) {
                         debugToolRow(
-                            title: "Replay launch animation",
-                            body: "Replay the current Thread intro reveal without clearing your saved progress",
+                            title: "Preview stats: next 30",
+                            body: "Show the streak badges section with a 20-day current streak and 20-day best streak",
+                            icon: "rectangle.grid.1x2"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Button(action: onPreviewBadgeCollectionEarned30) {
+                        debugToolRow(
+                            title: "Preview stats: 30 earned",
+                            body: "Show the streak badges section with a 32-day current streak and the 30-day badge earned",
+                            icon: "rectangle.grid.1x2"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Button(action: onPreviewBadgeUnlock7) {
+                        debugToolRow(
+                            title: "Preview 7-day unlock",
+                            body: "Show the one-time solve overlay for the 7-day streak badge",
                             icon: "sparkles"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Button(action: onPreviewBadgeUnlock14) {
+                        debugToolRow(
+                            title: "Preview 14-day unlock",
+                            body: "Show the one-time solve overlay for the 14-day streak badge",
+                            icon: "sparkles"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Button(action: onPreviewBadgeUnlock30) {
+                        debugToolRow(
+                            title: "Preview 30-day unlock",
+                            body: "Show the one-time solve overlay for the 30-day streak badge",
+                            icon: "sparkles"
+                        )
+                    }
+                    .buttonStyle(ThreadDebugToolButtonStyle())
+
+                    Text(badgeDebugSummary)
+                        .font(ThreadFont.body(12, weight: .medium))
+                        .foregroundStyle(ThreadPalette.muted)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal, 4)
+
+                    Button(action: onClearBadgeDebugPreviews) {
+                        debugToolRow(
+                            title: "Clear badge previews",
+                            body: "Return streak badges and unlock moments to the real saved state on this device",
+                            icon: "xmark.circle"
                         )
                     }
                     .buttonStyle(ThreadDebugToolButtonStyle())
@@ -241,6 +310,7 @@ struct SettingsView: View {
         "Get a reminder at \(formattedReminderTime(hour: 9, minute: 0)) when the new Thread goes live, and another at \(formattedReminderTime(hour: reminderSchedule.finalReminderHour, minute: reminderSchedule.finalReminderMinute)) if there are still a few hours left to solve it."
     }
 
+#if DEBUG
     private var debugReminderActionTitle: String {
         switch notificationAuthorizationStatus {
         case .notDetermined:
@@ -273,6 +343,7 @@ struct SettingsView: View {
             return "bell.badge"
         }
     }
+#endif
 
     private var supportDestination: URL? {
         externalLinks.supportURL ?? externalLinks.supportEmailURL
@@ -326,6 +397,7 @@ struct SettingsView: View {
         return formatter.string(from: date)
     }
 
+#if DEBUG
     @ViewBuilder
     private func debugToolRow(
         title: String,
@@ -354,6 +426,7 @@ struct SettingsView: View {
                 .padding(.top, 2)
         }
     }
+#endif
 
     @ViewBuilder
     private func externalLinkRow(title: String, body: String) -> some View {
@@ -382,6 +455,7 @@ struct SettingsView: View {
     }
 }
 
+#if DEBUG
 private struct ThreadDebugToolButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -401,3 +475,4 @@ private struct ThreadDebugToolButtonStyle: ButtonStyle {
             .animation(.easeOut(duration: 0.14), value: configuration.isPressed)
     }
 }
+#endif

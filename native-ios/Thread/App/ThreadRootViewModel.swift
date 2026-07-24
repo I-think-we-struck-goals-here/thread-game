@@ -10,6 +10,9 @@ enum ThreadScreen: Hashable {
     case daily
     case results
     case alreadyPlayed
+    case archive
+    case archiveRound(String)
+    case archiveResult(String)
     case stats
     case settings
     case error
@@ -26,18 +29,22 @@ final class ThreadRootViewModel: ObservableObject {
     @Published private(set) var history: [DailyHistoryEntry] = []
     @Published private(set) var currentDailyResult: DailyHistoryEntry?
     @Published private(set) var currentDailySnapshot: GameSnapshot?
+    @Published private(set) var archiveHistory: [ThreadArchiveHistoryEntry] = []
+    @Published private(set) var archiveSnapshots: [String: GameSnapshot] = [:]
     @Published private(set) var preferences: ThreadPreferences = .default
     @Published private(set) var nextDailyRefreshDate: Date?
     @Published private(set) var externalLinks: ThreadExternalLinks
     @Published private(set) var bootErrorMessage: String?
     @Published private(set) var notificationAuthorizationStatus: ThreadNotificationAuthorizationStatus = .notDetermined
     @Published private(set) var remotePushStatus: ThreadRemotePushStatus = .disabled
-    @Published private(set) var launchRevealReplayToken = 0
     @Published private(set) var firstDailyNudgeStage: ThreadFirstDailyNudgeStage = .unseen
     @Published private(set) var pendingDailyRemindersEnableRequest = false
     @Published private(set) var notificationAuthorizationRequestInFlight = false
+#if DEBUG
     @Published private(set) var notificationDebugSummary = "Not loaded"
     @Published private(set) var notificationDebugFeedback: String?
+    @Published private(set) var debugBadgePreviewState: ThreadDebugBadgePreviewState = .default
+#endif
     @Published var notificationPrompt: ThreadNotificationPrompt?
 
     var visibleFirstDailyNudgeStage: ThreadFirstDailyNudgeStage? {
@@ -49,8 +56,157 @@ final class ThreadRootViewModel: ObservableObject {
         }
     }
 
+    var displayedStatsSummary: ThreadStatsSummary {
+        ThreadStatisticsBuilder.build(history: history, todayKey: todayDateKey)
+    }
+
+    var displayedStatsCurrentStreak: Int {
+#if DEBUG
+        debugBadgePreviewState.currentStreakOverride ?? displayedStatsSummary.currentStreak
+#else
+        displayedStatsSummary.currentStreak
+#endif
+    }
+
+    var displayedStatsBestStreak: Int {
+#if DEBUG
+        debugBadgePreviewState.bestStreakOverride ?? displayedStatsSummary.bestStreak
+#else
+        displayedStatsSummary.bestStreak
+#endif
+    }
+
+    var displayedStreakBadges: [ThreadStreakBadgeDisplay] {
+        ThreadStreakBadgeLogic.displayItems(bestStreak: displayedStatsBestStreak)
+    }
+
+    var pendingStreakBadgeUnlockMilestone: ThreadStreakBadgeMilestone? {
+#if DEBUG
+        if let previewMilestone = debugBadgePreviewState.unlockPreviewMilestone {
+            return previewMilestone
+        }
+#endif
+
+        guard currentDailyResult == nil else { return nil }
+
+        return ThreadStreakBadgeLogic.newlyUnlockedMilestone(
+            projectedSolvedStreak: projectedSolvedDailyStreakCount,
+            bestStreakBeforeToday: displayedStatsSummary.bestStreak,
+            shownMilestones: store.shownStreakBadgeMilestones
+        )
+    }
+
+    var displayedDailyResult: DailyHistoryEntry? {
+        if let currentDailyResult {
+            return currentDailyResult
+        }
+
+        guard let dailyRound else { return nil }
+        return history.first {
+            $0.dateKey == todayDateKey && $0.roundID == dailyRound.id
+        }
+    }
+
+#if DEBUG
+    var badgeDebugSummary: String {
+        guard debugBadgePreviewState.hasAnyOverride else {
+            return "Badge previews off"
+        }
+
+        var lines: [String] = []
+        if let current = debugBadgePreviewState.currentStreakOverride {
+            lines.append("Current streak override: \(current)")
+        }
+        if let best = debugBadgePreviewState.bestStreakOverride {
+            lines.append("Best streak override: \(best)")
+        }
+        if let milestone = debugBadgePreviewState.unlockPreviewMilestone {
+            lines.append("Unlock preview: \(milestone.title)")
+        }
+
+        return lines.joined(separator: "\n")
+    }
+#endif
+
+    var projectedSolvedDailyStreakCount: Int? {
+        if currentDailyResult?.score != nil {
+            let currentStreak = currentStreakCount(for: history)
+            return currentStreak >= 1 ? currentStreak : nil
+        }
+
+        guard let dailyRound else { return nil }
+        guard !history.contains(where: { $0.dateKey == todayDateKey }) else {
+            let currentStreak = currentStreakCount(for: history)
+            return currentStreak >= 1 ? currentStreak : nil
+        }
+
+        let provisionalEntry = DailyHistoryEntry(
+            dateKey: todayDateKey,
+            roundID: dailyRound.id,
+            answer: dailyRound.answer,
+            score: 1,
+            completedAt: .now,
+            aggregateSubmittedAt: nil
+        )
+        let projectedStreak = ThreadStatisticsBuilder
+            .build(history: history + [provisionalEntry], todayKey: todayDateKey)
+            .currentStreak
+
+        return projectedStreak >= 1 ? projectedStreak : nil
+    }
+
     var displayedDailyRemindersEnabled: Bool {
         preferences.dailyRemindersEnabled || pendingDailyRemindersEnableRequest
+    }
+
+    var archiveItems: [ThreadArchiveItem] {
+        guard let scheduler else { return [] }
+
+        let dailyHistoryByDate = Dictionary(uniqueKeysWithValues: history.map { ($0.dateKey, $0) })
+        let archiveHistoryByDate = Dictionary(uniqueKeysWithValues: archiveHistory.map { ($0.dateKey, $0) })
+
+        return scheduler.archivePuzzles().reversed().map { scheduledPuzzle in
+            if let dailyEntry = dailyHistoryByDate[scheduledPuzzle.dateKey] {
+                let puzzle = archivePuzzle(
+                    scheduledPuzzle,
+                    completedRoundID: dailyEntry.roundID,
+                    scheduler: scheduler
+                )
+                return ThreadArchiveItem(
+                    puzzle: puzzle,
+                    status: .finished(score: dailyEntry.score),
+                    completedAnswer: dailyEntry.answer
+                )
+            }
+
+            if let archiveEntry = archiveHistoryByDate[scheduledPuzzle.dateKey] {
+                let puzzle = archivePuzzle(
+                    scheduledPuzzle,
+                    completedRoundID: archiveEntry.roundID,
+                    scheduler: scheduler
+                )
+                return ThreadArchiveItem(
+                    puzzle: puzzle,
+                    status: .finished(score: archiveEntry.score),
+                    completedAnswer: archiveEntry.answer
+                )
+            }
+
+            if let snapshot = archiveSnapshots[scheduledPuzzle.dateKey],
+               snapshot.roundID == scheduledPuzzle.round.id {
+                return ThreadArchiveItem(
+                    puzzle: scheduledPuzzle,
+                    status: .inProgress(revealedClueCount: snapshot.revealedClueCount),
+                    completedAnswer: nil
+                )
+            }
+
+            return ThreadArchiveItem(
+                puzzle: scheduledPuzzle,
+                status: .unplayed,
+                completedAnswer: nil
+            )
+        }
     }
 
     private let repository: ThreadRepository
@@ -69,7 +225,9 @@ final class ThreadRootViewModel: ObservableObject {
     private var notificationPromptTask: Task<Void, Never>?
     private var firstDailyNudgeTask: Task<Void, Never>?
     private var analyticsSessionStartedAt: Date?
+#if DEBUG
     private var pendingDebugReminderAfterAuthorization = false
+#endif
 
     init(
         repository: ThreadRepository = ThreadRepository(),
@@ -100,8 +258,12 @@ final class ThreadRootViewModel: ObservableObject {
         } else {
             self.privateCloudSync = NoopThreadPrivateCloudSyncService()
         }
-        self.resetProgressOnLaunch = resetProgressOnLaunch ?? ThreadLaunchConfiguration.shouldResetProgressOnLaunch()
+        let resolvedResetProgressOnLaunch = resetProgressOnLaunch ?? ThreadLaunchConfiguration.shouldResetProgressOnLaunch()
+        self.resetProgressOnLaunch = resolvedResetProgressOnLaunch
         self.externalLinks = externalLinks
+#if DEBUG
+        self.debugBadgePreviewState = resolvedStore.debugBadgePreviewState
+#endif
     }
 
     func bootstrapIfNeeded() async {
@@ -115,27 +277,29 @@ final class ThreadRootViewModel: ObservableObject {
             practiceRounds = try repository.loadPracticeRounds()
             let dailyRounds = try repository.loadDailyRounds()
             let scheduler = DailyScheduler(
-                rounds: dailyRounds,
-                timeZoneID: TimeZone.autoupdatingCurrent.identifier
+                rounds: dailyRounds
             )
             self.scheduler = scheduler
             preferences = store.preferences
             applyTodayState(using: scheduler)
+            let localDefaultScreen = defaultScreenForToday()
+            screen = localDefaultScreen
             await synchronizePrivateCloudState()
-
-            let defaultScreen = defaultScreenForToday()
+            let syncedDefaultScreen = defaultScreenForToday()
+            reconcileVisibleScreenAfterPrivateCloudSync(defaultScreen: syncedDefaultScreen)
             track(
                 .bootstrapped(
-                    defaultScreen: screenName(defaultScreen),
+                    defaultScreen: screenName(syncedDefaultScreen),
                     tutorialCompleted: store.tutorialCompleted,
                     remindersEnabled: preferences.dailyRemindersEnabled,
                     aggregateSharingEnabled: preferences.aggregateSharingEnabled
                 )
             )
-            screen = defaultScreen
             await refreshNotificationsState()
+#if DEBUG
             await refreshNotificationDebugSummary()
             notificationDebugFeedback = nil
+#endif
             if UIApplication.shared.applicationState == .active {
                 startAnalyticsSessionIfNeeded()
             }
@@ -235,6 +399,86 @@ final class ThreadRootViewModel: ObservableObject {
         screen = returnScreen
     }
 
+    func openArchive() {
+        switch screen {
+        case .archive, .archiveRound, .archiveResult:
+            break
+        default:
+            returnScreen = screen
+        }
+        track(.archiveOpened())
+        screen = .archive
+    }
+
+    func closeArchive() {
+        screen = returnScreen
+    }
+
+    func openArchiveItem(_ dateKey: String) {
+        guard let item = archiveItem(for: dateKey) else { return }
+        screen = item.isFinished ? .archiveResult(dateKey) : .archiveRound(dateKey)
+    }
+
+    func closeArchiveDetail() {
+        screen = .archive
+    }
+
+    func archiveItem(for dateKey: String) -> ThreadArchiveItem? {
+        archiveItems.first { $0.puzzle.dateKey == dateKey }
+    }
+
+    func archiveSnapshot(for puzzle: ThreadArchivePuzzle) -> GameSnapshot? {
+        archiveSnapshots[puzzle.dateKey].flatMap { snapshot in
+            snapshot.roundID == puzzle.round.id ? snapshot : nil
+        }
+    }
+
+    func updateArchiveSnapshot(_ snapshot: GameSnapshot) {
+        guard case .archiveRound(let dateKey) = screen,
+              snapshot.dateKey == dateKey else { return }
+        archiveSnapshots[dateKey] = snapshot
+        store.saveArchiveSnapshot(snapshot)
+    }
+
+    func trackArchiveRoundStarted(puzzle: ThreadArchivePuzzle, resumedSavedProgress: Bool) {
+        track(
+            .roundStarted(
+                mode: "archive",
+                roundID: puzzle.round.id,
+                roundNumber: puzzle.roundNumber,
+                dateKey: puzzle.dateKey,
+                resumedSavedProgress: resumedSavedProgress
+            )
+        )
+    }
+
+    func completeArchive(puzzle: ThreadArchivePuzzle, completion: ThreadRoundCompletion) {
+        guard case .archiveRound(let dateKey) = screen,
+              dateKey == puzzle.dateKey else { return }
+
+        let entry = ThreadArchiveHistoryEntry(
+            dateKey: puzzle.dateKey,
+            roundID: puzzle.round.id,
+            answer: puzzle.round.answer,
+            score: completion.score,
+            completedAt: .now
+        )
+        archiveHistory = store.upsertArchiveHistoryEntry(entry)
+        archiveSnapshots.removeValue(forKey: puzzle.dateKey)
+        store.clearArchiveSnapshot(for: puzzle.dateKey)
+        track(
+            .roundFinished(
+                mode: "archive",
+                result: completion.score == nil ? "failed" : "solved",
+                roundID: puzzle.round.id,
+                roundNumber: puzzle.roundNumber,
+                dateKey: puzzle.dateKey,
+                completion: completion
+            )
+        )
+        screen = .archive
+    }
+
     func snapshotForCurrentDailyRound() -> GameSnapshot? {
         currentDailySnapshot
     }
@@ -276,6 +520,12 @@ final class ThreadRootViewModel: ObservableObject {
         currentDailySnapshot = nil
         store.clearSnapshot(for: todayDateKey)
         snapshotSyncTask?.cancel()
+        if preferences.dailyRemindersEnabled {
+            let completedReminderContext = reminderContext()
+            Task(priority: .userInitiated) {
+                await notifications.scheduleDailyReminders(context: completedReminderContext)
+            }
+        }
         completeFirstDailyNudge()
         let completedDailyCount = history.count
         track(
@@ -295,12 +545,6 @@ final class ThreadRootViewModel: ObservableObject {
             scheduleMilestoneNotificationPrompt(expectedPromptCount: 0)
         } else if completedDailyCount >= 3 && store.notificationPromptState.promptCount == 1 {
             scheduleMilestoneNotificationPrompt(expectedPromptCount: 1)
-        }
-
-        if preferences.dailyRemindersEnabled {
-            Task {
-                await refreshNotificationsState()
-            }
         }
 
         let aggregateStats = self.aggregateStats
@@ -363,7 +607,7 @@ final class ThreadRootViewModel: ObservableObject {
         if didChangeDay {
             let updatedScreen = defaultScreenForToday()
             switch screen {
-            case .stats, .settings:
+            case .stats, .settings, .archive, .archiveRound, .archiveResult:
                 returnScreen = updatedScreen
             default:
                 screen = updatedScreen
@@ -372,14 +616,7 @@ final class ThreadRootViewModel: ObservableObject {
 
         await synchronizePrivateCloudState()
         let syncedDefaultScreen = defaultScreenForToday()
-        switch screen {
-        case .daily, .tutorial:
-            screen = syncedDefaultScreen
-        case .stats, .settings:
-            returnScreen = syncedDefaultScreen
-        default:
-            break
-        }
+        reconcileVisibleScreenAfterPrivateCloudSync(defaultScreen: syncedDefaultScreen)
         await refreshNotificationsState()
     }
 
@@ -402,15 +639,19 @@ final class ThreadRootViewModel: ObservableObject {
         Task {
             guard isEnabled else {
                 pendingDailyRemindersEnableRequest = false
+#if DEBUG
                 pendingDebugReminderAfterAuthorization = false
+#endif
                 if preferences.dailyRemindersEnabled {
                     updatePreferences { $0.dailyRemindersEnabled = false }
                     track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
                 }
                 notificationPrompt = nil
                 await notifications.removeDailyReminders()
+#if DEBUG
                 await refreshNotificationDebugSummary()
                 notificationDebugFeedback = "Daily reminders turned off"
+#endif
                 return
             }
 
@@ -424,9 +665,11 @@ final class ThreadRootViewModel: ObservableObject {
                     track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
                 }
                 presentNotificationPrompt(status: status)
+#if DEBUG
                 notificationDebugFeedback = status == .notDetermined
                     ? "Confirm the permission prompt to enable reminders for this app"
                     : "Notifications are off for this app in iOS Settings"
+#endif
                 return
             }
 
@@ -438,19 +681,30 @@ final class ThreadRootViewModel: ObservableObject {
 
             notificationPrompt = nil
             await notifications.scheduleDailyReminders(context: reminderContext())
+#if DEBUG
             await refreshNotificationDebugSummary()
             notificationDebugFeedback = "Daily reminders enabled"
+#endif
         }
     }
 
     func dismissNotificationPrompt() {
         pendingDailyRemindersEnableRequest = false
         notificationAuthorizationRequestInFlight = false
+#if DEBUG
         pendingDebugReminderAfterAuthorization = false
+#endif
         notificationPrompt = nil
+#if DEBUG
         notificationDebugFeedback = "Notification prompt dismissed"
+#endif
     }
 
+    func clearNotificationPromptPresentation() {
+        notificationPrompt = nil
+    }
+
+#if DEBUG
     func refreshNotificationDiagnostics() {
         Task {
             await refreshNotificationsState()
@@ -490,6 +744,7 @@ final class ThreadRootViewModel: ObservableObject {
             notificationDebugFeedback = "Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
         }
     }
+#endif
 
     func handleRemotePushTokenUpdate(_ token: String?) async {
         guard let token, !token.isEmpty else { return }
@@ -530,8 +785,8 @@ final class ThreadRootViewModel: ObservableObject {
         }
     }
 
-    func confirmNotificationPrompt() async {
-        guard let prompt = notificationPrompt else { return }
+    func confirmNotificationPrompt(_ presentedPrompt: ThreadNotificationPrompt? = nil) async {
+        guard let prompt = presentedPrompt ?? notificationPrompt else { return }
         notificationPrompt = nil
 
         switch prompt.kind {
@@ -551,30 +806,42 @@ final class ThreadRootViewModel: ObservableObject {
                 await notifications.scheduleDailyReminders(context: reminderContext())
                 pendingDailyRemindersEnableRequest = false
                 await registerForRemotePushIfNeeded()
+#if DEBUG
                 if pendingDebugReminderAfterAuthorization {
                     await notifications.scheduleDebugReminder(after: 10)
                     notificationDebugFeedback = "Permission granted. Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
                 } else {
                     notificationDebugFeedback = "Permission granted. Daily reminders enabled"
                 }
+#endif
             } else if preferences.dailyRemindersEnabled {
                 updatePreferences { $0.dailyRemindersEnabled = false }
                 track(.preferenceChanged(key: "daily_reminders_enabled", enabled: false))
                 pendingDailyRemindersEnableRequest = false
+#if DEBUG
                 notificationDebugFeedback = "Permission denied. Daily reminders remain off"
+#endif
             } else {
                 pendingDailyRemindersEnableRequest = false
+#if DEBUG
                 notificationDebugFeedback = "Permission not granted for this app"
+#endif
             }
+#if DEBUG
             pendingDebugReminderAfterAuthorization = false
             await refreshNotificationDebugSummary()
+#endif
 
         case .openSettings:
             pendingDailyRemindersEnableRequest = false
             notificationAuthorizationRequestInFlight = false
+#if DEBUG
             pendingDebugReminderAfterAuthorization = false
+#endif
             track(.notificationSettingsOpened())
+#if DEBUG
             notificationDebugFeedback = "Open iOS Settings to enable notifications for this app"
+#endif
             break
         }
     }
@@ -600,14 +867,19 @@ final class ThreadRootViewModel: ObservableObject {
         history = []
         currentDailyResult = nil
         currentDailySnapshot = nil
+        archiveHistory = []
+        archiveSnapshots = [:]
         notificationPrompt = nil
         bootErrorMessage = nil
         firstDailyNudgeStage = .unseen
         pendingDailyRemindersEnableRequest = false
         notificationAuthorizationRequestInFlight = false
+#if DEBUG
         notificationDebugSummary = "Not loaded"
         notificationDebugFeedback = nil
         pendingDebugReminderAfterAuthorization = false
+        debugBadgePreviewState = .default
+#endif
 
         if let scheduler {
             applyTodayState(using: scheduler)
@@ -628,12 +900,35 @@ final class ThreadRootViewModel: ObservableObject {
         }
     }
 
-    func replayLaunchReveal() {
-        let targetScreen: ThreadScreen = currentDailyResult != nil ? .alreadyPlayed : .daily
-        returnScreen = targetScreen
-        screen = targetScreen
-        launchRevealReplayToken += 1
+    func markStreakBadgeUnlockPresented(_ milestone: ThreadStreakBadgeMilestone) {
+#if DEBUG
+        guard debugBadgePreviewState.unlockPreviewMilestone != milestone else { return }
+#endif
+        store.markStreakBadgeMilestoneShown(milestone)
     }
+
+#if DEBUG
+    func previewBadgeCollection(currentStreak: Int, bestStreak: Int) {
+        debugBadgePreviewState.currentStreakOverride = currentStreak
+        debugBadgePreviewState.bestStreakOverride = bestStreak
+        persistDebugBadgePreviewState()
+    }
+
+    func previewBadgeUnlock(_ milestone: ThreadStreakBadgeMilestone) {
+        debugBadgePreviewState.unlockPreviewMilestone = milestone
+        persistDebugBadgePreviewState()
+    }
+
+    func clearDebugBadgeUnlockPreview() {
+        debugBadgePreviewState.unlockPreviewMilestone = nil
+        persistDebugBadgePreviewState()
+    }
+
+    func clearBadgeDebugPreviews() {
+        debugBadgePreviewState = .default
+        persistDebugBadgePreviewState()
+    }
+#endif
 
     func trackSupportOpened() {
         track(.supportOpened())
@@ -715,6 +1010,12 @@ final class ThreadRootViewModel: ObservableObject {
             return "results"
         case .alreadyPlayed:
             return "already_played"
+        case .archive:
+            return "archive"
+        case .archiveRound:
+            return "archive_round"
+        case .archiveResult:
+            return "archive_result"
         case .stats:
             return "stats"
         case .settings:
@@ -735,6 +1036,17 @@ final class ThreadRootViewModel: ObservableObject {
             return .tutorial
         }
         return .daily
+    }
+
+    private func reconcileVisibleScreenAfterPrivateCloudSync(defaultScreen: ThreadScreen) {
+        switch screen {
+        case .loading, .daily, .tutorial:
+            screen = defaultScreen
+        case .stats, .settings, .archive, .archiveRound, .archiveResult:
+            returnScreen = defaultScreen
+        default:
+            break
+        }
     }
 
     private func applyTodayState(using scheduler: DailyScheduler) {
@@ -761,7 +1073,56 @@ final class ThreadRootViewModel: ObservableObject {
             store.clearSnapshot(for: todayDateKey)
         }
 
+        var loadedArchiveHistory = store.loadArchiveHistory()
+        var loadedArchiveSnapshots = store.loadAllArchiveSnapshots()
+        let archivePuzzlesByDate = Dictionary(
+            uniqueKeysWithValues: scheduler.archivePuzzles().map { ($0.dateKey, $0) }
+        )
+        var migratedDailySnapshotDateKeys: [String] = []
+
+        for (dateKey, snapshot) in allSnapshots where dateKey < todayDateKey {
+            guard let scheduledPuzzle = archivePuzzlesByDate[dateKey] else { continue }
+
+            if loadedHistory.contains(where: { $0.dateKey == dateKey })
+                || loadedArchiveHistory.contains(where: { $0.dateKey == dateKey }) {
+                store.clearSnapshot(for: dateKey)
+                migratedDailySnapshotDateKeys.append(dateKey)
+                continue
+            }
+
+            let puzzle = archivePuzzle(
+                scheduledPuzzle,
+                completedRoundID: snapshot.roundID,
+                scheduler: scheduler
+            )
+            guard puzzle.round.id == snapshot.roundID else { continue }
+
+            if snapshot.isSolved || snapshot.isFailed {
+                let entry = ThreadArchiveHistoryEntry(
+                    dateKey: dateKey,
+                    roundID: puzzle.round.id,
+                    answer: puzzle.round.answer,
+                    score: snapshot.isSolved ? snapshot.revealedClueCount : nil,
+                    completedAt: snapshot.updatedAt ?? .now
+                )
+                loadedArchiveHistory = store.upsertArchiveHistoryEntry(entry)
+                loadedArchiveSnapshots.removeValue(forKey: dateKey)
+                store.clearArchiveSnapshot(for: dateKey)
+            } else if let migratedSnapshot = ThreadCloudSyncMerger.merge(
+                local: loadedArchiveSnapshots[dateKey],
+                remote: snapshot
+            ) {
+                loadedArchiveSnapshots[dateKey] = migratedSnapshot
+                store.saveArchiveSnapshot(migratedSnapshot)
+            }
+
+            store.clearSnapshot(for: dateKey)
+            migratedDailySnapshotDateKeys.append(dateKey)
+        }
+
         history = loadedHistory
+        archiveHistory = loadedArchiveHistory
+        archiveSnapshots = loadedArchiveSnapshots
         currentDailyResult = loadedHistory.first {
             $0.dateKey == todayDateKey && $0.roundID == round.id
         }
@@ -777,16 +1138,18 @@ final class ThreadRootViewModel: ObservableObject {
         }
         refreshFirstDailyNudgeStage()
 
-        if hadInvalidTodayHistory || hadInvalidTodaySnapshot {
+        if hadInvalidTodayHistory || hadInvalidTodaySnapshot || !migratedDailySnapshotDateKeys.isEmpty {
             let privateCloudSync = self.privateCloudSync
             let dateKey = todayDateKey
             Task {
                 await privateCloudSync.clearHistoryAndSnapshots(
                     historyDateKeys: hadInvalidTodayHistory ? [dateKey] : [],
-                    snapshotDateKeys: hadInvalidTodaySnapshot ? [dateKey] : []
+                    snapshotDateKeys: (hadInvalidTodaySnapshot ? [dateKey] : [])
+                        + migratedDailySnapshotDateKeys
                 )
             }
         }
+
     }
 
     private func persistPreferences() {
@@ -798,12 +1161,35 @@ final class ThreadRootViewModel: ObservableObject {
         }
     }
 
+    private func archivePuzzle(
+        _ scheduledPuzzle: ThreadArchivePuzzle,
+        completedRoundID: Int,
+        scheduler: DailyScheduler
+    ) -> ThreadArchivePuzzle {
+        guard completedRoundID != scheduledPuzzle.round.id,
+              let completedRound = scheduler.round(withID: completedRoundID) else {
+            return scheduledPuzzle
+        }
+
+        return ThreadArchivePuzzle(
+            dateKey: scheduledPuzzle.dateKey,
+            roundNumber: scheduledPuzzle.roundNumber,
+            round: completedRound
+        )
+    }
+
     private func updatePreferences(_ mutate: (inout ThreadPreferences) -> Void) {
         var nextPreferences = preferences
         mutate(&nextPreferences)
         preferences = nextPreferences.markedUpdated()
         persistPreferences()
     }
+
+#if DEBUG
+    private func persistDebugBadgePreviewState() {
+        store.debugBadgePreviewState = debugBadgePreviewState
+    }
+#endif
 
     private func refreshNotificationsState() async {
         let localDateKey = DateKeyFormatter.storage.string(from: .now, timeZone: .current)
@@ -817,29 +1203,38 @@ final class ThreadRootViewModel: ObservableObject {
             await notifications.scheduleDailyReminders(context: reminderContext())
             pendingDailyRemindersEnableRequest = false
             await registerForRemotePushIfNeeded()
+#if DEBUG
             if pendingDebugReminderAfterAuthorization {
                 await notifications.scheduleDebugReminder(after: 10)
                 notificationDebugFeedback = "Permission detected. Test reminder scheduled for \(formattedDebugTime(Date().addingTimeInterval(10)))"
                 pendingDebugReminderAfterAuthorization = false
             }
+#endif
         } else if notificationAuthorizationRequestInFlight {
             return
         } else if preferences.dailyRemindersEnabled && status.isGranted {
             await notifications.scheduleDailyReminders(context: reminderContext())
             await registerForRemotePushIfNeeded()
         } else {
-            pendingDailyRemindersEnableRequest = false
+            let shouldPreservePendingEnableRequest = pendingDailyRemindersEnableRequest && status == .notDetermined
+            if !shouldPreservePendingEnableRequest {
+                pendingDailyRemindersEnableRequest = false
+            }
             if preferences.dailyRemindersEnabled && !status.isGranted {
                 updatePreferences { $0.dailyRemindersEnabled = false }
             }
             await notifications.removeDailyReminders()
             remotePushStatus = pushConfiguration.isEnabled ? .awaitingAuthorization : .disabled
             if !status.isGranted {
+#if DEBUG
                 pendingDebugReminderAfterAuthorization = false
+#endif
             }
         }
 
+#if DEBUG
         await refreshNotificationDebugSummary(statusOverride: status)
+#endif
     }
 
     private func scheduleMilestoneNotificationPrompt(expectedPromptCount: Int) {
@@ -923,15 +1318,19 @@ final class ThreadRootViewModel: ObservableObject {
 
     private func synchronizePrivateCloudState() async {
         let mergedState = await privateCloudSync.synchronize(localState: currentPrivateCloudState())
+        let resolvedState = ThreadCloudSyncMerger.merge(
+            local: currentPrivateCloudState(),
+            remote: mergedState
+        )
 
-        store.replacePreferences(mergedState.preferences)
-        store.replaceHistory(mergedState.history)
-        store.replaceSnapshots(mergedState.snapshots)
+        store.replacePreferences(resolvedState.preferences)
+        store.replaceHistory(resolvedState.history)
+        store.replaceSnapshots(resolvedState.snapshots)
 
-        preferences = mergedState.preferences
-        history = mergedState.history
+        preferences = resolvedState.preferences
+        history = resolvedState.history
 
-        if !store.tutorialCompleted && (!mergedState.history.isEmpty || !mergedState.snapshots.isEmpty) {
+        if !store.tutorialCompleted && (!resolvedState.history.isEmpty || !resolvedState.snapshots.isEmpty) {
             store.tutorialCompleted = true
         }
 
@@ -973,6 +1372,7 @@ final class ThreadRootViewModel: ObservableObject {
         }
     }
 
+#if DEBUG
     private func refreshNotificationDebugSummary(
         statusOverride: ThreadNotificationAuthorizationStatus? = nil
     ) async {
@@ -1019,6 +1419,7 @@ final class ThreadRootViewModel: ObservableObject {
         formatter.dateStyle = .none
         return formatter.string(from: date)
     }
+#endif
 
     private func prepareFirstDailyNudgeIfNeeded() {
         guard history.isEmpty else {

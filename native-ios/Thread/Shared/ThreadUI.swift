@@ -206,32 +206,6 @@ extension View {
     }
 }
 
-struct ThreadDailyRevealView: View {
-    let roundNumber: Int
-
-    var body: some View {
-        ZStack {
-            ThreadBackground()
-
-            VStack(spacing: 14) {
-                Image("ThreadLaunchIcon")
-                    .resizable()
-                    .interpolation(.high)
-                    .scaledToFit()
-                    .frame(width: 132, height: 132)
-
-                Text("Thread #\(roundNumber)")
-                    .font(ThreadFont.body(12, weight: .semibold))
-                    .tracking(3.6)
-                    .foregroundStyle(ThreadPalette.muted)
-                    .textCase(.uppercase)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .allowsHitTesting(false)
-    }
-}
-
 struct ThreadAdaptiveSplit<Primary: View, Secondary: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -440,6 +414,115 @@ struct MetricTile: View {
     }
 }
 
+struct ThreadStreakBadgeRailView: View {
+    let badges: [ThreadStreakBadgeDisplay]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .top, spacing: 18) {
+                ForEach(badges) { badge in
+                    ThreadStreakBadgeView(badge: badge)
+                }
+            }
+            .padding(.horizontal, 4)
+            .padding(.vertical, 4)
+        }
+        .clipped()
+    }
+}
+
+struct ThreadStreakBadgeView: View {
+    let badge: ThreadStreakBadgeDisplay
+
+    var body: some View {
+        VStack(spacing: 8) {
+            Image(badge.milestone.assetName)
+                .resizable()
+                .interpolation(.high)
+                .scaledToFit()
+                .frame(width: artWidth, height: artHeight, alignment: .bottom)
+                .saturation(badge.isEarned ? 1 : 0)
+                .opacity(badge.isEarned ? 1 : 0.38)
+                .accessibilityHidden(true)
+
+            Text("days")
+                .font(ThreadFont.display(18, weight: .semibold))
+                .foregroundStyle(badge.isEarned ? ThreadPalette.ink : ThreadPalette.faint)
+        }
+        .frame(width: itemWidth, alignment: .top)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(badge.milestone.title), \(badge.isEarned ? "earned" : "not earned")")
+    }
+
+    private var itemWidth: CGFloat { 92 }
+    private var artWidth: CGFloat { 78 }
+    private var artHeight: CGFloat { 88 }
+}
+
+struct ThreadStreakBadgeUnlockOverlay: View {
+    let milestone: ThreadStreakBadgeMilestone
+    let buttonTitle: String
+    let onContinue: () -> Void
+
+    @State private var isVisible = false
+
+    var body: some View {
+        ZStack {
+            ThreadPalette.background
+                .opacity(0.82)
+                .ignoresSafeArea()
+
+            VStack(spacing: 18) {
+                Text("New badge")
+                    .font(ThreadFont.body(11, weight: .semibold))
+                    .tracking(2.4)
+                    .textCase(.uppercase)
+                    .foregroundStyle(ThreadPalette.muted)
+                    .opacity(isVisible ? 1 : 0)
+                    .offset(y: isVisible ? 0 : 8)
+                    .animation(.easeOut(duration: 0.28).delay(0.04), value: isVisible)
+
+                Image(milestone.assetName)
+                    .resizable()
+                    .interpolation(.high)
+                    .scaledToFit()
+                    .frame(width: 178, height: 146)
+                    .opacity(isVisible ? 1 : 0)
+                    .scaleEffect(isVisible ? 1 : 0.92)
+                    .offset(y: isVisible ? 0 : 14)
+                    .animation(.spring(response: 0.52, dampingFraction: 0.84).delay(0.1), value: isVisible)
+
+                Text(milestone.title)
+                    .font(ThreadFont.display(40, weight: .semibold))
+                    .foregroundStyle(ThreadPalette.ink)
+                    .multilineTextAlignment(.center)
+                    .opacity(isVisible ? 1 : 0)
+                    .offset(y: isVisible ? 0 : 8)
+                    .animation(.easeOut(duration: 0.3).delay(0.18), value: isVisible)
+
+                Button(buttonTitle, action: onContinue)
+                    .threadButton(.primary)
+                    .frame(maxWidth: 300)
+                    .opacity(isVisible ? 1 : 0)
+                    .offset(y: isVisible ? 0 : 8)
+                    .animation(.easeOut(duration: 0.3).delay(0.26), value: isVisible)
+            }
+            .frame(maxWidth: 320)
+            .padding(.horizontal, 24)
+            .padding(.vertical, 36)
+        }
+        .onAppear {
+            isVisible = false
+            withAnimation {
+                isVisible = true
+            }
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityAddTraits(.isModal)
+        .transition(.opacity)
+    }
+}
+
 struct GlobalDistributionCard: View {
     let histogram: AggregateHistogram?
     let userScore: Int?
@@ -570,7 +653,7 @@ struct NextThreadCountdownCard: View {
                             .monospacedDigit()
                             .foregroundStyle(ThreadPalette.ink)
 
-                        Text(remaining > 0 ? "Unlocks at midnight local time." : "Loading the new daily thread…")
+                        Text(remaining > 0 ? "Unlocks at midnight London time." : "Loading the new daily thread…")
                             .font(ThreadFont.body(14, weight: .medium))
                             .foregroundStyle(ThreadPalette.muted)
                             .multilineTextAlignment(.center)
@@ -612,7 +695,7 @@ struct NextThreadCountdownCard: View {
             return "Loading the new daily thread."
         }
 
-        return "\(hours) hours, \(minutes) minutes, \(seconds) seconds remaining. Unlocks at midnight local time."
+        return "\(hours) hours, \(minutes) minutes, \(seconds) seconds remaining. Unlocks at midnight London time."
     }
 }
 
