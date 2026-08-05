@@ -343,7 +343,22 @@ async function bufferPosts(apiKey, channel, statuses) {
       organizationId: ${JSON.stringify(channel.organizationId)}
       filter: { status: [${statusInput}], channelIds: [${JSON.stringify(channel.id)}] }
     }) {
-      edges { node { id text dueAt status sentAt externalLink } }
+      edges {
+        node {
+          id
+          text
+          dueAt
+          status
+          sentAt
+          externalLink
+          assets {
+            ... on ImageAsset {
+              id
+              image { altText }
+            }
+          }
+        }
+      }
     }
   }`);
   return result.posts.edges.map(edge => edge.node);
@@ -440,6 +455,22 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   }
 
   console.log(`Buffer queue check complete: ${scheduled.length} existing, ${created} created.`);
+
+  const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
+    .filter(post => post.text?.includes(DAILY_MARKER));
+  if (!verified.length) throw new Error("Buffer alt text audit found no scheduled Daily Thread carousels.");
+  let verifiedImages = 0;
+  for (const post of verified) {
+    if (post.assets?.length !== 7) {
+      throw new Error(`Buffer post ${post.id} has ${post.assets?.length ?? 0} images; expected 7.`);
+    }
+    const missingAltText = post.assets.filter(asset => !asset.image?.altText?.trim());
+    if (missingAltText.length) {
+      throw new Error(`Buffer post ${post.id} is missing alt text on ${missingAltText.length} image(s).`);
+    }
+    verifiedImages += post.assets.length;
+  }
+  console.log(`Alt text audit: ${verified.length} carousel(s), ${verifiedImages} of ${verifiedImages} images described.`);
 }
 
 async function auditToday() {
