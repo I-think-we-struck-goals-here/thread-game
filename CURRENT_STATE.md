@@ -125,6 +125,14 @@ Verified implemented areas:
 - `src/App.jsx` is modified in the current tree
 - `public/` and `docs/` both have legal/support changes in flight
 
+### Daily Instagram automation
+
+- A self-contained `social-automation/` pipeline now derives the previous London day's puzzle from `src/new-rounds.js`, renders the approved seven-slide carousel at 1080×1350, and maintains nine scheduled Instagram posts through Buffer.
+- `.github/workflows/daily-social.yml` runs at 06:17 and 18:37 `Europe/London`, can be run manually, and commits only new immutable media under `docs/social/YYYY-MM-DD/`.
+- The automation reproduces the app's `20260331` shuffle seed and February 16 thread-number anchor. Its regression check maps 4 August 2026 to Thread #170 / TIME / OVER, BED, HALF, BOMB, OUT.
+- Buffer credentials live only in the GitHub repository secret `BUFFER_API_KEY`; generated public media and post metadata contain no secret.
+- The queue intentionally targets nine posts so Buffer Free retains one spare scheduled-post slot.
+
 ### Current local build/test signal
 
 - `native-ios/Thread/Info.plist` passes `plutil -lint`.

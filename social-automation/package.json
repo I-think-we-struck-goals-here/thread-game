@@ -1,0 +1,11 @@
+{
+  "name": "daily-thread-social-automation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node cli.mjs self-test"
+  },
+  "dependencies": {
+    "playwright": "1.62.1"
+  }
+}

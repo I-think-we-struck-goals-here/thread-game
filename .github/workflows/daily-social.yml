@@ -1,0 +1,65 @@
+name: Daily Thread social queue
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+      timezone: "Europe/London"
+    - cron: "37 18 * * *"
+      timezone: "Europe/London"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-thread-social-queue
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  maintain-buffer-queue:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: social-automation/package-lock.json
+
+      - name: Install renderer
+        working-directory: social-automation
+        run: |
+          npm ci
+          npx playwright install chromium
+
+      - name: Verify schedule logic
+        run: npm test --prefix social-automation
+
+      - name: Render the rolling nine-day queue
+        run: node social-automation/cli.mjs render --days 9 --output docs/social
+
+      - name: Publish immutable media files
+        run: |
+          git config user.name "daily-thread-social-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/social
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: render Daily Thread social queue"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Fill Buffer queue and verify today
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          node social-automation/cli.mjs schedule \
+            --days 9 \
+            --queue-size 9 \
+            --output docs/social \
+            --media-root https://raw.githubusercontent.com/I-think-we-struck-goals-here/thread-game/main/docs/social
+          node social-automation/cli.mjs audit

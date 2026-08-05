@@ -244,6 +244,28 @@ xcodegen generate
 
 Do not assume `project.pbxproj` is authoritative.
 
+### Daily Instagram automation
+
+The approved seven-slide carousel and rolling Buffer queue live in `social-automation/`.
+
+- source of truth: the same `src/new-rounds.js` seeded schedule used by the app
+- post rule: publish the previous `Europe/London` day's Thread at 10:05 London time
+- reliability: keep nine future carousels scheduled, with two daily repair/check runs
+- media: immutable 1080×1350 PNGs committed under `docs/social/YYYY-MM-DD/`
+- publishing: Buffer GraphQL API using the repository secret `BUFFER_API_KEY`
+- workflow: `.github/workflows/daily-social.yml`
+
+Local verification:
+
+```bash
+npm ci --prefix social-automation
+npx --prefix social-automation playwright install chromium
+npm test --prefix social-automation
+node social-automation/cli.mjs render --days 1
+```
+
+See `social-automation/README.md` for manual recovery and queue behavior. If the future puzzle pool or seed changes, regenerate affected queued posts before shipping the puzzle change.
+
 ## Current Implementation Patterns
 
 - `native-ios/project.yml` is the source of truth for native build settings; regenerate the project instead of hand-editing generated config
