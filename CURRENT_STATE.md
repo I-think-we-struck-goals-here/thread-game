@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-07-24
+Last updated: 2026-08-06
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
 
@@ -132,6 +132,8 @@ Verified implemented areas:
 - The automation reproduces the app's `20260331` shuffle seed and February 16 thread-number anchor. Its regression check maps 4 August 2026 to Thread #170 / TIME / OVER, BED, HALF, BOMB, OUT.
 - Buffer credentials live only in the GitHub repository secret `BUFFER_API_KEY`; generated public media and post metadata contain no secret.
 - The queue intentionally targets nine posts so Buffer Free retains one spare scheduled-post slot.
+- Carousel clue sizing now measures the visible glyphs instead of the full-width clue container. All five clue slides share one 22–42px size, ordinary four-letter openings retain the approved 42px, and browser QC covers every bundled round before media is rendered. Tomorrow's seven-letter `TROUBLE` fixture is locked at 34px with a verified onboarding-box gap.
+- Carousel exports use the locked `#f8f5f0` paper colour. Buffer fetches the date-addressed media at publication time, so regenerated future assets update already-scheduled posts without duplicate queue entries.
 
 ### Current local build/test signal
 

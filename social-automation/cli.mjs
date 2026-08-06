@@ -16,7 +16,7 @@ const DEFAULT_QUEUE_SIZE = 9;
 const DEFAULT_DAYS = 5;
 const CAROUSEL_POST_TIME = { hour: 10, minute: 5 };
 const REEL_POST_TIME = { hour: 18, minute: 30 };
-const TEMPLATE_VERSION = "2026-08-06-v4-dual-format";
+const TEMPLATE_VERSION = "2026-08-06-v5-carousel-layout";
 const REEL_HIGHLIGHT_EXCEPTIONS = new Map([
   ["SPINE|SPINAL CORD", "Spinal"],
   ["FENCE|FENCING (THE SPORT)", "Fencing"],
@@ -407,6 +407,7 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
     for (const { post, folder } of pending) {
       await mkdir(folder, { recursive: true });
       await page.evaluate(data => window.setPostData(data), post);
+      await assertCarouselLayout(page, post);
 
       for (let slide = 1; slide <= 7; slide += 1) {
         await page.evaluate(number => window.showSlide(number), slide);
@@ -438,6 +439,26 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
     await validatePostFolder(folder, post);
     console.log(`Rendered carousel and ${post.reel.mode}-mode Reel for Thread #${post.threadNumber} on ${post.postDate}.`);
   }
+}
+
+async function assertCarouselLayout(page, post, expectedClueSize = null) {
+  const metrics = await page.evaluate(() => window.getCarouselLayoutMetrics());
+  if (metrics.paper !== "#f8f5f0" || metrics.stageBackground !== "rgb(248, 245, 240)") {
+    throw new Error(`Thread #${post.threadNumber} has the wrong paper colour: ${JSON.stringify(metrics)}.`);
+  }
+  if (metrics.clueSizes.length !== 1 || metrics.clueSizes[0] < 22 || metrics.clueSizes[0] > 42) {
+    throw new Error(`Thread #${post.threadNumber} has inconsistent or unreadable clue sizing: ${JSON.stringify(metrics)}.`);
+  }
+  if (expectedClueSize !== null && metrics.clueSizes[0] !== expectedClueSize) {
+    throw new Error(`Thread #${post.threadNumber} expected ${expectedClueSize}px clues, got ${metrics.clueSizes[0]}px.`);
+  }
+  if (metrics.firstWordRight > metrics.howToPlayLeft - metrics.safeGap + .5) {
+    throw new Error(`Thread #${post.threadNumber} first clue overlaps the How to play safe area: ${JSON.stringify(metrics)}.`);
+  }
+  if (metrics.firstWordWidth >= metrics.stackWidth) {
+    throw new Error(`Thread #${post.threadNumber} is measuring a full-width clue container instead of its glyphs.`);
+  }
+  return metrics;
 }
 
 async function bufferRequest(apiKey, query) {
@@ -734,7 +755,64 @@ async function auditToday() {
   }
 }
 
-async function selfTest(roundsPath) {
+async function carouselLayoutTest(rounds, templatePath) {
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 1400 },
+    deviceScaleFactor: 1,
+  });
+  const page = await context.newPage();
+  let minimumSize = 42;
+  let scaledRounds = 0;
+
+  try {
+    await page.goto(pathToFileURL(templatePath).href, { waitUntil: "load" });
+    await page.waitForFunction(() => document.fonts.status === "loaded" && [...document.images].every(image => image.complete));
+
+    for (let index = 0; index < rounds.length; index += 1) {
+      const fixture = { threadNumber: index + 1, ...rounds[index] };
+      await page.evaluate(data => window.setPostData(data), fixture);
+      const metrics = await assertCarouselLayout(page, fixture);
+      minimumSize = Math.min(minimumSize, metrics.clueSizes[0]);
+      if (metrics.clueSizes[0] < 42) scaledRounds += 1;
+    }
+
+    const fourLetterFixture = {
+      threadNumber: 171,
+      answer: "GOLD",
+      clues: [
+        { word: "MARI", connection: "Marigold" },
+        { word: "MINE", connection: "Gold mine" },
+        { word: "RUSH", connection: "Gold rush" },
+        { word: "STANDARD", connection: "Gold standard" },
+        { word: "FISH", connection: "Goldfish" },
+      ],
+    };
+    await page.evaluate(data => window.setPostData(data), fourLetterFixture);
+    await assertCarouselLayout(page, fourLetterFixture, 42);
+
+    const tomorrowFixture = {
+      threadNumber: 172,
+      answer: "DOUBLE",
+      clues: [
+        { word: "TROUBLE", connection: "Double trouble" },
+        { word: "DUTCH", connection: "Double Dutch" },
+        { word: "TAKE", connection: "Double take" },
+        { word: "EDGE", connection: "Double-edged sword" },
+        { word: "AGENT", connection: "Double agent" },
+      ],
+    };
+    await page.evaluate(data => window.setPostData(data), tomorrowFixture);
+    await assertCarouselLayout(page, tomorrowFixture, 34);
+  } finally {
+    await browser.close();
+  }
+
+  console.log(`Carousel layout: ${rounds.length} rounds passed; ${scaledRounds} first clue(s) scale, readability floor ${minimumSize}px.`);
+}
+
+async function selfTest(roundsPath, templatePath) {
   const rounds = await loadFutureRounds(roundsPath);
   const known = postForDate("2026-08-05", rounds);
   if (
@@ -778,6 +856,7 @@ async function selfTest(roundsPath) {
   if (!known.caption.includes("Start with OVER") || !known.caption.includes(DAILY_MARKER)) {
     throw new Error("Caption regression.");
   }
+  await carouselLayoutTest(rounds, templatePath);
   console.log(`Self-test: ${rounds.length} rounds, two Reel modes, London times and captions passed.`);
 }
 
@@ -806,7 +885,7 @@ const days = numberFlag(flags, "days", DEFAULT_DAYS);
 const queueSize = numberFlag(flags, "queue-size", DEFAULT_QUEUE_SIZE);
 
 if (command === "self-test") {
-  await selfTest(roundsPath);
+  await selfTest(roundsPath, resolve(HERE, "template.html"));
 } else if (command === "render") {
   const rounds = await loadFutureRounds(roundsPath);
   const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));

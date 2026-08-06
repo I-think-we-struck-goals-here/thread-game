@@ -74,6 +74,7 @@ If docs disagree with code:
 - Trace the actual code path, not just filenames
 - Separate facts, inferences, and unknowns in your own notes and in handoff updates
 - Prefer small, explicit changes over broad speculative refactors
+- For generated visual media, validate the exported geometry and colour values. Collision checks must measure the visible content (for example, a glyph-sized span), never a stretching block container, and should fail closed before unreadable media is scheduled.
 - If a local environment/tooling issue is blocking verification, document it clearly and distinguish it from app-code failures
 - If docs, code, and current diff disagree, record which one you trust and why
 

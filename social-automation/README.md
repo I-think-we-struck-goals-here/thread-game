@@ -12,9 +12,10 @@ Both show the previous London day's Thread. Nine queued posts provide more than 
 1. `cli.mjs` reads `src/new-rounds.js` and reproduces the app's seeded daily schedule.
 2. It renders seven 1080×1350 PNGs and one 1080×1920, 30-second H.264/AAC Reel for each date.
 3. Each Reel automatically selects either the join layout for exact before/after compounds or the phrase layout for more varied connections.
-4. The workflow commits immutable, date-addressed media to `docs/social/YYYY-MM-DD/`.
-5. Buffer receives those public media URLs and schedules any missing carousel or Reel.
-6. The workflow runs at 06:17 and 16:37 London time, giving the evening run time to recover before the Reel slot. Changes to the automation, workflow or puzzle pool also trigger an immediate deployment run; generated media commits are excluded to prevent loops.
+4. Carousel clue type starts at the approved 42px, measures the real glyph bounds, and scales the whole five-clue sequence only when the opening word would enter the onboarding safe area. A 22px emergency floor protects unusually long opening words; normal short clues stay at 42px. The renderer locks the approved `#f8f5f0` paper colour and rejects inconsistent or unreadable layouts.
+5. The workflow commits immutable, date-addressed media to `docs/social/YYYY-MM-DD/`.
+6. Buffer receives those public media URLs and schedules any missing carousel or Reel.
+7. The workflow runs at 06:17 and 16:37 London time, giving the evening run time to recover before the Reel slot. Changes to the automation, workflow or puzzle pool also trigger an immediate deployment run; generated media commits are excluded to prevent loops.
 
 The Buffer API key is stored only as the repository secret `BUFFER_API_KEY`.
 
@@ -35,6 +36,8 @@ node social-automation/cli.mjs audit
 ```
 
 `schedule` is idempotent by London date and format: it will not create a second carousel or Reel when that format is already scheduled or sent. It stops at nine total queued posts. `audit` passes only when both formats for today are scheduled or sent.
+
+Buffer fetches scheduled media from its source URL at publication time. Regenerating a future date at the same immutable queue URL therefore corrects its already-scheduled carousel without deleting or duplicating the Buffer post.
 
 Buffer's API cannot upload a custom Reel cover. The automation selects the frame at 600 ms as the cover and shares the Reel to the Instagram feed.
 

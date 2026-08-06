@@ -6,7 +6,7 @@
   <title>Daily Thread social carousel</title>
   <style>
     :root {
-      --paper: #f8f5ef;
+      --paper: #f8f5f0;
       --ink: #171512;
       --muted: #716d65;
       --green: #2f7546;
@@ -86,6 +86,8 @@
     .clue-stack { display: flex; flex: 1; flex-direction: column; justify-content: flex-start; gap: 10px; padding: 10% 0 4%; }
     .post-slide:nth-child(1) .clue-stack { padding-top: calc(10% + 3px); }
     .clue-word {
+      align-self: flex-start;
+      width: max-content;
       color: var(--ink);
       font-family: var(--serif);
       font-size: var(--clue-size);
@@ -353,10 +355,10 @@
         label.textContent = `Thread #${post.threadNumber}`;
       });
 
-      const maxClueLength = Math.max(...post.clues.map(clue => clue.word.length));
-      const firstClueLength = post.clues[0].word.length;
-      let clueSize = maxClueLength >= 10 ? 32 : maxClueLength >= 9 ? 35 : maxClueLength >= 8 ? 38 : 42;
-      if (firstClueLength >= 7) clueSize = Math.min(clueSize, 35);
+      const preferredClueSize = 42;
+      const minimumClueSize = 22;
+      const safeGap = 14;
+      let clueSize = preferredClueSize;
       document.documentElement.style.setProperty('--clue-size', `${clueSize}px`);
 
       document.querySelectorAll('.puzzle-slide .clue-stack').forEach((stack, index) => {
@@ -368,12 +370,40 @@
         }));
       });
 
-      const firstWord = document.querySelector('.post-slide:nth-child(1) .clue-word');
+      const firstSlide = document.querySelector('.post-slide:nth-child(1)');
+      const firstStack = firstSlide.querySelector('.clue-stack');
+      const firstWord = firstStack.querySelector('.clue-word');
       const howToPlay = document.querySelector('.corner-example');
-      while (firstWord.getBoundingClientRect().right > howToPlay.getBoundingClientRect().left - 20 && clueSize > 18) {
+      const measure = document.createElement('span');
+      measure.className = 'clue-word';
+      Object.assign(measure.style, {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        visibility: 'hidden',
+        pointerEvents: 'none',
+      });
+      firstSlide.append(measure);
+
+      const clueWidths = () => post.clues.map(clue => {
+        measure.textContent = clue.word;
+        return measure.getBoundingClientRect().width;
+      });
+      const layoutFits = () => {
+        const firstWordRight = firstWord.getBoundingClientRect().right;
+        const howToPlayLeft = howToPlay.getBoundingClientRect().left;
+        const fullWidth = firstStack.getBoundingClientRect().width;
+        return firstWordRight <= howToPlayLeft - safeGap && Math.max(...clueWidths()) <= fullWidth;
+      };
+
+      while (!layoutFits() && clueSize > minimumClueSize) {
         clueSize -= 1;
         document.documentElement.style.setProperty('--clue-size', `${clueSize}px`);
       }
+      if (!layoutFits()) {
+        throw new Error(`${post.clues[0].word} does not fit at ${minimumClueSize}px: first right ${firstWord.getBoundingClientRect().right.toFixed(1)}, onboarding left ${howToPlay.getBoundingClientRect().left.toFixed(1)}, widest clue ${Math.max(...clueWidths()).toFixed(1)}, stack ${firstStack.getBoundingClientRect().width.toFixed(1)}.`);
+      }
+      measure.remove();
 
       const maxConnectionLength = Math.max(...post.clues.map(clue => clue.connection.length));
       const resultSize = maxConnectionLength >= 25 ? 17 : maxConnectionLength >= 19 ? 20 : 24;
@@ -391,6 +421,26 @@
         document.documentElement.style.setProperty('--result-size', `${resultSize}px`);
       }
       document.querySelector('.result-answer').textContent = post.answer;
+    };
+
+    window.getCarouselLayoutMetrics = () => {
+      const firstSlide = document.querySelector('.post-slide:nth-child(1)');
+      const firstStack = firstSlide.querySelector('.clue-stack');
+      const firstWord = firstStack.querySelector('.clue-word');
+      const howToPlay = document.querySelector('.corner-example');
+      const clueWords = [...document.querySelectorAll('.puzzle-slide .clue-word')];
+      const clueSizes = [...new Set(clueWords.map(word => Number.parseFloat(getComputedStyle(word).fontSize)))];
+      return {
+        paper: getComputedStyle(document.documentElement).getPropertyValue('--paper').trim().toLowerCase(),
+        stageBackground: getComputedStyle(document.querySelector('#postStage')).backgroundColor,
+        clueSizes,
+        firstWord: firstWord.textContent,
+        firstWordWidth: firstWord.getBoundingClientRect().width,
+        firstWordRight: firstWord.getBoundingClientRect().right,
+        stackWidth: firstStack.getBoundingClientRect().width,
+        howToPlayLeft: howToPlay.getBoundingClientRect().left,
+        safeGap: 14,
+      };
     };
 
     window.showSlide = number => {

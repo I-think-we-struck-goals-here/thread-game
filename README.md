@@ -252,6 +252,7 @@ The approved seven-slide carousel and rolling Buffer queue live in `social-autom
 - post rule: publish the previous `Europe/London` day's Thread at 10:05 London time
 - reliability: keep nine future carousels scheduled, with two daily repair/check runs
 - media: immutable 1080×1350 PNGs committed under `docs/social/YYYY-MM-DD/`
+- layout QC: clue type is consistent within each carousel, measures actual glyph width against the slide-one onboarding safe area, never falls below the 22px long-word floor, and uses the locked `#f8f5f0` paper colour
 - publishing: Buffer GraphQL API using the repository secret `BUFFER_API_KEY`
 - workflow: `.github/workflows/daily-social.yml`
 
