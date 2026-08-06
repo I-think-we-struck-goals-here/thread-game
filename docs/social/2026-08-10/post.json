@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-06-v4-dual-format",
   "postDate": "2026-08-10",
   "sourceDate": "2026-08-09",
   "threadNumber": 175,
@@ -36,5 +36,40 @@
     "Daily Thread #175 answer: BRICK. Connections: Gold brick (swindle), Bricklayer, Brick wall, Yellow brick road, Brick house.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:38.158Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nGOLD was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #175 word-puzzle Reel. The clues GOLD, LAYER, WALL, YELLOW, HOUSE appear one every five seconds. The answer BRICK makes: Gold brick (swindle), Bricklayer, Brick wall, Yellow brick road, Brick house.",
+  "reel": {
+    "threadNumber": 175,
+    "mode": "phrase",
+    "answer": "BRICK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Gold brick (swindle)",
+        "highlight": "brick"
+      },
+      {
+        "word": "LAYER",
+        "connection": "Bricklayer",
+        "highlight": "Brick"
+      },
+      {
+        "word": "WALL",
+        "connection": "Brick wall",
+        "highlight": "Brick"
+      },
+      {
+        "word": "YELLOW",
+        "connection": "Yellow brick road",
+        "highlight": "brick"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Brick house",
+        "highlight": "Brick"
+      }
+    ]
+  },
+  "generatedAt": "2026-08-06T14:16:40.451Z"
 }

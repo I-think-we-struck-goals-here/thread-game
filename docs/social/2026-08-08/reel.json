@@ -1,0 +1,33 @@
+{
+  "threadNumber": 173,
+  "mode": "phrase",
+  "answer": "NERVE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "STEEL",
+      "connection": "Nerves of steel",
+      "highlight": "Nerve"
+    },
+    {
+      "word": "RAW",
+      "connection": "Raw nerve",
+      "highlight": "nerve"
+    },
+    {
+      "word": "WRACKING",
+      "connection": "Nerve-wracking",
+      "highlight": "Nerve"
+    },
+    {
+      "word": "LAST",
+      "connection": "Last nerve",
+      "highlight": "nerve"
+    },
+    {
+      "word": "DAMAGE",
+      "connection": "Nerve damage",
+      "highlight": "Nerve"
+    }
+  ]
+}

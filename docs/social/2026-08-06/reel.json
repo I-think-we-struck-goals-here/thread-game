@@ -1,0 +1,28 @@
+{
+  "threadNumber": 171,
+  "mode": "join",
+  "answer": "GOLD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MARI",
+      "connection": "Marigold"
+    },
+    {
+      "word": "MINE",
+      "connection": "Gold mine"
+    },
+    {
+      "word": "RUSH",
+      "connection": "Gold rush"
+    },
+    {
+      "word": "STANDARD",
+      "connection": "Gold standard"
+    },
+    {
+      "word": "FISH",
+      "connection": "Goldfish"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-06-v4-dual-format",
   "postDate": "2026-08-08",
   "sourceDate": "2026-08-07",
   "threadNumber": 173,
@@ -36,5 +36,40 @@
     "Daily Thread #173 answer: NERVE. Connections: Nerves of steel, Raw nerve, Nerve-wracking, Last nerve, Nerve damage.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:36.009Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nSTEEL was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #173 word-puzzle Reel. The clues STEEL, RAW, WRACKING, LAST, DAMAGE appear one every five seconds. The answer NERVE makes: Nerves of steel, Raw nerve, Nerve-wracking, Last nerve, Nerve damage.",
+  "reel": {
+    "threadNumber": 173,
+    "mode": "phrase",
+    "answer": "NERVE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "STEEL",
+        "connection": "Nerves of steel",
+        "highlight": "Nerve"
+      },
+      {
+        "word": "RAW",
+        "connection": "Raw nerve",
+        "highlight": "nerve"
+      },
+      {
+        "word": "WRACKING",
+        "connection": "Nerve-wracking",
+        "highlight": "Nerve"
+      },
+      {
+        "word": "LAST",
+        "connection": "Last nerve",
+        "highlight": "nerve"
+      },
+      {
+        "word": "DAMAGE",
+        "connection": "Nerve damage",
+        "highlight": "Nerve"
+      }
+    ]
+  },
+  "generatedAt": "2026-08-06T14:16:38.880Z"
 }

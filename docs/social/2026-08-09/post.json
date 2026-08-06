@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-06-v4-dual-format",
   "postDate": "2026-08-09",
   "sourceDate": "2026-08-08",
   "threadNumber": 174,
@@ -36,5 +36,35 @@
     "Daily Thread #174 answer: CAP. Connections: Bottle cap, Kneecap, Ice cap, Nightcap, Handicap.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:37.155Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nBOTTLE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #174 word-puzzle Reel. The clues BOTTLE, KNEE, ICE, NIGHT, HANDI appear one every five seconds. The answer CAP makes: Bottle cap, Kneecap, Ice cap, Nightcap, Handicap.",
+  "reel": {
+    "threadNumber": 174,
+    "mode": "join",
+    "answer": "CAP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOTTLE",
+        "connection": "Bottle cap"
+      },
+      {
+        "word": "KNEE",
+        "connection": "Kneecap"
+      },
+      {
+        "word": "ICE",
+        "connection": "Ice cap"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "HANDI",
+        "connection": "Handicap"
+      }
+    ]
+  },
+  "generatedAt": "2026-08-06T14:16:39.664Z"
 }

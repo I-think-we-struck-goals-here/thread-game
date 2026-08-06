@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-06-v4-dual-format",
   "postDate": "2026-08-07",
   "sourceDate": "2026-08-06",
   "threadNumber": 172,
@@ -36,5 +36,40 @@
     "Daily Thread #172 answer: DOUBLE. Connections: Double trouble, Double Dutch, Double take, Double-edged sword, Double agent.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:35.097Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nTROUBLE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #172 word-puzzle Reel. The clues TROUBLE, DUTCH, TAKE, EDGE, AGENT appear one every five seconds. The answer DOUBLE makes: Double trouble, Double Dutch, Double take, Double-edged sword, Double agent.",
+  "reel": {
+    "threadNumber": 172,
+    "mode": "phrase",
+    "answer": "DOUBLE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TROUBLE",
+        "connection": "Double trouble",
+        "highlight": "Double"
+      },
+      {
+        "word": "DUTCH",
+        "connection": "Double Dutch",
+        "highlight": "Double"
+      },
+      {
+        "word": "TAKE",
+        "connection": "Double take",
+        "highlight": "Double"
+      },
+      {
+        "word": "EDGE",
+        "connection": "Double-edged sword",
+        "highlight": "Double"
+      },
+      {
+        "word": "AGENT",
+        "connection": "Double agent",
+        "highlight": "Double"
+      }
+    ]
+  },
+  "generatedAt": "2026-08-06T14:16:38.127Z"
 }

@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-06-v4-dual-format",
   "postDate": "2026-08-06",
   "sourceDate": "2026-08-05",
   "threadNumber": 171,
@@ -36,5 +36,35 @@
     "Daily Thread #171 answer: GOLD. Connections: Marigold, Gold mine, Gold rush, Gold standard, Goldfish.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:33.956Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nMARI was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #171 word-puzzle Reel. The clues MARI, MINE, RUSH, STANDARD, FISH appear one every five seconds. The answer GOLD makes: Marigold, Gold mine, Gold rush, Gold standard, Goldfish.",
+  "reel": {
+    "threadNumber": 171,
+    "mode": "join",
+    "answer": "GOLD",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "MARI",
+        "connection": "Marigold"
+      },
+      {
+        "word": "MINE",
+        "connection": "Gold mine"
+      },
+      {
+        "word": "RUSH",
+        "connection": "Gold rush"
+      },
+      {
+        "word": "STANDARD",
+        "connection": "Gold standard"
+      },
+      {
+        "word": "FISH",
+        "connection": "Goldfish"
+      }
+    ]
+  },
+  "generatedAt": "2026-08-06T14:16:37.181Z"
 }
