@@ -350,6 +350,10 @@
     window.setPostData = post => {
       if (!post || post.clues?.length !== 5) throw new Error('Carousel requires exactly five clues.');
 
+      // Rendering a multi-day batch leaves the previous post on slide 7.
+      // Reset before measuring so slide 1 has real geometry rather than zero-sized hidden boxes.
+      window.showSlide(1);
+
       document.title = `Daily Thread #${post.threadNumber}`;
       document.querySelectorAll('.thread-label').forEach(label => {
         label.textContent = `Thread #${post.threadNumber}`;
