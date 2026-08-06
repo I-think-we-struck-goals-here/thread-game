@@ -3,6 +3,7 @@
 import { readFile, readdir, stat, mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { spawn } from "node:child_process";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const LONDON_TIME_ZONE = "Europe/London";
@@ -12,9 +13,15 @@ const SHUFFLE_SEED = 20260331;
 const BUFFER_API_URL = "https://api.buffer.com";
 const DAILY_MARKER = "#DailyThread";
 const DEFAULT_QUEUE_SIZE = 9;
-const DEFAULT_POST_HOUR = 10;
-const DEFAULT_POST_MINUTE = 5;
-const TEMPLATE_VERSION = "2026-08-05-v3";
+const DEFAULT_DAYS = 5;
+const CAROUSEL_POST_TIME = { hour: 10, minute: 5 };
+const REEL_POST_TIME = { hour: 18, minute: 30 };
+const TEMPLATE_VERSION = "2026-08-06-v4-dual-format";
+const REEL_HIGHLIGHT_EXCEPTIONS = new Map([
+  ["SPINE|SPINAL CORD", "Spinal"],
+  ["FENCE|FENCING (THE SPORT)", "Fencing"],
+  ["STRAIGHT|STRAITJACKET", "Strait"],
+]);
 
 function parseArgs(values) {
   const [command = "help", ...rest] = values;
@@ -41,6 +48,30 @@ function numberFlag(flags, name, fallback) {
   const value = Number(flags[name]);
   if (!Number.isInteger(value)) throw new Error(`--${name} must be an integer.`);
   return value;
+}
+
+function runProcess(command, args) {
+  return new Promise((resolvePromise, reject) => {
+    const child = spawn(command, args, { stdio: "inherit" });
+    child.on("error", reject);
+    child.on("exit", code => code === 0
+      ? resolvePromise()
+      : reject(new Error(`${command} exited ${code}`)));
+  });
+}
+
+function runCapture(command, args) {
+  return new Promise((resolvePromise, reject) => {
+    let stdout = "";
+    let stderr = "";
+    const child = spawn(command, args, { stdio: ["ignore", "pipe", "pipe"] });
+    child.stdout.on("data", chunk => { stdout += chunk; });
+    child.stderr.on("data", chunk => { stderr += chunk; });
+    child.on("error", reject);
+    child.on("exit", code => code === 0
+      ? resolvePromise(stdout.trim())
+      : reject(new Error(`${command} exited ${code}: ${stderr.trim()}`)));
+  });
 }
 
 function parseDateKey(dateKey) {
@@ -87,7 +118,7 @@ function londonDateKey(date = new Date()) {
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-function londonDueAt(dateKey, hour = DEFAULT_POST_HOUR, minute = DEFAULT_POST_MINUTE) {
+function londonDueAt(dateKey, hour = CAROUSEL_POST_TIME.hour, minute = CAROUSEL_POST_TIME.minute) {
   const { year, month, day } = parseDateKey(dateKey);
   const target = Date.UTC(year, month - 1, day, hour, minute);
   let guess = target;
@@ -169,6 +200,62 @@ Play Daily Thread free on iPhone. Link in bio.
 #DailyThread #WordGame #WordPuzzle #BrainTeaser`;
 }
 
+function reelCaptionFor(post) {
+  return `Could you connect all five? 🧵
+
+${post.clues[0].word} was clue one. How many clues did you need?
+
+Comment 1–5. No spoilers 🤫
+
+Play today’s Daily Thread free on iPhone. Link in bio.
+
+#DailyThread #WordGame #WordPuzzle #BrainTeaser`;
+}
+
+function reelAltTextFor(post) {
+  const words = post.clues.map(clue => clue.word).join(", ");
+  const connections = post.clues.map(clue => clue.connection).join(", ");
+  return `Daily Thread #${post.threadNumber} word-puzzle Reel. The clues ${words} appear one every five seconds. The answer ${post.answer} makes: ${connections}.`;
+}
+
+function normalizedConnection(value) {
+  return value.toLocaleUpperCase().replace(/\s+/g, " ").trim();
+}
+
+function isPureJoin(clue, answer) {
+  const connection = normalizedConnection(clue.connection);
+  const clueWord = normalizedConnection(clue.word);
+  const answerWord = normalizedConnection(answer);
+  return [
+    `${clueWord}${answerWord}`,
+    `${clueWord} ${answerWord}`,
+    `${answerWord}${clueWord}`,
+    `${answerWord} ${clueWord}`,
+  ].includes(connection);
+}
+
+function highlightForPhrase(clue, answer) {
+  const connection = clue.connection;
+  const answerIndex = connection.toLocaleUpperCase().indexOf(answer.toLocaleUpperCase());
+  if (answerIndex !== -1) return connection.slice(answerIndex, answerIndex + answer.length);
+  const exception = REEL_HIGHLIGHT_EXCEPTIONS.get(`${answer}|${normalizedConnection(connection)}`);
+  if (!exception) throw new Error(`No Reel highlight for ${answer}: ${connection}`);
+  return exception;
+}
+
+function reelDataFor(post) {
+  const mode = post.clues.every(clue => isPureJoin(clue, post.answer)) ? "join" : "phrase";
+  return {
+    threadNumber: post.threadNumber,
+    mode,
+    answer: post.answer,
+    answerNarrationStartMs: 26600,
+    clues: post.clues.map(clue => mode === "join"
+      ? { word: clue.word, connection: clue.connection }
+      : { ...clue, highlight: highlightForPhrase(clue, post.answer) }),
+  };
+}
+
 function altTextFor(post, slideNumber) {
   if (slideNumber <= 5) {
     const words = post.clues.slice(0, slideNumber).map(clue => clue.word).join(", ");
@@ -199,6 +286,9 @@ function postForDate(postDate, futureRounds) {
     ...post,
     caption: captionFor(post),
     altText: Array.from({ length: 7 }, (_, index) => altTextFor(post, index + 1)),
+    reelCaption: reelCaptionFor(post),
+    reelAltText: reelAltTextFor(post),
+    reel: reelDataFor(post),
   };
 }
 
@@ -213,6 +303,34 @@ function pngDimensions(buffer) {
   return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
 
+function reelFilename(post) {
+  return `daily-thread-${post.threadNumber}-reel.mp4`;
+}
+
+async function validateReel(path) {
+  const file = await stat(path);
+  if (file.size < 100_000 || file.size > 300_000_000) {
+    throw new Error(`${path} failed file-size QC (${file.size} bytes).`);
+  }
+  const output = await runCapture("ffprobe", [
+    "-v", "error",
+    "-show_entries", "stream=codec_type,codec_name,width,height,r_frame_rate,sample_rate:format=duration",
+    "-of", "json",
+    path,
+  ]);
+  const probe = JSON.parse(output);
+  const video = probe.streams?.find(stream => stream.codec_type === "video");
+  const audio = probe.streams?.find(stream => stream.codec_type === "audio");
+  const duration = Number(probe.format?.duration);
+  if (
+    video?.codec_name !== "h264" || video.width !== 1080 || video.height !== 1920 ||
+    video.r_frame_rate !== "30/1" || audio?.codec_name !== "aac" ||
+    Number(audio.sample_rate) !== 48_000 || Math.abs(duration - 30) > .05
+  ) {
+    throw new Error(`${path} failed encoded-media QC: ${JSON.stringify(probe)}`);
+  }
+}
+
 async function validatePostFolder(folder, expected = null) {
   const rawPost = JSON.parse(await readFile(resolve(folder, "post.json"), "utf8"));
   if (expected) {
@@ -221,6 +339,9 @@ async function validatePostFolder(folder, expected = null) {
     }
     if (JSON.stringify(rawPost.clues) !== JSON.stringify(expected.clues)) {
       throw new Error(`${folder} has stale clues.`);
+    }
+    if (JSON.stringify(rawPost.reel) !== JSON.stringify(expected.reel)) {
+      throw new Error(`${folder} has stale Reel data.`);
     }
   }
 
@@ -232,6 +353,16 @@ async function validatePostFolder(folder, expected = null) {
       throw new Error(`${path} failed image QC (${dimensions.width}x${dimensions.height}, ${image.length} bytes).`);
     }
   }
+  const reelData = JSON.parse(await readFile(resolve(folder, "reel.json"), "utf8"));
+  if (JSON.stringify(reelData) !== JSON.stringify(rawPost.reel)) {
+    throw new Error(`${folder} Reel manifest does not match post.json.`);
+  }
+  const reelCaption = (await readFile(resolve(folder, "reel-caption.txt"), "utf8")).trim();
+  const reelAltText = (await readFile(resolve(folder, "reel-alt-text.txt"), "utf8")).trim();
+  if (reelCaption !== rawPost.reelCaption || reelAltText !== rawPost.reelAltText) {
+    throw new Error(`${folder} has stale Reel copy.`);
+  }
+  await validateReel(resolve(folder, reelFilename(rawPost)));
   return rawPost;
 }
 
@@ -244,7 +375,7 @@ async function folderIsCurrent(folder, expected) {
   }
 }
 
-async function renderPosts({ posts, outputDir, templatePath }) {
+async function renderPosts({ posts, outputDir, templatePath, reelRendererPath }) {
   const pending = [];
   for (const post of posts) {
     const folder = resolve(outputDir, post.postDate);
@@ -284,15 +415,28 @@ async function renderPosts({ posts, outputDir, templatePath }) {
       }
 
       await writeFile(resolve(folder, "caption.txt"), `${post.caption}\n`);
+      await writeFile(resolve(folder, "reel-caption.txt"), `${post.reelCaption}\n`);
+      await writeFile(resolve(folder, "reel-alt-text.txt"), `${post.reelAltText}\n`);
+      await writeFile(resolve(folder, "reel.json"), `${JSON.stringify(post.reel, null, 2)}\n`);
       await writeFile(
         resolve(folder, "post.json"),
         `${JSON.stringify({ ...post, generatedAt: new Date().toISOString() }, null, 2)}\n`,
       );
-      await validatePostFolder(folder, post);
-      console.log(`Rendered Thread #${post.threadNumber} for ${post.postDate} from ${post.sourceDate}.`);
     }
   } finally {
     await browser.close();
+  }
+
+  for (const { post, folder } of pending) {
+    await runProcess(process.execPath, [
+      reelRendererPath,
+      "--data", resolve(folder, "reel.json"),
+      "--intro", resolve(HERE, "voice/intro.wav"),
+      "--answer", resolve(HERE, "voice/answer.wav"),
+      "--output", resolve(folder, reelFilename(post)),
+    ]);
+    await validatePostFolder(folder, post);
+    console.log(`Rendered carousel and ${post.reel.mode}-mode Reel for Thread #${post.threadNumber} on ${post.postDate}.`);
   }
 }
 
@@ -352,8 +496,9 @@ async function bufferPosts(apiKey, channel, statuses) {
           sentAt
           externalLink
           assets {
+            id
+            mimeType
             ... on ImageAsset {
-              id
               image { altText }
             }
           }
@@ -384,14 +529,37 @@ async function waitForImage(url, attempts = 12) {
   throw new Error(`Media did not become available at ${url}: ${lastError?.message}`);
 }
 
-function mediaUrls(mediaRoot, postDate) {
+async function waitForVideo(url, attempts = 12) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const video = Buffer.from(await response.arrayBuffer());
+      if (video.length < 100_000 || video.subarray(4, 8).toString("ascii") !== "ftyp") {
+        throw new Error(`invalid MP4 (${video.length} bytes)`);
+      }
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await new Promise(resolvePromise => setTimeout(resolvePromise, 5_000));
+    }
+  }
+  throw new Error(`Video did not become available at ${url}: ${lastError?.message}`);
+}
+
+function carouselMediaUrls(mediaRoot, postDate) {
   return Array.from(
     { length: 7 },
     (_, index) => `${mediaRoot.replace(/\/$/, "")}/${postDate}/slide-${String(index + 1).padStart(2, "0")}.png`,
   );
 }
 
-async function createBufferPost(apiKey, channel, post, urls, dueAt) {
+function reelMediaUrl(mediaRoot, post) {
+  return `${mediaRoot.replace(/\/$/, "")}/${post.postDate}/${reelFilename(post)}`;
+}
+
+async function createBufferCarousel(apiKey, channel, post, urls, dueAt) {
   const assets = urls.map((url, index) => `{
         image: {
           url: ${JSON.stringify(url)}
@@ -418,38 +586,111 @@ async function createBufferPost(apiKey, channel, post, urls, dueAt) {
   return result.createPost.post;
 }
 
+async function createBufferReel(apiKey, channel, post, url, dueAt) {
+  const result = await bufferRequest(apiKey, `mutation ScheduleDailyThreadReel {
+    createPost(input: {
+      text: ${JSON.stringify(post.reelCaption)}
+      channelId: ${JSON.stringify(channel.id)}
+      schedulingType: automatic
+      mode: customScheduled
+      dueAt: ${JSON.stringify(dueAt)}
+      metadata: { instagram: { type: reel shouldShareToFeed: true } }
+      assets: [{
+        video: {
+          url: ${JSON.stringify(url)}
+          metadata: { thumbnailOffset: 600 title: ${JSON.stringify(`Daily Thread #${post.threadNumber}`)} }
+        }
+      }]
+    }) {
+      ... on PostActionSuccess { post { id dueAt status assets { id mimeType } } }
+      ... on MutationError { message }
+    }
+  }`);
+  if (!result.createPost?.post) {
+    throw new Error(result.createPost?.message || `Buffer rejected Reel ${post.postDate}.`);
+  }
+  return result.createPost.post;
+}
+
+function bufferPostKind(post) {
+  const mime = asset => String(asset?.mimeType || "").toLowerCase();
+  if (post.assets?.length === 7 && post.assets.every(asset => mime(asset).startsWith("image"))) return "carousel";
+  if (post.assets?.length === 1 && mime(post.assets[0]).startsWith("video")) return "reel";
+  return null;
+}
+
+function desiredBufferItems(posts, mediaRoot) {
+  return posts.flatMap(post => [
+    {
+      kind: "carousel",
+      post,
+      dueAt: londonDueAt(post.postDate, CAROUSEL_POST_TIME.hour, CAROUSEL_POST_TIME.minute),
+      urls: carouselMediaUrls(mediaRoot, post.postDate),
+    },
+    {
+      kind: "reel",
+      post,
+      dueAt: londonDueAt(post.postDate, REEL_POST_TIME.hour, REEL_POST_TIME.minute),
+      url: reelMediaUrl(mediaRoot, post),
+    },
+  ]).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
+}
+
 async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferConnection(apiKey);
   const scheduled = await bufferPosts(apiKey, channel, ["scheduled"]);
-  const coveredDates = new Set(
-    scheduled
-      .filter(post => post.text?.includes(DAILY_MARKER) && post.dueAt)
-      .map(post => londonDateKey(new Date(post.dueAt))),
+  const sent = await bufferPosts(apiKey, channel, ["sent"]);
+  const covered = new Set(
+    [...scheduled, ...sent]
+      .filter(post => post.text?.includes(DAILY_MARKER) && post.dueAt && bufferPostKind(post))
+      .map(post => `${londonDateKey(new Date(post.dueAt))}:${bufferPostKind(post)}`),
   );
+  const items = desiredBufferItems(posts, mediaRoot);
   let available = Math.max(0, queueSize - scheduled.length);
   let created = 0;
 
-  for (const expected of posts) {
-    if (coveredDates.has(expected.postDate)) {
-      console.log(`Buffer: ${expected.postDate} already scheduled.`);
+  for (const item of items) {
+    const key = `${item.post.postDate}:${item.kind}`;
+    if (covered.has(key)) {
+      console.log(`Buffer: ${item.post.postDate} ${item.kind} already scheduled or sent.`);
       continue;
     }
     if (available === 0) {
-      console.log(`Buffer: queue target of ${queueSize} reached; remaining dates will be added after a slot opens.`);
+      console.log(`Buffer: queue target of ${queueSize} reached; remaining posts will be added after a slot opens.`);
       break;
     }
 
-    const folder = resolve(outputDir, expected.postDate);
-    const post = await validatePostFolder(folder, expected);
-    const urls = mediaUrls(mediaRoot, expected.postDate);
-    for (const url of urls) await waitForImage(url);
-    const dueAt = londonDueAt(expected.postDate);
-    const result = await createBufferPost(apiKey, channel, post, urls, dueAt);
-    if (result.assets?.length !== 7) throw new Error(`Buffer returned ${result.assets?.length ?? 0} assets for ${expected.postDate}.`);
-    console.log(`Buffer: scheduled Thread #${post.threadNumber} for ${expected.postDate} at ${result.dueAt}.`);
-    coveredDates.add(expected.postDate);
+    const folder = resolve(outputDir, item.post.postDate);
+    const post = await validatePostFolder(folder, item.post);
+    let dueAt = item.dueAt;
+    if (new Date(dueAt).getTime() <= Date.now()) {
+      if (item.post.postDate !== londonDateKey()) {
+        console.log(`Buffer: skipping expired ${item.post.postDate} ${item.kind}.`);
+        continue;
+      }
+      dueAt = new Date(Date.now() + 5 * 60_000).toISOString();
+      console.log(`Buffer: recovering late ${item.kind} for today at ${dueAt}.`);
+    }
+
+    let result;
+    if (item.kind === "carousel") {
+      for (const url of item.urls) await waitForImage(url);
+      result = await createBufferCarousel(apiKey, channel, post, item.urls, dueAt);
+      if (result.assets?.length !== 7) {
+        throw new Error(`Buffer returned ${result.assets?.length ?? 0} carousel assets for ${item.post.postDate}.`);
+      }
+    } else {
+      await waitForVideo(item.url);
+      result = await createBufferReel(apiKey, channel, post, item.url, dueAt);
+      if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
+        throw new Error(`Buffer returned an invalid Reel asset for ${item.post.postDate}.`);
+      }
+    }
+
+    console.log(`Buffer: scheduled Thread #${post.threadNumber} ${item.kind} for ${item.post.postDate} at ${result.dueAt}.`);
+    covered.add(key);
     available -= 1;
     created += 1;
   }
@@ -457,20 +698,19 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   console.log(`Buffer queue check complete: ${scheduled.length} existing, ${created} created.`);
 
   const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
-    .filter(post => post.text?.includes(DAILY_MARKER));
-  if (!verified.length) throw new Error("Buffer alt text audit found no scheduled Daily Thread carousels.");
+    .filter(post => post.text?.includes(DAILY_MARKER) && bufferPostKind(post));
+  if (!verified.length) throw new Error("Buffer audit found no scheduled Daily Thread posts.");
+  const verifiedCarousels = verified.filter(post => bufferPostKind(post) === "carousel");
+  const verifiedReels = verified.filter(post => bufferPostKind(post) === "reel");
   let verifiedImages = 0;
-  for (const post of verified) {
-    if (post.assets?.length !== 7) {
-      throw new Error(`Buffer post ${post.id} has ${post.assets?.length ?? 0} images; expected 7.`);
-    }
+  for (const post of verifiedCarousels) {
     const missingAltText = post.assets.filter(asset => !asset.image?.altText?.trim());
     if (missingAltText.length) {
       throw new Error(`Buffer post ${post.id} is missing alt text on ${missingAltText.length} image(s).`);
     }
     verifiedImages += post.assets.length;
   }
-  console.log(`Alt text audit: ${verified.length} carousel(s), ${verifiedImages} of ${verifiedImages} images described.`);
+  console.log(`Buffer audit: ${verifiedCarousels.length} carousel(s), ${verifiedReels.length} Reel(s), ${verifiedImages} carousel images described.`);
 }
 
 async function auditToday() {
@@ -479,11 +719,19 @@ async function auditToday() {
   const channel = await bufferConnection(apiKey);
   const posts = await bufferPosts(apiKey, channel, ["scheduled", "sent"]);
   const today = londonDateKey();
-  const match = posts.find(post => (
-    post.text?.includes(DAILY_MARKER) && post.dueAt && londonDateKey(new Date(post.dueAt)) === today
+  const matches = posts.filter(post => (
+    post.text?.includes(DAILY_MARKER) && post.dueAt &&
+    londonDateKey(new Date(post.dueAt)) === today && bufferPostKind(post)
   ));
-  if (!match) throw new Error(`No scheduled or sent Daily Thread post was found for ${today}.`);
-  console.log(`Audit: ${today} is ${match.status}${match.externalLink ? ` at ${match.externalLink}` : ""}.`);
+  const byKind = new Map(matches.map(post => [bufferPostKind(post), post]));
+  const missing = ["carousel", "reel"].filter(kind => !byKind.has(kind));
+  if (missing.length) {
+    throw new Error(`Daily Thread audit for ${today} is missing: ${missing.join(", ")}.`);
+  }
+  for (const kind of ["carousel", "reel"]) {
+    const post = byKind.get(kind);
+    console.log(`Audit: ${today} ${kind} is ${post.status}${post.externalLink ? ` at ${post.externalLink}` : ""}.`);
+  }
 }
 
 async function selfTest(roundsPath) {
@@ -495,31 +743,66 @@ async function selfTest(roundsPath) {
   ) {
     throw new Error(`Schedule regression: ${JSON.stringify(known)}`);
   }
-  if (londonDueAt("2026-08-06") !== "2026-08-06T09:05:00.000Z") {
+  if (known.reel.mode !== "join") {
+    throw new Error("Known join-mode Reel regression.");
+  }
+  const phraseFixture = {
+    threadNumber: 0,
+    answer: "BRIDGE",
+    clues: [
+      { word: "NOSE", connection: "Bridge of the nose" },
+      { word: "CROSS", connection: "Cross that bridge" },
+      { word: "WATER", connection: "Bridge over troubled water" },
+      { word: "DENTAL", connection: "Dental bridge" },
+      { word: "TOWER", connection: "Tower Bridge" },
+    ],
+  };
+  if (reelDataFor(phraseFixture).mode !== "phrase") {
+    throw new Error("Phrase-mode Reel regression.");
+  }
+  for (let index = 0; index < rounds.length; index += 1) {
+    reelDataFor({ threadNumber: index + 1, ...rounds[index] });
+  }
+  if (
+    londonDueAt("2026-08-06", 10, 5) !== "2026-08-06T09:05:00.000Z" ||
+    londonDueAt("2026-08-06", 18, 30) !== "2026-08-06T17:30:00.000Z"
+  ) {
     throw new Error("BST scheduling regression.");
   }
-  if (londonDueAt("2026-12-06") !== "2026-12-06T10:05:00.000Z") {
+  if (
+    londonDueAt("2026-12-06", 10, 5) !== "2026-12-06T10:05:00.000Z" ||
+    londonDueAt("2026-12-06", 18, 30) !== "2026-12-06T18:30:00.000Z"
+  ) {
     throw new Error("GMT scheduling regression.");
   }
   if (!known.caption.includes("Start with OVER") || !known.caption.includes(DAILY_MARKER)) {
     throw new Error("Caption regression.");
   }
-  console.log("Self-test: schedule, London time and caption checks passed.");
+  console.log(`Self-test: ${rounds.length} rounds, two Reel modes, London times and captions passed.`);
+}
+
+async function planSchedule({ posts, outputDir, mediaRoot }) {
+  for (const post of posts) await validatePostFolder(resolve(outputDir, post.postDate), post);
+  for (const item of desiredBufferItems(posts, mediaRoot)) {
+    const media = item.kind === "carousel" ? `${item.urls.length} images` : item.url;
+    console.log(`${item.dueAt} | ${item.post.postDate} | ${item.kind} | ${media}`);
+  }
 }
 
 function help() {
   console.log(`Usage:
   node social-automation/cli.mjs self-test [--rounds path]
-  node social-automation/cli.mjs render [--start-date YYYY-MM-DD] [--days 9] [--output docs/social] [--rounds path]
-  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 9] [--output docs/social]
+  node social-automation/cli.mjs render [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--rounds path]
+  node social-automation/cli.mjs plan --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social]
+  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social]
   node social-automation/cli.mjs audit`);
 }
 
 const { command, flags } = parseArgs(process.argv.slice(2));
 const roundsPath = resolve(flags.rounds || resolve(HERE, "../src/new-rounds.js"));
 const outputDir = resolve(flags.output || "docs/social");
-const startDate = flags["start-date"] || addDays(londonDateKey(), 1);
-const days = numberFlag(flags, "days", DEFAULT_QUEUE_SIZE);
+const startDate = flags["start-date"] || londonDateKey();
+const days = numberFlag(flags, "days", DEFAULT_DAYS);
 const queueSize = numberFlag(flags, "queue-size", DEFAULT_QUEUE_SIZE);
 
 if (command === "self-test") {
@@ -527,7 +810,17 @@ if (command === "self-test") {
 } else if (command === "render") {
   const rounds = await loadFutureRounds(roundsPath);
   const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));
-  await renderPosts({ posts, outputDir, templatePath: resolve(HERE, "template.html") });
+  await renderPosts({
+    posts,
+    outputDir,
+    templatePath: resolve(HERE, "template.html"),
+    reelRendererPath: resolve(HERE, "render-reel.mjs"),
+  });
+} else if (command === "plan") {
+  if (!flags["media-root"]) throw new Error("--media-root is required.");
+  const rounds = await loadFutureRounds(roundsPath);
+  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));
+  await planSchedule({ posts, outputDir, mediaRoot: flags["media-root"] });
 } else if (command === "schedule") {
   if (!flags["media-root"]) throw new Error("--media-root is required.");
   const rounds = await loadFutureRounds(roundsPath);

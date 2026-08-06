@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "17 6 * * *"
       timezone: "Europe/London"
-    - cron: "37 18 * * *"
+    - cron: "37 16 * * *"
       timezone: "Europe/London"
   workflow_dispatch:
 
@@ -18,7 +18,7 @@ permissions:
 jobs:
   maintain-buffer-queue:
     runs-on: macos-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
         with:
@@ -39,8 +39,11 @@ jobs:
       - name: Verify schedule logic
         run: npm test --prefix social-automation
 
-      - name: Render the rolling nine-day queue
-        run: node social-automation/cli.mjs render --days 9 --output docs/social
+      - name: Verify video tooling
+        run: ffmpeg -version
+
+      - name: Render the rolling five-day media package
+        run: node social-automation/cli.mjs render --days 5 --output docs/social
 
       - name: Publish immutable media files
         run: |
@@ -58,7 +61,7 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
           node social-automation/cli.mjs schedule \
-            --days 9 \
+            --days 5 \
             --queue-size 9 \
             --output docs/social \
             --media-root https://raw.githubusercontent.com/I-think-we-struck-goals-here/thread-game/main/docs/social
