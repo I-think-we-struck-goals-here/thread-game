@@ -1,6 +1,12 @@
 name: Daily Thread social queue
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/daily-social.yml"
+      - "social-automation/**"
+      - "src/new-rounds.js"
   schedule:
     - cron: "17 6 * * *"
       timezone: "Europe/London"

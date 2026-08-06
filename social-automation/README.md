@@ -14,7 +14,7 @@ Both show the previous London day's Thread. Nine queued posts provide more than 
 3. Each Reel automatically selects either the join layout for exact before/after compounds or the phrase layout for more varied connections.
 4. The workflow commits immutable, date-addressed media to `docs/social/YYYY-MM-DD/`.
 5. Buffer receives those public media URLs and schedules any missing carousel or Reel.
-6. The workflow runs at 06:17 and 16:37 London time, giving the evening run time to recover before the Reel slot.
+6. The workflow runs at 06:17 and 16:37 London time, giving the evening run time to recover before the Reel slot. Changes to the automation, workflow or puzzle pool also trigger an immediate deployment run; generated media commits are excluded to prevent loops.
 
 The Buffer API key is stored only as the repository secret `BUFFER_API_KEY`.
 
