@@ -45,6 +45,9 @@ jobs:
       - name: Verify schedule logic
         run: npm test --prefix social-automation
 
+      - name: Install FFmpeg
+        run: brew install ffmpeg
+
       - name: Verify video tooling
         run: ffmpeg -version
 
