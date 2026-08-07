@@ -1,0 +1,35 @@
+{
+  "threadNumber": 175,
+  "mode": "phrase",
+  "answer": "BRICK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "GOLD",
+      "connection": "Gold brick (swindle)",
+      "highlight": "brick"
+    },
+    {
+      "word": "LAYER",
+      "connection": "Bricklayer",
+      "highlight": "Brick"
+    },
+    {
+      "word": "WALL",
+      "connection": "Brick wall",
+      "highlight": "Brick"
+    },
+    {
+      "word": "YELLOW",
+      "connection": "Yellow brick road",
+      "highlight": "brick"
+    },
+    {
+      "word": "HOUSE",
+      "connection": "Brick house",
+      "highlight": "Brick"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

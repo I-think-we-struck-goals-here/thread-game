@@ -1,0 +1,30 @@
+{
+  "threadNumber": 174,
+  "mode": "join",
+  "answer": "CAP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BOTTLE",
+      "connection": "Bottle cap"
+    },
+    {
+      "word": "KNEE",
+      "connection": "Kneecap"
+    },
+    {
+      "word": "ICE",
+      "connection": "Ice cap"
+    },
+    {
+      "word": "NIGHT",
+      "connection": "Nightcap"
+    },
+    {
+      "word": "HANDI",
+      "connection": "Handicap"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

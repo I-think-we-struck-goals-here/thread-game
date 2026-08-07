@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-06-v5-carousel-layout",
+  "templateVersion": "2026-08-07-v6-instagram-tiktok",
   "postDate": "2026-08-09",
   "sourceDate": "2026-08-08",
   "threadNumber": 174,
@@ -66,5 +66,99 @@
       }
     ]
   },
-  "generatedAt": "2026-08-06T15:17:04.559Z"
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 174,
+    "mode": "join",
+    "answer": "CAP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOTTLE",
+        "connection": "Bottle cap"
+      },
+      {
+        "word": "KNEE",
+        "connection": "Kneecap"
+      },
+      {
+        "word": "ICE",
+        "connection": "Ice cap"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "HANDI",
+        "connection": "Handicap"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "tiktokGrowth": {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 84,
+      "mode": "phrase",
+      "answer": "MOON",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HONEY",
+          "connection": "Honeymoon",
+          "highlight": "moon"
+        },
+        {
+          "word": "ONCE",
+          "connection": "Once in a blue moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "FULL",
+          "connection": "Full moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "WALK",
+          "connection": "Moonwalk",
+          "highlight": "Moon"
+        },
+        {
+          "word": "LIGHT",
+          "connection": "Moonlight",
+          "highlight": "Moon"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-07T09:05:04.422Z"
 }

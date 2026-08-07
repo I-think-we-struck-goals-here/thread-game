@@ -1,0 +1,35 @@
+{
+  "threadNumber": 172,
+  "mode": "phrase",
+  "answer": "DOUBLE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TROUBLE",
+      "connection": "Double trouble",
+      "highlight": "Double"
+    },
+    {
+      "word": "DUTCH",
+      "connection": "Double Dutch",
+      "highlight": "Double"
+    },
+    {
+      "word": "TAKE",
+      "connection": "Double take",
+      "highlight": "Double"
+    },
+    {
+      "word": "EDGE",
+      "connection": "Double-edged sword",
+      "highlight": "Double"
+    },
+    {
+      "word": "AGENT",
+      "connection": "Double agent",
+      "highlight": "Double"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

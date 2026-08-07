@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-06-v5-carousel-layout",
+  "templateVersion": "2026-08-07-v6-instagram-tiktok",
   "postDate": "2026-08-10",
   "sourceDate": "2026-08-09",
   "threadNumber": 175,
@@ -71,5 +71,104 @@
       }
     ]
   },
-  "generatedAt": "2026-08-06T15:17:05.359Z"
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 175,
+    "mode": "phrase",
+    "answer": "BRICK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Gold brick (swindle)",
+        "highlight": "brick"
+      },
+      {
+        "word": "LAYER",
+        "connection": "Bricklayer",
+        "highlight": "Brick"
+      },
+      {
+        "word": "WALL",
+        "connection": "Brick wall",
+        "highlight": "Brick"
+      },
+      {
+        "word": "YELLOW",
+        "connection": "Yellow brick road",
+        "highlight": "brick"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Brick house",
+        "highlight": "Brick"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "tiktokGrowth": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 96,
+      "mode": "phrase",
+      "answer": "BOX",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "POST",
+          "connection": "Post box",
+          "highlight": "box"
+        },
+        {
+          "word": "SAND",
+          "connection": "Sandbox",
+          "highlight": "box"
+        },
+        {
+          "word": "PANDORA",
+          "connection": "Pandora’s box",
+          "highlight": "box"
+        },
+        {
+          "word": "JUKE",
+          "connection": "Jukebox",
+          "highlight": "box"
+        },
+        {
+          "word": "CARD",
+          "connection": "Cardboard box",
+          "highlight": "box"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-07T09:05:05.248Z"
 }
