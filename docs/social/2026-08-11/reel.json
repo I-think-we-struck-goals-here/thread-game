@@ -1,0 +1,28 @@
+{
+  "threadNumber": 176,
+  "mode": "join",
+  "answer": "FACE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "INTER",
+      "connection": "Interface"
+    },
+    {
+      "word": "POKER",
+      "connection": "Poker face"
+    },
+    {
+      "word": "VALUE",
+      "connection": "Face value"
+    },
+    {
+      "word": "PLATE",
+      "connection": "Faceplate"
+    },
+    {
+      "word": "CLOCK",
+      "connection": "Clock face"
+    }
+  ]
+}
