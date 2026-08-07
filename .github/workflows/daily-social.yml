@@ -44,14 +44,14 @@ jobs:
           npm ci
           npx playwright install chromium
 
-      - name: Verify schedule logic
-        run: npm test --prefix social-automation
-
       - name: Install FFmpeg
         run: brew install ffmpeg
 
       - name: Verify video tooling
         run: ffmpeg -version
+
+      - name: Verify schedule logic
+        run: npm test --prefix social-automation
 
       - name: Render the rolling five-day Instagram and TikTok media package
         run: node social-automation/cli.mjs render --days 5 --output docs/social
