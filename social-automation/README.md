@@ -9,7 +9,7 @@ Instagram receives two posts per London day:
 
 Both show the previous London day's Thread. Nine queued posts provide more than four days of cover while leaving one slot free on Buffer's ten-post Free-plan limit.
 
-From **7–11 August 2026**, Instagram also receives one historical Reel at **12:30 Europe/London** using Buffer's notification publishing. The Buffer alert opens the native Instagram composer so the owner can enable **Trial**, leave automatic sharing to followers off, and publish. This first five-Reel batch uses FACE, STONE, MOON, BOX and DRAW; it deliberately excludes the not-yet-live DOG round. During this batch the nine-slot queue provides roughly three days of cover.
+From **7–11 August 2026**, Instagram also receives one historical Reel at **12:30 Europe/London** using Buffer's notification publishing. The Buffer alert opens the native Instagram composer so the owner can enable **Trial**, leave automatic sharing to followers off, and publish. This first five-Reel batch uses FACE, STONE, MOON, BOX and DRAW; it deliberately excludes the not-yet-live DOG round. During this batch Instagram may use Buffer's tenth free slot; the queue returns to its normal nine-post ceiling afterward.
 
 TikTok receives two posts per London day:
 

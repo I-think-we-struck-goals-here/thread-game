@@ -1029,7 +1029,10 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
       .map(({ bufferPost, slot }) => `${londonDateKey(new Date(bufferPost.dueAt))}:${slot}`),
   );
   const items = desiredBufferItems(posts, mediaRoot);
-  let available = Math.max(0, queueSize - scheduled.length);
+  const effectiveQueueSize = posts.some(post => post.instagramTrial)
+    ? Math.min(10, queueSize + 1)
+    : queueSize;
+  let available = Math.max(0, effectiveQueueSize - scheduled.length);
   let created = 0;
 
   for (const item of items) {
@@ -1039,7 +1042,7 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
       continue;
     }
     if (available === 0) {
-      console.log(`Buffer: queue target of ${queueSize} reached; remaining posts will be added after a slot opens.`);
+      console.log(`Buffer: queue target of ${effectiveQueueSize} reached; remaining posts will be added after a slot opens.`);
       break;
     }
 
