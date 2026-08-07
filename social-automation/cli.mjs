@@ -15,13 +15,16 @@ const DAILY_MARKER = "#DailyThread";
 const DEFAULT_QUEUE_SIZE = 9;
 const DEFAULT_DAYS = 5;
 const CAROUSEL_POST_TIME = { hour: 10, minute: 5 };
+const INSTAGRAM_TRIAL_POST_TIME = { hour: 12, minute: 30 };
 const REEL_POST_TIME = { hour: 18, minute: 30 };
 const TIKTOK_GROWTH_POST_TIME = { hour: 12, minute: 30 };
 const TIKTOK_DAILY_POST_TIME = { hour: 18, minute: 30 };
 const TIKTOK_PHOTO_WEEKDAYS = new Set([2, 5]);
 const TIKTOK_DAILY_MARKER = "#DailyThreadToday";
 const TIKTOK_ARCHIVE_MARKER = "#DailyThreadArchive";
-const TEMPLATE_VERSION = "2026-08-07-v6-instagram-tiktok";
+const INSTAGRAM_TRIAL_MARKER = "#DailyThreadTrial";
+const INSTAGRAM_TRIAL_START_DATE = "2026-08-07";
+const TEMPLATE_VERSION = "2026-08-07-v7-instagram-trials";
 const REEL_HIGHLIGHT_EXCEPTIONS = new Map([
   ["SPINE|SPINAL CORD", "Spinal"],
   ["FENCE|FENCING (THE SPORT)", "Fencing"],
@@ -232,6 +235,18 @@ function reelAltTextFor(post) {
   return `Daily Thread #${post.threadNumber} word-puzzle Reel. The clues ${words} appear one every five seconds. The answer ${post.answer} makes: ${connections}.`;
 }
 
+function instagramTrialCaptionFor() {
+  return `How quickly did you find the connection? 🧵
+
+A new word appears every five seconds.
+
+Comment how many clues you needed: 1–5. No spoilers 🤫
+
+Play today’s Daily Thread free on iPhone. Link in bio.
+
+${INSTAGRAM_TRIAL_MARKER} #WordGame #WordPuzzle #BrainTeaser`;
+}
+
 function tikTokDailyCaptionFor(post) {
   return `Could you get it from clue one? 🧵
 
@@ -324,6 +339,15 @@ function tikTokGrowthForDate(postDate, currentPost, archiveRounds) {
   return format === "video" ? { ...growth, reel: tikTokReelDataFor(growth) } : growth;
 }
 
+function instagramTrialForDate(postDate, archiveRounds) {
+  const index = daysBetween(INSTAGRAM_TRIAL_START_DATE, postDate);
+  if (index < 0 || index >= archiveRounds.length) return null;
+  return {
+    ...archiveRounds[index],
+    caption: instagramTrialCaptionFor(),
+  };
+}
+
 function altTextFor(post, slideNumber) {
   if (slideNumber <= 5) {
     const words = post.clues.slice(0, slideNumber).map(clue => clue.word).join(", ");
@@ -360,9 +384,12 @@ function postForDate(postDate, futureRounds, archiveRounds = []) {
     tiktokCaption: tikTokDailyCaptionFor(post),
     tiktokReel: tikTokReelDataFor(post),
   };
-  return archiveRounds.length
-    ? { ...result, tiktokGrowth: tikTokGrowthForDate(postDate, result, archiveRounds) }
-    : result;
+  if (!archiveRounds.length) return result;
+  return {
+    ...result,
+    instagramTrial: instagramTrialForDate(postDate, archiveRounds),
+    tiktokGrowth: tikTokGrowthForDate(postDate, result, archiveRounds),
+  };
 }
 
 function desiredPostDates(startDate, days) {
@@ -432,6 +459,9 @@ async function validatePostFolder(folder, expected = null) {
     }
     if (JSON.stringify(rawPost.tiktokReel) !== JSON.stringify(expected.tiktokReel)) {
       throw new Error(`${folder} has stale TikTok daily Reel data.`);
+    }
+    if (JSON.stringify(rawPost.instagramTrial) !== JSON.stringify(expected.instagramTrial)) {
+      throw new Error(`${folder} has stale Instagram Trial Reel data.`);
     }
     if (JSON.stringify(rawPost.tiktokGrowth) !== JSON.stringify(expected.tiktokGrowth)) {
       throw new Error(`${folder} has stale TikTok growth data.`);
@@ -770,6 +800,10 @@ function reelMediaUrl(mediaRoot, post) {
   return `${mediaRoot.replace(/\/$/, "")}/${post.postDate}/${reelFilename(post)}`;
 }
 
+function instagramTrialMediaUrl(mediaRoot, trial) {
+  return `${mediaRoot.replace(/\/$/, "")}/trials/thread-${trial.threadNumber}-trial.mp4`;
+}
+
 function tikTokDailyMediaUrl(mediaRoot, post) {
   return `${mediaRoot.replace(/\/$/, "")}/${post.postDate}/${tikTokDailyFilename(post)}`;
 }
@@ -837,6 +871,32 @@ async function createBufferReel(apiKey, channel, post, url, dueAt) {
   return result.createPost.post;
 }
 
+async function createBufferTrialNotification(apiKey, channel, trial, url, dueAt) {
+  const result = await bufferRequest(apiKey, `mutation ScheduleDailyThreadTrialReel {
+    createPost(input: {
+      text: ${JSON.stringify(trial.caption)}
+      channelId: ${JSON.stringify(channel.id)}
+      schedulingType: notification
+      mode: customScheduled
+      dueAt: ${JSON.stringify(dueAt)}
+      metadata: { instagram: { type: reel shouldShareToFeed: true } }
+      assets: [{
+        video: {
+          url: ${JSON.stringify(url)}
+          metadata: { thumbnailOffset: 600 title: ${JSON.stringify(`Daily Thread archive #${trial.threadNumber}`)} }
+        }
+      }]
+    }) {
+      ... on PostActionSuccess { post { id dueAt status assets { id mimeType } } }
+      ... on MutationError { message }
+    }
+  }`);
+  if (!result.createPost?.post) {
+    throw new Error(result.createPost?.message || `Buffer rejected Trial Reel #${trial.threadNumber}.`);
+  }
+  return result.createPost.post;
+}
+
 async function createBufferTikTokVideo(apiKey, channel, { text: caption, title }, url, dueAt) {
   const result = await bufferRequest(apiKey, `mutation ScheduleDailyThreadTikTokVideo {
     createPost(input: {
@@ -889,20 +949,36 @@ function bufferPostKind(post) {
 }
 
 function desiredBufferItems(posts, mediaRoot) {
-  return posts.flatMap(post => [
-    {
-      kind: "carousel",
-      post,
-      dueAt: londonDueAt(post.postDate, CAROUSEL_POST_TIME.hour, CAROUSEL_POST_TIME.minute),
-      urls: carouselMediaUrls(mediaRoot, post.postDate),
-    },
-    {
-      kind: "reel",
-      post,
-      dueAt: londonDueAt(post.postDate, REEL_POST_TIME.hour, REEL_POST_TIME.minute),
-      url: reelMediaUrl(mediaRoot, post),
-    },
-  ]).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
+  return posts.flatMap(post => {
+    const items = [
+      {
+        slot: "carousel",
+        post,
+        dueAt: londonDueAt(post.postDate, CAROUSEL_POST_TIME.hour, CAROUSEL_POST_TIME.minute),
+        urls: carouselMediaUrls(mediaRoot, post.postDate),
+      },
+      {
+        slot: "reel",
+        post,
+        dueAt: londonDueAt(post.postDate, REEL_POST_TIME.hour, REEL_POST_TIME.minute),
+        url: reelMediaUrl(mediaRoot, post),
+      },
+    ];
+    if (post.instagramTrial) {
+      items.push({
+        slot: "trial",
+        post,
+        trial: post.instagramTrial,
+        dueAt: londonDueAt(
+          post.postDate,
+          INSTAGRAM_TRIAL_POST_TIME.hour,
+          INSTAGRAM_TRIAL_POST_TIME.minute,
+        ),
+        url: instagramTrialMediaUrl(mediaRoot, post.instagramTrial),
+      });
+    }
+    return items;
+  }).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
 }
 
 function desiredTikTokItems(posts, mediaRoot) {
@@ -934,6 +1010,12 @@ function tikTokSlotForBufferPost(post) {
   return null;
 }
 
+function instagramSlotForBufferPost(post) {
+  if (post.text?.includes(INSTAGRAM_TRIAL_MARKER)) return "trial";
+  if (!post.text?.includes(DAILY_MARKER)) return null;
+  return bufferPostKind(post);
+}
+
 async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
@@ -942,17 +1024,18 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...scheduled, ...sent]
-      .filter(post => post.text?.includes(DAILY_MARKER) && post.dueAt && bufferPostKind(post))
-      .map(post => `${londonDateKey(new Date(post.dueAt))}:${bufferPostKind(post)}`),
+      .map(bufferPost => ({ bufferPost, slot: instagramSlotForBufferPost(bufferPost) }))
+      .filter(({ bufferPost, slot }) => slot && bufferPost.dueAt)
+      .map(({ bufferPost, slot }) => `${londonDateKey(new Date(bufferPost.dueAt))}:${slot}`),
   );
   const items = desiredBufferItems(posts, mediaRoot);
   let available = Math.max(0, queueSize - scheduled.length);
   let created = 0;
 
   for (const item of items) {
-    const key = `${item.post.postDate}:${item.kind}`;
+    const key = `${item.post.postDate}:${item.slot}`;
     if (covered.has(key)) {
-      console.log(`Buffer: ${item.post.postDate} ${item.kind} already scheduled or sent.`);
+      console.log(`Buffer: ${item.post.postDate} ${item.slot} already scheduled or sent.`);
       continue;
     }
     if (available === 0) {
@@ -965,29 +1048,36 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
     let dueAt = item.dueAt;
     if (new Date(dueAt).getTime() <= Date.now()) {
       if (item.post.postDate !== londonDateKey()) {
-        console.log(`Buffer: skipping expired ${item.post.postDate} ${item.kind}.`);
+        console.log(`Buffer: skipping expired ${item.post.postDate} ${item.slot}.`);
         continue;
       }
       dueAt = new Date(Date.now() + 5 * 60_000).toISOString();
-      console.log(`Buffer: recovering late ${item.kind} for today at ${dueAt}.`);
+      console.log(`Buffer: recovering late ${item.slot} for today at ${dueAt}.`);
     }
 
     let result;
-    if (item.kind === "carousel") {
+    if (item.slot === "carousel") {
       for (const url of item.urls) await waitForImage(url);
       result = await createBufferCarousel(apiKey, channel, post, item.urls, dueAt);
       if (result.assets?.length !== 7) {
         throw new Error(`Buffer returned ${result.assets?.length ?? 0} carousel assets for ${item.post.postDate}.`);
       }
-    } else {
+    } else if (item.slot === "reel") {
       await waitForVideo(item.url);
       result = await createBufferReel(apiKey, channel, post, item.url, dueAt);
       if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
         throw new Error(`Buffer returned an invalid Reel asset for ${item.post.postDate}.`);
       }
+    } else {
+      await waitForVideo(item.url);
+      result = await createBufferTrialNotification(apiKey, channel, item.trial, item.url, dueAt);
+      if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
+        throw new Error(`Buffer returned an invalid Trial Reel asset for ${item.post.postDate}.`);
+      }
     }
 
-    console.log(`Buffer: scheduled Thread #${post.threadNumber} ${item.kind} for ${item.post.postDate} at ${result.dueAt}.`);
+    const threadNumber = item.trial?.threadNumber || post.threadNumber;
+    console.log(`Buffer: scheduled Thread #${threadNumber} ${item.slot} for ${item.post.postDate} at ${result.dueAt}.`);
     covered.add(key);
     available -= 1;
     created += 1;
@@ -996,10 +1086,11 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   console.log(`Buffer queue check complete: ${scheduled.length} existing, ${created} created.`);
 
   const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
-    .filter(post => post.text?.includes(DAILY_MARKER) && bufferPostKind(post));
+    .filter(post => instagramSlotForBufferPost(post));
   if (!verified.length) throw new Error("Buffer audit found no scheduled Daily Thread posts.");
-  const verifiedCarousels = verified.filter(post => bufferPostKind(post) === "carousel");
-  const verifiedReels = verified.filter(post => bufferPostKind(post) === "reel");
+  const verifiedCarousels = verified.filter(post => instagramSlotForBufferPost(post) === "carousel");
+  const verifiedReels = verified.filter(post => instagramSlotForBufferPost(post) === "reel");
+  const verifiedTrials = verified.filter(post => instagramSlotForBufferPost(post) === "trial");
   let verifiedImages = 0;
   for (const post of verifiedCarousels) {
     const missingAltText = post.assets.filter(asset => !asset.image?.altText?.trim());
@@ -1008,7 +1099,10 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
     }
     verifiedImages += post.assets.length;
   }
-  console.log(`Buffer audit: ${verifiedCarousels.length} carousel(s), ${verifiedReels.length} Reel(s), ${verifiedImages} carousel images described.`);
+  console.log(
+    `Buffer audit: ${verifiedCarousels.length} carousel(s), ${verifiedReels.length} Reel(s), ` +
+    `${verifiedTrials.length} Trial notification(s), ${verifiedImages} carousel images described.`,
+  );
 }
 
 async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
@@ -1087,10 +1181,10 @@ async function auditToday() {
   const posts = await bufferPosts(apiKey, channel, ["scheduled", "sent"]);
   const today = londonDateKey();
   const matches = posts.filter(post => (
-    post.text?.includes(DAILY_MARKER) && post.dueAt &&
-    londonDateKey(new Date(post.dueAt)) === today && bufferPostKind(post)
+    post.dueAt && londonDateKey(new Date(post.dueAt)) === today &&
+    ["carousel", "reel"].includes(instagramSlotForBufferPost(post))
   ));
-  const byKind = new Map(matches.map(post => [bufferPostKind(post), post]));
+  const byKind = new Map(matches.map(post => [instagramSlotForBufferPost(post), post]));
   const missing = ["carousel", "reel"].filter(kind => !byKind.has(kind));
   if (missing.length) {
     throw new Error(`Daily Thread audit for ${today} is missing: ${missing.join(", ")}.`);
@@ -1209,6 +1303,16 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   if (known.tiktokReel.cta !== "Follow for a new puzzle every day") {
     throw new Error("TikTok daily CTA regression.");
   }
+  if (
+    postForDate("2026-08-07", rounds, archiveRounds).instagramTrial?.threadNumber !== 51 ||
+    postForDate("2026-08-11", rounds, archiveRounds).instagramTrial?.threadNumber !== 120 ||
+    postForDate("2026-08-12", rounds, archiveRounds).instagramTrial !== null
+  ) {
+    throw new Error("Instagram Trial Reel batch regression.");
+  }
+  for (const trial of archiveRounds) {
+    await validateReel(resolve(HERE, "../docs/social/trials", `thread-${trial.threadNumber}-trial.mp4`));
+  }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
   if (friday.tiktokGrowth.format !== "photo" || saturday.tiktokGrowth.format !== "video") {
@@ -1258,8 +1362,8 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
 async function planSchedule({ posts, outputDir, mediaRoot }) {
   for (const post of posts) await validatePostFolder(resolve(outputDir, post.postDate), post);
   for (const item of desiredBufferItems(posts, mediaRoot)) {
-    const media = item.kind === "carousel" ? `${item.urls.length} images` : item.url;
-    console.log(`${item.dueAt} | ${item.post.postDate} | ${item.kind} | ${media}`);
+    const media = item.slot === "carousel" ? `${item.urls.length} images` : item.url;
+    console.log(`${item.dueAt} | ${item.post.postDate} | instagram-${item.slot} | ${media}`);
   }
   for (const item of desiredTikTokItems(posts, mediaRoot)) {
     const media = item.kind === "photo" ? `${item.urls.length} TikTok images` : item.url;

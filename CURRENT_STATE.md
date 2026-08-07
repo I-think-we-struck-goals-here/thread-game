@@ -132,6 +132,9 @@ Verified implemented areas:
 - The automation reproduces the app's `20260331` shuffle seed and February 16 thread-number anchor. Its regression check maps 4 August 2026 to Thread #170 / TIME / OVER, BED, HALF, BOMB, OUT.
 - Buffer credentials live only in the GitHub repository secret `BUFFER_API_KEY`; generated public media and post metadata contain no secret.
 - The queue intentionally targets nine posts so Buffer Free retains one spare scheduled-post slot.
+- A first five-day Instagram Trial Reel batch now runs at 12:30 London from 7–11 August 2026. Buffer schedules these as notification posts so the owner can enable Instagram's native Trial toggle before publishing; automatic sharing to followers should remain off.
+- The Trial batch uses five approved historical rounds (FACE, STONE, MOON, BOX and DRAW), has stable public video assets under `docs/social/trials/`, and explicitly excludes future Thread #191 / DOG.
+- Trial notifications have their own idempotency marker and slot classification, preventing them from colliding with the automatic 18:30 Reel. The nine-slot queue provides roughly three days of cover while the third daily Instagram slot is active.
 - Carousel clue sizing now measures the visible glyphs instead of the full-width clue container. All five clue slides share one 22–42px size, ordinary four-letter openings retain the approved 42px, and browser QC covers every bundled round before media is rendered. Tomorrow's seven-letter `TROUBLE` fixture is locked at 34px with a verified onboarding-box gap.
 - Carousel exports use the locked `#f8f5f0` paper colour. Buffer fetches the date-addressed media at publication time, so regenerated future assets update already-scheduled posts without duplicate queue entries.
 

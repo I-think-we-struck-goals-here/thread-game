@@ -9,6 +9,8 @@ Instagram receives two posts per London day:
 
 Both show the previous London day's Thread. Nine queued posts provide more than four days of cover while leaving one slot free on Buffer's ten-post Free-plan limit.
 
+From **7–11 August 2026**, Instagram also receives one historical Reel at **12:30 Europe/London** using Buffer's notification publishing. The Buffer alert opens the native Instagram composer so the owner can enable **Trial**, leave automatic sharing to followers off, and publish. This first five-Reel batch uses FACE, STONE, MOON, BOX and DRAW; it deliberately excludes the not-yet-live DOG round. During this batch the nine-slot queue provides roughly three days of cover.
+
 TikTok receives two posts per London day:
 
 - a growth post at **12:30 Europe/London**, rotating curated archive puzzles
@@ -23,7 +25,7 @@ The growth slot is normally a 30-second archive video. On Tuesday and Friday it 
 3. Each Reel automatically selects either the join layout for exact before/after compounds or the phrase layout for more varied connections.
 4. Carousel clue type starts at the approved 42px, measures the real glyph bounds, and scales the whole five-clue sequence only when the opening word would enter the onboarding safe area. A 22px emergency floor protects unusually long opening words; normal short clues stay at 42px. The renderer locks the approved `#f8f5f0` paper colour and rejects inconsistent or unreadable layouts.
 5. The workflow commits immutable, date-addressed media to `docs/social/YYYY-MM-DD/`.
-6. Buffer receives those public media URLs and independently schedules missing Instagram and TikTok slots.
+6. Buffer receives those public media URLs and independently schedules missing Instagram and TikTok slots. Trial Reels use `schedulingType: notification`; all other slots publish automatically.
 7. The workflow runs at 06:17, 11:37 and 16:37 London time. The latter two are pre-publication repair checks for TikTok's 12:30 growth slot and both platforms' 18:30 video slot. Changes to the automation, workflow or puzzle pool also trigger an immediate deployment run; generated media commits are excluded to prevent loops.
 
 The Buffer API key is stored only as the repository secret `BUFFER_API_KEY`.
@@ -44,13 +46,15 @@ node social-automation/cli.mjs schedule \
 node social-automation/cli.mjs audit
 ```
 
-`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at nine queued posts. `audit` passes only when both formats on both channels for today are scheduled or sent.
+`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel/Trial notification or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at nine queued posts. `audit` requires the automatic carousel/Reel and both TikTok slots; the human-completed Trial handoff is reported in the queue audit without turning a missed manual action into an automation failure.
 
 TikTok videos are automatically marked as AI-generated because the reusable narration is synthetic. TikTok photo posts use Buffer's native photo-post title metadata. TikTok currently does not accept per-image alt text through Buffer's API.
 
 Buffer fetches scheduled media from its source URL at publication time. Regenerating a future date at the same immutable queue URL therefore corrects its already-scheduled carousel without deleting or duplicating the Buffer post.
 
 Buffer's API cannot upload a custom Reel cover. The automation selects the frame at 600 ms as the cover and shares the Reel to the Instagram feed.
+
+For an Instagram Trial notification, tap the Buffer push notification, continue to Instagram, turn on **Trial**, confirm automatic sharing to followers is off, paste the prepared caption and publish. Trial is a native-only Instagram control and cannot be enabled by Buffer's API.
 
 ## Manual recovery
 
