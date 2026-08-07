@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-07-v6-instagram-tiktok",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-11",
   "sourceDate": "2026-08-10",
   "threadNumber": 176,
@@ -97,6 +97,33 @@
     "question": "How many clues did you need?",
     "cta": "Follow for a new puzzle every day"
   },
+  "instagramTrial": {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ],
+    "caption": "How quickly did you find the connection? 🧵\n\nA new word appears every five seconds.\n\nComment how many clues you needed: 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThreadTrial #WordGame #WordPuzzle #BrainTeaser"
+  },
   "tiktokGrowth": {
     "threadNumber": 120,
     "answer": "DRAW",
@@ -125,5 +152,5 @@
     "format": "photo",
     "caption": "Swipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
   },
-  "generatedAt": "2026-08-07T09:05:07.049Z"
+  "generatedAt": "2026-08-07T10:04:33.176Z"
 }

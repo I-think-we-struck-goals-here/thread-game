@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-07-v6-instagram-tiktok",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-08",
   "sourceDate": "2026-08-07",
   "threadNumber": 173,
@@ -107,6 +107,33 @@
     "question": "How many clues did you need?",
     "cta": "Follow for a new puzzle every day"
   },
+  "instagramTrial": {
+    "threadNumber": 66,
+    "answer": "STONE",
+    "clues": [
+      {
+        "word": "MILE",
+        "connection": "Milestone"
+      },
+      {
+        "word": "LIME",
+        "connection": "Limestone"
+      },
+      {
+        "word": "STEPPING",
+        "connection": "Stepping stone"
+      },
+      {
+        "word": "KIDNEY",
+        "connection": "Kidney stone"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling Stones"
+      }
+    ],
+    "caption": "How quickly did you find the connection? 🧵\n\nA new word appears every five seconds.\n\nComment how many clues you needed: 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThreadTrial #WordGame #WordPuzzle #BrainTeaser"
+  },
   "tiktokGrowth": {
     "threadNumber": 66,
     "answer": "STONE",
@@ -170,5 +197,5 @@
       "cta": "Follow for a new puzzle every day"
     }
   },
-  "generatedAt": "2026-08-07T09:05:03.546Z"
+  "generatedAt": "2026-08-07T10:04:29.992Z"
 }

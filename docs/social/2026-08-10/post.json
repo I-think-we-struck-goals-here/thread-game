@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-07-v6-instagram-tiktok",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-10",
   "sourceDate": "2026-08-09",
   "threadNumber": 175,
@@ -107,6 +107,33 @@
     "question": "How many clues did you need?",
     "cta": "Follow for a new puzzle every day"
   },
+  "instagramTrial": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "caption": "How quickly did you find the connection? 🧵\n\nA new word appears every five seconds.\n\nComment how many clues you needed: 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThreadTrial #WordGame #WordPuzzle #BrainTeaser"
+  },
   "tiktokGrowth": {
     "threadNumber": 96,
     "answer": "BOX",
@@ -170,5 +197,5 @@
       "cta": "Follow for a new puzzle every day"
     }
   },
-  "generatedAt": "2026-08-07T09:05:05.248Z"
+  "generatedAt": "2026-08-07T10:04:31.576Z"
 }

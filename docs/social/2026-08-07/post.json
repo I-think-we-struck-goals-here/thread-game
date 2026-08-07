@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-07-v6-instagram-tiktok",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-07",
   "sourceDate": "2026-08-06",
   "threadNumber": 172,
@@ -107,6 +107,33 @@
     "question": "How many clues did you need?",
     "cta": "Follow for a new puzzle every day"
   },
+  "instagramTrial": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "caption": "How quickly did you find the connection? 🧵\n\nA new word appears every five seconds.\n\nComment how many clues you needed: 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThreadTrial #WordGame #WordPuzzle #BrainTeaser"
+  },
   "tiktokGrowth": {
     "threadNumber": 51,
     "answer": "FACE",
@@ -135,5 +162,5 @@
     "format": "photo",
     "caption": "Swipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
   },
-  "generatedAt": "2026-08-07T09:05:02.703Z"
+  "generatedAt": "2026-08-07T10:04:29.244Z"
 }
