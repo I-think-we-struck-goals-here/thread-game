@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Thread TikTok carousel</title>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; src: url("./fonts/CormorantGaramond-Regular.ttf") format("truetype"); font-weight: 400; }
+    @font-face { font-family: "Cormorant Garamond"; src: url("./fonts/CormorantGaramond-SemiBold.ttf") format("truetype"); font-weight: 600; }
+    @font-face { font-family: "DM Sans"; src: url("./fonts/DMSans-Regular.ttf") format("truetype"); font-weight: 400; }
+    @font-face { font-family: "DM Sans"; src: url("./fonts/DMSans-Medium.ttf") format("truetype"); font-weight: 500; }
+    @font-face { font-family: "DM Sans"; src: url("./fonts/DMSans-SemiBold.ttf") format("truetype"); font-weight: 600; }
+
+    :root {
+      --paper: #f8f5f0;
+      --ink: #171512;
+      --muted: #887f74;
+      --faint: #ded9d1;
+      --green: #2f7546;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 1080px; height: 1920px; margin: 0; overflow: hidden; background: var(--paper); }
+    body { color: var(--ink); font-family: var(--sans); }
+
+    .stage {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(255,255,255,.42), transparent 31%),
+        var(--paper);
+    }
+
+    .header {
+      position: absolute;
+      top: 150px;
+      left: 96px;
+      width: 780px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: 7px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .progress { display: flex; gap: 13px; margin-top: 26px; }
+    .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--faint); }
+    .dot.on { background: var(--green); }
+
+    .prompt {
+      position: absolute;
+      top: 325px;
+      left: 96px;
+      width: 780px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 31px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .clues {
+      position: absolute;
+      top: 470px;
+      left: 96px;
+      display: grid;
+      width: 780px;
+      gap: 14px;
+    }
+
+    .clue {
+      width: max-content;
+      max-width: 780px;
+      font: 400 116px/.98 var(--serif);
+      letter-spacing: .005em;
+      white-space: nowrap;
+    }
+
+    .instruction {
+      position: absolute;
+      bottom: 315px;
+      left: 96px;
+      width: 780px;
+      padding-top: 28px;
+      border-top: 2px solid var(--faint);
+      color: #5d5851;
+      font-size: 31px;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .instruction strong { color: var(--ink); font-weight: 500; }
+
+    .answer-layout {
+      position: absolute;
+      top: 420px;
+      left: 96px;
+      display: none;
+      width: 780px;
+    }
+
+    .connections { display: grid; gap: 15px; }
+    .connection { font: 400 61px/1.02 var(--serif); white-space: nowrap; }
+    .connection .answer-token { color: var(--green); font-weight: 600; }
+
+    .answer-lockup { margin-top: 125px; text-align: left; }
+    .answer-label {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+    .answer-word { margin: 0; color: var(--green); font: 400 138px/.9 var(--serif); letter-spacing: .02em; }
+
+    .final-layout {
+      position: absolute;
+      top: 520px;
+      left: 96px;
+      display: none;
+      width: 780px;
+    }
+    .final-kicker { margin: 0; color: var(--muted); font-size: 29px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; }
+    .final-title { width: 760px; margin: 42px 0 0; font: 400 130px/.91 var(--serif); letter-spacing: -.015em; }
+    .final-title span { color: var(--green); }
+    .final-rule { width: 125px; height: 5px; margin: 70px 0 55px; border-radius: 99px; background: var(--green); }
+    .final-copy { width: 700px; margin: 0; color: #514c45; font-size: 39px; font-weight: 400; line-height: 1.3; }
+    .final-copy strong { color: var(--ink); font-weight: 600; }
+
+    .slide-answer .clues,
+    .slide-answer .instruction { display: none; }
+    .slide-answer .answer-layout { display: block; }
+    .slide-final .header,
+    .slide-final .prompt,
+    .slide-final .clues,
+    .slide-final .instruction { display: none; }
+    .slide-final .final-layout { display: block; }
+  </style>
+</head>
+<body>
+  <main class="stage" id="tiktokStage">
+    <header class="header">
+      <p class="eyebrow" id="threadLabel">THREAD #51</p>
+      <div class="progress" id="progress"></div>
+    </header>
+
+    <p class="prompt">Find the connection</p>
+    <section class="clues" id="clues"></section>
+
+    <div class="instruction" id="instruction">
+      <strong>One word connects all five.</strong><br>
+      Swipe for another clue →
+    </div>
+
+    <section class="answer-layout">
+      <div class="connections" id="connections"></div>
+      <div class="answer-lockup">
+        <p class="answer-label">The thread is</p>
+        <p class="answer-word" id="answerWord">FACE</p>
+      </div>
+    </section>
+
+    <section class="final-layout">
+      <p class="final-kicker">Daily Thread</p>
+      <h1 class="final-title">How many clues did <span>you</span> need?</h1>
+      <div class="final-rule"></div>
+      <p class="final-copy">Comment <strong>1–5</strong>.<br>No spoilers 🤫<br><br><strong>Follow for a new puzzle every day.</strong></p>
+    </section>
+  </main>
+
+  <script>
+    const stage = document.querySelector('#tiktokStage');
+    const threadLabel = document.querySelector('#threadLabel');
+    const progress = document.querySelector('#progress');
+    const clues = document.querySelector('#clues');
+    const instruction = document.querySelector('#instruction');
+    const connections = document.querySelector('#connections');
+    const answerWord = document.querySelector('#answerWord');
+    let postData;
+
+    const normalized = value => String(value || '').trim();
+
+    function connectionElement(clue, answer) {
+      const row = document.createElement('div');
+      row.className = 'connection';
+      const source = normalized(clue.connection);
+      const index = source.toLocaleUpperCase().indexOf(answer.toLocaleUpperCase());
+      if (index === -1) {
+        row.textContent = source;
+        return row;
+      }
+      row.append(source.slice(0, index));
+      const token = document.createElement('span');
+      token.className = 'answer-token';
+      token.textContent = source.slice(index, index + answer.length);
+      row.append(token, source.slice(index + answer.length));
+      return row;
+    }
+
+    function fitClues() {
+      const words = [...clues.children];
+      words.forEach(word => { word.style.fontSize = '116px'; });
+      const widest = Math.max(...words.map(word => word.getBoundingClientRect().width));
+      const size = Math.max(74, Math.min(116, 116 * 780 / widest));
+      words.forEach(word => { word.style.fontSize = `${size}px`; });
+    }
+
+    function fitConnections() {
+      const rows = [...connections.children];
+      rows.forEach(row => { row.style.fontSize = '61px'; });
+      const widest = Math.max(...rows.map(row => row.getBoundingClientRect().width));
+      const size = Math.max(44, Math.min(61, 61 * 780 / widest));
+      rows.forEach(row => { row.style.fontSize = `${size}px`; });
+    }
+
+    window.setTikTokPostData = async data => {
+      if (!data || !Array.isArray(data.clues) || data.clues.length !== 5) throw new Error('TikTok carousel requires five clues.');
+      postData = data;
+      await Promise.all([
+        document.fonts.load('400 116px "Cormorant Garamond"'),
+        document.fonts.load('600 61px "Cormorant Garamond"'),
+        document.fonts.load('500 31px "DM Sans"'),
+      ]);
+      threadLabel.textContent = `THREAD #${data.threadNumber}`;
+      answerWord.textContent = data.answer.toUpperCase();
+      clues.replaceChildren(...data.clues.map(clue => {
+        const element = document.createElement('div');
+        element.className = 'clue';
+        element.textContent = clue.word.toUpperCase();
+        return element;
+      }));
+      connections.replaceChildren(...data.clues.map(clue => connectionElement(clue, data.answer)));
+      fitClues();
+      fitConnections();
+      window.showTikTokSlide(1);
+    };
+
+    window.showTikTokSlide = number => {
+      if (!postData || number < 1 || number > 7) throw new Error(`Invalid TikTok slide ${number}.`);
+      stage.classList.toggle('slide-answer', number === 6);
+      stage.classList.toggle('slide-final', number === 7);
+
+      if (number <= 5) {
+        [...clues.children].forEach((clue, index) => { clue.style.display = index < number ? 'block' : 'none'; });
+        instruction.innerHTML = number === 1
+          ? '<strong>One word connects all five.</strong><br>Swipe for another clue →'
+          : number === 5
+            ? '<strong>Final guess.</strong><br>Swipe for the answer →'
+            : '<strong>Got it?</strong> Stop here.<br>Otherwise, swipe →';
+      }
+
+      progress.replaceChildren(...Array.from({ length: 5 }, (_, index) => {
+        const dot = document.createElement('span');
+        dot.className = `dot${index < Math.min(number, 5) ? ' on' : ''}`;
+        return dot;
+      }));
+    };
+
+    window.getTikTokLayoutMetrics = () => {
+      const rect = element => {
+        const box = element.getBoundingClientRect();
+        return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, width: box.width, height: box.height };
+      };
+      return {
+        paper: getComputedStyle(document.documentElement).getPropertyValue('--paper').trim(),
+        stageBackground: getComputedStyle(stage).backgroundColor,
+        clueSizes: [...clues.children].map(clue => Number.parseFloat(getComputedStyle(clue).fontSize)),
+        clues: [...clues.children].map(rect),
+        connections: [...connections.children].map(rect),
+        answerWord: rect(answerWord),
+        instruction: rect(instruction),
+        finalTitle: rect(document.querySelector('.final-title')),
+        finalCopy: rect(document.querySelector('.final-copy')),
+      };
+    };
+  </script>
+</body>
+</html>

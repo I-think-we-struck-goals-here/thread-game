@@ -244,14 +244,15 @@ xcodegen generate
 
 Do not assume `project.pbxproj` is authoritative.
 
-### Daily Instagram automation
+### Daily Instagram and TikTok automation
 
-The approved seven-slide carousel and rolling Buffer queue live in `social-automation/`.
+The approved Instagram carousel/Reel and TikTok growth pipeline live in `social-automation/`.
 
 - source of truth: the same `src/new-rounds.js` seeded schedule used by the app
-- post rule: publish the previous `Europe/London` day's Thread at 10:05 London time
-- reliability: keep nine future carousels scheduled, with two daily repair/check runs
-- media: immutable 1080×1350 PNGs committed under `docs/social/YYYY-MM-DD/`
+- Instagram rule: publish the previous `Europe/London` day's Thread as a carousel at 10:05 and Reel at 18:30
+- TikTok rule: publish a curated archive growth post at 12:30 and the previous day's Thread video at 18:30; Tuesday/Friday growth slots use native photo carousels
+- reliability: keep nine future posts per channel scheduled, with three daily checks including pre-publication repairs at 11:37 and 16:37 London time
+- media: immutable 1080×1350 Instagram images plus 1080×1920 videos/TikTok images committed under `docs/social/YYYY-MM-DD/`
 - layout QC: clue type is consistent within each carousel, measures actual glyph width against the slide-one onboarding safe area, never falls below the 22px long-word floor, and uses the locked `#f8f5f0` paper colour
 - publishing: Buffer GraphQL API using the repository secret `BUFFER_API_KEY`
 - workflow: `.github/workflows/daily-social.yml`

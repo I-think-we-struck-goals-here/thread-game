@@ -16,7 +16,12 @@ const DEFAULT_QUEUE_SIZE = 9;
 const DEFAULT_DAYS = 5;
 const CAROUSEL_POST_TIME = { hour: 10, minute: 5 };
 const REEL_POST_TIME = { hour: 18, minute: 30 };
-const TEMPLATE_VERSION = "2026-08-06-v5-carousel-layout";
+const TIKTOK_GROWTH_POST_TIME = { hour: 12, minute: 30 };
+const TIKTOK_DAILY_POST_TIME = { hour: 18, minute: 30 };
+const TIKTOK_PHOTO_WEEKDAYS = new Set([2, 5]);
+const TIKTOK_DAILY_MARKER = "#DailyThreadToday";
+const TIKTOK_ARCHIVE_MARKER = "#DailyThreadArchive";
+const TEMPLATE_VERSION = "2026-08-07-v6-instagram-tiktok";
 const REEL_HIGHLIGHT_EXCEPTIONS = new Map([
   ["SPINE|SPINAL CORD", "Spinal"],
   ["FENCE|FENCING (THE SPORT)", "Fencing"],
@@ -183,6 +188,15 @@ async function loadFutureRounds(roundsPath) {
   return shuffleWithSeed(source.NEW_ROUNDS.map(normalizeRound), SHUFFLE_SEED);
 }
 
+async function loadTikTokArchiveRounds(path = resolve(HERE, "tiktok-archive-rounds.json")) {
+  const rounds = JSON.parse(await readFile(path, "utf8"));
+  if (!Array.isArray(rounds) || rounds.length < 5) throw new Error("TikTok archive pool requires at least five rounds.");
+  return rounds.map(round => ({
+    threadNumber: Number(round.threadNumber),
+    ...normalizeRound(round),
+  }));
+}
+
 function captionFor(post) {
   return `Could you get it from the first clue? 🧵
 
@@ -216,6 +230,29 @@ function reelAltTextFor(post) {
   const words = post.clues.map(clue => clue.word).join(", ");
   const connections = post.clues.map(clue => clue.connection).join(", ");
   return `Daily Thread #${post.threadNumber} word-puzzle Reel. The clues ${words} appear one every five seconds. The answer ${post.answer} makes: ${connections}.`;
+}
+
+function tikTokDailyCaptionFor(post) {
+  return `Could you get it from clue one? 🧵
+
+Comment the number of clues you needed: 1–5. No spoilers 🤫
+
+Follow for a new word puzzle every day.
+
+${TIKTOK_DAILY_MARKER} #WordGame #WordPuzzle #BrainTeaser`;
+}
+
+function tikTokArchiveCaptionFor(round, format) {
+  const lead = format === "photo"
+    ? "Swipe one clue at a time. Stop as soon as you find the connection. 🧵"
+    : "Can you connect all five words? 🧵";
+  return `${lead}
+
+Comment the number of clues you needed: 1–5. No spoilers 🤫
+
+Follow for a new word puzzle every day.
+
+${TIKTOK_ARCHIVE_MARKER} #WordGame #WordPuzzle #BrainTeaser`;
 }
 
 function normalizedConnection(value) {
@@ -256,6 +293,37 @@ function reelDataFor(post) {
   };
 }
 
+function tikTokReelDataFor(post) {
+  return {
+    ...reelDataFor(post),
+    question: "How many clues did you need?",
+    cta: "Follow for a new puzzle every day",
+  };
+}
+
+function weekdayFor(dateKey) {
+  return new Date(`${dateKey}T12:00:00.000Z`).getUTCDay();
+}
+
+function tikTokGrowthForDate(postDate, currentPost, archiveRounds) {
+  const start = Math.abs(daysBetween("2026-08-07", postDate)) % archiveRounds.length;
+  let round = archiveRounds[start];
+  for (let offset = 0; offset < archiveRounds.length; offset += 1) {
+    const candidate = archiveRounds[(start + offset) % archiveRounds.length];
+    if (candidate.answer !== currentPost.answer) {
+      round = candidate;
+      break;
+    }
+  }
+  const format = TIKTOK_PHOTO_WEEKDAYS.has(weekdayFor(postDate)) ? "photo" : "video";
+  const growth = {
+    ...round,
+    format,
+    caption: tikTokArchiveCaptionFor(round, format),
+  };
+  return format === "video" ? { ...growth, reel: tikTokReelDataFor(growth) } : growth;
+}
+
 function altTextFor(post, slideNumber) {
   if (slideNumber <= 5) {
     const words = post.clues.slice(0, slideNumber).map(clue => clue.word).join(", ");
@@ -268,7 +336,7 @@ function altTextFor(post, slideNumber) {
   return "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio.";
 }
 
-function postForDate(postDate, futureRounds) {
+function postForDate(postDate, futureRounds, archiveRounds = []) {
   const sourceDate = addDays(postDate, -1);
   const cycleIndex = daysBetween(ROUND_RESET_ANCHOR, sourceDate);
   if (cycleIndex < 0) throw new Error(`Social automation only supports dates from ${ROUND_RESET_ANCHOR}.`);
@@ -282,14 +350,19 @@ function postForDate(postDate, futureRounds) {
     answer: round.answer,
     clues: round.clues,
   };
-  return {
+  const result = {
     ...post,
     caption: captionFor(post),
     altText: Array.from({ length: 7 }, (_, index) => altTextFor(post, index + 1)),
     reelCaption: reelCaptionFor(post),
     reelAltText: reelAltTextFor(post),
     reel: reelDataFor(post),
+    tiktokCaption: tikTokDailyCaptionFor(post),
+    tiktokReel: tikTokReelDataFor(post),
   };
+  return archiveRounds.length
+    ? { ...result, tiktokGrowth: tikTokGrowthForDate(postDate, result, archiveRounds) }
+    : result;
 }
 
 function desiredPostDates(startDate, days) {
@@ -305,6 +378,20 @@ function pngDimensions(buffer) {
 
 function reelFilename(post) {
   return `daily-thread-${post.threadNumber}-reel.mp4`;
+}
+
+function tikTokDailyFilename(post) {
+  return `daily-thread-${post.threadNumber}-tiktok.mp4`;
+}
+
+function tikTokGrowthFilename(post) {
+  return post.tiktokGrowth.format === "video"
+    ? `archive-thread-${post.tiktokGrowth.threadNumber}-tiktok.mp4`
+    : null;
+}
+
+function tikTokPhotoFilename(slide) {
+  return `tiktok-slide-${String(slide).padStart(2, "0")}.png`;
 }
 
 async function validateReel(path) {
@@ -343,6 +430,12 @@ async function validatePostFolder(folder, expected = null) {
     if (JSON.stringify(rawPost.reel) !== JSON.stringify(expected.reel)) {
       throw new Error(`${folder} has stale Reel data.`);
     }
+    if (JSON.stringify(rawPost.tiktokReel) !== JSON.stringify(expected.tiktokReel)) {
+      throw new Error(`${folder} has stale TikTok daily Reel data.`);
+    }
+    if (JSON.stringify(rawPost.tiktokGrowth) !== JSON.stringify(expected.tiktokGrowth)) {
+      throw new Error(`${folder} has stale TikTok growth data.`);
+    }
   }
 
   for (let slide = 1; slide <= 7; slide += 1) {
@@ -363,6 +456,32 @@ async function validatePostFolder(folder, expected = null) {
     throw new Error(`${folder} has stale Reel copy.`);
   }
   await validateReel(resolve(folder, reelFilename(rawPost)));
+  const tikTokReelData = JSON.parse(await readFile(resolve(folder, "tiktok-reel.json"), "utf8"));
+  if (JSON.stringify(tikTokReelData) !== JSON.stringify(rawPost.tiktokReel)) {
+    throw new Error(`${folder} TikTok Reel manifest does not match post.json.`);
+  }
+  const tikTokCaption = (await readFile(resolve(folder, "tiktok-caption.txt"), "utf8")).trim();
+  if (tikTokCaption !== rawPost.tiktokCaption) throw new Error(`${folder} has stale TikTok daily copy.`);
+  await validateReel(resolve(folder, tikTokDailyFilename(rawPost)));
+
+  const growthCaption = (await readFile(resolve(folder, "tiktok-growth-caption.txt"), "utf8")).trim();
+  if (growthCaption !== rawPost.tiktokGrowth.caption) throw new Error(`${folder} has stale TikTok growth copy.`);
+  if (rawPost.tiktokGrowth.format === "video") {
+    const growthReelData = JSON.parse(await readFile(resolve(folder, "tiktok-growth-reel.json"), "utf8"));
+    if (JSON.stringify(growthReelData) !== JSON.stringify(rawPost.tiktokGrowth.reel)) {
+      throw new Error(`${folder} TikTok archive Reel manifest does not match post.json.`);
+    }
+    await validateReel(resolve(folder, tikTokGrowthFilename(rawPost)));
+  } else {
+    for (let slide = 1; slide <= 7; slide += 1) {
+      const path = resolve(folder, tikTokPhotoFilename(slide));
+      const image = await readFile(path);
+      const dimensions = pngDimensions(image);
+      if (dimensions.width !== 1080 || dimensions.height !== 1920 || image.length < 20_000) {
+        throw new Error(`${path} failed TikTok image QC (${dimensions.width}x${dimensions.height}, ${image.length} bytes).`);
+      }
+    }
+  }
   return rawPost;
 }
 
@@ -375,7 +494,7 @@ async function folderIsCurrent(folder, expected) {
   }
 }
 
-async function renderPosts({ posts, outputDir, templatePath, reelRendererPath }) {
+async function renderPosts({ posts, outputDir, templatePath, tikTokTemplatePath, reelRendererPath }) {
   const pending = [];
   for (const post of posts) {
     const folder = resolve(outputDir, post.postDate);
@@ -394,6 +513,7 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
     deviceScaleFactor: 1,
   });
   const page = await context.newPage();
+  const tikTokPage = await context.newPage();
 
   try {
     await page.goto(pathToFileURL(templatePath).href, { waitUntil: "load" });
@@ -402,6 +522,13 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
     const bounds = await stage.boundingBox();
     if (!bounds || Math.round(bounds.width) !== 1080 || Math.round(bounds.height) !== 1350) {
       throw new Error(`Template canvas is ${bounds?.width}x${bounds?.height}, expected 1080x1350.`);
+    }
+    await tikTokPage.goto(pathToFileURL(tikTokTemplatePath).href, { waitUntil: "load" });
+    await tikTokPage.waitForFunction(() => document.fonts.status === "loaded" && [...document.images].every(image => image.complete));
+    const tikTokStage = tikTokPage.locator("#tiktokStage");
+    const tikTokBounds = await tikTokStage.boundingBox();
+    if (!tikTokBounds || Math.round(tikTokBounds.width) !== 1080 || Math.round(tikTokBounds.height) !== 1920) {
+      throw new Error(`TikTok canvas is ${tikTokBounds?.width}x${tikTokBounds?.height}, expected 1080x1920.`);
     }
 
     for (const { post, folder } of pending) {
@@ -415,10 +542,28 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
         await stage.screenshot({ path, type: "png" });
       }
 
+      if (post.tiktokGrowth.format === "photo") {
+        await tikTokPage.evaluate(data => window.setTikTokPostData(data), post.tiktokGrowth);
+        await assertTikTokPhotoLayout(tikTokPage, post.tiktokGrowth);
+        for (let slide = 1; slide <= 7; slide += 1) {
+          await tikTokPage.evaluate(number => window.showTikTokSlide(number), slide);
+          await tikTokStage.screenshot({ path: resolve(folder, tikTokPhotoFilename(slide)), type: "png" });
+        }
+      }
+
       await writeFile(resolve(folder, "caption.txt"), `${post.caption}\n`);
       await writeFile(resolve(folder, "reel-caption.txt"), `${post.reelCaption}\n`);
       await writeFile(resolve(folder, "reel-alt-text.txt"), `${post.reelAltText}\n`);
       await writeFile(resolve(folder, "reel.json"), `${JSON.stringify(post.reel, null, 2)}\n`);
+      await writeFile(resolve(folder, "tiktok-caption.txt"), `${post.tiktokCaption}\n`);
+      await writeFile(resolve(folder, "tiktok-reel.json"), `${JSON.stringify(post.tiktokReel, null, 2)}\n`);
+      await writeFile(resolve(folder, "tiktok-growth-caption.txt"), `${post.tiktokGrowth.caption}\n`);
+      if (post.tiktokGrowth.format === "video") {
+        await writeFile(
+          resolve(folder, "tiktok-growth-reel.json"),
+          `${JSON.stringify(post.tiktokGrowth.reel, null, 2)}\n`,
+        );
+      }
       await writeFile(
         resolve(folder, "post.json"),
         `${JSON.stringify({ ...post, generatedAt: new Date().toISOString() }, null, 2)}\n`,
@@ -436,8 +581,53 @@ async function renderPosts({ posts, outputDir, templatePath, reelRendererPath })
       "--answer", resolve(HERE, "voice/answer.wav"),
       "--output", resolve(folder, reelFilename(post)),
     ]);
+    await runProcess(process.execPath, [
+      reelRendererPath,
+      "--data", resolve(folder, "tiktok-reel.json"),
+      "--intro", resolve(HERE, "voice/intro.wav"),
+      "--answer", resolve(HERE, "voice/answer.wav"),
+      "--output", resolve(folder, tikTokDailyFilename(post)),
+    ]);
+    if (post.tiktokGrowth.format === "video") {
+      await runProcess(process.execPath, [
+        reelRendererPath,
+        "--data", resolve(folder, "tiktok-growth-reel.json"),
+        "--intro", resolve(HERE, "voice/intro.wav"),
+        "--answer", resolve(HERE, "voice/answer.wav"),
+        "--output", resolve(folder, tikTokGrowthFilename(post)),
+      ]);
+    }
     await validatePostFolder(folder, post);
-    console.log(`Rendered carousel and ${post.reel.mode}-mode Reel for Thread #${post.threadNumber} on ${post.postDate}.`);
+    console.log(
+      `Rendered Instagram carousel/Reel, TikTok daily Reel and TikTok ${post.tiktokGrowth.format} growth post ` +
+      `for ${post.postDate}.`,
+    );
+  }
+}
+
+async function assertTikTokPhotoLayout(page, round) {
+  await page.evaluate(() => window.showTikTokSlide(5));
+  const clueMetrics = await page.evaluate(() => window.getTikTokLayoutMetrics());
+  await page.evaluate(() => window.showTikTokSlide(6));
+  const answerMetrics = await page.evaluate(() => window.getTikTokLayoutMetrics());
+  await page.evaluate(() => window.showTikTokSlide(7));
+  const finalMetrics = await page.evaluate(() => window.getTikTokLayoutMetrics());
+  await page.evaluate(() => window.showTikTokSlide(1));
+  const fail = message => { throw new Error(`TikTok photo QC failed for Thread #${round.threadNumber}: ${message}`); };
+  if (clueMetrics.paper !== "#f8f5f0" || clueMetrics.stageBackground !== "rgb(248, 245, 240)") {
+    fail(`wrong paper colour ${JSON.stringify(clueMetrics)}`);
+  }
+  if (new Set(clueMetrics.clueSizes.map(size => size.toFixed(2))).size !== 1 || clueMetrics.clueSizes[0] < 74) {
+    fail(`inconsistent or unreadable clue sizing ${clueMetrics.clueSizes.join(", ")}`);
+  }
+  const allContent = [...clueMetrics.clues, ...answerMetrics.connections].filter(item => item.width > 0);
+  if (allContent.some(item => item.left < 90 || item.right > 880)) fail("clue content leaves the TikTok safe width");
+  if (answerMetrics.answerWord.left < 90 || answerMetrics.answerWord.right > 880 || answerMetrics.answerWord.bottom > 1510) {
+    fail("answer lockup leaves the essential safe area");
+  }
+  if (clueMetrics.instruction.bottom > 1605) fail("instruction enters the bottom control area");
+  if (finalMetrics.finalTitle.left < 90 || finalMetrics.finalTitle.right > 880 || finalMetrics.finalCopy.bottom > 1510) {
+    fail("final CTA leaves the essential safe area");
   }
 }
 
@@ -478,7 +668,7 @@ async function bufferRequest(apiKey, query) {
   return payload.data;
 }
 
-async function bufferConnection(apiKey) {
+async function bufferChannel(apiKey, service) {
   const account = await bufferRequest(apiKey, `query SocialAutomationAccount {
     account { id organizations { id name } }
   }`);
@@ -494,11 +684,11 @@ async function bufferConnection(apiKey) {
     channels.push(...result.channels.map(channel => ({ ...channel, organizationId: organization.id })));
   }
 
-  const instagram = channels.filter(channel => (
-    channel.service === "instagram" && !channel.isDisconnected && !channel.isLocked
+  const available = channels.filter(channel => (
+    channel.service === service && !channel.isDisconnected && !channel.isLocked
   ));
-  if (instagram.length !== 1) throw new Error(`Expected one available Instagram channel; found ${instagram.length}.`);
-  return instagram[0];
+  if (available.length !== 1) throw new Error(`Expected one available ${service} channel; found ${available.length}.`);
+  return available[0];
 }
 
 async function bufferPosts(apiKey, channel, statuses) {
@@ -530,7 +720,7 @@ async function bufferPosts(apiKey, channel, statuses) {
   return result.posts.edges.map(edge => edge.node);
 }
 
-async function waitForImage(url, attempts = 12) {
+async function waitForImage(url, expectedHeight = 1350, attempts = 12) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
@@ -538,7 +728,7 @@ async function waitForImage(url, attempts = 12) {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const image = Buffer.from(await response.arrayBuffer());
       const dimensions = pngDimensions(image);
-      if (dimensions.width !== 1080 || dimensions.height !== 1350) {
+      if (dimensions.width !== 1080 || dimensions.height !== expectedHeight) {
         throw new Error(`${dimensions.width}x${dimensions.height}`);
       }
       return;
@@ -578,6 +768,20 @@ function carouselMediaUrls(mediaRoot, postDate) {
 
 function reelMediaUrl(mediaRoot, post) {
   return `${mediaRoot.replace(/\/$/, "")}/${post.postDate}/${reelFilename(post)}`;
+}
+
+function tikTokDailyMediaUrl(mediaRoot, post) {
+  return `${mediaRoot.replace(/\/$/, "")}/${post.postDate}/${tikTokDailyFilename(post)}`;
+}
+
+function tikTokGrowthMedia(mediaRoot, post) {
+  const root = `${mediaRoot.replace(/\/$/, "")}/${post.postDate}`;
+  if (post.tiktokGrowth.format === "video") {
+    return { url: `${root}/${tikTokGrowthFilename(post)}` };
+  }
+  return {
+    urls: Array.from({ length: 7 }, (_, index) => `${root}/${tikTokPhotoFilename(index + 1)}`),
+  };
 }
 
 async function createBufferCarousel(apiKey, channel, post, urls, dueAt) {
@@ -633,6 +837,50 @@ async function createBufferReel(apiKey, channel, post, url, dueAt) {
   return result.createPost.post;
 }
 
+async function createBufferTikTokVideo(apiKey, channel, { text: caption, title }, url, dueAt) {
+  const result = await bufferRequest(apiKey, `mutation ScheduleDailyThreadTikTokVideo {
+    createPost(input: {
+      text: ${JSON.stringify(caption)}
+      channelId: ${JSON.stringify(channel.id)}
+      schedulingType: automatic
+      mode: customScheduled
+      dueAt: ${JSON.stringify(dueAt)}
+      metadata: { tiktok: { isAiGenerated: true } }
+      assets: [{
+        video: {
+          url: ${JSON.stringify(url)}
+          metadata: { thumbnailOffset: 600 title: ${JSON.stringify(title)} }
+        }
+      }]
+    }) {
+      ... on PostActionSuccess { post { id dueAt status assets { id mimeType } } }
+      ... on MutationError { message }
+    }
+  }`);
+  if (!result.createPost?.post) throw new Error(result.createPost?.message || `Buffer rejected TikTok video ${title}.`);
+  return result.createPost.post;
+}
+
+async function createBufferTikTokPhoto(apiKey, channel, round, urls, dueAt) {
+  const assets = urls.map(url => `{ image: { url: ${JSON.stringify(url)} } }`).join(",\n      ");
+  const result = await bufferRequest(apiKey, `mutation ScheduleDailyThreadTikTokPhoto {
+    createPost(input: {
+      text: ${JSON.stringify(round.caption)}
+      channelId: ${JSON.stringify(channel.id)}
+      schedulingType: automatic
+      mode: customScheduled
+      dueAt: ${JSON.stringify(dueAt)}
+      metadata: { tiktok: { title: ${JSON.stringify(`Can you solve Thread #${round.threadNumber}?`)} } }
+      assets: [${assets}]
+    }) {
+      ... on PostActionSuccess { post { id dueAt status assets { id mimeType } } }
+      ... on MutationError { message }
+    }
+  }`);
+  if (!result.createPost?.post) throw new Error(result.createPost?.message || `Buffer rejected TikTok photo post #${round.threadNumber}.`);
+  return result.createPost.post;
+}
+
 function bufferPostKind(post) {
   const mime = asset => String(asset?.mimeType || "").toLowerCase();
   if (post.assets?.length === 7 && post.assets.every(asset => mime(asset).startsWith("image"))) return "carousel";
@@ -657,10 +905,39 @@ function desiredBufferItems(posts, mediaRoot) {
   ]).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
 }
 
+function desiredTikTokItems(posts, mediaRoot) {
+  return posts.flatMap(post => {
+    const growthMedia = tikTokGrowthMedia(mediaRoot, post);
+    return [
+      {
+        slot: "growth",
+        kind: post.tiktokGrowth.format,
+        post,
+        round: post.tiktokGrowth,
+        dueAt: londonDueAt(post.postDate, TIKTOK_GROWTH_POST_TIME.hour, TIKTOK_GROWTH_POST_TIME.minute),
+        ...growthMedia,
+      },
+      {
+        slot: "daily",
+        kind: "video",
+        post,
+        dueAt: londonDueAt(post.postDate, TIKTOK_DAILY_POST_TIME.hour, TIKTOK_DAILY_POST_TIME.minute),
+        url: tikTokDailyMediaUrl(mediaRoot, post),
+      },
+    ];
+  }).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
+}
+
+function tikTokSlotForBufferPost(post) {
+  if (post.text?.includes(TIKTOK_DAILY_MARKER)) return "daily";
+  if (post.text?.includes(TIKTOK_ARCHIVE_MARKER)) return "growth";
+  return null;
+}
+
 async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
-  const channel = await bufferConnection(apiKey);
+  const channel = await bufferChannel(apiKey, "instagram");
   const scheduled = await bufferPosts(apiKey, channel, ["scheduled"]);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
@@ -734,10 +1011,79 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   console.log(`Buffer audit: ${verifiedCarousels.length} carousel(s), ${verifiedReels.length} Reel(s), ${verifiedImages} carousel images described.`);
 }
 
+async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
+  const apiKey = process.env.BUFFER_API_KEY?.trim();
+  if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
+  const channel = await bufferChannel(apiKey, "tiktok");
+  const scheduled = await bufferPosts(apiKey, channel, ["scheduled"]);
+  const sent = await bufferPosts(apiKey, channel, ["sent"]);
+  const covered = new Set(
+    [...scheduled, ...sent]
+      .map(bufferPost => ({ bufferPost, slot: tikTokSlotForBufferPost(bufferPost) }))
+      .filter(({ bufferPost, slot }) => slot && bufferPost.dueAt)
+      .map(({ bufferPost, slot }) => `${londonDateKey(new Date(bufferPost.dueAt))}:${slot}`),
+  );
+  const items = desiredTikTokItems(posts, mediaRoot);
+  let available = Math.max(0, queueSize - scheduled.length);
+  let created = 0;
+
+  for (const item of items) {
+    const key = `${item.post.postDate}:${item.slot}`;
+    if (covered.has(key)) {
+      console.log(`TikTok: ${item.post.postDate} ${item.slot} already scheduled or sent.`);
+      continue;
+    }
+    if (available === 0) {
+      console.log(`TikTok: queue target of ${queueSize} reached; remaining posts wait for an open slot.`);
+      break;
+    }
+
+    const folder = resolve(outputDir, item.post.postDate);
+    const post = await validatePostFolder(folder, item.post);
+    let dueAt = item.dueAt;
+    if (new Date(dueAt).getTime() <= Date.now()) {
+      if (item.post.postDate !== londonDateKey()) {
+        console.log(`TikTok: skipping expired ${item.post.postDate} ${item.slot}.`);
+        continue;
+      }
+      dueAt = new Date(Date.now() + (5 + created * 10) * 60_000).toISOString();
+      console.log(`TikTok: recovering late ${item.slot} for today at ${dueAt}.`);
+    }
+
+    let result;
+    if (item.kind === "photo") {
+      for (const url of item.urls) await waitForImage(url, 1920);
+      result = await createBufferTikTokPhoto(apiKey, channel, post.tiktokGrowth, item.urls, dueAt);
+      if (result.assets?.length !== 7 || !result.assets.every(asset => String(asset.mimeType || "").toLowerCase().startsWith("image"))) {
+        throw new Error(`Buffer returned invalid TikTok photo assets for ${item.post.postDate}.`);
+      }
+    } else {
+      await waitForVideo(item.url);
+      const payload = item.slot === "daily"
+        ? { text: post.tiktokCaption, title: `Daily Thread #${post.threadNumber}` }
+        : { text: post.tiktokGrowth.caption, title: `Daily Thread archive #${post.tiktokGrowth.threadNumber}` };
+      result = await createBufferTikTokVideo(apiKey, channel, payload, item.url, dueAt);
+      if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
+        throw new Error(`Buffer returned an invalid TikTok video asset for ${item.post.postDate} ${item.slot}.`);
+      }
+    }
+
+    console.log(`TikTok: scheduled ${item.slot} ${item.kind} for ${item.post.postDate} at ${result.dueAt}.`);
+    covered.add(key);
+    available -= 1;
+    created += 1;
+  }
+
+  const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
+    .filter(post => tikTokSlotForBufferPost(post));
+  if (!verified.length) throw new Error("TikTok audit found no scheduled Daily Thread posts.");
+  console.log(`TikTok queue check complete: ${scheduled.length} existing, ${created} created, ${verified.length} verified.`);
+}
+
 async function auditToday() {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
-  const channel = await bufferConnection(apiKey);
+  const channel = await bufferChannel(apiKey, "instagram");
   const posts = await bufferPosts(apiKey, channel, ["scheduled", "sent"]);
   const today = londonDateKey();
   const matches = posts.filter(post => (
@@ -752,6 +1098,24 @@ async function auditToday() {
   for (const kind of ["carousel", "reel"]) {
     const post = byKind.get(kind);
     console.log(`Audit: ${today} ${kind} is ${post.status}${post.externalLink ? ` at ${post.externalLink}` : ""}.`);
+  }
+}
+
+async function auditTikTokToday() {
+  const apiKey = process.env.BUFFER_API_KEY?.trim();
+  if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
+  const channel = await bufferChannel(apiKey, "tiktok");
+  const posts = await bufferPosts(apiKey, channel, ["scheduled", "sent"]);
+  const today = londonDateKey();
+  const matches = posts.filter(post => (
+    post.dueAt && londonDateKey(new Date(post.dueAt)) === today && tikTokSlotForBufferPost(post)
+  ));
+  const bySlot = new Map(matches.map(post => [tikTokSlotForBufferPost(post), post]));
+  const missing = ["growth", "daily"].filter(slot => !bySlot.has(slot));
+  if (missing.length) throw new Error(`Daily Thread TikTok audit for ${today} is missing: ${missing.join(", ")}.`);
+  for (const slot of ["growth", "daily"]) {
+    const post = bySlot.get(slot);
+    console.log(`TikTok audit: ${today} ${slot} is ${post.status}${post.externalLink ? ` at ${post.externalLink}` : ""}.`);
   }
 }
 
@@ -812,9 +1176,27 @@ async function carouselLayoutTest(rounds, templatePath) {
   console.log(`Carousel layout: ${rounds.length} rounds passed; ${scaledRounds} first clue(s) scale, readability floor ${minimumSize}px.`);
 }
 
-async function selfTest(roundsPath, templatePath) {
+async function tikTokPhotoLayoutTest(rounds, templatePath) {
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
+  try {
+    await page.goto(pathToFileURL(templatePath).href, { waitUntil: "load" });
+    await page.waitForFunction(() => document.fonts.status === "loaded");
+    for (const round of rounds) {
+      await page.evaluate(data => window.setTikTokPostData(data), round);
+      await assertTikTokPhotoLayout(page, round);
+    }
+  } finally {
+    await browser.close();
+  }
+  console.log(`TikTok photo layout: ${rounds.length} archive rounds passed safe-area and type checks.`);
+}
+
+async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePath) {
   const rounds = await loadFutureRounds(roundsPath);
-  const known = postForDate("2026-08-05", rounds);
+  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+  const known = postForDate("2026-08-05", rounds, archiveRounds);
   if (
     known.threadNumber !== 170 || known.sourceDate !== "2026-08-04" || known.answer !== "TIME" ||
     known.clues.map(clue => clue.word).join(",") !== "OVER,BED,HALF,BOMB,OUT"
@@ -823,6 +1205,17 @@ async function selfTest(roundsPath, templatePath) {
   }
   if (known.reel.mode !== "join") {
     throw new Error("Known join-mode Reel regression.");
+  }
+  if (known.tiktokReel.cta !== "Follow for a new puzzle every day") {
+    throw new Error("TikTok daily CTA regression.");
+  }
+  const friday = postForDate("2026-08-07", rounds, archiveRounds);
+  const saturday = postForDate("2026-08-08", rounds, archiveRounds);
+  if (friday.tiktokGrowth.format !== "photo" || saturday.tiktokGrowth.format !== "video") {
+    throw new Error("TikTok photo/video rotation regression.");
+  }
+  if (friday.tiktokGrowth.answer === friday.answer || saturday.tiktokGrowth.answer === saturday.answer) {
+    throw new Error("TikTok growth slot duplicates the daily answer.");
   }
   const phraseFixture = {
     threadNumber: 0,
@@ -843,6 +1236,7 @@ async function selfTest(roundsPath, templatePath) {
   }
   if (
     londonDueAt("2026-08-06", 10, 5) !== "2026-08-06T09:05:00.000Z" ||
+    londonDueAt("2026-08-06", 12, 30) !== "2026-08-06T11:30:00.000Z" ||
     londonDueAt("2026-08-06", 18, 30) !== "2026-08-06T17:30:00.000Z"
   ) {
     throw new Error("BST scheduling regression.");
@@ -857,7 +1251,8 @@ async function selfTest(roundsPath, templatePath) {
     throw new Error("Caption regression.");
   }
   await carouselLayoutTest(rounds, templatePath);
-  console.log(`Self-test: ${rounds.length} rounds, two Reel modes, London times and captions passed.`);
+  await tikTokPhotoLayoutTest(archiveRounds, tikTokTemplatePath);
+  console.log(`Self-test: ${rounds.length} rounds, two Reel modes, TikTok rotation, London times and captions passed.`);
 }
 
 async function planSchedule({ posts, outputDir, mediaRoot }) {
@@ -865,6 +1260,10 @@ async function planSchedule({ posts, outputDir, mediaRoot }) {
   for (const item of desiredBufferItems(posts, mediaRoot)) {
     const media = item.kind === "carousel" ? `${item.urls.length} images` : item.url;
     console.log(`${item.dueAt} | ${item.post.postDate} | ${item.kind} | ${media}`);
+  }
+  for (const item of desiredTikTokItems(posts, mediaRoot)) {
+    const media = item.kind === "photo" ? `${item.urls.length} TikTok images` : item.url;
+    console.log(`${item.dueAt} | ${item.post.postDate} | tiktok-${item.slot}-${item.kind} | ${media}`);
   }
 }
 
@@ -879,34 +1278,41 @@ function help() {
 
 const { command, flags } = parseArgs(process.argv.slice(2));
 const roundsPath = resolve(flags.rounds || resolve(HERE, "../src/new-rounds.js"));
+const archivePath = resolve(flags.archive || resolve(HERE, "tiktok-archive-rounds.json"));
 const outputDir = resolve(flags.output || "docs/social");
 const startDate = flags["start-date"] || londonDateKey();
 const days = numberFlag(flags, "days", DEFAULT_DAYS);
 const queueSize = numberFlag(flags, "queue-size", DEFAULT_QUEUE_SIZE);
 
 if (command === "self-test") {
-  await selfTest(roundsPath, resolve(HERE, "template.html"));
+  await selfTest(roundsPath, resolve(HERE, "template.html"), resolve(HERE, "tiktok-template.html"), archivePath);
 } else if (command === "render") {
   const rounds = await loadFutureRounds(roundsPath);
-  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));
+  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds, archiveRounds));
   await renderPosts({
     posts,
     outputDir,
     templatePath: resolve(HERE, "template.html"),
+    tikTokTemplatePath: resolve(HERE, "tiktok-template.html"),
     reelRendererPath: resolve(HERE, "render-reel.mjs"),
   });
 } else if (command === "plan") {
   if (!flags["media-root"]) throw new Error("--media-root is required.");
   const rounds = await loadFutureRounds(roundsPath);
-  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));
+  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds, archiveRounds));
   await planSchedule({ posts, outputDir, mediaRoot: flags["media-root"] });
 } else if (command === "schedule") {
   if (!flags["media-root"]) throw new Error("--media-root is required.");
   const rounds = await loadFutureRounds(roundsPath);
-  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds));
+  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+  const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds, archiveRounds));
   await scheduleQueue({ posts, outputDir, mediaRoot: flags["media-root"], queueSize });
+  await scheduleTikTokQueue({ posts, outputDir, mediaRoot: flags["media-root"], queueSize });
 } else if (command === "audit") {
   await auditToday();
+  await auditTikTokToday();
 } else {
   help();
   if (command !== "help") process.exitCode = 1;

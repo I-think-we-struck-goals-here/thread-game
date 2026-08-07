@@ -490,6 +490,8 @@
         document.fonts.load('600 27px "DM Sans"'),
       ]);
       const answer = data.answer.toUpperCase();
+      resultQuestion.textContent = data.question || 'How many clues did you need?';
+      resultCta.textContent = data.cta || 'Play today’s Thread · link in bio';
       reelStage.classList.remove('mode-join', 'mode-phrase');
       reelStage.classList.add(`mode-${reelMode}`);
       resultList.replaceChildren();

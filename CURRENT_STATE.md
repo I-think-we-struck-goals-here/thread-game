@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
 
@@ -128,12 +128,23 @@ Verified implemented areas:
 ### Daily Instagram automation
 
 - A self-contained `social-automation/` pipeline now derives the previous London day's puzzle from `src/new-rounds.js`, renders the approved seven-slide carousel at 1080×1350, and maintains nine scheduled Instagram posts through Buffer.
-- `.github/workflows/daily-social.yml` runs at 06:17 and 18:37 `Europe/London`, can be run manually, and commits only new immutable media under `docs/social/YYYY-MM-DD/`.
+- `.github/workflows/daily-social.yml` runs at 06:17, 11:37 and 16:37 `Europe/London`, can be run manually, and commits only new immutable media under `docs/social/YYYY-MM-DD/`.
 - The automation reproduces the app's `20260331` shuffle seed and February 16 thread-number anchor. Its regression check maps 4 August 2026 to Thread #170 / TIME / OVER, BED, HALF, BOMB, OUT.
 - Buffer credentials live only in the GitHub repository secret `BUFFER_API_KEY`; generated public media and post metadata contain no secret.
 - The queue intentionally targets nine posts so Buffer Free retains one spare scheduled-post slot.
 - Carousel clue sizing now measures the visible glyphs instead of the full-width clue container. All five clue slides share one 22–42px size, ordinary four-letter openings retain the approved 42px, and browser QC covers every bundled round before media is rendered. Tomorrow's seven-letter `TROUBLE` fixture is locked at 34px with a verified onboarding-box gap.
 - Carousel exports use the locked `#f8f5f0` paper colour. Buffer fetches the date-addressed media at publication time, so regenerated future assets update already-scheduled posts without duplicate queue entries.
+
+### Daily TikTok automation
+
+- The same workflow now maintains a separate nine-post TikTok queue without changing Instagram's timings or media.
+- The 11:37 and 16:37 runs provide repair windows before TikTok's midday growth post and both platforms' evening video post.
+- TikTok publishes two London-time slots: a curated archive growth post at 12:30 and the previous day's Thread video at 18:30.
+- Tuesday and Friday growth slots use seven-image 1080×1920 photo carousels; other growth slots use 30-second archive puzzle videos.
+- The archive selector is deterministic, avoids matching the evening daily answer, and currently rotates five approved historical Threads: FACE, STONE, MOON, BOX, and DRAW.
+- TikTok copy asks viewers to comment a 1–5 clue score and follow for a daily puzzle. It does not claim that a website link is available.
+- TikTok videos use the approved reusable narration and are disclosed through Buffer's TikTok `isAiGenerated` metadata.
+- Automated QC verifies all 240 live rounds, both Reel layout modes, all curated 9:16 photo layouts, immutable media dimensions/codecs, channel-specific captions, queue idempotency markers, and both daily TikTok slots.
 
 ### Current local build/test signal
 

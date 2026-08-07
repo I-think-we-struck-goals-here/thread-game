@@ -1,0 +1,57 @@
+[
+  {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      { "word": "INTER", "connection": "Interface" },
+      { "word": "POKER", "connection": "Poker face" },
+      { "word": "VALUE", "connection": "Face value" },
+      { "word": "PLATE", "connection": "Faceplate" },
+      { "word": "CLOCK", "connection": "Clock face" }
+    ]
+  },
+  {
+    "threadNumber": 66,
+    "answer": "STONE",
+    "clues": [
+      { "word": "MILE", "connection": "Milestone" },
+      { "word": "LIME", "connection": "Limestone" },
+      { "word": "STEPPING", "connection": "Stepping stone" },
+      { "word": "KIDNEY", "connection": "Kidney stone" },
+      { "word": "ROLLING", "connection": "Rolling Stones" }
+    ]
+  },
+  {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      { "word": "HONEY", "connection": "Honeymoon" },
+      { "word": "ONCE", "connection": "Once in a blue moon" },
+      { "word": "FULL", "connection": "Full moon" },
+      { "word": "WALK", "connection": "Moonwalk" },
+      { "word": "LIGHT", "connection": "Moonlight" }
+    ]
+  },
+  {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      { "word": "POST", "connection": "Post box" },
+      { "word": "SAND", "connection": "Sandbox" },
+      { "word": "PANDORA", "connection": "Pandora’s box" },
+      { "word": "JUKE", "connection": "Jukebox" },
+      { "word": "CARD", "connection": "Cardboard box" }
+    ]
+  },
+  {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      { "word": "LUCK", "connection": "Luck of the draw" },
+      { "word": "QUICK", "connection": "Quick draw" },
+      { "word": "SWORD", "connection": "Draw a sword" },
+      { "word": "BRIDGE", "connection": "Drawbridge" },
+      { "word": "BLANK", "connection": "Draw a blank" }
+    ]
+  }
+]
