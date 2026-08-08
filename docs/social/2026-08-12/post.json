@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-12",
   "sourceDate": "2026-08-11",
   "threadNumber": 177,
@@ -36,5 +36,135 @@
     "Daily Thread #177 answer: NUT. Connections: Tough nut to crack, Nutshell, Doughnut, Coconut, Nut and bolt.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:40.141Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nTOUGH was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #177 word-puzzle Reel. The clues TOUGH, SHELL, DOUGH, COCO, BOLT appear one every five seconds. The answer NUT makes: Tough nut to crack, Nutshell, Doughnut, Coconut, Nut and bolt.",
+  "reel": {
+    "threadNumber": 177,
+    "mode": "phrase",
+    "answer": "NUT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TOUGH",
+        "connection": "Tough nut to crack",
+        "highlight": "nut"
+      },
+      {
+        "word": "SHELL",
+        "connection": "Nutshell",
+        "highlight": "Nut"
+      },
+      {
+        "word": "DOUGH",
+        "connection": "Doughnut",
+        "highlight": "nut"
+      },
+      {
+        "word": "COCO",
+        "connection": "Coconut",
+        "highlight": "nut"
+      },
+      {
+        "word": "BOLT",
+        "connection": "Nut and bolt",
+        "highlight": "Nut"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 177,
+    "mode": "phrase",
+    "answer": "NUT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TOUGH",
+        "connection": "Tough nut to crack",
+        "highlight": "nut"
+      },
+      {
+        "word": "SHELL",
+        "connection": "Nutshell",
+        "highlight": "Nut"
+      },
+      {
+        "word": "DOUGH",
+        "connection": "Doughnut",
+        "highlight": "nut"
+      },
+      {
+        "word": "COCO",
+        "connection": "Coconut",
+        "highlight": "nut"
+      },
+      {
+        "word": "BOLT",
+        "connection": "Nut and bolt",
+        "highlight": "Nut"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "join",
+      "answer": "FACE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "INTER",
+          "connection": "Interface"
+        },
+        {
+          "word": "POKER",
+          "connection": "Poker face"
+        },
+        {
+          "word": "VALUE",
+          "connection": "Face value"
+        },
+        {
+          "word": "PLATE",
+          "connection": "Faceplate"
+        },
+        {
+          "word": "CLOCK",
+          "connection": "Clock face"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-08T05:59:56.774Z"
 }

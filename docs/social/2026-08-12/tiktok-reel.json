@@ -1,0 +1,35 @@
+{
+  "threadNumber": 177,
+  "mode": "phrase",
+  "answer": "NUT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TOUGH",
+      "connection": "Tough nut to crack",
+      "highlight": "nut"
+    },
+    {
+      "word": "SHELL",
+      "connection": "Nutshell",
+      "highlight": "Nut"
+    },
+    {
+      "word": "DOUGH",
+      "connection": "Doughnut",
+      "highlight": "nut"
+    },
+    {
+      "word": "COCO",
+      "connection": "Coconut",
+      "highlight": "nut"
+    },
+    {
+      "word": "BOLT",
+      "connection": "Nut and bolt",
+      "highlight": "Nut"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
