@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2026-08-05-v3",
+  "templateVersion": "2026-08-07-v7-instagram-trials",
   "postDate": "2026-08-14",
   "sourceDate": "2026-08-13",
   "threadNumber": 179,
@@ -36,5 +36,105 @@
     "Daily Thread #179 answer: STEEL. Connections: Nerves of steel, Stainless steel, Steel drum, Steel wool, Steel beam.",
     "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
   ],
-  "generatedAt": "2026-08-05T14:29:42.010Z"
+  "reelCaption": "Could you connect all five? 🧵\n\nNERVES was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #179 word-puzzle Reel. The clues NERVES, STAINLESS, DRUM, WOOL, BEAM appear one every five seconds. The answer STEEL makes: Nerves of steel, Stainless steel, Steel drum, Steel wool, Steel beam.",
+  "reel": {
+    "threadNumber": 179,
+    "mode": "phrase",
+    "answer": "STEEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "NERVES",
+        "connection": "Nerves of steel",
+        "highlight": "steel"
+      },
+      {
+        "word": "STAINLESS",
+        "connection": "Stainless steel",
+        "highlight": "steel"
+      },
+      {
+        "word": "DRUM",
+        "connection": "Steel drum",
+        "highlight": "Steel"
+      },
+      {
+        "word": "WOOL",
+        "connection": "Steel wool",
+        "highlight": "Steel"
+      },
+      {
+        "word": "BEAM",
+        "connection": "Steel beam",
+        "highlight": "Steel"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 179,
+    "mode": "phrase",
+    "answer": "STEEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "NERVES",
+        "connection": "Nerves of steel",
+        "highlight": "steel"
+      },
+      {
+        "word": "STAINLESS",
+        "connection": "Stainless steel",
+        "highlight": "steel"
+      },
+      {
+        "word": "DRUM",
+        "connection": "Steel drum",
+        "highlight": "Steel"
+      },
+      {
+        "word": "WOOL",
+        "connection": "Steel wool",
+        "highlight": "Steel"
+      },
+      {
+        "word": "BEAM",
+        "connection": "Steel beam",
+        "highlight": "Steel"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ],
+    "format": "photo",
+    "caption": "Swipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-08-10T06:45:14.291Z"
 }

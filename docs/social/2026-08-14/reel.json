@@ -1,0 +1,33 @@
+{
+  "threadNumber": 179,
+  "mode": "phrase",
+  "answer": "STEEL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "NERVES",
+      "connection": "Nerves of steel",
+      "highlight": "steel"
+    },
+    {
+      "word": "STAINLESS",
+      "connection": "Stainless steel",
+      "highlight": "steel"
+    },
+    {
+      "word": "DRUM",
+      "connection": "Steel drum",
+      "highlight": "Steel"
+    },
+    {
+      "word": "WOOL",
+      "connection": "Steel wool",
+      "highlight": "Steel"
+    },
+    {
+      "word": "BEAM",
+      "connection": "Steel beam",
+      "highlight": "Steel"
+    }
+  ]
+}
