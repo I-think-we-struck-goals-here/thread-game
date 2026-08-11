@@ -1150,8 +1150,10 @@ function tikTokSlotForBufferPost(post) {
 
 function instagramSlotForBufferPost(post) {
   if (post.text?.includes(INSTAGRAM_TRIAL_MARKER)) return "trial";
-  if (!post.text?.includes(DAILY_MARKER)) return null;
-  return bufferPostKind(post);
+  const kind = bufferPostKind(post);
+  if (post.text?.includes(DAILY_MARKER)) return kind;
+  if (kind === "carousel" && /^Thread #\d+ 🧵(?:\n|$)/.test(post.text || "")) return "carousel";
+  return null;
 }
 
 async function scheduleQueue({
@@ -1505,6 +1507,12 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
     safeCaption.toLowerCase().includes("send this") || !safeCaption.includes("Thread #170")
   ) {
     throw new Error("Instagram recovery caption regression.");
+  }
+  if (instagramSlotForBufferPost({
+    text: safeCaption,
+    assets: Array.from({ length: 7 }, () => ({ mimeType: "image/png" })),
+  }) !== "carousel") {
+    throw new Error("Instagram recovery carousel classification regression.");
   }
   const staleTikTokFixture = [
     { id: "old-daily", status: "error", dueAt: "2026-08-09T17:30:00.000Z", text: TIKTOK_DAILY_MARKER },
