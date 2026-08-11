@@ -823,10 +823,11 @@ function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()
     .slice(0, overflow);
 }
 
-function logPublishingErrors(label, posts) {
+function logPublishingErrors(label, posts, slotForPost) {
   for (const post of posts.filter(item => item.status === "error")) {
     console.log(
-      `${label}: failed post ${post.id}: ${post.error?.message || "No platform error supplied."}` +
+      `${label}: failed ${slotForPost(post) || "unmanaged"} post ${post.id} ` +
+      `due ${post.dueAt || "unknown"}: ${post.error?.message || "No platform error supplied."}` +
       `${post.error?.supportUrl ? ` (${post.error.supportUrl})` : ""}`,
     );
   }
@@ -1129,7 +1130,7 @@ async function scheduleQueue({
     instagramSlotForBufferPost,
     "Buffer",
   );
-  logPublishingErrors("Buffer", occupied);
+  logPublishingErrors("Buffer", occupied, instagramSlotForBufferPost);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
@@ -1217,7 +1218,7 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
     tikTokSlotForBufferPost,
     "TikTok",
   );
-  logPublishingErrors("TikTok", occupied);
+  logPublishingErrors("TikTok", occupied, tikTokSlotForBufferPost);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
