@@ -1,0 +1,33 @@
+{
+  "threadNumber": 180,
+  "mode": "phrase",
+  "answer": "CATCH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TWENTY",
+      "connection": "Catch-22",
+      "highlight": "Catch"
+    },
+    {
+      "word": "PHRASE",
+      "connection": "Catchphrase",
+      "highlight": "Catch"
+    },
+    {
+      "word": "EYE",
+      "connection": "Eye-catching",
+      "highlight": "catch"
+    },
+    {
+      "word": "GOOD",
+      "connection": "Good catch",
+      "highlight": "catch"
+    },
+    {
+      "word": "BALL",
+      "connection": "Catch a ball",
+      "highlight": "Catch"
+    }
+  ]
+}
