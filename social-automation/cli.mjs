@@ -738,6 +738,10 @@ async function bufferPosts(apiKey, channel, statuses) {
           status
           sentAt
           externalLink
+          error {
+            message
+            supportUrl
+          }
           assets {
             id
             mimeType
@@ -817,6 +821,15 @@ function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()
     ))
     .sort((a, b) => String(b.dueAt).localeCompare(String(a.dueAt)))
     .slice(0, overflow);
+}
+
+function logPublishingErrors(label, posts) {
+  for (const post of posts.filter(item => item.status === "error")) {
+    console.log(
+      `${label}: failed post ${post.id}: ${post.error?.message || "No platform error supplied."}` +
+      `${post.error?.supportUrl ? ` (${post.error.supportUrl})` : ""}`,
+    );
+  }
 }
 
 async function trimManagedQueue(apiKey, channel, queueSize, slotForPost, label) {
@@ -1116,6 +1129,7 @@ async function scheduleQueue({
     instagramSlotForBufferPost,
     "Buffer",
   );
+  logPublishingErrors("Buffer", occupied);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
@@ -1203,6 +1217,7 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
     tikTokSlotForBufferPost,
     "TikTok",
   );
+  logPublishingErrors("TikTok", occupied);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
