@@ -783,6 +783,29 @@ async function cleanupInstagramTrialQueue(apiKey, channel) {
   console.log(`Buffer Trial cleanup: ${trials.length} queued post(s) removed, none remaining.`);
 }
 
+function failedInstagramCarouselsForDate(posts, postDate) {
+  return posts.filter(post => (
+    post.status === "error" && post.dueAt &&
+    londonDateKey(new Date(post.dueAt)) === postDate &&
+    instagramSlotForBufferPost(post) === "carousel"
+  ));
+}
+
+async function removeFailedInstagramCarousel(apiKey, channel, postDate) {
+  if (!postDate) return;
+  const matches = failedInstagramCarouselsForDate(
+    await bufferPosts(apiKey, channel, ["error"]),
+    postDate,
+  );
+  if (matches.length !== 1) {
+    throw new Error(
+      `Expected exactly one failed Instagram carousel for ${postDate}; found ${matches.length}.`,
+    );
+  }
+  console.log(`Buffer: deleting failed ${postDate} carousel ${matches[0].id} for explicit recovery.`);
+  await deleteBufferPost(apiKey, matches[0]);
+}
+
 function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()) {
   const overflow = Math.max(0, occupied.length - queueSize);
   if (!overflow) return [];
@@ -1073,11 +1096,19 @@ function instagramSlotForBufferPost(post) {
   return bufferPostKind(post);
 }
 
-async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
+async function scheduleQueue({
+  posts,
+  outputDir,
+  mediaRoot,
+  queueSize,
+  recoverInstagramCarouselDate,
+  lateDelayMinutes,
+}) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "instagram");
   await cleanupInstagramTrialQueue(apiKey, channel);
+  await removeFailedInstagramCarousel(apiKey, channel, recoverInstagramCarouselDate);
   const occupied = await trimManagedQueue(
     apiKey,
     channel,
@@ -1115,7 +1146,7 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
         console.log(`Buffer: skipping expired ${item.post.postDate} ${item.slot}.`);
         continue;
       }
-      dueAt = new Date(Date.now() + 5 * 60_000).toISOString();
+      dueAt = new Date(Date.now() + lateDelayMinutes * 60_000).toISOString();
       console.log(`Buffer: recovering late ${item.slot} for today at ${dueAt}.`);
     }
 
@@ -1400,6 +1431,10 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   if (queueRemovals.map(post => post.id).join(",") !== "far") {
     throw new Error(`Managed queue pruning regression: ${queueRemovals.map(post => post.id).join(",")}`);
   }
+  const failedRecoveryFixture = failedInstagramCarouselsForDate(queueFixture, "2026-08-17");
+  if (failedRecoveryFixture.map(post => post.id).join(",") !== "failed") {
+    throw new Error("Explicit failed-carousel recovery targeting regression.");
+  }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
   if (friday.tiktokGrowth.format !== "photo" || saturday.tiktokGrowth.format !== "video") {
@@ -1463,7 +1498,7 @@ function help() {
   node social-automation/cli.mjs self-test [--rounds path]
   node social-automation/cli.mjs render [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--rounds path]
   node social-automation/cli.mjs plan --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social]
-  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social]
+  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--recover-instagram-carousel YYYY-MM-DD] [--late-delay-minutes 5]
   node social-automation/cli.mjs audit`);
 }
 
@@ -1474,11 +1509,15 @@ const outputDir = resolve(flags.output || "docs/social");
 const startDate = flags["start-date"] || londonDateKey();
 const days = numberFlag(flags, "days", DEFAULT_DAYS);
 const queueSize = numberFlag(flags, "queue-size", DEFAULT_QUEUE_SIZE);
+const lateDelayMinutes = numberFlag(flags, "late-delay-minutes", 5);
 if (queueSize < 1 || queueSize > DEFAULT_QUEUE_SIZE) {
   throw new Error(
     `--queue-size must be between 1 and ${DEFAULT_QUEUE_SIZE}; ` +
     `${BUFFER_QUEUE_SPARE_SLOTS} Buffer Free slots are reserved for recovery.`,
   );
+}
+if (lateDelayMinutes < 1 || lateDelayMinutes > 180) {
+  throw new Error("--late-delay-minutes must be between 1 and 180.");
 }
 
 if (command === "self-test") {
@@ -1505,7 +1544,14 @@ if (command === "self-test") {
   const rounds = await loadFutureRounds(roundsPath);
   const archiveRounds = await loadTikTokArchiveRounds(archivePath);
   const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds, archiveRounds));
-  await scheduleQueue({ posts, outputDir, mediaRoot: flags["media-root"], queueSize });
+  await scheduleQueue({
+    posts,
+    outputDir,
+    mediaRoot: flags["media-root"],
+    queueSize,
+    recoverInstagramCarouselDate: flags["recover-instagram-carousel"],
+    lateDelayMinutes,
+  });
   await scheduleTikTokQueue({ posts, outputDir, mediaRoot: flags["media-root"], queueSize });
 } else if (command === "audit") {
   await auditToday();

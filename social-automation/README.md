@@ -48,6 +48,8 @@ node social-automation/cli.mjs audit
 
 `schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at eight occupied posts, counting `scheduled`, `error` and `sending` statuses so a failed publication cannot silently consume one of the two recovery slots. If a legacy queue is already over budget, the scheduler removes only the farthest-future managed Daily Thread posts required to return to eight; it never deletes unrelated manual posts, failed posts or posts currently sending. `audit` requires the automatic carousel/Reel and both TikTok slots.
 
+An individual failed Instagram carousel can be explicitly replaced with `--recover-instagram-carousel YYYY-MM-DD`. The command requires exactly one failed managed carousel on that date, deletes only that post, and reschedules the same media after `--late-delay-minutes` (five by default). This flag is never enabled by the recurring workflow.
+
 TikTok videos are automatically marked as AI-generated because the reusable narration is synthetic. TikTok photo posts use Buffer's native photo-post title metadata. TikTok currently does not accept per-image alt text through Buffer's API.
 
 Buffer fetches scheduled media from its source URL at publication time. Regenerating a future date at the same immutable queue URL therefore corrects its already-scheduled carousel without deleting or duplicating the Buffer post.
