@@ -249,10 +249,10 @@ Do not assume `project.pbxproj` is authoritative.
 The approved Instagram carousel/Reel and TikTok growth pipeline live in `social-automation/`.
 
 - source of truth: the same `src/new-rounds.js` seeded schedule used by the app
-- Instagram rule: publish the previous `Europe/London` day's Thread as a carousel at 10:05 and Reel at 18:30; the first historical Trial Reel batch adds a 12:30 Buffer notification from 7–11 August 2026 so the native Trial toggle can be enabled manually
+- Instagram rule: publish the previous `Europe/London` day's Thread as a carousel at 10:05 and Reel at 18:30; Trial Reel notifications are disabled
 - TikTok rule: publish a curated archive growth post at 12:30 and the previous day's Thread video at 18:30; Tuesday/Friday growth slots use native photo carousels
-- reliability: keep nine future posts per channel scheduled, with three daily checks including pre-publication repairs at 11:37 and 16:37 London time
-- media: immutable 1080×1350 Instagram images plus 1080×1920 videos/TikTok images committed under `docs/social/YYYY-MM-DD/`, with approved fixed Trial assets under `docs/social/trials/`
+- reliability: keep at most eight occupied posts per channel, counting failed and sending posts, with two spare Buffer Free slots and three daily checks including pre-publication repairs at 11:37 and 16:37 London time
+- media: immutable 1080×1350 Instagram images plus 1080×1920 videos/TikTok images committed under `docs/social/YYYY-MM-DD/`; historical Trial assets under `docs/social/trials/` are archived but unscheduled
 - layout QC: clue type is consistent within each carousel, measures actual glyph width against the slide-one onboarding safe area, never falls below the 22px long-word floor, and uses the locked `#f8f5f0` paper colour
 - publishing: Buffer GraphQL API using the repository secret `BUFFER_API_KEY`
 - workflow: `.github/workflows/daily-social.yml`

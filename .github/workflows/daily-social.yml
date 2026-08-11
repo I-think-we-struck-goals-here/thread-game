@@ -73,7 +73,7 @@ jobs:
         run: |
           node social-automation/cli.mjs schedule \
             --days 5 \
-            --queue-size 9 \
+            --queue-size 8 \
             --output docs/social \
             --media-root https://raw.githubusercontent.com/I-think-we-struck-goals-here/thread-game/main/docs/social
           node social-automation/cli.mjs audit

@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-08-07
+Last updated: 2026-08-11
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
 
@@ -127,20 +127,19 @@ Verified implemented areas:
 
 ### Daily Instagram automation
 
-- A self-contained `social-automation/` pipeline now derives the previous London day's puzzle from `src/new-rounds.js`, renders the approved seven-slide carousel at 1080×1350, and maintains nine scheduled Instagram posts through Buffer.
+- A self-contained `social-automation/` pipeline now derives the previous London day's puzzle from `src/new-rounds.js`, renders the approved seven-slide carousel at 1080×1350, and maintains a shared eight-item Instagram queue budget through Buffer.
 - `.github/workflows/daily-social.yml` runs at 06:17, 11:37 and 16:37 `Europe/London`, can be run manually, and commits only new immutable media under `docs/social/YYYY-MM-DD/`.
 - The automation reproduces the app's `20260331` shuffle seed and February 16 thread-number anchor. Its regression check maps 4 August 2026 to Thread #170 / TIME / OVER, BED, HALF, BOMB, OUT.
 - Buffer credentials live only in the GitHub repository secret `BUFFER_API_KEY`; generated public media and post metadata contain no secret.
-- The queue intentionally targets nine posts so Buffer Free retains one spare scheduled-post slot.
-- A first five-day Instagram Trial Reel batch now runs at 12:30 London from 7–11 August 2026. Buffer schedules these as notification posts so the owner can enable Instagram's native Trial toggle before publishing; automatic sharing to followers should remain off.
-- The Trial batch uses five approved historical rounds (FACE, STONE, MOON, BOX and DRAW), has stable public video assets under `docs/social/trials/`, and explicitly excludes future Thread #191 / DOG.
-- Trial notifications have their own idempotency marker and slot classification, preventing them from colliding with the automatic 18:30 Reel. The Trial window temporarily permits Buffer's tenth free Instagram slot, then returns to the normal nine-post ceiling.
+- Each channel now targets at most eight occupied posts so Buffer Free retains two recovery slots. `scheduled`, `error` and `sending` posts all count against that shared budget.
+- Instagram Trial Reel notifications are disabled because the account does not yet expose Instagram's native Trial control. Each scheduling run removes queued legacy posts carrying the exact `#DailyThreadTrial` marker before filling the regular carousel/Reel queue.
+- The five historical Trial assets (FACE, STONE, MOON, BOX and DRAW) remain archived under `docs/social/trials/` but are not scheduled.
 - Carousel clue sizing now measures the visible glyphs instead of the full-width clue container. All five clue slides share one 22–42px size, ordinary four-letter openings retain the approved 42px, and browser QC covers every bundled round before media is rendered. Tomorrow's seven-letter `TROUBLE` fixture is locked at 34px with a verified onboarding-box gap.
 - Carousel exports use the locked `#f8f5f0` paper colour. Buffer fetches the date-addressed media at publication time, so regenerated future assets update already-scheduled posts without duplicate queue entries.
 
 ### Daily TikTok automation
 
-- The same workflow now maintains a separate nine-post TikTok queue without changing Instagram's timings or media.
+- The same workflow now maintains a separate eight-item TikTok queue without changing Instagram's timings or media.
 - The 11:37 and 16:37 runs provide repair windows before TikTok's midday growth post and both platforms' evening video post.
 - TikTok publishes two London-time slots: a curated archive growth post at 12:30 and the previous day's Thread video at 18:30.
 - Tuesday and Friday growth slots use seven-image 1080×1920 photo carousels; other growth slots use 30-second archive puzzle videos.

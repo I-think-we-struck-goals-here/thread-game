@@ -12,10 +12,12 @@ const ROUND_RESET_ANCHOR = "2026-03-31";
 const SHUFFLE_SEED = 20260331;
 const BUFFER_API_URL = "https://api.buffer.com";
 const DAILY_MARKER = "#DailyThread";
-const DEFAULT_QUEUE_SIZE = 9;
+const BUFFER_FREE_QUEUE_LIMIT = 10;
+const BUFFER_QUEUE_SPARE_SLOTS = 2;
+const DEFAULT_QUEUE_SIZE = BUFFER_FREE_QUEUE_LIMIT - BUFFER_QUEUE_SPARE_SLOTS;
+const BUFFER_OCCUPIED_STATUSES = ["scheduled", "error", "sending"];
 const DEFAULT_DAYS = 5;
 const CAROUSEL_POST_TIME = { hour: 10, minute: 5 };
-const INSTAGRAM_TRIAL_POST_TIME = { hour: 12, minute: 30 };
 const REEL_POST_TIME = { hour: 18, minute: 30 };
 const TIKTOK_GROWTH_POST_TIME = { hour: 12, minute: 30 };
 const TIKTOK_DAILY_POST_TIME = { hour: 18, minute: 30 };
@@ -750,6 +752,37 @@ async function bufferPosts(apiKey, channel, statuses) {
   return result.posts.edges.map(edge => edge.node);
 }
 
+async function deleteBufferPost(apiKey, post) {
+  const result = await bufferRequest(apiKey, `mutation RemoveDisabledDailyThreadTrial {
+    deletePost(input: { id: ${JSON.stringify(post.id)} }) {
+      ... on DeletePostSuccess { id }
+      ... on MutationError { message }
+    }
+  }`);
+  if (result.deletePost?.id !== post.id) {
+    throw new Error(result.deletePost?.message || `Buffer did not confirm deletion of Trial post ${post.id}.`);
+  }
+}
+
+async function cleanupInstagramTrialQueue(apiKey, channel) {
+  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
+  const trials = occupied
+    .filter(post => post.text?.includes(INSTAGRAM_TRIAL_MARKER))
+    .sort((a, b) => String(a.dueAt || "").localeCompare(String(b.dueAt || "")));
+
+  for (const post of trials) {
+    console.log(`Buffer: removing disabled Trial post ${post.id} (${post.status}, ${post.dueAt || "no due date"}).`);
+    await deleteBufferPost(apiKey, post);
+  }
+
+  const remaining = (await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES))
+    .filter(post => post.text?.includes(INSTAGRAM_TRIAL_MARKER));
+  if (remaining.length) {
+    throw new Error(`Buffer still contains ${remaining.length} disabled Trial post(s) after cleanup.`);
+  }
+  console.log(`Buffer Trial cleanup: ${trials.length} queued post(s) removed, none remaining.`);
+}
+
 async function waitForImage(url, expectedHeight = 1350, attempts = 12) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
@@ -949,8 +982,7 @@ function bufferPostKind(post) {
 }
 
 function desiredBufferItems(posts, mediaRoot) {
-  return posts.flatMap(post => {
-    const items = [
+  return posts.flatMap(post => [
       {
         slot: "carousel",
         post,
@@ -963,22 +995,7 @@ function desiredBufferItems(posts, mediaRoot) {
         dueAt: londonDueAt(post.postDate, REEL_POST_TIME.hour, REEL_POST_TIME.minute),
         url: reelMediaUrl(mediaRoot, post),
       },
-    ];
-    if (post.instagramTrial) {
-      items.push({
-        slot: "trial",
-        post,
-        trial: post.instagramTrial,
-        dueAt: londonDueAt(
-          post.postDate,
-          INSTAGRAM_TRIAL_POST_TIME.hour,
-          INSTAGRAM_TRIAL_POST_TIME.minute,
-        ),
-        url: instagramTrialMediaUrl(mediaRoot, post.instagramTrial),
-      });
-    }
-    return items;
-  }).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
+    ]).sort((a, b) => a.dueAt.localeCompare(b.dueAt));
 }
 
 function desiredTikTokItems(posts, mediaRoot) {
@@ -1020,19 +1037,17 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "instagram");
-  const scheduled = await bufferPosts(apiKey, channel, ["scheduled"]);
+  await cleanupInstagramTrialQueue(apiKey, channel);
+  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
-    [...scheduled, ...sent]
+    [...occupied, ...sent]
       .map(bufferPost => ({ bufferPost, slot: instagramSlotForBufferPost(bufferPost) }))
       .filter(({ bufferPost, slot }) => slot && bufferPost.dueAt)
       .map(({ bufferPost, slot }) => `${londonDateKey(new Date(bufferPost.dueAt))}:${slot}`),
   );
   const items = desiredBufferItems(posts, mediaRoot);
-  const effectiveQueueSize = posts.some(post => post.instagramTrial)
-    ? Math.min(10, queueSize + 1)
-    : queueSize;
-  let available = Math.max(0, effectiveQueueSize - scheduled.length);
+  let available = Math.max(0, queueSize - occupied.length);
   let created = 0;
 
   for (const item of items) {
@@ -1042,7 +1057,7 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
       continue;
     }
     if (available === 0) {
-      console.log(`Buffer: queue target of ${effectiveQueueSize} reached; remaining posts will be added after a slot opens.`);
+      console.log(`Buffer: shared queue target of ${queueSize} reached; remaining posts will be added after a slot opens.`);
       break;
     }
 
@@ -1065,35 +1080,27 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
       if (result.assets?.length !== 7) {
         throw new Error(`Buffer returned ${result.assets?.length ?? 0} carousel assets for ${item.post.postDate}.`);
       }
-    } else if (item.slot === "reel") {
+    } else {
       await waitForVideo(item.url);
       result = await createBufferReel(apiKey, channel, post, item.url, dueAt);
       if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
         throw new Error(`Buffer returned an invalid Reel asset for ${item.post.postDate}.`);
       }
-    } else {
-      await waitForVideo(item.url);
-      result = await createBufferTrialNotification(apiKey, channel, item.trial, item.url, dueAt);
-      if (result.assets?.length !== 1 || !String(result.assets[0].mimeType || "").toLowerCase().startsWith("video")) {
-        throw new Error(`Buffer returned an invalid Trial Reel asset for ${item.post.postDate}.`);
-      }
     }
 
-    const threadNumber = item.trial?.threadNumber || post.threadNumber;
-    console.log(`Buffer: scheduled Thread #${threadNumber} ${item.slot} for ${item.post.postDate} at ${result.dueAt}.`);
+    console.log(`Buffer: scheduled Thread #${post.threadNumber} ${item.slot} for ${item.post.postDate} at ${result.dueAt}.`);
     covered.add(key);
     available -= 1;
     created += 1;
   }
 
-  console.log(`Buffer queue check complete: ${scheduled.length} existing, ${created} created.`);
+  console.log(`Buffer queue check complete: ${occupied.length} occupied, ${created} created, ${BUFFER_QUEUE_SPARE_SLOTS} slots reserved.`);
 
   const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
     .filter(post => instagramSlotForBufferPost(post));
   if (!verified.length) throw new Error("Buffer audit found no scheduled Daily Thread posts.");
   const verifiedCarousels = verified.filter(post => instagramSlotForBufferPost(post) === "carousel");
   const verifiedReels = verified.filter(post => instagramSlotForBufferPost(post) === "reel");
-  const verifiedTrials = verified.filter(post => instagramSlotForBufferPost(post) === "trial");
   let verifiedImages = 0;
   for (const post of verifiedCarousels) {
     const missingAltText = post.assets.filter(asset => !asset.image?.altText?.trim());
@@ -1104,7 +1111,7 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   }
   console.log(
     `Buffer audit: ${verifiedCarousels.length} carousel(s), ${verifiedReels.length} Reel(s), ` +
-    `${verifiedTrials.length} Trial notification(s), ${verifiedImages} carousel images described.`,
+    `${verifiedImages} carousel images described.`,
   );
 }
 
@@ -1112,16 +1119,16 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
-  const scheduled = await bufferPosts(apiKey, channel, ["scheduled"]);
+  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
-    [...scheduled, ...sent]
+    [...occupied, ...sent]
       .map(bufferPost => ({ bufferPost, slot: tikTokSlotForBufferPost(bufferPost) }))
       .filter(({ bufferPost, slot }) => slot && bufferPost.dueAt)
       .map(({ bufferPost, slot }) => `${londonDateKey(new Date(bufferPost.dueAt))}:${slot}`),
   );
   const items = desiredTikTokItems(posts, mediaRoot);
-  let available = Math.max(0, queueSize - scheduled.length);
+  let available = Math.max(0, queueSize - occupied.length);
   let created = 0;
 
   for (const item of items) {
@@ -1174,7 +1181,7 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const verified = (await bufferPosts(apiKey, channel, ["scheduled"]))
     .filter(post => tikTokSlotForBufferPost(post));
   if (!verified.length) throw new Error("TikTok audit found no scheduled Daily Thread posts.");
-  console.log(`TikTok queue check complete: ${scheduled.length} existing, ${created} created, ${verified.length} verified.`);
+  console.log(`TikTok queue check complete: ${occupied.length} occupied, ${created} created, ${verified.length} verified, ${BUFFER_QUEUE_SPARE_SLOTS} slots reserved.`);
 }
 
 async function auditToday() {
@@ -1306,15 +1313,11 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   if (known.tiktokReel.cta !== "Follow for a new puzzle every day") {
     throw new Error("TikTok daily CTA regression.");
   }
-  if (
-    postForDate("2026-08-07", rounds, archiveRounds).instagramTrial?.threadNumber !== 51 ||
-    postForDate("2026-08-11", rounds, archiveRounds).instagramTrial?.threadNumber !== 120 ||
-    postForDate("2026-08-12", rounds, archiveRounds).instagramTrial !== null
-  ) {
-    throw new Error("Instagram Trial Reel batch regression.");
+  if (DEFAULT_QUEUE_SIZE !== 8 || BUFFER_OCCUPIED_STATUSES.join(",") !== "scheduled,error,sending") {
+    throw new Error("Buffer shared queue budget regression.");
   }
-  for (const trial of archiveRounds) {
-    await validateReel(resolve(HERE, "../docs/social/trials", `thread-${trial.threadNumber}-trial.mp4`));
+  if (desiredBufferItems([known], "https://example.com").map(item => item.slot).join(",") !== "carousel,reel") {
+    throw new Error("Instagram scheduler must contain only the carousel and daily Reel slots.");
   }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
@@ -1390,6 +1393,12 @@ const outputDir = resolve(flags.output || "docs/social");
 const startDate = flags["start-date"] || londonDateKey();
 const days = numberFlag(flags, "days", DEFAULT_DAYS);
 const queueSize = numberFlag(flags, "queue-size", DEFAULT_QUEUE_SIZE);
+if (queueSize < 1 || queueSize > DEFAULT_QUEUE_SIZE) {
+  throw new Error(
+    `--queue-size must be between 1 and ${DEFAULT_QUEUE_SIZE}; ` +
+    `${BUFFER_QUEUE_SPARE_SLOTS} Buffer Free slots are reserved for recovery.`,
+  );
+}
 
 if (command === "self-test") {
   await selfTest(roundsPath, resolve(HERE, "template.html"), resolve(HERE, "tiktok-template.html"), archivePath);

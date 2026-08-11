@@ -21,7 +21,7 @@ Every generated TikTok asset must pass this gate before Buffer can schedule it.
 
 - Growth slot: 12:30 Europe/London.
 - Daily slot: 18:30 Europe/London.
-- Keep nine scheduled posts and one spare Buffer Free slot.
+- Keep at most eight occupied posts and two spare Buffer Free slots; failed and sending posts count as occupied.
 - Videos set TikTok's AI-generated disclosure because narration is synthetic.
 - Do not promise a website link until the TikTok profile can actually show one.
 

@@ -13,8 +13,6 @@ Every generated Reel must pass these checks before it can enter Buffer.
 - In join mode, all four edges of all five rows remain fixed within 0.1 px throughout the answer fill.
 - In phrase mode, the standalone answer cannot collide with the resolved connections or final question.
 - The media, captions, manifests and seven carousel slides are revalidated immediately before Buffer scheduling.
-- Each archive Trial file passes the same 1080×1920, H.264/AAC, 30 fps and 30-second encoded-media checks as the daily Reel.
-- Trial reminders use Buffer notification publishing and a dedicated marker, so they cannot be mistaken for or suppress the normal daily Reel.
 - The daily audit passes only when both that date's carousel and Reel are scheduled or sent.
 
 ## Format rules
@@ -23,7 +21,7 @@ Every generated Reel must pass these checks before it can enter Buffer.
 - Phrase mode is used for every other round and shows the natural connection beneath each clue.
 - The heading is always `FIND THE CONNECTION`; no operators, plus signs or redundant answer label are shown.
 - Reusable narration is fixed: `Find the Thread that connects these words together. I'll give you a new word every five seconds.` and `How many clues did you need?`
-- Trial publishing is finished natively in Instagram with **Trial** enabled and automatic sharing to followers disabled.
+- Only the daily Instagram Reel is scheduled; Trial Reel notifications remain disabled.
 
 ## Manual spot check after design changes
 
