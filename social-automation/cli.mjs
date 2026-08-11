@@ -753,14 +753,14 @@ async function bufferPosts(apiKey, channel, statuses) {
 }
 
 async function deleteBufferPost(apiKey, post) {
-  const result = await bufferRequest(apiKey, `mutation RemoveDisabledDailyThreadTrial {
+  const result = await bufferRequest(apiKey, `mutation RemoveDailyThreadQueuePost {
     deletePost(input: { id: ${JSON.stringify(post.id)} }) {
       ... on DeletePostSuccess { id }
       ... on MutationError { message }
     }
   }`);
   if (result.deletePost?.id !== post.id) {
-    throw new Error(result.deletePost?.message || `Buffer did not confirm deletion of Trial post ${post.id}.`);
+    throw new Error(result.deletePost?.message || `Buffer did not confirm deletion of post ${post.id}.`);
   }
 }
 
@@ -781,6 +781,46 @@ async function cleanupInstagramTrialQueue(apiKey, channel) {
     throw new Error(`Buffer still contains ${remaining.length} disabled Trial post(s) after cleanup.`);
   }
   console.log(`Buffer Trial cleanup: ${trials.length} queued post(s) removed, none remaining.`);
+}
+
+function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()) {
+  const overflow = Math.max(0, occupied.length - queueSize);
+  if (!overflow) return [];
+
+  return occupied
+    .filter(post => (
+      post.status === "scheduled" && post.dueAt &&
+      new Date(post.dueAt).getTime() > now && slotForPost(post)
+    ))
+    .sort((a, b) => String(b.dueAt).localeCompare(String(a.dueAt)))
+    .slice(0, overflow);
+}
+
+async function trimManagedQueue(apiKey, channel, queueSize, slotForPost, label) {
+  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
+  if (occupied.length <= queueSize) return occupied;
+
+  const removable = managedOverflowPosts(occupied, queueSize, slotForPost);
+
+  for (const post of removable) {
+    console.log(
+      `${label}: removing overflow ${slotForPost(post)} ${post.id} scheduled for ${post.dueAt}.`,
+    );
+    await deleteBufferPost(apiKey, post);
+  }
+
+  const remaining = removable.length
+    ? await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES)
+    : occupied;
+  if (remaining.length > queueSize) {
+    console.log(
+      `${label}: ${remaining.length} items remain occupied; ` +
+      `${remaining.length - queueSize} cannot be safely removed because they are failed, sending or unmanaged.`,
+    );
+  } else {
+    console.log(`${label}: queue trimmed to ${remaining.length}/${queueSize} occupied items.`);
+  }
+  return remaining;
 }
 
 async function waitForImage(url, expectedHeight = 1350, attempts = 12) {
@@ -1038,7 +1078,13 @@ async function scheduleQueue({ posts, outputDir, mediaRoot, queueSize }) {
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "instagram");
   await cleanupInstagramTrialQueue(apiKey, channel);
-  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
+  const occupied = await trimManagedQueue(
+    apiKey,
+    channel,
+    queueSize,
+    instagramSlotForBufferPost,
+    "Buffer",
+  );
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
@@ -1119,7 +1165,13 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
-  const occupied = await bufferPosts(apiKey, channel, BUFFER_OCCUPIED_STATUSES);
+  const occupied = await trimManagedQueue(
+    apiKey,
+    channel,
+    queueSize,
+    tikTokSlotForBufferPost,
+    "TikTok",
+  );
   const sent = await bufferPosts(apiKey, channel, ["sent"]);
   const covered = new Set(
     [...occupied, ...sent]
@@ -1318,6 +1370,35 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   }
   if (desiredBufferItems([known], "https://example.com").map(item => item.slot).join(",") !== "carousel,reel") {
     throw new Error("Instagram scheduler must contain only the carousel and daily Reel slots.");
+  }
+  const queueFixture = [
+    {
+      id: "near", status: "scheduled", dueAt: "2026-08-12T09:05:00.000Z",
+      text: `${DAILY_MARKER} carousel`,
+      assets: Array.from({ length: 7 }, () => ({ mimeType: "image/png" })),
+    },
+    {
+      id: "far", status: "scheduled", dueAt: "2026-08-15T17:30:00.000Z",
+      text: `${DAILY_MARKER} reel`, assets: [{ mimeType: "video/mp4" }],
+    },
+    {
+      id: "manual", status: "scheduled", dueAt: "2026-08-16T17:30:00.000Z",
+      text: "Handmade announcement", assets: [],
+    },
+    {
+      id: "failed", status: "error", dueAt: "2026-08-17T09:05:00.000Z",
+      text: `${DAILY_MARKER} carousel`,
+      assets: Array.from({ length: 7 }, () => ({ mimeType: "image/png" })),
+    },
+  ];
+  const queueRemovals = managedOverflowPosts(
+    queueFixture,
+    3,
+    instagramSlotForBufferPost,
+    new Date("2026-08-11T09:00:00.000Z").getTime(),
+  );
+  if (queueRemovals.map(post => post.id).join(",") !== "far") {
+    throw new Error(`Managed queue pruning regression: ${queueRemovals.map(post => post.id).join(",")}`);
   }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
