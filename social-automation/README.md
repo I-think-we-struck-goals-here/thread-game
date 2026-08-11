@@ -52,6 +52,8 @@ Queue maintenance logs Buffer's user-facing publishing error and support link fo
 
 An individual failed Instagram carousel can be explicitly replaced with `--recover-instagram-carousel YYYY-MM-DD`. The command requires exactly one failed managed carousel on that date, deletes only that post, and reschedules the same media after `--late-delay-minutes` (five by default). This flag is never enabled by the recurring workflow.
 
+Explicit Instagram recovery uses a short, unique caption without hashtags, download copy or sharing prompts to avoid resubmitting content already flagged by Instagram's anti-spam filter. Stale managed TikTok failures can be removed with `--delete-tiktok-failures-before YYYY-MM-DD`; current-day and manual failures are always preserved.
+
 TikTok videos are automatically marked as AI-generated because the reusable narration is synthetic. TikTok photo posts use Buffer's native photo-post title metadata. TikTok currently does not accept per-image alt text through Buffer's API.
 
 Buffer fetches scheduled media from its source URL at publication time. Regenerating a future date at the same immutable queue URL therefore corrects its already-scheduled carousel without deleting or duplicating the Buffer post.

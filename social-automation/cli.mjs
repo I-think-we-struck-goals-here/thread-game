@@ -810,6 +810,50 @@ async function removeFailedInstagramCarousel(apiKey, channel, postDate) {
   await deleteBufferPost(apiKey, matches[0]);
 }
 
+function instagramRecoveryCaption(post) {
+  return [
+    `Thread #${post.threadNumber} 🧵`,
+    "",
+    "One word connects all five clues.",
+    "",
+    `Start with ${post.clues[0].word}. Swipe when you need another clue.`,
+    "",
+    "How many clues did you need?",
+  ].join("\n");
+}
+
+function staleTikTokFailures(posts, beforeDate) {
+  if (!beforeDate) return [];
+  return posts.filter(post => (
+    post.status === "error" && post.dueAt &&
+    londonDateKey(new Date(post.dueAt)) < beforeDate &&
+    tikTokSlotForBufferPost(post)
+  ));
+}
+
+async function removeStaleTikTokFailures(apiKey, channel, beforeDate) {
+  if (!beforeDate) return;
+  const matches = staleTikTokFailures(
+    await bufferPosts(apiKey, channel, ["error"]),
+    beforeDate,
+  );
+  for (const post of matches) {
+    console.log(
+      `TikTok: deleting stale failed ${tikTokSlotForBufferPost(post)} post ${post.id} ` +
+      `due ${post.dueAt} for explicit recovery.`,
+    );
+    await deleteBufferPost(apiKey, post);
+  }
+  const remaining = staleTikTokFailures(
+    await bufferPosts(apiKey, channel, ["error"]),
+    beforeDate,
+  );
+  if (remaining.length) {
+    throw new Error(`TikTok still contains ${remaining.length} stale failed managed post(s).`);
+  }
+  console.log(`TikTok stale-failure cleanup: ${matches.length} post(s) removed, none remaining.`);
+}
+
 function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()) {
   const overflow = Math.max(0, occupied.length - queueSize);
   if (!overflow) return [];
@@ -1154,7 +1198,10 @@ async function scheduleQueue({
     }
 
     const folder = resolve(outputDir, item.post.postDate);
-    const post = await validatePostFolder(folder, item.post);
+    const validatedPost = await validatePostFolder(folder, item.post);
+    const post = item.slot === "carousel" && item.post.postDate === recoverInstagramCarouselDate
+      ? { ...validatedPost, caption: instagramRecoveryCaption(validatedPost) }
+      : validatedPost;
     let dueAt = item.dueAt;
     if (new Date(dueAt).getTime() <= Date.now()) {
       if (item.post.postDate !== londonDateKey()) {
@@ -1207,10 +1254,11 @@ async function scheduleQueue({
   );
 }
 
-async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize }) {
+async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize, deleteFailuresBefore }) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
+  await removeStaleTikTokFailures(apiKey, channel, deleteFailuresBefore);
   const occupied = await trimManagedQueue(
     apiKey,
     channel,
@@ -1451,6 +1499,21 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   if (failedRecoveryFixture.map(post => post.id).join(",") !== "failed") {
     throw new Error("Explicit failed-carousel recovery targeting regression.");
   }
+  const safeCaption = instagramRecoveryCaption(known);
+  if (
+    safeCaption.includes("#DailyThread") || safeCaption.toLowerCase().includes("link in bio") ||
+    safeCaption.toLowerCase().includes("send this") || !safeCaption.includes("Thread #170")
+  ) {
+    throw new Error("Instagram recovery caption regression.");
+  }
+  const staleTikTokFixture = [
+    { id: "old-daily", status: "error", dueAt: "2026-08-09T17:30:00.000Z", text: TIKTOK_DAILY_MARKER },
+    { id: "today-growth", status: "error", dueAt: "2026-08-11T11:30:00.000Z", text: TIKTOK_ARCHIVE_MARKER },
+    { id: "manual", status: "error", dueAt: "2026-08-08T11:30:00.000Z", text: "Manual TikTok" },
+  ];
+  if (staleTikTokFailures(staleTikTokFixture, "2026-08-11").map(post => post.id).join(",") !== "old-daily") {
+    throw new Error("TikTok stale-failure cleanup targeting regression.");
+  }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
   if (friday.tiktokGrowth.format !== "photo" || saturday.tiktokGrowth.format !== "video") {
@@ -1514,7 +1577,7 @@ function help() {
   node social-automation/cli.mjs self-test [--rounds path]
   node social-automation/cli.mjs render [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--rounds path]
   node social-automation/cli.mjs plan --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social]
-  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--recover-instagram-carousel YYYY-MM-DD] [--late-delay-minutes 5]
+  node social-automation/cli.mjs schedule --media-root URL [--start-date YYYY-MM-DD] [--days 5] [--output docs/social] [--recover-instagram-carousel YYYY-MM-DD] [--delete-tiktok-failures-before YYYY-MM-DD] [--late-delay-minutes 5]
   node social-automation/cli.mjs audit`);
 }
 
@@ -1568,7 +1631,13 @@ if (command === "self-test") {
     recoverInstagramCarouselDate: flags["recover-instagram-carousel"],
     lateDelayMinutes,
   });
-  await scheduleTikTokQueue({ posts, outputDir, mediaRoot: flags["media-root"], queueSize });
+  await scheduleTikTokQueue({
+    posts,
+    outputDir,
+    mediaRoot: flags["media-root"],
+    queueSize,
+    deleteFailuresBefore: flags["delete-tiktok-failures-before"],
+  });
 } else if (command === "audit") {
   await auditToday();
   await auditTikTokToday();

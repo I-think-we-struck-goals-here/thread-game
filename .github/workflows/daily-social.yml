@@ -74,6 +74,9 @@ jobs:
           node social-automation/cli.mjs schedule \
             --days 5 \
             --queue-size 8 \
+            --recover-instagram-carousel 2026-08-11 \
+            --delete-tiktok-failures-before 2026-08-11 \
+            --late-delay-minutes 60 \
             --output docs/social \
             --media-root https://raw.githubusercontent.com/I-think-we-struck-goals-here/thread-game/main/docs/social
           node social-automation/cli.mjs audit
