@@ -1,0 +1,35 @@
+{
+  "threadNumber": 181,
+  "mode": "phrase",
+  "answer": "CORE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HARD",
+      "connection": "Hardcore",
+      "highlight": "core"
+    },
+    {
+      "word": "VALUES",
+      "connection": "Core values",
+      "highlight": "Core"
+    },
+    {
+      "word": "APPLE",
+      "connection": "Apple core",
+      "highlight": "core"
+    },
+    {
+      "word": "ROTTEN",
+      "connection": "Rotten to the core",
+      "highlight": "core"
+    },
+    {
+      "word": "EARTH",
+      "connection": "Earth's core",
+      "highlight": "core"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
