@@ -1,0 +1,170 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-08-17",
+  "sourceDate": "2026-08-16",
+  "threadNumber": 182,
+  "answer": "KICK",
+  "clues": [
+    {
+      "word": "SIDE",
+      "connection": "Sidekick"
+    },
+    {
+      "word": "BUCKET",
+      "connection": "Kick the bucket"
+    },
+    {
+      "word": "START",
+      "connection": "Kickstart"
+    },
+    {
+      "word": "PENALTY",
+      "connection": "Penalty kick"
+    },
+    {
+      "word": "FREE",
+      "connection": "Free kick"
+    }
+  ],
+  "caption": "Could you get it from the first clue? 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SIDE. Swipe only when you need another.\n\nGot it? Comment how many clues you needed: 1 to 5. No spoilers 🤫\n\nSend this to someone who thinks they’d get it in one.\n\nReady for today’s thread?\nPlay Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "altText": [
+    "Daily Thread #182. Clues revealed: SIDE. Find the word connecting all five clues.",
+    "Daily Thread #182. Clues revealed: SIDE, BUCKET. Find the word connecting all five clues.",
+    "Daily Thread #182. Clues revealed: SIDE, BUCKET, START. Find the word connecting all five clues.",
+    "Daily Thread #182. Clues revealed: SIDE, BUCKET, START, PENALTY. Find the word connecting all five clues.",
+    "Daily Thread #182. Clues revealed: SIDE, BUCKET, START, PENALTY, FREE. Find the word connecting all five clues.",
+    "Daily Thread #182 answer: KICK. Connections: Sidekick, Kick the bucket, Kickstart, Penalty kick, Free kick.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSIDE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #182 word-puzzle Reel. The clues SIDE, BUCKET, START, PENALTY, FREE appear one every five seconds. The answer KICK makes: Sidekick, Kick the bucket, Kickstart, Penalty kick, Free kick.",
+  "reel": {
+    "threadNumber": 182,
+    "mode": "phrase",
+    "answer": "KICK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SIDE",
+        "connection": "Sidekick",
+        "highlight": "kick"
+      },
+      {
+        "word": "BUCKET",
+        "connection": "Kick the bucket",
+        "highlight": "Kick"
+      },
+      {
+        "word": "START",
+        "connection": "Kickstart",
+        "highlight": "Kick"
+      },
+      {
+        "word": "PENALTY",
+        "connection": "Penalty kick",
+        "highlight": "kick"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free kick",
+        "highlight": "kick"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 182,
+    "mode": "phrase",
+    "answer": "KICK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SIDE",
+        "connection": "Sidekick",
+        "highlight": "kick"
+      },
+      {
+        "word": "BUCKET",
+        "connection": "Kick the bucket",
+        "highlight": "Kick"
+      },
+      {
+        "word": "START",
+        "connection": "Kickstart",
+        "highlight": "Kick"
+      },
+      {
+        "word": "PENALTY",
+        "connection": "Penalty kick",
+        "highlight": "kick"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free kick",
+        "highlight": "kick"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "join",
+      "answer": "FACE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "INTER",
+          "connection": "Interface"
+        },
+        {
+          "word": "POKER",
+          "connection": "Poker face"
+        },
+        {
+          "word": "VALUE",
+          "connection": "Face value"
+        },
+        {
+          "word": "PLATE",
+          "connection": "Faceplate"
+        },
+        {
+          "word": "CLOCK",
+          "connection": "Clock face"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-13T06:50:34.323Z"
+}
