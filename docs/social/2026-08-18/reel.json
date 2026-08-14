@@ -1,0 +1,33 @@
+{
+  "threadNumber": 183,
+  "mode": "phrase",
+  "answer": "DROP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "NAME",
+      "connection": "Name-dropping",
+      "highlight": "drop"
+    },
+    {
+      "word": "BACK",
+      "connection": "Backdrop",
+      "highlight": "drop"
+    },
+    {
+      "word": "RAIN",
+      "connection": "Raindrop",
+      "highlight": "drop"
+    },
+    {
+      "word": "OUT",
+      "connection": "Drop out",
+      "highlight": "Drop"
+    },
+    {
+      "word": "DEW",
+      "connection": "Dewdrop",
+      "highlight": "drop"
+    }
+  ]
+}
