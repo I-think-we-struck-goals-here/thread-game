@@ -1,0 +1,30 @@
+{
+  "threadNumber": 184,
+  "mode": "join",
+  "answer": "CAMP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BOOT",
+      "connection": "Boot camp"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Campfire"
+    },
+    {
+      "word": "BASE",
+      "connection": "Base camp"
+    },
+    {
+      "word": "SUMMER",
+      "connection": "Summer camp"
+    },
+    {
+      "word": "TENT",
+      "connection": "Camp tent"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
