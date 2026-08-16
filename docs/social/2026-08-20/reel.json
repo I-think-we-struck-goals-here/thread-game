@@ -1,0 +1,33 @@
+{
+  "threadNumber": 185,
+  "mode": "phrase",
+  "answer": "DRAG",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "QUEEN",
+      "connection": "Drag queen",
+      "highlight": "Drag"
+    },
+    {
+      "word": "RACE",
+      "connection": "Drag race",
+      "highlight": "Drag"
+    },
+    {
+      "word": "MAIN",
+      "connection": "Main drag",
+      "highlight": "drag"
+    },
+    {
+      "word": "NET",
+      "connection": "Dragnet",
+      "highlight": "Drag"
+    },
+    {
+      "word": "FEET",
+      "connection": "Drag your feet",
+      "highlight": "Drag"
+    }
+  ]
+}
