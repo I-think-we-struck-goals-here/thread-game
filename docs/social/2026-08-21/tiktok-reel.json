@@ -1,0 +1,35 @@
+{
+  "threadNumber": 186,
+  "mode": "phrase",
+  "answer": "NECK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LACE",
+      "connection": "Necklace",
+      "highlight": "Neck"
+    },
+    {
+      "word": "WOODS",
+      "connection": "Neck of the woods",
+      "highlight": "Neck"
+    },
+    {
+      "word": "RED",
+      "connection": "Redneck",
+      "highlight": "neck"
+    },
+    {
+      "word": "BOTTLE",
+      "connection": "Bottleneck",
+      "highlight": "neck"
+    },
+    {
+      "word": "STIFF",
+      "connection": "Stiff neck",
+      "highlight": "neck"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
