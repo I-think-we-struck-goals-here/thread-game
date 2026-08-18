@@ -1,0 +1,28 @@
+{
+  "threadNumber": 187,
+  "mode": "join",
+  "answer": "SPACE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CYBER",
+      "connection": "Cyberspace"
+    },
+    {
+      "word": "BLANK",
+      "connection": "Blank space"
+    },
+    {
+      "word": "AIR",
+      "connection": "Airspace"
+    },
+    {
+      "word": "OUTER",
+      "connection": "Outer space"
+    },
+    {
+      "word": "PARKING",
+      "connection": "Parking space"
+    }
+  ]
+}
