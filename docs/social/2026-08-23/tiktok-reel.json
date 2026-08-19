@@ -1,0 +1,30 @@
+{
+  "threadNumber": 188,
+  "mode": "join",
+  "answer": "DEEP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SKIN",
+      "connection": "Skin deep"
+    },
+    {
+      "word": "STATE",
+      "connection": "Deep state"
+    },
+    {
+      "word": "END",
+      "connection": "Deep end"
+    },
+    {
+      "word": "FREEZE",
+      "connection": "Deep freeze"
+    },
+    {
+      "word": "SEA",
+      "connection": "Deep sea"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
