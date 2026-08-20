@@ -1,0 +1,33 @@
+{
+  "threadNumber": 189,
+  "mode": "phrase",
+  "answer": "CAKE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CUP",
+      "connection": "Cupcake",
+      "highlight": "cake"
+    },
+    {
+      "word": "PIECE",
+      "connection": "Piece of cake",
+      "highlight": "cake"
+    },
+    {
+      "word": "PAN",
+      "connection": "Pancake",
+      "highlight": "cake"
+    },
+    {
+      "word": "CHEESE",
+      "connection": "Cheesecake",
+      "highlight": "cake"
+    },
+    {
+      "word": "BIRTHDAY",
+      "connection": "Birthday cake",
+      "highlight": "cake"
+    }
+  ]
+}
