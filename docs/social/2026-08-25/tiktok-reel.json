@@ -1,0 +1,35 @@
+{
+  "threadNumber": 190,
+  "mode": "phrase",
+  "answer": "LAKE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SWAN",
+      "connection": "Swan Lake",
+      "highlight": "Lake"
+    },
+    {
+      "word": "SALT",
+      "connection": "Salt Lake City",
+      "highlight": "Lake"
+    },
+    {
+      "word": "GREAT",
+      "connection": "Great Lakes",
+      "highlight": "Lake"
+    },
+    {
+      "word": "DISTRICT",
+      "connection": "Lake District",
+      "highlight": "Lake"
+    },
+    {
+      "word": "FISHING",
+      "connection": "Fishing in a lake",
+      "highlight": "lake"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
