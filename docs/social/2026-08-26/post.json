@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-08-26",
+  "sourceDate": "2026-08-25",
+  "threadNumber": 191,
+  "answer": "BOAT",
+  "clues": [
+    {
+      "word": "SAME",
+      "connection": "In the same boat"
+    },
+    {
+      "word": "DREAM",
+      "connection": "Dreamboat"
+    },
+    {
+      "word": "LIFE",
+      "connection": "Lifeboat"
+    },
+    {
+      "word": "GRAVY",
+      "connection": "Gravy boat"
+    },
+    {
+      "word": "SAIL",
+      "connection": "Sailboat"
+    }
+  ],
+  "caption": "Could you get it from the first clue? 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SAME. Swipe only when you need another.\n\nGot it? Comment how many clues you needed: 1 to 5. No spoilers 🤫\n\nSend this to someone who thinks they’d get it in one.\n\nReady for today’s thread?\nPlay Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "altText": [
+    "Daily Thread #191. Clues revealed: SAME. Find the word connecting all five clues.",
+    "Daily Thread #191. Clues revealed: SAME, DREAM. Find the word connecting all five clues.",
+    "Daily Thread #191. Clues revealed: SAME, DREAM, LIFE. Find the word connecting all five clues.",
+    "Daily Thread #191. Clues revealed: SAME, DREAM, LIFE, GRAVY. Find the word connecting all five clues.",
+    "Daily Thread #191. Clues revealed: SAME, DREAM, LIFE, GRAVY, SAIL. Find the word connecting all five clues.",
+    "Daily Thread #191 answer: BOAT. Connections: In the same boat, Dreamboat, Lifeboat, Gravy boat, Sailboat.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSAME was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #191 word-puzzle Reel. The clues SAME, DREAM, LIFE, GRAVY, SAIL appear one every five seconds. The answer BOAT makes: In the same boat, Dreamboat, Lifeboat, Gravy boat, Sailboat.",
+  "reel": {
+    "threadNumber": 191,
+    "mode": "phrase",
+    "answer": "BOAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SAME",
+        "connection": "In the same boat",
+        "highlight": "boat"
+      },
+      {
+        "word": "DREAM",
+        "connection": "Dreamboat",
+        "highlight": "boat"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Lifeboat",
+        "highlight": "boat"
+      },
+      {
+        "word": "GRAVY",
+        "connection": "Gravy boat",
+        "highlight": "boat"
+      },
+      {
+        "word": "SAIL",
+        "connection": "Sailboat",
+        "highlight": "boat"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 191,
+    "mode": "phrase",
+    "answer": "BOAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SAME",
+        "connection": "In the same boat",
+        "highlight": "boat"
+      },
+      {
+        "word": "DREAM",
+        "connection": "Dreamboat",
+        "highlight": "boat"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Lifeboat",
+        "highlight": "boat"
+      },
+      {
+        "word": "GRAVY",
+        "connection": "Gravy boat",
+        "highlight": "boat"
+      },
+      {
+        "word": "SAIL",
+        "connection": "Sailboat",
+        "highlight": "boat"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 120,
+      "mode": "phrase",
+      "answer": "DRAW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LUCK",
+          "connection": "Luck of the draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "QUICK",
+          "connection": "Quick draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "SWORD",
+          "connection": "Draw a sword",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BRIDGE",
+          "connection": "Drawbridge",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BLANK",
+          "connection": "Draw a blank",
+          "highlight": "Draw"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-22T05:46:29.635Z"
+}
