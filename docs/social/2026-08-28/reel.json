@@ -1,0 +1,28 @@
+{
+  "threadNumber": 193,
+  "mode": "join",
+  "answer": "ROOM",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SHOW",
+      "connection": "Showroom"
+    },
+    {
+      "word": "ELBOW",
+      "connection": "Elbow room"
+    },
+    {
+      "word": "MUSH",
+      "connection": "Mushroom"
+    },
+    {
+      "word": "DARK",
+      "connection": "Darkroom"
+    },
+    {
+      "word": "CLASS",
+      "connection": "Classroom"
+    }
+  ]
+}
