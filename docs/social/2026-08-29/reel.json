@@ -1,0 +1,33 @@
+{
+  "threadNumber": 194,
+  "mode": "phrase",
+  "answer": "SPIN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TAIL",
+      "connection": "Tailspin",
+      "highlight": "spin"
+    },
+    {
+      "word": "DOCTOR",
+      "connection": "Spin doctor",
+      "highlight": "Spin"
+    },
+    {
+      "word": "OFF",
+      "connection": "Spin-off",
+      "highlight": "Spin"
+    },
+    {
+      "word": "WHEEL",
+      "connection": "Spinning wheel",
+      "highlight": "Spin"
+    },
+    {
+      "word": "TOP",
+      "connection": "Spinning top",
+      "highlight": "Spin"
+    }
+  ]
+}
