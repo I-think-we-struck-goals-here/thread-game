@@ -1,0 +1,28 @@
+{
+  "threadNumber": 195,
+  "mode": "join",
+  "answer": "NIGHT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FORT",
+      "connection": "Fortnight"
+    },
+    {
+      "word": "MID",
+      "connection": "Midnight"
+    },
+    {
+      "word": "MARE",
+      "connection": "Nightmare"
+    },
+    {
+      "word": "CAP",
+      "connection": "Nightcap"
+    },
+    {
+      "word": "OWL",
+      "connection": "Night owl"
+    }
+  ]
+}

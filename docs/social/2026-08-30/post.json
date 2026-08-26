@@ -1,0 +1,165 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-08-30",
+  "sourceDate": "2026-08-29",
+  "threadNumber": 195,
+  "answer": "NIGHT",
+  "clues": [
+    {
+      "word": "FORT",
+      "connection": "Fortnight"
+    },
+    {
+      "word": "MID",
+      "connection": "Midnight"
+    },
+    {
+      "word": "MARE",
+      "connection": "Nightmare"
+    },
+    {
+      "word": "CAP",
+      "connection": "Nightcap"
+    },
+    {
+      "word": "OWL",
+      "connection": "Night owl"
+    }
+  ],
+  "caption": "Could you get it from the first clue? 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with FORT. Swipe only when you need another.\n\nGot it? Comment how many clues you needed: 1 to 5. No spoilers 🤫\n\nSend this to someone who thinks they’d get it in one.\n\nReady for today’s thread?\nPlay Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "altText": [
+    "Daily Thread #195. Clues revealed: FORT. Find the word connecting all five clues.",
+    "Daily Thread #195. Clues revealed: FORT, MID. Find the word connecting all five clues.",
+    "Daily Thread #195. Clues revealed: FORT, MID, MARE. Find the word connecting all five clues.",
+    "Daily Thread #195. Clues revealed: FORT, MID, MARE, CAP. Find the word connecting all five clues.",
+    "Daily Thread #195. Clues revealed: FORT, MID, MARE, CAP, OWL. Find the word connecting all five clues.",
+    "Daily Thread #195 answer: NIGHT. Connections: Fortnight, Midnight, Nightmare, Nightcap, Night owl.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nFORT was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #195 word-puzzle Reel. The clues FORT, MID, MARE, CAP, OWL appear one every five seconds. The answer NIGHT makes: Fortnight, Midnight, Nightmare, Nightcap, Night owl.",
+  "reel": {
+    "threadNumber": 195,
+    "mode": "join",
+    "answer": "NIGHT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FORT",
+        "connection": "Fortnight"
+      },
+      {
+        "word": "MID",
+        "connection": "Midnight"
+      },
+      {
+        "word": "MARE",
+        "connection": "Nightmare"
+      },
+      {
+        "word": "CAP",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "OWL",
+        "connection": "Night owl"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 195,
+    "mode": "join",
+    "answer": "NIGHT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FORT",
+        "connection": "Fortnight"
+      },
+      {
+        "word": "MID",
+        "connection": "Midnight"
+      },
+      {
+        "word": "MARE",
+        "connection": "Nightmare"
+      },
+      {
+        "word": "CAP",
+        "connection": "Nightcap"
+      },
+      {
+        "word": "OWL",
+        "connection": "Night owl"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 96,
+      "mode": "phrase",
+      "answer": "BOX",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "POST",
+          "connection": "Post box",
+          "highlight": "box"
+        },
+        {
+          "word": "SAND",
+          "connection": "Sandbox",
+          "highlight": "box"
+        },
+        {
+          "word": "PANDORA",
+          "connection": "Pandora’s box",
+          "highlight": "box"
+        },
+        {
+          "word": "JUKE",
+          "connection": "Jukebox",
+          "highlight": "box"
+        },
+        {
+          "word": "CARD",
+          "connection": "Cardboard box",
+          "highlight": "box"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-26T05:53:08.415Z"
+}
