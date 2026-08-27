@@ -1,0 +1,28 @@
+{
+  "threadNumber": 196,
+  "mode": "join",
+  "answer": "MASTER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "GRAND",
+      "connection": "Grandmaster"
+    },
+    {
+      "word": "HEAD",
+      "connection": "Headmaster"
+    },
+    {
+      "word": "WEB",
+      "connection": "Webmaster"
+    },
+    {
+      "word": "CLASS",
+      "connection": "Masterclass"
+    },
+    {
+      "word": "PIECE",
+      "connection": "Masterpiece"
+    }
+  ]
+}
