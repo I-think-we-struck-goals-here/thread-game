@@ -1,0 +1,35 @@
+{
+  "threadNumber": 197,
+  "mode": "phrase",
+  "answer": "CORNER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CUT",
+      "connection": "Cut corners",
+      "highlight": "corner"
+    },
+    {
+      "word": "STONE",
+      "connection": "Cornerstone",
+      "highlight": "Corner"
+    },
+    {
+      "word": "TIGHT",
+      "connection": "In a tight corner",
+      "highlight": "corner"
+    },
+    {
+      "word": "SHOP",
+      "connection": "Corner shop",
+      "highlight": "Corner"
+    },
+    {
+      "word": "ROUND",
+      "connection": "Round the corner",
+      "highlight": "corner"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
