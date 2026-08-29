@@ -1,0 +1,28 @@
+{
+  "threadNumber": 198,
+  "mode": "join",
+  "answer": "CARD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WILD",
+      "connection": "Wildcard"
+    },
+    {
+      "word": "POST",
+      "connection": "Postcard"
+    },
+    {
+      "word": "SCORE",
+      "connection": "Scorecard"
+    },
+    {
+      "word": "REPORT",
+      "connection": "Report card"
+    },
+    {
+      "word": "PLAYING",
+      "connection": "Playing card"
+    }
+  ]
+}
