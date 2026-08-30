@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-03",
+  "sourceDate": "2026-09-02",
+  "threadNumber": 199,
+  "answer": "GARDEN",
+  "clues": [
+    {
+      "word": "BEER",
+      "connection": "Beer garden"
+    },
+    {
+      "word": "MADISON",
+      "connection": "Madison Square Garden"
+    },
+    {
+      "word": "ROOF",
+      "connection": "Roof garden"
+    },
+    {
+      "word": "SECRET",
+      "connection": "Secret garden"
+    },
+    {
+      "word": "FLOWER",
+      "connection": "Flower garden"
+    }
+  ],
+  "caption": "Could you get it from the first clue? 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BEER. Swipe only when you need another.\n\nGot it? Comment how many clues you needed: 1 to 5. No spoilers 🤫\n\nSend this to someone who thinks they’d get it in one.\n\nReady for today’s thread?\nPlay Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "altText": [
+    "Daily Thread #199. Clues revealed: BEER. Find the word connecting all five clues.",
+    "Daily Thread #199. Clues revealed: BEER, MADISON. Find the word connecting all five clues.",
+    "Daily Thread #199. Clues revealed: BEER, MADISON, ROOF. Find the word connecting all five clues.",
+    "Daily Thread #199. Clues revealed: BEER, MADISON, ROOF, SECRET. Find the word connecting all five clues.",
+    "Daily Thread #199. Clues revealed: BEER, MADISON, ROOF, SECRET, FLOWER. Find the word connecting all five clues.",
+    "Daily Thread #199 answer: GARDEN. Connections: Beer garden, Madison Square Garden, Roof garden, Secret garden, Flower garden.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBEER was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #199 word-puzzle Reel. The clues BEER, MADISON, ROOF, SECRET, FLOWER appear one every five seconds. The answer GARDEN makes: Beer garden, Madison Square Garden, Roof garden, Secret garden, Flower garden.",
+  "reel": {
+    "threadNumber": 199,
+    "mode": "phrase",
+    "answer": "GARDEN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BEER",
+        "connection": "Beer garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "MADISON",
+        "connection": "Madison Square Garden",
+        "highlight": "Garden"
+      },
+      {
+        "word": "ROOF",
+        "connection": "Roof garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "SECRET",
+        "connection": "Secret garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower garden",
+        "highlight": "garden"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 199,
+    "mode": "phrase",
+    "answer": "GARDEN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BEER",
+        "connection": "Beer garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "MADISON",
+        "connection": "Madison Square Garden",
+        "highlight": "Garden"
+      },
+      {
+        "word": "ROOF",
+        "connection": "Roof garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "SECRET",
+        "connection": "Secret garden",
+        "highlight": "garden"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower garden",
+        "highlight": "garden"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 84,
+      "mode": "phrase",
+      "answer": "MOON",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HONEY",
+          "connection": "Honeymoon",
+          "highlight": "moon"
+        },
+        {
+          "word": "ONCE",
+          "connection": "Once in a blue moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "FULL",
+          "connection": "Full moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "WALK",
+          "connection": "Moonwalk",
+          "highlight": "Moon"
+        },
+        {
+          "word": "LIGHT",
+          "connection": "Moonlight",
+          "highlight": "Moon"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-08-30T10:30:36.220Z"
+}

@@ -1,0 +1,33 @@
+{
+  "threadNumber": 199,
+  "mode": "phrase",
+  "answer": "GARDEN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BEER",
+      "connection": "Beer garden",
+      "highlight": "garden"
+    },
+    {
+      "word": "MADISON",
+      "connection": "Madison Square Garden",
+      "highlight": "Garden"
+    },
+    {
+      "word": "ROOF",
+      "connection": "Roof garden",
+      "highlight": "garden"
+    },
+    {
+      "word": "SECRET",
+      "connection": "Secret garden",
+      "highlight": "garden"
+    },
+    {
+      "word": "FLOWER",
+      "connection": "Flower garden",
+      "highlight": "garden"
+    }
+  ]
+}
