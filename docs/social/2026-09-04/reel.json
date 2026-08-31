@@ -1,0 +1,28 @@
+{
+  "threadNumber": 200,
+  "mode": "join",
+  "answer": "SUN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DOWN",
+      "connection": "Sundown"
+    },
+    {
+      "word": "FLOWER",
+      "connection": "Sunflower"
+    },
+    {
+      "word": "BURN",
+      "connection": "Sunburn"
+    },
+    {
+      "word": "RISE",
+      "connection": "Sunrise"
+    },
+    {
+      "word": "SCREEN",
+      "connection": "Sunscreen"
+    }
+  ]
+}
