@@ -1,0 +1,33 @@
+{
+  "threadNumber": 201,
+  "mode": "phrase",
+  "answer": "WIRE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TRIP",
+      "connection": "Tripwire",
+      "highlight": "wire"
+    },
+    {
+      "word": "LESS",
+      "connection": "Wireless",
+      "highlight": "Wire"
+    },
+    {
+      "word": "HIGH",
+      "connection": "High-wire act",
+      "highlight": "wire"
+    },
+    {
+      "word": "BARBED",
+      "connection": "Barbed wire",
+      "highlight": "wire"
+    },
+    {
+      "word": "LIVE",
+      "connection": "Live wire",
+      "highlight": "wire"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-05",
+  "sourceDate": "2026-09-04",
+  "threadNumber": 201,
+  "answer": "WIRE",
+  "clues": [
+    {
+      "word": "TRIP",
+      "connection": "Tripwire"
+    },
+    {
+      "word": "LESS",
+      "connection": "Wireless"
+    },
+    {
+      "word": "HIGH",
+      "connection": "High-wire act"
+    },
+    {
+      "word": "BARBED",
+      "connection": "Barbed wire"
+    },
+    {
+      "word": "LIVE",
+      "connection": "Live wire"
+    }
+  ],
+  "caption": "Could you get it from the first clue? 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with TRIP. Swipe only when you need another.\n\nGot it? Comment how many clues you needed: 1 to 5. No spoilers 🤫\n\nSend this to someone who thinks they’d get it in one.\n\nReady for today’s thread?\nPlay Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "altText": [
+    "Daily Thread #201. Clues revealed: TRIP. Find the word connecting all five clues.",
+    "Daily Thread #201. Clues revealed: TRIP, LESS. Find the word connecting all five clues.",
+    "Daily Thread #201. Clues revealed: TRIP, LESS, HIGH. Find the word connecting all five clues.",
+    "Daily Thread #201. Clues revealed: TRIP, LESS, HIGH, BARBED. Find the word connecting all five clues.",
+    "Daily Thread #201. Clues revealed: TRIP, LESS, HIGH, BARBED, LIVE. Find the word connecting all five clues.",
+    "Daily Thread #201 answer: WIRE. Connections: Tripwire, Wireless, High-wire act, Barbed wire, Live wire.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nTRIP was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #201 word-puzzle Reel. The clues TRIP, LESS, HIGH, BARBED, LIVE appear one every five seconds. The answer WIRE makes: Tripwire, Wireless, High-wire act, Barbed wire, Live wire.",
+  "reel": {
+    "threadNumber": 201,
+    "mode": "phrase",
+    "answer": "WIRE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TRIP",
+        "connection": "Tripwire",
+        "highlight": "wire"
+      },
+      {
+        "word": "LESS",
+        "connection": "Wireless",
+        "highlight": "Wire"
+      },
+      {
+        "word": "HIGH",
+        "connection": "High-wire act",
+        "highlight": "wire"
+      },
+      {
+        "word": "BARBED",
+        "connection": "Barbed wire",
+        "highlight": "wire"
+      },
+      {
+        "word": "LIVE",
+        "connection": "Live wire",
+        "highlight": "wire"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 201,
+    "mode": "phrase",
+    "answer": "WIRE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TRIP",
+        "connection": "Tripwire",
+        "highlight": "wire"
+      },
+      {
+        "word": "LESS",
+        "connection": "Wireless",
+        "highlight": "Wire"
+      },
+      {
+        "word": "HIGH",
+        "connection": "High-wire act",
+        "highlight": "wire"
+      },
+      {
+        "word": "BARBED",
+        "connection": "Barbed wire",
+        "highlight": "wire"
+      },
+      {
+        "word": "LIVE",
+        "connection": "Live wire",
+        "highlight": "wire"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 120,
+      "mode": "phrase",
+      "answer": "DRAW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LUCK",
+          "connection": "Luck of the draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "QUICK",
+          "connection": "Quick draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "SWORD",
+          "connection": "Draw a sword",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BRIDGE",
+          "connection": "Drawbridge",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BLANK",
+          "connection": "Draw a blank",
+          "highlight": "Draw"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-01T10:12:04.217Z"
+}
