@@ -1,0 +1,30 @@
+{
+  "threadNumber": 202,
+  "mode": "join",
+  "answer": "BACK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SET",
+      "connection": "Setback"
+    },
+    {
+      "word": "FLASH",
+      "connection": "Flashback"
+    },
+    {
+      "word": "BONE",
+      "connection": "Backbone"
+    },
+    {
+      "word": "QUARTER",
+      "connection": "Quarterback"
+    },
+    {
+      "word": "DOOR",
+      "connection": "Backdoor"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
