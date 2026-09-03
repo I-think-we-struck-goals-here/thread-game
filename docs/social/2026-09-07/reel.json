@@ -1,0 +1,28 @@
+{
+  "threadNumber": 203,
+  "mode": "join",
+  "answer": "WOOD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DRIFT",
+      "connection": "Driftwood"
+    },
+    {
+      "word": "DEAD",
+      "connection": "Deadwood"
+    },
+    {
+      "word": "HOLLY",
+      "connection": "Hollywood"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Firewood"
+    },
+    {
+      "word": "PECKER",
+      "connection": "Woodpecker"
+    }
+  ]
+}
