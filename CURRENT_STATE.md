@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-08-11
+Last updated: 2026-09-03
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
 
@@ -126,6 +126,9 @@ Verified implemented areas:
 - `public/` and `docs/` both have legal/support changes in flight
 
 ### Daily Instagram automation
+
+- On 3 September 2026 the queue was recovered from a deadlock caused by eight Instagram carousel failures from 11–18 August being retained as occupied Buffer slots. Managed failures are now removed automatically after their London posting day, while current-day and manual failures remain available for diagnosis.
+- Instagram carousel captions are now intentionally short and omit repeated hashtags, sharing prompts, and download promotion after Instagram classified eight consecutive carousel publications as potential spam. Reels and TikTok captions are unchanged.
 
 - A self-contained `social-automation/` pipeline now derives the previous London day's puzzle from `src/new-rounds.js`, renders the approved seven-slide carousel at 1080×1350, and maintains a shared eight-item Instagram queue budget through Buffer.
 - `.github/workflows/daily-social.yml` runs at 06:17, 11:37 and 16:37 `Europe/London`, can be run manually, and commits only new immutable media under `docs/social/YYYY-MM-DD/`.

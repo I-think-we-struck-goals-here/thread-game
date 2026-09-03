@@ -203,20 +203,13 @@ async function loadTikTokArchiveRounds(path = resolve(HERE, "tiktok-archive-roun
 }
 
 function captionFor(post) {
-  return `Could you get it from the first clue? 🧵
+  return `Thread #${post.threadNumber} 🧵
 
 One hidden word makes a word or phrase with each of the five clues.
 
-Start with ${post.clues[0].word}. Swipe only when you need another.
+Start with ${post.clues[0].word}. Swipe when you need another clue.
 
-Got it? Comment how many clues you needed: 1 to 5. No spoilers 🤫
-
-Send this to someone who thinks they’d get it in one.
-
-Ready for today’s thread?
-Play Daily Thread free on iPhone. Link in bio.
-
-#DailyThread #WordGame #WordPuzzle #BrainTeaser`;
+How many clues did you need?`;
 }
 
 function reelCaptionFor(post) {
@@ -822,36 +815,37 @@ function instagramRecoveryCaption(post) {
   ].join("\n");
 }
 
-function staleTikTokFailures(posts, beforeDate) {
+function staleManagedFailures(posts, beforeDate, slotForPost) {
   if (!beforeDate) return [];
   return posts.filter(post => (
     post.status === "error" && post.dueAt &&
     londonDateKey(new Date(post.dueAt)) < beforeDate &&
-    tikTokSlotForBufferPost(post)
+    slotForPost(post)
   ));
 }
 
-async function removeStaleTikTokFailures(apiKey, channel, beforeDate) {
+async function removeStaleFailures(apiKey, channel, beforeDate, slotForPost, label) {
   if (!beforeDate) return;
-  const matches = staleTikTokFailures(
+  const matches = staleManagedFailures(
     await bufferPosts(apiKey, channel, ["error"]),
     beforeDate,
+    slotForPost,
   );
   for (const post of matches) {
     console.log(
-      `TikTok: deleting stale failed ${tikTokSlotForBufferPost(post)} post ${post.id} ` +
-      `due ${post.dueAt} for explicit recovery.`,
+      `${label}: deleting stale failed ${slotForPost(post)} post ${post.id} due ${post.dueAt}.`,
     );
     await deleteBufferPost(apiKey, post);
   }
-  const remaining = staleTikTokFailures(
+  const remaining = staleManagedFailures(
     await bufferPosts(apiKey, channel, ["error"]),
     beforeDate,
+    slotForPost,
   );
   if (remaining.length) {
-    throw new Error(`TikTok still contains ${remaining.length} stale failed managed post(s).`);
+    throw new Error(`${label} still contains ${remaining.length} stale failed managed post(s).`);
   }
-  console.log(`TikTok stale-failure cleanup: ${matches.length} post(s) removed, none remaining.`);
+  console.log(`${label} stale-failure cleanup: ${matches.length} post(s) removed, none remaining.`);
 }
 
 function managedOverflowPosts(occupied, queueSize, slotForPost, now = Date.now()) {
@@ -1169,6 +1163,7 @@ async function scheduleQueue({
   const channel = await bufferChannel(apiKey, "instagram");
   await cleanupInstagramTrialQueue(apiKey, channel);
   await removeFailedInstagramCarousel(apiKey, channel, recoverInstagramCarouselDate);
+  await removeStaleFailures(apiKey, channel, londonDateKey(), instagramSlotForBufferPost, "Buffer");
   const occupied = await trimManagedQueue(
     apiKey,
     channel,
@@ -1260,7 +1255,13 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize, del
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
-  await removeStaleTikTokFailures(apiKey, channel, deleteFailuresBefore);
+  await removeStaleFailures(
+    apiKey,
+    channel,
+    deleteFailuresBefore || londonDateKey(),
+    tikTokSlotForBufferPost,
+    "TikTok",
+  );
   const occupied = await trimManagedQueue(
     apiKey,
     channel,
@@ -1519,8 +1520,11 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
     { id: "today-growth", status: "error", dueAt: "2026-08-11T11:30:00.000Z", text: TIKTOK_ARCHIVE_MARKER },
     { id: "manual", status: "error", dueAt: "2026-08-08T11:30:00.000Z", text: "Manual TikTok" },
   ];
-  if (staleTikTokFailures(staleTikTokFixture, "2026-08-11").map(post => post.id).join(",") !== "old-daily") {
+  if (staleManagedFailures(staleTikTokFixture, "2026-08-11", tikTokSlotForBufferPost).map(post => post.id).join(",") !== "old-daily") {
     throw new Error("TikTok stale-failure cleanup targeting regression.");
+  }
+  if (staleManagedFailures(queueFixture, "2026-08-18", instagramSlotForBufferPost).map(post => post.id).join(",") !== "failed") {
+    throw new Error("Instagram stale-failure cleanup targeting regression.");
   }
   const friday = postForDate("2026-08-07", rounds, archiveRounds);
   const saturday = postForDate("2026-08-08", rounds, archiveRounds);
@@ -1560,7 +1564,7 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   ) {
     throw new Error("GMT scheduling regression.");
   }
-  if (!known.caption.includes("Start with OVER") || !known.caption.includes(DAILY_MARKER)) {
+  if (!known.caption.includes("Start with OVER") || known.caption.includes(DAILY_MARKER)) {
     throw new Error("Caption regression.");
   }
   await carouselLayoutTest(rounds, templatePath);

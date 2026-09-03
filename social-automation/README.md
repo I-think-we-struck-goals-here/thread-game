@@ -7,7 +7,7 @@ Instagram receives two posts per London day:
 - a seven-slide carousel at **10:05 Europe/London**
 - a 30-second Reel at **18:30 Europe/London**
 
-Both show the previous London day's Thread. Eight healthy queued items provide four days of cover while permanently reserving two slots under Buffer's ten-post Free-plan limit. Failed or currently-sending posts still count as occupied, so the scheduler pauses rather than exceeding that shared ceiling.
+Both show the previous London day's Thread. Eight healthy queued items provide four days of cover while permanently reserving two slots under Buffer's ten-post Free-plan limit. Failed or currently-sending posts still count as occupied. Managed failures remain visible for diagnosis on their posting day, then are removed automatically so they cannot permanently deadlock the queue.
 
 Instagram Trial Reel notifications are disabled. Before filling the queue, each run removes any scheduled, failed or sending post carrying the exact legacy `#DailyThreadTrial` marker. The historical video assets remain archived but are not scheduled.
 
@@ -46,13 +46,13 @@ node social-automation/cli.mjs schedule \
 node social-automation/cli.mjs audit
 ```
 
-`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at eight occupied posts, counting `scheduled`, `error` and `sending` statuses so a failed publication cannot silently consume one of the two recovery slots. If a legacy queue is already over budget, the scheduler removes only the farthest-future managed Daily Thread posts required to return to eight; it never deletes unrelated manual posts, failed posts or posts currently sending. `audit` requires the automatic carousel/Reel and both TikTok slots.
+`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at eight occupied posts, counting `scheduled`, `error` and `sending` statuses so a failed publication cannot silently consume one of the two recovery slots. If a legacy queue is already over budget, the scheduler removes only the farthest-future managed Daily Thread posts required to return to eight; it never deletes unrelated manual posts or posts currently sending. `audit` requires the automatic carousel/Reel and both TikTok slots.
 
-Queue maintenance logs Buffer's user-facing publishing error and support link for every failed post. Raw provider errors are deliberately omitted from public Actions logs.
+Queue maintenance logs Buffer's user-facing publishing error and support link for every failed post. Raw provider errors are deliberately omitted from public Actions logs. Instagram carousel captions deliberately avoid repetitive hashtags and promotional calls to action after Instagram's anti-spam filter rejected eight consecutive carousels in August 2026.
 
 An individual failed Instagram carousel can be explicitly replaced with `--recover-instagram-carousel YYYY-MM-DD`. The command requires exactly one failed managed carousel on that date, deletes only that post, and reschedules the same media after `--late-delay-minutes` (five by default). This flag is never enabled by the recurring workflow.
 
-Explicit Instagram recovery uses a short, unique caption without hashtags, download copy or sharing prompts to avoid resubmitting content already flagged by Instagram's anti-spam filter. Stale managed TikTok failures can be removed with `--delete-tiktok-failures-before YYYY-MM-DD`; current-day and manual failures are always preserved.
+Explicit Instagram recovery uses the same short caption without hashtags, download copy or sharing prompts. Stale managed failures on both channels are removed automatically after their London posting day; current-day and manual failures are always preserved. `--delete-tiktok-failures-before YYYY-MM-DD` remains available to override the TikTok cutoff during manual recovery.
 
 TikTok videos are automatically marked as AI-generated because the reusable narration is synthetic. TikTok photo posts use Buffer's native photo-post title metadata. TikTok currently does not accept per-image alt text through Buffer's API.
 
