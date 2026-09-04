@@ -1,0 +1,28 @@
+{
+  "threadNumber": 204,
+  "mode": "join",
+  "answer": "BIRD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "EARLY",
+      "connection": "Early bird"
+    },
+    {
+      "word": "LADY",
+      "connection": "Ladybird"
+    },
+    {
+      "word": "THUNDER",
+      "connection": "Thunderbird"
+    },
+    {
+      "word": "BLACK",
+      "connection": "Blackbird"
+    },
+    {
+      "word": "SONG",
+      "connection": "Birdsong"
+    }
+  ]
+}
