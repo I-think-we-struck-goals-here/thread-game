@@ -1,0 +1,28 @@
+{
+  "threadNumber": 205,
+  "mode": "join",
+  "answer": "SPOT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SUN",
+      "connection": "Sunspot"
+    },
+    {
+      "word": "BLIND",
+      "connection": "Blind spot"
+    },
+    {
+      "word": "HOT",
+      "connection": "Hotspot"
+    },
+    {
+      "word": "LIGHT",
+      "connection": "Spotlight"
+    },
+    {
+      "word": "SWEET",
+      "connection": "Sweet spot"
+    }
+  ]
+}

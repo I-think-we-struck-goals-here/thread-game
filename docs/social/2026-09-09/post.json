@@ -1,0 +1,165 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-09",
+  "sourceDate": "2026-09-08",
+  "threadNumber": 205,
+  "answer": "SPOT",
+  "clues": [
+    {
+      "word": "SUN",
+      "connection": "Sunspot"
+    },
+    {
+      "word": "BLIND",
+      "connection": "Blind spot"
+    },
+    {
+      "word": "HOT",
+      "connection": "Hotspot"
+    },
+    {
+      "word": "LIGHT",
+      "connection": "Spotlight"
+    },
+    {
+      "word": "SWEET",
+      "connection": "Sweet spot"
+    }
+  ],
+  "caption": "Thread #205 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SUN. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #205. Clues revealed: SUN. Find the word connecting all five clues.",
+    "Daily Thread #205. Clues revealed: SUN, BLIND. Find the word connecting all five clues.",
+    "Daily Thread #205. Clues revealed: SUN, BLIND, HOT. Find the word connecting all five clues.",
+    "Daily Thread #205. Clues revealed: SUN, BLIND, HOT, LIGHT. Find the word connecting all five clues.",
+    "Daily Thread #205. Clues revealed: SUN, BLIND, HOT, LIGHT, SWEET. Find the word connecting all five clues.",
+    "Daily Thread #205 answer: SPOT. Connections: Sunspot, Blind spot, Hotspot, Spotlight, Sweet spot.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSUN was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #205 word-puzzle Reel. The clues SUN, BLIND, HOT, LIGHT, SWEET appear one every five seconds. The answer SPOT makes: Sunspot, Blind spot, Hotspot, Spotlight, Sweet spot.",
+  "reel": {
+    "threadNumber": 205,
+    "mode": "join",
+    "answer": "SPOT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunspot"
+      },
+      {
+        "word": "BLIND",
+        "connection": "Blind spot"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hotspot"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Spotlight"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet spot"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 205,
+    "mode": "join",
+    "answer": "SPOT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunspot"
+      },
+      {
+        "word": "BLIND",
+        "connection": "Blind spot"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hotspot"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Spotlight"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet spot"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 96,
+      "mode": "phrase",
+      "answer": "BOX",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "POST",
+          "connection": "Post box",
+          "highlight": "box"
+        },
+        {
+          "word": "SAND",
+          "connection": "Sandbox",
+          "highlight": "box"
+        },
+        {
+          "word": "PANDORA",
+          "connection": "Pandora’s box",
+          "highlight": "box"
+        },
+        {
+          "word": "JUKE",
+          "connection": "Jukebox",
+          "highlight": "box"
+        },
+        {
+          "word": "CARD",
+          "connection": "Cardboard box",
+          "highlight": "box"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-05T09:08:51.146Z"
+}
