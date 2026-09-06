@@ -1,0 +1,33 @@
+{
+  "threadNumber": 206,
+  "mode": "phrase",
+  "answer": "ROAD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CROSS",
+      "connection": "Crossroads",
+      "highlight": "road"
+    },
+    {
+      "word": "RAIL",
+      "connection": "Railroad",
+      "highlight": "road"
+    },
+    {
+      "word": "BLOCK",
+      "connection": "Roadblock",
+      "highlight": "Road"
+    },
+    {
+      "word": "SILK",
+      "connection": "Silk Road",
+      "highlight": "Road"
+    },
+    {
+      "word": "TRIP",
+      "connection": "Road trip",
+      "highlight": "Road"
+    }
+  ]
+}

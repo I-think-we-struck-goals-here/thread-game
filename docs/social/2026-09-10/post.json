@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-10",
+  "sourceDate": "2026-09-09",
+  "threadNumber": 206,
+  "answer": "ROAD",
+  "clues": [
+    {
+      "word": "CROSS",
+      "connection": "Crossroads"
+    },
+    {
+      "word": "RAIL",
+      "connection": "Railroad"
+    },
+    {
+      "word": "BLOCK",
+      "connection": "Roadblock"
+    },
+    {
+      "word": "SILK",
+      "connection": "Silk Road"
+    },
+    {
+      "word": "TRIP",
+      "connection": "Road trip"
+    }
+  ],
+  "caption": "Thread #206 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with CROSS. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #206. Clues revealed: CROSS. Find the word connecting all five clues.",
+    "Daily Thread #206. Clues revealed: CROSS, RAIL. Find the word connecting all five clues.",
+    "Daily Thread #206. Clues revealed: CROSS, RAIL, BLOCK. Find the word connecting all five clues.",
+    "Daily Thread #206. Clues revealed: CROSS, RAIL, BLOCK, SILK. Find the word connecting all five clues.",
+    "Daily Thread #206. Clues revealed: CROSS, RAIL, BLOCK, SILK, TRIP. Find the word connecting all five clues.",
+    "Daily Thread #206 answer: ROAD. Connections: Crossroads, Railroad, Roadblock, Silk Road, Road trip.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nCROSS was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #206 word-puzzle Reel. The clues CROSS, RAIL, BLOCK, SILK, TRIP appear one every five seconds. The answer ROAD makes: Crossroads, Railroad, Roadblock, Silk Road, Road trip.",
+  "reel": {
+    "threadNumber": 206,
+    "mode": "phrase",
+    "answer": "ROAD",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CROSS",
+        "connection": "Crossroads",
+        "highlight": "road"
+      },
+      {
+        "word": "RAIL",
+        "connection": "Railroad",
+        "highlight": "road"
+      },
+      {
+        "word": "BLOCK",
+        "connection": "Roadblock",
+        "highlight": "Road"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silk Road",
+        "highlight": "Road"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Road trip",
+        "highlight": "Road"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 206,
+    "mode": "phrase",
+    "answer": "ROAD",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CROSS",
+        "connection": "Crossroads",
+        "highlight": "road"
+      },
+      {
+        "word": "RAIL",
+        "connection": "Railroad",
+        "highlight": "road"
+      },
+      {
+        "word": "BLOCK",
+        "connection": "Roadblock",
+        "highlight": "Road"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silk Road",
+        "highlight": "Road"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Road trip",
+        "highlight": "Road"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 120,
+      "mode": "phrase",
+      "answer": "DRAW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LUCK",
+          "connection": "Luck of the draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "QUICK",
+          "connection": "Quick draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "SWORD",
+          "connection": "Draw a sword",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BRIDGE",
+          "connection": "Drawbridge",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BLANK",
+          "connection": "Draw a blank",
+          "highlight": "Draw"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-06T09:30:11.278Z"
+}
