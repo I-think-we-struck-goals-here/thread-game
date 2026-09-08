@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-12",
+  "sourceDate": "2026-09-11",
+  "threadNumber": 208,
+  "answer": "CHARGE",
+  "clues": [
+    {
+      "word": "DEPTH",
+      "connection": "Depth charge"
+    },
+    {
+      "word": "FREE",
+      "connection": "Free of charge"
+    },
+    {
+      "word": "BATTERY",
+      "connection": "Charge a battery"
+    },
+    {
+      "word": "COVER",
+      "connection": "Cover charge"
+    },
+    {
+      "word": "CAVALRY",
+      "connection": "Cavalry charge"
+    }
+  ],
+  "caption": "Thread #208 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with DEPTH. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #208. Clues revealed: DEPTH. Find the word connecting all five clues.",
+    "Daily Thread #208. Clues revealed: DEPTH, FREE. Find the word connecting all five clues.",
+    "Daily Thread #208. Clues revealed: DEPTH, FREE, BATTERY. Find the word connecting all five clues.",
+    "Daily Thread #208. Clues revealed: DEPTH, FREE, BATTERY, COVER. Find the word connecting all five clues.",
+    "Daily Thread #208. Clues revealed: DEPTH, FREE, BATTERY, COVER, CAVALRY. Find the word connecting all five clues.",
+    "Daily Thread #208 answer: CHARGE. Connections: Depth charge, Free of charge, Charge a battery, Cover charge, Cavalry charge.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nDEPTH was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #208 word-puzzle Reel. The clues DEPTH, FREE, BATTERY, COVER, CAVALRY appear one every five seconds. The answer CHARGE makes: Depth charge, Free of charge, Charge a battery, Cover charge, Cavalry charge.",
+  "reel": {
+    "threadNumber": 208,
+    "mode": "phrase",
+    "answer": "CHARGE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEPTH",
+        "connection": "Depth charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free of charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "BATTERY",
+        "connection": "Charge a battery",
+        "highlight": "Charge"
+      },
+      {
+        "word": "COVER",
+        "connection": "Cover charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "CAVALRY",
+        "connection": "Cavalry charge",
+        "highlight": "charge"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 208,
+    "mode": "phrase",
+    "answer": "CHARGE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEPTH",
+        "connection": "Depth charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "FREE",
+        "connection": "Free of charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "BATTERY",
+        "connection": "Charge a battery",
+        "highlight": "Charge"
+      },
+      {
+        "word": "COVER",
+        "connection": "Cover charge",
+        "highlight": "charge"
+      },
+      {
+        "word": "CAVALRY",
+        "connection": "Cavalry charge",
+        "highlight": "charge"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 66,
+    "answer": "STONE",
+    "clues": [
+      {
+        "word": "MILE",
+        "connection": "Milestone"
+      },
+      {
+        "word": "LIME",
+        "connection": "Limestone"
+      },
+      {
+        "word": "STEPPING",
+        "connection": "Stepping stone"
+      },
+      {
+        "word": "KIDNEY",
+        "connection": "Kidney stone"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling Stones"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 66,
+      "mode": "phrase",
+      "answer": "STONE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "MILE",
+          "connection": "Milestone",
+          "highlight": "stone"
+        },
+        {
+          "word": "LIME",
+          "connection": "Limestone",
+          "highlight": "stone"
+        },
+        {
+          "word": "STEPPING",
+          "connection": "Stepping stone",
+          "highlight": "stone"
+        },
+        {
+          "word": "KIDNEY",
+          "connection": "Kidney stone",
+          "highlight": "stone"
+        },
+        {
+          "word": "ROLLING",
+          "connection": "Rolling Stones",
+          "highlight": "Stone"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-08T09:47:47.630Z"
+}

@@ -1,0 +1,33 @@
+{
+  "threadNumber": 208,
+  "mode": "phrase",
+  "answer": "CHARGE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DEPTH",
+      "connection": "Depth charge",
+      "highlight": "charge"
+    },
+    {
+      "word": "FREE",
+      "connection": "Free of charge",
+      "highlight": "charge"
+    },
+    {
+      "word": "BATTERY",
+      "connection": "Charge a battery",
+      "highlight": "Charge"
+    },
+    {
+      "word": "COVER",
+      "connection": "Cover charge",
+      "highlight": "charge"
+    },
+    {
+      "word": "CAVALRY",
+      "connection": "Cavalry charge",
+      "highlight": "charge"
+    }
+  ]
+}
