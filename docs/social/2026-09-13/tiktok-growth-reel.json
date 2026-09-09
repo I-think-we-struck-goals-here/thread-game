@@ -1,0 +1,35 @@
+{
+  "threadNumber": 84,
+  "mode": "phrase",
+  "answer": "MOON",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HONEY",
+      "connection": "Honeymoon",
+      "highlight": "moon"
+    },
+    {
+      "word": "ONCE",
+      "connection": "Once in a blue moon",
+      "highlight": "moon"
+    },
+    {
+      "word": "FULL",
+      "connection": "Full moon",
+      "highlight": "moon"
+    },
+    {
+      "word": "WALK",
+      "connection": "Moonwalk",
+      "highlight": "Moon"
+    },
+    {
+      "word": "LIGHT",
+      "connection": "Moonlight",
+      "highlight": "Moon"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 209,
+  "mode": "phrase",
+  "answer": "TURN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TABLES",
+      "connection": "Turn the tables",
+      "highlight": "Turn"
+    },
+    {
+      "word": "COAT",
+      "connection": "Turncoat",
+      "highlight": "Turn"
+    },
+    {
+      "word": "AROUND",
+      "connection": "Turnaround",
+      "highlight": "Turn"
+    },
+    {
+      "word": "U",
+      "connection": "U-turn",
+      "highlight": "turn"
+    },
+    {
+      "word": "LEFT",
+      "connection": "Turn left",
+      "highlight": "Turn"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
