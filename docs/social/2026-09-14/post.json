@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-14",
+  "sourceDate": "2026-09-13",
+  "threadNumber": 210,
+  "answer": "COOL",
+  "clues": [
+    {
+      "word": "CUCUMBER",
+      "connection": "Cool as a cucumber"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Cooldown"
+    },
+    {
+      "word": "JAZZ",
+      "connection": "Cool jazz"
+    },
+    {
+      "word": "HEAD",
+      "connection": "Cool-headed"
+    },
+    {
+      "word": "POOL",
+      "connection": "Cooling pool"
+    }
+  ],
+  "caption": "Thread #210 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with CUCUMBER. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #210. Clues revealed: CUCUMBER. Find the word connecting all five clues.",
+    "Daily Thread #210. Clues revealed: CUCUMBER, DOWN. Find the word connecting all five clues.",
+    "Daily Thread #210. Clues revealed: CUCUMBER, DOWN, JAZZ. Find the word connecting all five clues.",
+    "Daily Thread #210. Clues revealed: CUCUMBER, DOWN, JAZZ, HEAD. Find the word connecting all five clues.",
+    "Daily Thread #210. Clues revealed: CUCUMBER, DOWN, JAZZ, HEAD, POOL. Find the word connecting all five clues.",
+    "Daily Thread #210 answer: COOL. Connections: Cool as a cucumber, Cooldown, Cool jazz, Cool-headed, Cooling pool.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nCUCUMBER was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #210 word-puzzle Reel. The clues CUCUMBER, DOWN, JAZZ, HEAD, POOL appear one every five seconds. The answer COOL makes: Cool as a cucumber, Cooldown, Cool jazz, Cool-headed, Cooling pool.",
+  "reel": {
+    "threadNumber": 210,
+    "mode": "phrase",
+    "answer": "COOL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CUCUMBER",
+        "connection": "Cool as a cucumber",
+        "highlight": "Cool"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Cooldown",
+        "highlight": "Cool"
+      },
+      {
+        "word": "JAZZ",
+        "connection": "Cool jazz",
+        "highlight": "Cool"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Cool-headed",
+        "highlight": "Cool"
+      },
+      {
+        "word": "POOL",
+        "connection": "Cooling pool",
+        "highlight": "Cool"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 210,
+    "mode": "phrase",
+    "answer": "COOL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CUCUMBER",
+        "connection": "Cool as a cucumber",
+        "highlight": "Cool"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Cooldown",
+        "highlight": "Cool"
+      },
+      {
+        "word": "JAZZ",
+        "connection": "Cool jazz",
+        "highlight": "Cool"
+      },
+      {
+        "word": "HEAD",
+        "connection": "Cool-headed",
+        "highlight": "Cool"
+      },
+      {
+        "word": "POOL",
+        "connection": "Cooling pool",
+        "highlight": "Cool"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 96,
+      "mode": "phrase",
+      "answer": "BOX",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "POST",
+          "connection": "Post box",
+          "highlight": "box"
+        },
+        {
+          "word": "SAND",
+          "connection": "Sandbox",
+          "highlight": "box"
+        },
+        {
+          "word": "PANDORA",
+          "connection": "Pandora’s box",
+          "highlight": "box"
+        },
+        {
+          "word": "JUKE",
+          "connection": "Jukebox",
+          "highlight": "box"
+        },
+        {
+          "word": "CARD",
+          "connection": "Cardboard box",
+          "highlight": "box"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-10T09:49:31.204Z"
+}

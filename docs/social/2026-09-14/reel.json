@@ -1,0 +1,33 @@
+{
+  "threadNumber": 210,
+  "mode": "phrase",
+  "answer": "COOL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CUCUMBER",
+      "connection": "Cool as a cucumber",
+      "highlight": "Cool"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Cooldown",
+      "highlight": "Cool"
+    },
+    {
+      "word": "JAZZ",
+      "connection": "Cool jazz",
+      "highlight": "Cool"
+    },
+    {
+      "word": "HEAD",
+      "connection": "Cool-headed",
+      "highlight": "Cool"
+    },
+    {
+      "word": "POOL",
+      "connection": "Cooling pool",
+      "highlight": "Cool"
+    }
+  ]
+}
