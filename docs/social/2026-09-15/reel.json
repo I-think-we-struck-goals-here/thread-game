@@ -1,0 +1,28 @@
+{
+  "threadNumber": 211,
+  "mode": "join",
+  "answer": "SHOT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LONG",
+      "connection": "Long shot"
+    },
+    {
+      "word": "BUCK",
+      "connection": "Buckshot"
+    },
+    {
+      "word": "SCREEN",
+      "connection": "Screenshot"
+    },
+    {
+      "word": "MUG",
+      "connection": "Mugshot"
+    },
+    {
+      "word": "GUN",
+      "connection": "Gunshot"
+    }
+  ]
+}
