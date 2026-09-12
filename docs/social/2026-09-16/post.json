@@ -1,0 +1,170 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-16",
+  "sourceDate": "2026-09-15",
+  "threadNumber": 212,
+  "answer": "WISH",
+  "clues": [
+    {
+      "word": "BONE",
+      "connection": "Wishbone"
+    },
+    {
+      "word": "DEATH",
+      "connection": "Death wish"
+    },
+    {
+      "word": "WELL",
+      "connection": "Wishing well"
+    },
+    {
+      "word": "THINKING",
+      "connection": "Wishful thinking"
+    },
+    {
+      "word": "STAR",
+      "connection": "Wish upon a star"
+    }
+  ],
+  "caption": "Thread #212 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BONE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #212. Clues revealed: BONE. Find the word connecting all five clues.",
+    "Daily Thread #212. Clues revealed: BONE, DEATH. Find the word connecting all five clues.",
+    "Daily Thread #212. Clues revealed: BONE, DEATH, WELL. Find the word connecting all five clues.",
+    "Daily Thread #212. Clues revealed: BONE, DEATH, WELL, THINKING. Find the word connecting all five clues.",
+    "Daily Thread #212. Clues revealed: BONE, DEATH, WELL, THINKING, STAR. Find the word connecting all five clues.",
+    "Daily Thread #212 answer: WISH. Connections: Wishbone, Death wish, Wishing well, Wishful thinking, Wish upon a star.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBONE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #212 word-puzzle Reel. The clues BONE, DEATH, WELL, THINKING, STAR appear one every five seconds. The answer WISH makes: Wishbone, Death wish, Wishing well, Wishful thinking, Wish upon a star.",
+  "reel": {
+    "threadNumber": 212,
+    "mode": "phrase",
+    "answer": "WISH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BONE",
+        "connection": "Wishbone",
+        "highlight": "Wish"
+      },
+      {
+        "word": "DEATH",
+        "connection": "Death wish",
+        "highlight": "wish"
+      },
+      {
+        "word": "WELL",
+        "connection": "Wishing well",
+        "highlight": "Wish"
+      },
+      {
+        "word": "THINKING",
+        "connection": "Wishful thinking",
+        "highlight": "Wish"
+      },
+      {
+        "word": "STAR",
+        "connection": "Wish upon a star",
+        "highlight": "Wish"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 212,
+    "mode": "phrase",
+    "answer": "WISH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BONE",
+        "connection": "Wishbone",
+        "highlight": "Wish"
+      },
+      {
+        "word": "DEATH",
+        "connection": "Death wish",
+        "highlight": "wish"
+      },
+      {
+        "word": "WELL",
+        "connection": "Wishing well",
+        "highlight": "Wish"
+      },
+      {
+        "word": "THINKING",
+        "connection": "Wishful thinking",
+        "highlight": "Wish"
+      },
+      {
+        "word": "STAR",
+        "connection": "Wish upon a star",
+        "highlight": "Wish"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "join",
+      "answer": "FACE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "INTER",
+          "connection": "Interface"
+        },
+        {
+          "word": "POKER",
+          "connection": "Poker face"
+        },
+        {
+          "word": "VALUE",
+          "connection": "Face value"
+        },
+        {
+          "word": "PLATE",
+          "connection": "Faceplate"
+        },
+        {
+          "word": "CLOCK",
+          "connection": "Clock face"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-12T09:26:01.220Z"
+}
