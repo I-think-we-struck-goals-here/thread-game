@@ -1,0 +1,33 @@
+{
+  "threadNumber": 214,
+  "mode": "phrase",
+  "answer": "RIVER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BED",
+      "connection": "Riverbed",
+      "highlight": "River"
+    },
+    {
+      "word": "SELL",
+      "connection": "Sell someone down the river",
+      "highlight": "river"
+    },
+    {
+      "word": "SIDE",
+      "connection": "Riverside",
+      "highlight": "River"
+    },
+    {
+      "word": "AMAZON",
+      "connection": "Amazon River",
+      "highlight": "River"
+    },
+    {
+      "word": "BANK",
+      "connection": "River bank",
+      "highlight": "River"
+    }
+  ]
+}
