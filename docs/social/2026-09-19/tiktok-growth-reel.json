@@ -1,0 +1,35 @@
+{
+  "threadNumber": 96,
+  "mode": "phrase",
+  "answer": "BOX",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "POST",
+      "connection": "Post box",
+      "highlight": "box"
+    },
+    {
+      "word": "SAND",
+      "connection": "Sandbox",
+      "highlight": "box"
+    },
+    {
+      "word": "PANDORA",
+      "connection": "Pandora’s box",
+      "highlight": "box"
+    },
+    {
+      "word": "JUKE",
+      "connection": "Jukebox",
+      "highlight": "box"
+    },
+    {
+      "word": "CARD",
+      "connection": "Cardboard box",
+      "highlight": "box"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

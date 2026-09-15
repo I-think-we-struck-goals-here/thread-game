@@ -1,0 +1,28 @@
+{
+  "threadNumber": 215,
+  "mode": "join",
+  "answer": "SUGAR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "COAT",
+      "connection": "Sugarcoat"
+    },
+    {
+      "word": "CANE",
+      "connection": "Sugar cane"
+    },
+    {
+      "word": "DADDY",
+      "connection": "Sugar daddy"
+    },
+    {
+      "word": "CUBE",
+      "connection": "Sugar cube"
+    },
+    {
+      "word": "BROWN",
+      "connection": "Brown sugar"
+    }
+  ]
+}
