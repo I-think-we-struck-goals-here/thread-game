@@ -1,0 +1,33 @@
+{
+  "threadNumber": 216,
+  "mode": "phrase",
+  "answer": "LIFT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SHOP",
+      "connection": "Shoplifting",
+      "highlight": "lift"
+    },
+    {
+      "word": "AIR",
+      "connection": "Airlift",
+      "highlight": "lift"
+    },
+    {
+      "word": "FACE",
+      "connection": "Facelift",
+      "highlight": "lift"
+    },
+    {
+      "word": "SPIRIT",
+      "connection": "Lift your spirits",
+      "highlight": "Lift"
+    },
+    {
+      "word": "SKI",
+      "connection": "Ski lift",
+      "highlight": "lift"
+    }
+  ]
+}
