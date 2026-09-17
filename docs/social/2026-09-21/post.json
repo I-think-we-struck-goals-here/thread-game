@@ -1,0 +1,170 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-21",
+  "sourceDate": "2026-09-20",
+  "threadNumber": 217,
+  "answer": "BUG",
+  "clues": [
+    {
+      "word": "LIGHTNING",
+      "connection": "Lightning bug"
+    },
+    {
+      "word": "LADY",
+      "connection": "Ladybug"
+    },
+    {
+      "word": "PHONE",
+      "connection": "Phone bug (listening device)"
+    },
+    {
+      "word": "BED",
+      "connection": "Bed bug"
+    },
+    {
+      "word": "SPRAY",
+      "connection": "Bug spray"
+    }
+  ],
+  "caption": "Thread #217 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with LIGHTNING. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #217. Clues revealed: LIGHTNING. Find the word connecting all five clues.",
+    "Daily Thread #217. Clues revealed: LIGHTNING, LADY. Find the word connecting all five clues.",
+    "Daily Thread #217. Clues revealed: LIGHTNING, LADY, PHONE. Find the word connecting all five clues.",
+    "Daily Thread #217. Clues revealed: LIGHTNING, LADY, PHONE, BED. Find the word connecting all five clues.",
+    "Daily Thread #217. Clues revealed: LIGHTNING, LADY, PHONE, BED, SPRAY. Find the word connecting all five clues.",
+    "Daily Thread #217 answer: BUG. Connections: Lightning bug, Ladybug, Phone bug (listening device), Bed bug, Bug spray.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nLIGHTNING was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #217 word-puzzle Reel. The clues LIGHTNING, LADY, PHONE, BED, SPRAY appear one every five seconds. The answer BUG makes: Lightning bug, Ladybug, Phone bug (listening device), Bed bug, Bug spray.",
+  "reel": {
+    "threadNumber": 217,
+    "mode": "phrase",
+    "answer": "BUG",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning bug",
+        "highlight": "bug"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladybug",
+        "highlight": "bug"
+      },
+      {
+        "word": "PHONE",
+        "connection": "Phone bug (listening device)",
+        "highlight": "bug"
+      },
+      {
+        "word": "BED",
+        "connection": "Bed bug",
+        "highlight": "bug"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Bug spray",
+        "highlight": "Bug"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 217,
+    "mode": "phrase",
+    "answer": "BUG",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning bug",
+        "highlight": "bug"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladybug",
+        "highlight": "bug"
+      },
+      {
+        "word": "PHONE",
+        "connection": "Phone bug (listening device)",
+        "highlight": "bug"
+      },
+      {
+        "word": "BED",
+        "connection": "Bed bug",
+        "highlight": "bug"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Bug spray",
+        "highlight": "Bug"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "join",
+      "answer": "FACE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "INTER",
+          "connection": "Interface"
+        },
+        {
+          "word": "POKER",
+          "connection": "Poker face"
+        },
+        {
+          "word": "VALUE",
+          "connection": "Face value"
+        },
+        {
+          "word": "PLATE",
+          "connection": "Faceplate"
+        },
+        {
+          "word": "CLOCK",
+          "connection": "Clock face"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-17T10:04:01.375Z"
+}

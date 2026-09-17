@@ -1,0 +1,33 @@
+{
+  "threadNumber": 217,
+  "mode": "phrase",
+  "answer": "BUG",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LIGHTNING",
+      "connection": "Lightning bug",
+      "highlight": "bug"
+    },
+    {
+      "word": "LADY",
+      "connection": "Ladybug",
+      "highlight": "bug"
+    },
+    {
+      "word": "PHONE",
+      "connection": "Phone bug (listening device)",
+      "highlight": "bug"
+    },
+    {
+      "word": "BED",
+      "connection": "Bed bug",
+      "highlight": "bug"
+    },
+    {
+      "word": "SPRAY",
+      "connection": "Bug spray",
+      "highlight": "Bug"
+    }
+  ]
+}
