@@ -1,0 +1,28 @@
+{
+  "threadNumber": 218,
+  "mode": "join",
+  "answer": "POOL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CAR",
+      "connection": "Carpool"
+    },
+    {
+      "word": "GENE",
+      "connection": "Gene pool"
+    },
+    {
+      "word": "DEAD",
+      "connection": "Deadpool"
+    },
+    {
+      "word": "TABLE",
+      "connection": "Pool table"
+    },
+    {
+      "word": "SWIMMING",
+      "connection": "Swimming pool"
+    }
+  ]
+}
