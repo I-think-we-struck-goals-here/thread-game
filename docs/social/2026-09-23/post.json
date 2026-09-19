@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-23",
+  "sourceDate": "2026-09-22",
+  "threadNumber": 219,
+  "answer": "SHORT",
+  "clues": [
+    {
+      "word": "SELL",
+      "connection": "Short sell"
+    },
+    {
+      "word": "CIRCUIT",
+      "connection": "Short circuit"
+    },
+    {
+      "word": "CHANGE",
+      "connection": "Shortchanged"
+    },
+    {
+      "word": "HAND",
+      "connection": "Shorthand"
+    },
+    {
+      "word": "CUT",
+      "connection": "Shortcut"
+    }
+  ],
+  "caption": "Thread #219 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SELL. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #219. Clues revealed: SELL. Find the word connecting all five clues.",
+    "Daily Thread #219. Clues revealed: SELL, CIRCUIT. Find the word connecting all five clues.",
+    "Daily Thread #219. Clues revealed: SELL, CIRCUIT, CHANGE. Find the word connecting all five clues.",
+    "Daily Thread #219. Clues revealed: SELL, CIRCUIT, CHANGE, HAND. Find the word connecting all five clues.",
+    "Daily Thread #219. Clues revealed: SELL, CIRCUIT, CHANGE, HAND, CUT. Find the word connecting all five clues.",
+    "Daily Thread #219 answer: SHORT. Connections: Short sell, Short circuit, Shortchanged, Shorthand, Shortcut.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSELL was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #219 word-puzzle Reel. The clues SELL, CIRCUIT, CHANGE, HAND, CUT appear one every five seconds. The answer SHORT makes: Short sell, Short circuit, Shortchanged, Shorthand, Shortcut.",
+  "reel": {
+    "threadNumber": 219,
+    "mode": "phrase",
+    "answer": "SHORT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SELL",
+        "connection": "Short sell",
+        "highlight": "Short"
+      },
+      {
+        "word": "CIRCUIT",
+        "connection": "Short circuit",
+        "highlight": "Short"
+      },
+      {
+        "word": "CHANGE",
+        "connection": "Shortchanged",
+        "highlight": "Short"
+      },
+      {
+        "word": "HAND",
+        "connection": "Shorthand",
+        "highlight": "Short"
+      },
+      {
+        "word": "CUT",
+        "connection": "Shortcut",
+        "highlight": "Short"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 219,
+    "mode": "phrase",
+    "answer": "SHORT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SELL",
+        "connection": "Short sell",
+        "highlight": "Short"
+      },
+      {
+        "word": "CIRCUIT",
+        "connection": "Short circuit",
+        "highlight": "Short"
+      },
+      {
+        "word": "CHANGE",
+        "connection": "Shortchanged",
+        "highlight": "Short"
+      },
+      {
+        "word": "HAND",
+        "connection": "Shorthand",
+        "highlight": "Short"
+      },
+      {
+        "word": "CUT",
+        "connection": "Shortcut",
+        "highlight": "Short"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 84,
+      "mode": "phrase",
+      "answer": "MOON",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HONEY",
+          "connection": "Honeymoon",
+          "highlight": "moon"
+        },
+        {
+          "word": "ONCE",
+          "connection": "Once in a blue moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "FULL",
+          "connection": "Full moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "WALK",
+          "connection": "Moonwalk",
+          "highlight": "Moon"
+        },
+        {
+          "word": "LIGHT",
+          "connection": "Moonlight",
+          "highlight": "Moon"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-19T09:35:14.588Z"
+}

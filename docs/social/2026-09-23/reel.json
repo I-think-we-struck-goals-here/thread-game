@@ -1,0 +1,33 @@
+{
+  "threadNumber": 219,
+  "mode": "phrase",
+  "answer": "SHORT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SELL",
+      "connection": "Short sell",
+      "highlight": "Short"
+    },
+    {
+      "word": "CIRCUIT",
+      "connection": "Short circuit",
+      "highlight": "Short"
+    },
+    {
+      "word": "CHANGE",
+      "connection": "Shortchanged",
+      "highlight": "Short"
+    },
+    {
+      "word": "HAND",
+      "connection": "Shorthand",
+      "highlight": "Short"
+    },
+    {
+      "word": "CUT",
+      "connection": "Shortcut",
+      "highlight": "Short"
+    }
+  ]
+}
