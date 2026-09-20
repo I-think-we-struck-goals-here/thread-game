@@ -1,0 +1,33 @@
+{
+  "threadNumber": 220,
+  "mode": "phrase",
+  "answer": "THIN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "AIR",
+      "connection": "Thin air",
+      "highlight": "Thin"
+    },
+    {
+      "word": "ICE",
+      "connection": "On thin ice",
+      "highlight": "thin"
+    },
+    {
+      "word": "WEAR",
+      "connection": "Wearing thin",
+      "highlight": "thin"
+    },
+    {
+      "word": "SKIN",
+      "connection": "Thin-skinned",
+      "highlight": "Thin"
+    },
+    {
+      "word": "PAPER",
+      "connection": "Paper thin",
+      "highlight": "thin"
+    }
+  ]
+}

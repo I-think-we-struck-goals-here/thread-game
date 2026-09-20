@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-24",
+  "sourceDate": "2026-09-23",
+  "threadNumber": 220,
+  "answer": "THIN",
+  "clues": [
+    {
+      "word": "AIR",
+      "connection": "Thin air"
+    },
+    {
+      "word": "ICE",
+      "connection": "On thin ice"
+    },
+    {
+      "word": "WEAR",
+      "connection": "Wearing thin"
+    },
+    {
+      "word": "SKIN",
+      "connection": "Thin-skinned"
+    },
+    {
+      "word": "PAPER",
+      "connection": "Paper thin"
+    }
+  ],
+  "caption": "Thread #220 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with AIR. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #220. Clues revealed: AIR. Find the word connecting all five clues.",
+    "Daily Thread #220. Clues revealed: AIR, ICE. Find the word connecting all five clues.",
+    "Daily Thread #220. Clues revealed: AIR, ICE, WEAR. Find the word connecting all five clues.",
+    "Daily Thread #220. Clues revealed: AIR, ICE, WEAR, SKIN. Find the word connecting all five clues.",
+    "Daily Thread #220. Clues revealed: AIR, ICE, WEAR, SKIN, PAPER. Find the word connecting all five clues.",
+    "Daily Thread #220 answer: THIN. Connections: Thin air, On thin ice, Wearing thin, Thin-skinned, Paper thin.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nAIR was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #220 word-puzzle Reel. The clues AIR, ICE, WEAR, SKIN, PAPER appear one every five seconds. The answer THIN makes: Thin air, On thin ice, Wearing thin, Thin-skinned, Paper thin.",
+  "reel": {
+    "threadNumber": 220,
+    "mode": "phrase",
+    "answer": "THIN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "AIR",
+        "connection": "Thin air",
+        "highlight": "Thin"
+      },
+      {
+        "word": "ICE",
+        "connection": "On thin ice",
+        "highlight": "thin"
+      },
+      {
+        "word": "WEAR",
+        "connection": "Wearing thin",
+        "highlight": "thin"
+      },
+      {
+        "word": "SKIN",
+        "connection": "Thin-skinned",
+        "highlight": "Thin"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Paper thin",
+        "highlight": "thin"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 220,
+    "mode": "phrase",
+    "answer": "THIN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "AIR",
+        "connection": "Thin air",
+        "highlight": "Thin"
+      },
+      {
+        "word": "ICE",
+        "connection": "On thin ice",
+        "highlight": "thin"
+      },
+      {
+        "word": "WEAR",
+        "connection": "Wearing thin",
+        "highlight": "thin"
+      },
+      {
+        "word": "SKIN",
+        "connection": "Thin-skinned",
+        "highlight": "Thin"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Paper thin",
+        "highlight": "thin"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 96,
+    "answer": "BOX",
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora’s box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 96,
+      "mode": "phrase",
+      "answer": "BOX",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "POST",
+          "connection": "Post box",
+          "highlight": "box"
+        },
+        {
+          "word": "SAND",
+          "connection": "Sandbox",
+          "highlight": "box"
+        },
+        {
+          "word": "PANDORA",
+          "connection": "Pandora’s box",
+          "highlight": "box"
+        },
+        {
+          "word": "JUKE",
+          "connection": "Jukebox",
+          "highlight": "box"
+        },
+        {
+          "word": "CARD",
+          "connection": "Cardboard box",
+          "highlight": "box"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-20T09:51:29.007Z"
+}
