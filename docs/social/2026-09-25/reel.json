@@ -1,0 +1,33 @@
+{
+  "threadNumber": 221,
+  "mode": "phrase",
+  "answer": "SINGLE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HANDED",
+      "connection": "Single-handedly",
+      "highlight": "Single"
+    },
+    {
+      "word": "MINDED",
+      "connection": "Single-minded",
+      "highlight": "Single"
+    },
+    {
+      "word": "OUT",
+      "connection": "Single out",
+      "highlight": "Single"
+    },
+    {
+      "word": "FILE",
+      "connection": "Single file",
+      "highlight": "Single"
+    },
+    {
+      "word": "MALT",
+      "connection": "Single malt",
+      "highlight": "Single"
+    }
+  ]
+}
