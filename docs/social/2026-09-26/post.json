@@ -1,0 +1,170 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-26",
+  "sourceDate": "2026-09-25",
+  "threadNumber": 222,
+  "answer": "TAP",
+  "clues": [
+    {
+      "word": "WIRE",
+      "connection": "Wiretap"
+    },
+    {
+      "word": "DANCE",
+      "connection": "Tap dance"
+    },
+    {
+      "word": "SHOULDER",
+      "connection": "Tap on the shoulder"
+    },
+    {
+      "word": "BEER",
+      "connection": "Beer on tap"
+    },
+    {
+      "word": "WATER",
+      "connection": "Tap water"
+    }
+  ],
+  "caption": "Thread #222 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with WIRE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #222. Clues revealed: WIRE. Find the word connecting all five clues.",
+    "Daily Thread #222. Clues revealed: WIRE, DANCE. Find the word connecting all five clues.",
+    "Daily Thread #222. Clues revealed: WIRE, DANCE, SHOULDER. Find the word connecting all five clues.",
+    "Daily Thread #222. Clues revealed: WIRE, DANCE, SHOULDER, BEER. Find the word connecting all five clues.",
+    "Daily Thread #222. Clues revealed: WIRE, DANCE, SHOULDER, BEER, WATER. Find the word connecting all five clues.",
+    "Daily Thread #222 answer: TAP. Connections: Wiretap, Tap dance, Tap on the shoulder, Beer on tap, Tap water.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nWIRE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #222 word-puzzle Reel. The clues WIRE, DANCE, SHOULDER, BEER, WATER appear one every five seconds. The answer TAP makes: Wiretap, Tap dance, Tap on the shoulder, Beer on tap, Tap water.",
+  "reel": {
+    "threadNumber": 222,
+    "mode": "phrase",
+    "answer": "TAP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WIRE",
+        "connection": "Wiretap",
+        "highlight": "tap"
+      },
+      {
+        "word": "DANCE",
+        "connection": "Tap dance",
+        "highlight": "Tap"
+      },
+      {
+        "word": "SHOULDER",
+        "connection": "Tap on the shoulder",
+        "highlight": "Tap"
+      },
+      {
+        "word": "BEER",
+        "connection": "Beer on tap",
+        "highlight": "tap"
+      },
+      {
+        "word": "WATER",
+        "connection": "Tap water",
+        "highlight": "Tap"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 222,
+    "mode": "phrase",
+    "answer": "TAP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WIRE",
+        "connection": "Wiretap",
+        "highlight": "tap"
+      },
+      {
+        "word": "DANCE",
+        "connection": "Tap dance",
+        "highlight": "Tap"
+      },
+      {
+        "word": "SHOULDER",
+        "connection": "Tap on the shoulder",
+        "highlight": "Tap"
+      },
+      {
+        "word": "BEER",
+        "connection": "Beer on tap",
+        "highlight": "tap"
+      },
+      {
+        "word": "WATER",
+        "connection": "Tap water",
+        "highlight": "Tap"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 51,
+    "answer": "FACE",
+    "clues": [
+      {
+        "word": "INTER",
+        "connection": "Interface"
+      },
+      {
+        "word": "POKER",
+        "connection": "Poker face"
+      },
+      {
+        "word": "VALUE",
+        "connection": "Face value"
+      },
+      {
+        "word": "PLATE",
+        "connection": "Faceplate"
+      },
+      {
+        "word": "CLOCK",
+        "connection": "Clock face"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "join",
+      "answer": "FACE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "INTER",
+          "connection": "Interface"
+        },
+        {
+          "word": "POKER",
+          "connection": "Poker face"
+        },
+        {
+          "word": "VALUE",
+          "connection": "Face value"
+        },
+        {
+          "word": "PLATE",
+          "connection": "Faceplate"
+        },
+        {
+          "word": "CLOCK",
+          "connection": "Clock face"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-22T10:03:58.138Z"
+}
