@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-27",
+  "sourceDate": "2026-09-26",
+  "threadNumber": 223,
+  "answer": "ROSE",
+  "clues": [
+    {
+      "word": "PRIM",
+      "connection": "Primrose"
+    },
+    {
+      "word": "COMPASS",
+      "connection": "Compass rose"
+    },
+    {
+      "word": "BUD",
+      "connection": "Rosebud"
+    },
+    {
+      "word": "THORN",
+      "connection": "Every rose has its thorn"
+    },
+    {
+      "word": "RED",
+      "connection": "Red rose"
+    }
+  ],
+  "caption": "Thread #223 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with PRIM. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #223. Clues revealed: PRIM. Find the word connecting all five clues.",
+    "Daily Thread #223. Clues revealed: PRIM, COMPASS. Find the word connecting all five clues.",
+    "Daily Thread #223. Clues revealed: PRIM, COMPASS, BUD. Find the word connecting all five clues.",
+    "Daily Thread #223. Clues revealed: PRIM, COMPASS, BUD, THORN. Find the word connecting all five clues.",
+    "Daily Thread #223. Clues revealed: PRIM, COMPASS, BUD, THORN, RED. Find the word connecting all five clues.",
+    "Daily Thread #223 answer: ROSE. Connections: Primrose, Compass rose, Rosebud, Every rose has its thorn, Red rose.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nPRIM was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #223 word-puzzle Reel. The clues PRIM, COMPASS, BUD, THORN, RED appear one every five seconds. The answer ROSE makes: Primrose, Compass rose, Rosebud, Every rose has its thorn, Red rose.",
+  "reel": {
+    "threadNumber": 223,
+    "mode": "phrase",
+    "answer": "ROSE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "PRIM",
+        "connection": "Primrose",
+        "highlight": "rose"
+      },
+      {
+        "word": "COMPASS",
+        "connection": "Compass rose",
+        "highlight": "rose"
+      },
+      {
+        "word": "BUD",
+        "connection": "Rosebud",
+        "highlight": "Rose"
+      },
+      {
+        "word": "THORN",
+        "connection": "Every rose has its thorn",
+        "highlight": "rose"
+      },
+      {
+        "word": "RED",
+        "connection": "Red rose",
+        "highlight": "rose"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 223,
+    "mode": "phrase",
+    "answer": "ROSE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "PRIM",
+        "connection": "Primrose",
+        "highlight": "rose"
+      },
+      {
+        "word": "COMPASS",
+        "connection": "Compass rose",
+        "highlight": "rose"
+      },
+      {
+        "word": "BUD",
+        "connection": "Rosebud",
+        "highlight": "Rose"
+      },
+      {
+        "word": "THORN",
+        "connection": "Every rose has its thorn",
+        "highlight": "rose"
+      },
+      {
+        "word": "RED",
+        "connection": "Red rose",
+        "highlight": "rose"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 66,
+    "answer": "STONE",
+    "clues": [
+      {
+        "word": "MILE",
+        "connection": "Milestone"
+      },
+      {
+        "word": "LIME",
+        "connection": "Limestone"
+      },
+      {
+        "word": "STEPPING",
+        "connection": "Stepping stone"
+      },
+      {
+        "word": "KIDNEY",
+        "connection": "Kidney stone"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling Stones"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 66,
+      "mode": "phrase",
+      "answer": "STONE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "MILE",
+          "connection": "Milestone",
+          "highlight": "stone"
+        },
+        {
+          "word": "LIME",
+          "connection": "Limestone",
+          "highlight": "stone"
+        },
+        {
+          "word": "STEPPING",
+          "connection": "Stepping stone",
+          "highlight": "stone"
+        },
+        {
+          "word": "KIDNEY",
+          "connection": "Kidney stone",
+          "highlight": "stone"
+        },
+        {
+          "word": "ROLLING",
+          "connection": "Rolling Stones",
+          "highlight": "Stone"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-23T10:04:16.574Z"
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 66,
+  "mode": "phrase",
+  "answer": "STONE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MILE",
+      "connection": "Milestone",
+      "highlight": "stone"
+    },
+    {
+      "word": "LIME",
+      "connection": "Limestone",
+      "highlight": "stone"
+    },
+    {
+      "word": "STEPPING",
+      "connection": "Stepping stone",
+      "highlight": "stone"
+    },
+    {
+      "word": "KIDNEY",
+      "connection": "Kidney stone",
+      "highlight": "stone"
+    },
+    {
+      "word": "ROLLING",
+      "connection": "Rolling Stones",
+      "highlight": "Stone"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

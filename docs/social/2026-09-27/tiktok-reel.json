@@ -1,0 +1,35 @@
+{
+  "threadNumber": 223,
+  "mode": "phrase",
+  "answer": "ROSE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "PRIM",
+      "connection": "Primrose",
+      "highlight": "rose"
+    },
+    {
+      "word": "COMPASS",
+      "connection": "Compass rose",
+      "highlight": "rose"
+    },
+    {
+      "word": "BUD",
+      "connection": "Rosebud",
+      "highlight": "Rose"
+    },
+    {
+      "word": "THORN",
+      "connection": "Every rose has its thorn",
+      "highlight": "rose"
+    },
+    {
+      "word": "RED",
+      "connection": "Red rose",
+      "highlight": "rose"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
