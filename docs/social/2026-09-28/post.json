@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-28",
+  "sourceDate": "2026-09-27",
+  "threadNumber": 224,
+  "answer": "HEAT",
+  "clues": [
+    {
+      "word": "DEAD",
+      "connection": "Dead heat"
+    },
+    {
+      "word": "WAVE",
+      "connection": "Heatwave"
+    },
+    {
+      "word": "STROKE",
+      "connection": "Heatstroke"
+    },
+    {
+      "word": "KITCHEN",
+      "connection": "Can't stand the heat"
+    },
+    {
+      "word": "MOMENT",
+      "connection": "Heat of the moment"
+    }
+  ],
+  "caption": "Thread #224 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with DEAD. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #224. Clues revealed: DEAD. Find the word connecting all five clues.",
+    "Daily Thread #224. Clues revealed: DEAD, WAVE. Find the word connecting all five clues.",
+    "Daily Thread #224. Clues revealed: DEAD, WAVE, STROKE. Find the word connecting all five clues.",
+    "Daily Thread #224. Clues revealed: DEAD, WAVE, STROKE, KITCHEN. Find the word connecting all five clues.",
+    "Daily Thread #224. Clues revealed: DEAD, WAVE, STROKE, KITCHEN, MOMENT. Find the word connecting all five clues.",
+    "Daily Thread #224 answer: HEAT. Connections: Dead heat, Heatwave, Heatstroke, Can't stand the heat, Heat of the moment.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nDEAD was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #224 word-puzzle Reel. The clues DEAD, WAVE, STROKE, KITCHEN, MOMENT appear one every five seconds. The answer HEAT makes: Dead heat, Heatwave, Heatstroke, Can't stand the heat, Heat of the moment.",
+  "reel": {
+    "threadNumber": 224,
+    "mode": "phrase",
+    "answer": "HEAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEAD",
+        "connection": "Dead heat",
+        "highlight": "heat"
+      },
+      {
+        "word": "WAVE",
+        "connection": "Heatwave",
+        "highlight": "Heat"
+      },
+      {
+        "word": "STROKE",
+        "connection": "Heatstroke",
+        "highlight": "Heat"
+      },
+      {
+        "word": "KITCHEN",
+        "connection": "Can't stand the heat",
+        "highlight": "heat"
+      },
+      {
+        "word": "MOMENT",
+        "connection": "Heat of the moment",
+        "highlight": "Heat"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 224,
+    "mode": "phrase",
+    "answer": "HEAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEAD",
+        "connection": "Dead heat",
+        "highlight": "heat"
+      },
+      {
+        "word": "WAVE",
+        "connection": "Heatwave",
+        "highlight": "Heat"
+      },
+      {
+        "word": "STROKE",
+        "connection": "Heatstroke",
+        "highlight": "Heat"
+      },
+      {
+        "word": "KITCHEN",
+        "connection": "Can't stand the heat",
+        "highlight": "heat"
+      },
+      {
+        "word": "MOMENT",
+        "connection": "Heat of the moment",
+        "highlight": "Heat"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 84,
+    "answer": "MOON",
+    "clues": [
+      {
+        "word": "HONEY",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "ONCE",
+        "connection": "Once in a blue moon"
+      },
+      {
+        "word": "FULL",
+        "connection": "Full moon"
+      },
+      {
+        "word": "WALK",
+        "connection": "Moonwalk"
+      },
+      {
+        "word": "LIGHT",
+        "connection": "Moonlight"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 84,
+      "mode": "phrase",
+      "answer": "MOON",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HONEY",
+          "connection": "Honeymoon",
+          "highlight": "moon"
+        },
+        {
+          "word": "ONCE",
+          "connection": "Once in a blue moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "FULL",
+          "connection": "Full moon",
+          "highlight": "moon"
+        },
+        {
+          "word": "WALK",
+          "connection": "Moonwalk",
+          "highlight": "Moon"
+        },
+        {
+          "word": "LIGHT",
+          "connection": "Moonlight",
+          "highlight": "Moon"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-24T10:08:05.683Z"
+}

@@ -1,0 +1,33 @@
+{
+  "threadNumber": 224,
+  "mode": "phrase",
+  "answer": "HEAT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DEAD",
+      "connection": "Dead heat",
+      "highlight": "heat"
+    },
+    {
+      "word": "WAVE",
+      "connection": "Heatwave",
+      "highlight": "Heat"
+    },
+    {
+      "word": "STROKE",
+      "connection": "Heatstroke",
+      "highlight": "Heat"
+    },
+    {
+      "word": "KITCHEN",
+      "connection": "Can't stand the heat",
+      "highlight": "heat"
+    },
+    {
+      "word": "MOMENT",
+      "connection": "Heat of the moment",
+      "highlight": "Heat"
+    }
+  ]
+}
