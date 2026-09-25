@@ -1,0 +1,35 @@
+{
+  "threadNumber": 225,
+  "mode": "phrase",
+  "answer": "LEAF",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TURN",
+      "connection": "Turn over a new leaf",
+      "highlight": "leaf"
+    },
+    {
+      "word": "BAY",
+      "connection": "Bay leaf",
+      "highlight": "leaf"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Gold leaf",
+      "highlight": "leaf"
+    },
+    {
+      "word": "TEA",
+      "connection": "Tea leaf",
+      "highlight": "leaf"
+    },
+    {
+      "word": "MAPLE",
+      "connection": "Maple leaf",
+      "highlight": "leaf"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
