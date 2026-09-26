@@ -1,0 +1,175 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-09-30",
+  "sourceDate": "2026-09-29",
+  "threadNumber": 226,
+  "answer": "SQUARE",
+  "clues": [
+    {
+      "word": "BACK",
+      "connection": "Back to square one"
+    },
+    {
+      "word": "ROOT",
+      "connection": "Square root"
+    },
+    {
+      "word": "MEAL",
+      "connection": "Square meal"
+    },
+    {
+      "word": "TIME",
+      "connection": "Times Square"
+    },
+    {
+      "word": "PEG",
+      "connection": "Square peg in a round hole"
+    }
+  ],
+  "caption": "Thread #226 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BACK. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #226. Clues revealed: BACK. Find the word connecting all five clues.",
+    "Daily Thread #226. Clues revealed: BACK, ROOT. Find the word connecting all five clues.",
+    "Daily Thread #226. Clues revealed: BACK, ROOT, MEAL. Find the word connecting all five clues.",
+    "Daily Thread #226. Clues revealed: BACK, ROOT, MEAL, TIME. Find the word connecting all five clues.",
+    "Daily Thread #226. Clues revealed: BACK, ROOT, MEAL, TIME, PEG. Find the word connecting all five clues.",
+    "Daily Thread #226 answer: SQUARE. Connections: Back to square one, Square root, Square meal, Times Square, Square peg in a round hole.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBACK was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #226 word-puzzle Reel. The clues BACK, ROOT, MEAL, TIME, PEG appear one every five seconds. The answer SQUARE makes: Back to square one, Square root, Square meal, Times Square, Square peg in a round hole.",
+  "reel": {
+    "threadNumber": 226,
+    "mode": "phrase",
+    "answer": "SQUARE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BACK",
+        "connection": "Back to square one",
+        "highlight": "square"
+      },
+      {
+        "word": "ROOT",
+        "connection": "Square root",
+        "highlight": "Square"
+      },
+      {
+        "word": "MEAL",
+        "connection": "Square meal",
+        "highlight": "Square"
+      },
+      {
+        "word": "TIME",
+        "connection": "Times Square",
+        "highlight": "Square"
+      },
+      {
+        "word": "PEG",
+        "connection": "Square peg in a round hole",
+        "highlight": "Square"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 226,
+    "mode": "phrase",
+    "answer": "SQUARE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BACK",
+        "connection": "Back to square one",
+        "highlight": "square"
+      },
+      {
+        "word": "ROOT",
+        "connection": "Square root",
+        "highlight": "Square"
+      },
+      {
+        "word": "MEAL",
+        "connection": "Square meal",
+        "highlight": "Square"
+      },
+      {
+        "word": "TIME",
+        "connection": "Times Square",
+        "highlight": "Square"
+      },
+      {
+        "word": "PEG",
+        "connection": "Square peg in a round hole",
+        "highlight": "Square"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "threadNumber": 120,
+    "answer": "DRAW",
+    "clues": [
+      {
+        "word": "LUCK",
+        "connection": "Luck of the draw"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quick draw"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Draw a sword"
+      },
+      {
+        "word": "BRIDGE",
+        "connection": "Drawbridge"
+      },
+      {
+        "word": "BLANK",
+        "connection": "Draw a blank"
+      }
+    ],
+    "format": "video",
+    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 120,
+      "mode": "phrase",
+      "answer": "DRAW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LUCK",
+          "connection": "Luck of the draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "QUICK",
+          "connection": "Quick draw",
+          "highlight": "draw"
+        },
+        {
+          "word": "SWORD",
+          "connection": "Draw a sword",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BRIDGE",
+          "connection": "Drawbridge",
+          "highlight": "Draw"
+        },
+        {
+          "word": "BLANK",
+          "connection": "Draw a blank",
+          "highlight": "Draw"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-26T09:56:34.487Z"
+}

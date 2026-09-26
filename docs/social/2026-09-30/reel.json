@@ -1,0 +1,33 @@
+{
+  "threadNumber": 226,
+  "mode": "phrase",
+  "answer": "SQUARE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BACK",
+      "connection": "Back to square one",
+      "highlight": "square"
+    },
+    {
+      "word": "ROOT",
+      "connection": "Square root",
+      "highlight": "Square"
+    },
+    {
+      "word": "MEAL",
+      "connection": "Square meal",
+      "highlight": "Square"
+    },
+    {
+      "word": "TIME",
+      "connection": "Times Square",
+      "highlight": "Square"
+    },
+    {
+      "word": "PEG",
+      "connection": "Square peg in a round hole",
+      "highlight": "Square"
+    }
+  ]
+}
