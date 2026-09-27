@@ -13,10 +13,14 @@ Instagram Trial Reel notifications are disabled. Before filling the queue, each 
 
 TikTok receives two posts per London day:
 
-- a growth post at **12:30 Europe/London**, rotating curated archive puzzles
+- a growth post at **12:30 Europe/London**, using each eligible archive puzzle once
 - the previous day's Thread as a video at **18:30 Europe/London**
 
 The growth slot is normally a 30-second archive video. On Tuesday and Friday it becomes a seven-image, 1080×1920 photo carousel. The midday archive puzzle is never the same answer as that evening's daily puzzle. TikTok captions ask for a 1–5 clue score and a follow; they do not promise a website link while the profile is below TikTok's link threshold.
+
+From **28 September 2026**, `tiktok-fresh-archive-rounds.json` replaces the five-puzzle loop with 124 frozen, unique historical puzzles. These are the app's actual 31 March–3 August rounds, excluding all five legacy archive answers. Their original dates and Thread numbers are preserved. The cutoff predates the daily TikTok campaign, avoiding reuse of its puzzles. Selection advances once per calendar day without modulo/recycling and is stable on retries. Keep this file append-only: replacing or reordering existing entries remaps scheduled dates. The initial runway ends **29 January 2027**; after exhaustion (or a same-day answer collision), the archive slot pauses with a warning and the daily video continues. Extending it requires reviewed historical puzzles that have not already appeared in either TikTok slot.
+
+The next scheduling run replaces future queued legacy archive posts within its planning window after validating the new files and public URLs. It matches the exact old automation caption, date and scheduled status; sent, sending, failed, imminent (within ten minutes) and manual/edited posts stay untouched. Videos need new URLs as well as captions because their filenames contain the Thread number. Pre-28 September output retains its legacy mapping.
 
 ## How it works
 
@@ -24,7 +28,7 @@ The growth slot is normally a 30-second archive video. On Tuesday and Friday it 
 2. It renders the Instagram carousel/Reel plus a TikTok-specific daily Reel and that date's archive growth asset.
 3. Each Reel automatically selects either the join layout for exact before/after compounds or the phrase layout for more varied connections.
 4. Carousel clue type starts at the approved 42px, measures the real glyph bounds, and scales the whole five-clue sequence only when the opening word would enter the onboarding safe area. A 22px emergency floor protects unusually long opening words; normal short clues stay at 42px. The renderer locks the approved `#f8f5f0` paper colour and rejects inconsistent or unreadable layouts.
-5. The workflow commits immutable, date-addressed media to `docs/social/YYYY-MM-DD/`.
+5. The workflow commits date-addressed media to `docs/social/YYYY-MM-DD/`; the archive migration regenerates future packages and replaces their queued legacy growth items.
 6. Buffer receives those public media URLs and independently schedules missing Instagram and TikTok slots.
 7. The workflow runs at 06:17, 11:37 and 16:37 London time. The latter two are pre-publication repair checks for TikTok's 12:30 growth slot and both platforms' 18:30 video slot. Changes to the automation, workflow or puzzle pool also trigger an immediate deployment run; generated media commits are excluded to prevent loops.
 
@@ -46,7 +50,7 @@ node social-automation/cli.mjs schedule \
 node social-automation/cli.mjs audit
 ```
 
-`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at eight occupied posts, counting `scheduled`, `error` and `sending` statuses so a failed publication cannot silently consume one of the two recovery slots. If a legacy queue is already over budget, the scheduler removes only the farthest-future managed Daily Thread posts required to return to eight; it never deletes unrelated manual posts or posts currently sending. `audit` requires the automatic carousel/Reel and both TikTok slots.
+`schedule` is idempotent by London date and slot. It will not create a duplicate Instagram carousel/Reel or TikTok growth/daily post when that slot is already scheduled or sent. Each channel stops at eight occupied posts, counting `scheduled`, `error` and `sending` statuses so a failed publication cannot silently consume one of the two recovery slots. If a legacy queue is already over budget, the scheduler removes only the farthest-future managed Daily Thread posts required to return to eight; it never deletes unrelated manual posts or posts currently sending. `audit` requires the automatic carousel/Reel, daily TikTok, and the archive slot only when an unused eligible puzzle exists.
 
 Queue maintenance logs Buffer's user-facing publishing error and support link for every failed post. Raw provider errors are deliberately omitted from public Actions logs. Instagram carousel captions deliberately avoid repetitive hashtags and promotional calls to action after Instagram's anti-spam filter rejected eight consecutive carousels in August 2026.
 

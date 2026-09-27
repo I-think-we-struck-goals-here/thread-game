@@ -24,6 +24,7 @@ const TIKTOK_DAILY_POST_TIME = { hour: 18, minute: 30 };
 const TIKTOK_PHOTO_WEEKDAYS = new Set([2, 5]);
 const TIKTOK_DAILY_MARKER = "#DailyThreadToday";
 const TIKTOK_ARCHIVE_MARKER = "#DailyThreadArchive";
+const TIKTOK_FRESH_ARCHIVE_START = "2026-09-28";
 const INSTAGRAM_TRIAL_MARKER = "#DailyThreadTrial";
 const INSTAGRAM_TRIAL_START_DATE = "2026-08-07";
 const TEMPLATE_VERSION = "2026-08-07-v7-instagram-trials";
@@ -316,6 +317,19 @@ function weekdayFor(dateKey) {
 }
 
 function tikTokGrowthForDate(postDate, currentPost, archiveRounds) {
+  if (postDate >= TIKTOK_FRESH_ARCHIVE_START) {
+    // Append-only historical snapshots: never wrap back to an already-used game.
+    const round = freshArchiveRounds[daysBetween(TIKTOK_FRESH_ARCHIVE_START, postDate)];
+    if (!round || round.answer === currentPost.answer) return null;
+    if (round.sourceDate >= currentPost.sourceDate) throw new Error("TikTok archive would reveal a future puzzle.");
+    const format = TIKTOK_PHOTO_WEEKDAYS.has(weekdayFor(postDate)) ? "photo" : "video";
+    const growth = {
+      ...round,
+      format,
+      caption: `Thread #${round.threadNumber} 🧵\n\n${tikTokArchiveCaptionFor(round, format)}`,
+    };
+    return format === "video" ? { ...growth, reel: tikTokReelDataFor(growth) } : growth;
+  }
   const start = Math.abs(daysBetween("2026-08-07", postDate)) % archiveRounds.length;
   let round = archiveRounds[start];
   for (let offset = 0; offset < archiveRounds.length; offset += 1) {
@@ -407,7 +421,7 @@ function tikTokDailyFilename(post) {
 }
 
 function tikTokGrowthFilename(post) {
-  return post.tiktokGrowth.format === "video"
+  return post.tiktokGrowth?.format === "video"
     ? `archive-thread-${post.tiktokGrowth.threadNumber}-tiktok.mp4`
     : null;
 }
@@ -489,6 +503,7 @@ async function validatePostFolder(folder, expected = null) {
   if (tikTokCaption !== rawPost.tiktokCaption) throw new Error(`${folder} has stale TikTok daily copy.`);
   await validateReel(resolve(folder, tikTokDailyFilename(rawPost)));
 
+  if (!rawPost.tiktokGrowth) return rawPost;
   const growthCaption = (await readFile(resolve(folder, "tiktok-growth-caption.txt"), "utf8")).trim();
   if (growthCaption !== rawPost.tiktokGrowth.caption) throw new Error(`${folder} has stale TikTok growth copy.`);
   if (rawPost.tiktokGrowth.format === "video") {
@@ -567,7 +582,7 @@ async function renderPosts({ posts, outputDir, templatePath, tikTokTemplatePath,
         await stage.screenshot({ path, type: "png" });
       }
 
-      if (post.tiktokGrowth.format === "photo") {
+      if (post.tiktokGrowth?.format === "photo") {
         await tikTokPage.evaluate(data => window.setTikTokPostData(data), post.tiktokGrowth);
         await assertTikTokPhotoLayout(tikTokPage, post.tiktokGrowth);
         for (let slide = 1; slide <= 7; slide += 1) {
@@ -582,8 +597,8 @@ async function renderPosts({ posts, outputDir, templatePath, tikTokTemplatePath,
       await writeFile(resolve(folder, "reel.json"), `${JSON.stringify(post.reel, null, 2)}\n`);
       await writeFile(resolve(folder, "tiktok-caption.txt"), `${post.tiktokCaption}\n`);
       await writeFile(resolve(folder, "tiktok-reel.json"), `${JSON.stringify(post.tiktokReel, null, 2)}\n`);
-      await writeFile(resolve(folder, "tiktok-growth-caption.txt"), `${post.tiktokGrowth.caption}\n`);
-      if (post.tiktokGrowth.format === "video") {
+      if (post.tiktokGrowth) await writeFile(resolve(folder, "tiktok-growth-caption.txt"), `${post.tiktokGrowth.caption}\n`);
+      if (post.tiktokGrowth?.format === "video") {
         await writeFile(
           resolve(folder, "tiktok-growth-reel.json"),
           `${JSON.stringify(post.tiktokGrowth.reel, null, 2)}\n`,
@@ -613,7 +628,7 @@ async function renderPosts({ posts, outputDir, templatePath, tikTokTemplatePath,
       "--answer", resolve(HERE, "voice/answer.wav"),
       "--output", resolve(folder, tikTokDailyFilename(post)),
     ]);
-    if (post.tiktokGrowth.format === "video") {
+    if (post.tiktokGrowth?.format === "video") {
       await runProcess(process.execPath, [
         reelRendererPath,
         "--data", resolve(folder, "tiktok-growth-reel.json"),
@@ -624,7 +639,7 @@ async function renderPosts({ posts, outputDir, templatePath, tikTokTemplatePath,
     }
     await validatePostFolder(folder, post);
     console.log(
-      `Rendered Instagram carousel/Reel, TikTok daily Reel and TikTok ${post.tiktokGrowth.format} growth post ` +
+      `Rendered Instagram carousel/Reel, TikTok daily Reel; archive ${post.tiktokGrowth?.format || "paused (no unused puzzle)"} ` +
       `for ${post.postDate}.`,
     );
   }
@@ -1115,16 +1130,15 @@ function desiredBufferItems(posts, mediaRoot) {
 
 function desiredTikTokItems(posts, mediaRoot) {
   return posts.flatMap(post => {
-    const growthMedia = tikTokGrowthMedia(mediaRoot, post);
     return [
-      {
+      ...(post.tiktokGrowth ? [{
         slot: "growth",
         kind: post.tiktokGrowth.format,
         post,
         round: post.tiktokGrowth,
         dueAt: londonDueAt(post.postDate, TIKTOK_GROWTH_POST_TIME.hour, TIKTOK_GROWTH_POST_TIME.minute),
-        ...growthMedia,
-      },
+        ...tikTokGrowthMedia(mediaRoot, post),
+      }] : []),
       {
         slot: "daily",
         kind: "video",
@@ -1140,6 +1154,43 @@ function tikTokSlotForBufferPost(post) {
   if (post.text?.includes(TIKTOK_DAILY_MARKER)) return "daily";
   if (post.text?.includes(TIKTOK_ARCHIVE_MARKER)) return "growth";
   return null;
+}
+
+function outdatedTikTokGrowthPosts(queued, posts, now = Date.now()) {
+  const desired = new Map(posts.filter(post => post.postDate >= TIKTOK_FRESH_ARCHIVE_START)
+    .map(post => [post.postDate, post]));
+  return queued.filter(post => {
+    if (post.status !== "scheduled" || !post.dueAt || new Date(post.dueAt).getTime() <= now + 10 * 60_000) return false;
+    if (tikTokSlotForBufferPost(post) !== "growth") return false;
+    const date = londonDateKey(new Date(post.dueAt));
+    const expected = desired.get(date);
+    const format = TIKTOK_PHOTO_WEEKDAYS.has(weekdayFor(date)) ? "photo" : "video";
+    // A hashtag alone is not ownership: preserve manually edited/unknown copy.
+    return expected && post.text === tikTokArchiveCaptionFor({}, format);
+  });
+}
+
+async function reconcileTikTokGrowthQueue(apiKey, channel, posts, outputDir, mediaRoot) {
+  const queued = await bufferPosts(apiKey, channel, ["scheduled"]);
+  const stale = outdatedTikTokGrowthPosts(queued, posts);
+  // Validate every replacement before removing any old queued post.
+  for (const post of stale) {
+    const date = londonDateKey(new Date(post.dueAt));
+    const expected = posts.find(item => item.postDate === date);
+    await validatePostFolder(resolve(outputDir, date), expected);
+    if (expected.tiktokGrowth) {
+      const media = tikTokGrowthMedia(mediaRoot, expected);
+      if (media.url) await waitForVideo(media.url);
+      else for (const url of media.urls) await waitForImage(url, 1920);
+    }
+  }
+  for (const post of stale) {
+    // Recheck status near deletion so sending/sent/manual posts stay untouched.
+    const current = await bufferPosts(apiKey, channel, ["scheduled"]);
+    if (!outdatedTikTokGrowthPosts(current, posts).some(item => item.id === post.id)) continue;
+    console.log(`TikTok: replacing stale queued archive post ${post.id} due ${post.dueAt}.`);
+    await deleteBufferPost(apiKey, post);
+  }
 }
 
 function instagramSlotForBufferPost(post) {
@@ -1255,6 +1306,10 @@ async function scheduleTikTokQueue({ posts, outputDir, mediaRoot, queueSize, del
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
+  await reconcileTikTokGrowthQueue(apiKey, channel, posts, outputDir, mediaRoot);
+  for (const post of posts.filter(post => !post.tiktokGrowth)) {
+    console.warn(`TikTok: ${post.postDate} archive paused: no unused eligible puzzle; daily video continues.`);
+  }
   await removeStaleFailures(
     apiKey,
     channel,
@@ -1355,7 +1410,7 @@ async function auditToday() {
   }
 }
 
-async function auditTikTokToday() {
+async function auditTikTokToday(expectedPost) {
   const apiKey = process.env.BUFFER_API_KEY?.trim();
   if (!apiKey) throw new Error("BUFFER_API_KEY is required.");
   const channel = await bufferChannel(apiKey, "tiktok");
@@ -1365,9 +1420,10 @@ async function auditTikTokToday() {
     post.dueAt && londonDateKey(new Date(post.dueAt)) === today && tikTokSlotForBufferPost(post)
   ));
   const bySlot = new Map(matches.map(post => [tikTokSlotForBufferPost(post), post]));
-  const missing = ["growth", "daily"].filter(slot => !bySlot.has(slot));
+  const expectedSlots = expectedPost.tiktokGrowth ? ["growth", "daily"] : ["daily"];
+  const missing = expectedSlots.filter(slot => !bySlot.has(slot));
   if (missing.length) throw new Error(`Daily Thread TikTok audit for ${today} is missing: ${missing.join(", ")}.`);
-  for (const slot of ["growth", "daily"]) {
+  for (const slot of expectedSlots) {
     const post = bySlot.get(slot);
     console.log(`TikTok audit: ${today} ${slot} is ${post.status}${post.externalLink ? ` at ${post.externalLink}` : ""}.`);
   }
@@ -1534,6 +1590,61 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
   if (friday.tiktokGrowth.answer === friday.answer || saturday.tiktokGrowth.answer === saturday.answer) {
     throw new Error("TikTok growth slot duplicates the daily answer.");
   }
+  const legacyAnswers = new Set(archiveRounds.map(round => round.answer));
+  const freshAnswers = new Set();
+  for (let index = 0; index < freshArchiveRounds.length; index += 1) {
+    const round = freshArchiveRounds[index];
+    const original = postForDate(addDays(round.sourceDate, 1), rounds);
+    if (round.sourceDate >= "2026-08-04" || round.sourceDate < ROUND_RESET_ANCHOR ||
+      original.threadNumber !== round.threadNumber || original.answer !== round.answer ||
+      JSON.stringify(original.clues) !== JSON.stringify(round.clues) ||
+      legacyAnswers.has(round.answer) || freshAnswers.has(round.answer)) {
+      throw new Error(`TikTok fresh archive is not an unused historical snapshot: ${round.answer}.`);
+    }
+    freshAnswers.add(round.answer);
+    const date = addDays(TIKTOK_FRESH_ARCHIVE_START, index);
+    const post = postForDate(date, rounds, archiveRounds);
+    if (post.tiktokGrowth?.answer !== round.answer || post.tiktokGrowth.answer === post.answer) {
+      throw new Error(`TikTok one-pass archive selection/collision regression on ${date}.`);
+    }
+    const retry = postForDate(date, rounds, archiveRounds);
+    if (JSON.stringify(post.tiktokGrowth) !== JSON.stringify(retry.tiktokGrowth)) {
+      throw new Error("TikTok archive choice changed on retry.");
+    }
+    reelDataFor(round);
+  }
+  if (freshArchiveRounds.length < 100) throw new Error("TikTok fresh archive runway unexpectedly shrank.");
+  for (let index = freshArchiveRounds.length; index < freshArchiveRounds.length + 365; index += 1) {
+    const exhausted = postForDate(addDays(TIKTOK_FRESH_ARCHIVE_START, index), rounds, archiveRounds);
+    if (exhausted.tiktokGrowth !== null ||
+      desiredTikTokItems([exhausted], "https://example.com").map(item => item.slot).join(",") !== "daily") {
+      throw new Error("Exhausted archive must not loop or stop the daily video.");
+    }
+  }
+  const firstFresh = postForDate(TIKTOK_FRESH_ARCHIVE_START, rounds, archiveRounds);
+  if (tikTokGrowthForDate(TIKTOK_FRESH_ARCHIVE_START,
+    { ...firstFresh, answer: firstFresh.tiktokGrowth.answer }, archiveRounds) !== null) {
+    throw new Error("TikTok archive same-day collision guard failed.");
+  }
+  const futureGrowth = {
+    id: "stale", status: "scheduled", dueAt: londonDueAt(TIKTOK_FRESH_ARCHIVE_START, 12, 30),
+    text: tikTokArchiveCaptionFor({}, "video"),
+  };
+  const queueNow = new Date("2026-09-27T20:00:00Z").getTime();
+  const archiveQueueFixture = [
+    futureGrowth,
+    { ...futureGrowth, id: "correct", text: firstFresh.tiktokGrowth.caption },
+    { ...futureGrowth, id: "daily", text: TIKTOK_DAILY_MARKER },
+    { ...futureGrowth, id: "manual", text: "My own post" },
+    { ...futureGrowth, id: "manual-marked", text: `My own ${TIKTOK_ARCHIVE_MARKER} post` },
+    ...["sent", "sending", "error"].map(status => ({ ...futureGrowth, id: status, status })),
+    { ...futureGrowth, id: "imminent", dueAt: new Date(queueNow + 5 * 60_000).toISOString() },
+    { ...futureGrowth, id: "outside-plan", dueAt: londonDueAt("2026-10-15", 12, 30) },
+  ];
+  if (outdatedTikTokGrowthPosts(archiveQueueFixture, [firstFresh], queueNow).map(post => post.id).join(",") !== "stale") {
+    throw new Error("TikTok queue reconciliation must target only stale future managed growth posts.");
+  }
+  console.log(`TikTok fresh archive: ${freshArchiveRounds.length} unique historical puzzles; no recycling after exhaustion; queue migration protected.`);
   const phraseFixture = {
     threadNumber: 0,
     answer: "BRIDGE",
@@ -1568,7 +1679,7 @@ async function selfTest(roundsPath, templatePath, tikTokTemplatePath, archivePat
     throw new Error("Caption regression.");
   }
   await carouselLayoutTest(rounds, templatePath);
-  await tikTokPhotoLayoutTest(archiveRounds, tikTokTemplatePath);
+  await tikTokPhotoLayoutTest([...archiveRounds, ...freshArchiveRounds], tikTokTemplatePath);
   console.log(`Self-test: ${rounds.length} rounds, two Reel modes, TikTok rotation, London times and captions passed.`);
 }
 
@@ -1596,6 +1707,8 @@ function help() {
 const { command, flags } = parseArgs(process.argv.slice(2));
 const roundsPath = resolve(flags.rounds || resolve(HERE, "../src/new-rounds.js"));
 const archivePath = resolve(flags.archive || resolve(HERE, "tiktok-archive-rounds.json"));
+const freshArchiveRounds = JSON.parse(await readFile(resolve(HERE, "tiktok-fresh-archive-rounds.json"), "utf8"))
+  .map(round => ({ sourceDate: round.sourceDate, threadNumber: Number(round.threadNumber), ...normalizeRound(round) }));
 const outputDir = resolve(flags.output || "docs/social");
 const startDate = flags["start-date"] || londonDateKey();
 const days = numberFlag(flags, "days", DEFAULT_DAYS);
@@ -1652,7 +1765,9 @@ if (command === "self-test") {
   });
 } else if (command === "audit") {
   await auditToday();
-  await auditTikTokToday();
+  const rounds = await loadFutureRounds(roundsPath);
+  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+  await auditTikTokToday(postForDate(londonDateKey(), rounds, archiveRounds));
 } else {
   help();
   if (command !== "help") process.exitCode = 1;

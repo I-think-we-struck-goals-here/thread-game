@@ -81,7 +81,6 @@
 
     .clue {
       width: max-content;
-      max-width: 780px;
       font: 400 116px/.98 var(--serif);
       letter-spacing: .005em;
       white-space: nowrap;
@@ -111,7 +110,7 @@
     }
 
     .connections { display: grid; gap: 15px; }
-    .connection { font: 400 61px/1.02 var(--serif); white-space: nowrap; }
+    .connection { width: max-content; font: 400 61px/1.02 var(--serif); white-space: nowrap; }
     .connection .answer-token { color: var(--green); font-weight: 600; }
 
     .answer-lockup { margin-top: 125px; text-align: left; }
@@ -242,7 +241,10 @@
         return element;
       }));
       connections.replaceChildren(...data.clues.map(clue => connectionElement(clue, data.answer)));
+      // Measure visible glyph-width rows, including all five clues and the answer slide.
+      stage.classList.remove('slide-answer', 'slide-final');
       fitClues();
+      stage.classList.add('slide-answer');
       fitConnections();
       window.showTikTokSlide(1);
     };

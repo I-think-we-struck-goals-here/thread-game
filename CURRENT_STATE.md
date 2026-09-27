@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-03
+Last updated: 2026-09-27
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
 
@@ -142,11 +142,15 @@ Verified implemented areas:
 
 ### Daily TikTok automation
 
+- Archive-loop fix prepared and locally tested on `codex/tiktok-archive-rotation`; deployment and live Buffer migration are **not yet verified**. GitHub CLI/Git authentication on this Mac is now restored. Verify the pushed social workflow and its Buffer replacement/scheduling logs before marking the rollout complete.
+- Public-profile diagnosis on 27 September: the 21 September lunchtime video had 248 views; that evening's video and the next 12 posts showed zero. Buffer's 21, 26 and 27 September logs confirm successful sends. The actual TikTok recommendation/eligibility cause remains unconfirmed; removing repetition is not proof that reach will recover.
+- The prepared fix replaces the five-puzzle loop from 28 September with 124 immutable, correctly numbered historical puzzles from 31 March–3 August, excluding FACE/STONE/MOON/BOX/DRAW. No archive puzzle recycles; after 29 January 2027 the extra slot pauses until reviewed unused material is appended, while daily videos continue.
+- The prepared migration validates replacement media before replacing only future scheduled legacy-caption archive posts. Sent/sending/error, imminent, manual/edited, and dates outside the plan remain untouched. TikTok photo sizing now measures visible content so the larger archive pool fits the existing safe area.
 - The same workflow now maintains a separate eight-item TikTok queue without changing Instagram's timings or media.
 - The 11:37 and 16:37 runs provide repair windows before TikTok's midday growth post and both platforms' evening video post.
 - TikTok publishes two London-time slots: a curated archive growth post at 12:30 and the previous day's Thread video at 18:30.
 - Tuesday and Friday growth slots use seven-image 1080×1920 photo carousels; other growth slots use 30-second archive puzzle videos.
-- The archive selector is deterministic, avoids matching the evening daily answer, and currently rotates five approved historical Threads: FACE, STONE, MOON, BOX, and DRAW.
+- The legacy archive selector (before 28 September) rotates five puzzles. Its `threadNumber` values were source IDs, not actual daily schedule numbers; only the replacement snapshots use verified original dates and Thread numbers.
 - TikTok copy asks viewers to comment a 1–5 clue score and follow for a daily puzzle. It does not claim that a website link is available.
 - TikTok videos use the approved reusable narration and are disclosed through Buffer's TikTok `isAiGenerated` metadata.
 - Automated QC verifies all 240 live rounds, both Reel layout modes, all curated 9:16 photo layouts, immutable media dimensions/codecs, channel-specific captions, queue idempotency markers, and both daily TikTok slots.
