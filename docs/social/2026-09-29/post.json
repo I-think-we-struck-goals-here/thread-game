@@ -109,32 +109,33 @@
   },
   "instagramTrial": null,
   "tiktokGrowth": {
-    "threadNumber": 96,
-    "answer": "BOX",
+    "sourceDate": "2026-04-01",
+    "threadNumber": 45,
+    "answer": "FLOOR",
     "clues": [
       {
-        "word": "POST",
-        "connection": "Post box"
+        "word": "DANCE",
+        "connection": "Dance floor"
       },
       {
-        "word": "SAND",
-        "connection": "Sandbox"
+        "word": "GROUND",
+        "connection": "Ground floor"
       },
       {
-        "word": "PANDORA",
-        "connection": "Pandora’s box"
+        "word": "BOARD",
+        "connection": "Floorboard"
       },
       {
-        "word": "JUKE",
-        "connection": "Jukebox"
+        "word": "PLAN",
+        "connection": "Floor plan"
       },
       {
-        "word": "CARD",
-        "connection": "Cardboard box"
+        "word": "SHOW",
+        "connection": "Showroom floor"
       }
     ],
     "format": "photo",
-    "caption": "Swipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+    "caption": "Thread #45 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
   },
-  "generatedAt": "2026-09-25T10:16:11.805Z"
+  "generatedAt": "2026-09-27T22:09:29.705Z"
 }

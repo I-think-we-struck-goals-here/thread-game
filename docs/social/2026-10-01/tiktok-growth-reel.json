@@ -1,28 +1,33 @@
 {
-  "threadNumber": 51,
-  "mode": "join",
-  "answer": "FACE",
+  "threadNumber": 48,
+  "mode": "phrase",
+  "answer": "PLUG",
   "answerNarrationStartMs": 26600,
   "clues": [
     {
-      "word": "INTER",
-      "connection": "Interface"
+      "word": "PULL",
+      "connection": "Pull the plug",
+      "highlight": "plug"
     },
     {
-      "word": "POKER",
-      "connection": "Poker face"
+      "word": "SPARK",
+      "connection": "Spark plug",
+      "highlight": "plug"
     },
     {
-      "word": "VALUE",
-      "connection": "Face value"
+      "word": "EAR",
+      "connection": "Earplug",
+      "highlight": "plug"
     },
     {
-      "word": "PLATE",
-      "connection": "Faceplate"
+      "word": "BATH",
+      "connection": "Bath plug",
+      "highlight": "plug"
     },
     {
-      "word": "CLOCK",
-      "connection": "Clock face"
+      "word": "ELECTRIC",
+      "connection": "Electric plug",
+      "highlight": "plug"
     }
   ],
   "question": "How many clues did you need?",

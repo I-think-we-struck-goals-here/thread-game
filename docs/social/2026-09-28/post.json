@@ -109,67 +109,68 @@
   },
   "instagramTrial": null,
   "tiktokGrowth": {
-    "threadNumber": 84,
-    "answer": "MOON",
+    "sourceDate": "2026-03-31",
+    "threadNumber": 44,
+    "answer": "CRACK",
     "clues": [
       {
-        "word": "HONEY",
-        "connection": "Honeymoon"
+        "word": "WISE",
+        "connection": "Wisecrack"
       },
       {
-        "word": "ONCE",
-        "connection": "Once in a blue moon"
+        "word": "FIRE",
+        "connection": "Firecracker"
       },
       {
-        "word": "FULL",
-        "connection": "Full moon"
+        "word": "DAWN",
+        "connection": "Crack of dawn"
       },
       {
-        "word": "WALK",
-        "connection": "Moonwalk"
+        "word": "DOWN",
+        "connection": "Crackdown"
       },
       {
-        "word": "LIGHT",
-        "connection": "Moonlight"
+        "word": "NUT",
+        "connection": "Nutcracker"
       }
     ],
     "format": "video",
-    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "caption": "Thread #44 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
     "reel": {
-      "threadNumber": 84,
+      "threadNumber": 44,
       "mode": "phrase",
-      "answer": "MOON",
+      "answer": "CRACK",
       "answerNarrationStartMs": 26600,
       "clues": [
         {
-          "word": "HONEY",
-          "connection": "Honeymoon",
-          "highlight": "moon"
+          "word": "WISE",
+          "connection": "Wisecrack",
+          "highlight": "crack"
         },
         {
-          "word": "ONCE",
-          "connection": "Once in a blue moon",
-          "highlight": "moon"
+          "word": "FIRE",
+          "connection": "Firecracker",
+          "highlight": "crack"
         },
         {
-          "word": "FULL",
-          "connection": "Full moon",
-          "highlight": "moon"
+          "word": "DAWN",
+          "connection": "Crack of dawn",
+          "highlight": "Crack"
         },
         {
-          "word": "WALK",
-          "connection": "Moonwalk",
-          "highlight": "Moon"
+          "word": "DOWN",
+          "connection": "Crackdown",
+          "highlight": "Crack"
         },
         {
-          "word": "LIGHT",
-          "connection": "Moonlight",
-          "highlight": "Moon"
+          "word": "NUT",
+          "connection": "Nutcracker",
+          "highlight": "crack"
         }
       ],
       "question": "How many clues did you need?",
       "cta": "Follow for a new puzzle every day"
     }
   },
-  "generatedAt": "2026-09-24T10:08:05.683Z"
+  "generatedAt": "2026-09-27T22:09:28.073Z"
 }

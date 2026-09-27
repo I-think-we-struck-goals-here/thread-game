@@ -1,33 +1,33 @@
 {
-  "threadNumber": 120,
+  "threadNumber": 46,
   "mode": "phrase",
-  "answer": "DRAW",
+  "answer": "BLOW",
   "answerNarrationStartMs": 26600,
   "clues": [
     {
-      "word": "LUCK",
-      "connection": "Luck of the draw",
-      "highlight": "draw"
+      "word": "WHISTLE",
+      "connection": "Whistleblower",
+      "highlight": "blow"
     },
     {
-      "word": "QUICK",
-      "connection": "Quick draw",
-      "highlight": "draw"
+      "word": "MIND",
+      "connection": "Mind-blowing",
+      "highlight": "blow"
     },
     {
-      "word": "SWORD",
-      "connection": "Draw a sword",
-      "highlight": "Draw"
+      "word": "SNOW",
+      "connection": "Snowblower",
+      "highlight": "blow"
     },
     {
-      "word": "BRIDGE",
-      "connection": "Drawbridge",
-      "highlight": "Draw"
+      "word": "OVER",
+      "connection": "Blow over",
+      "highlight": "Blow"
     },
     {
-      "word": "BLANK",
-      "connection": "Draw a blank",
-      "highlight": "Draw"
+      "word": "CANDLE",
+      "connection": "Blow out a candle",
+      "highlight": "Blow"
     }
   ],
   "question": "How many clues did you need?",

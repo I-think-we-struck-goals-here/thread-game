@@ -99,62 +99,68 @@
   },
   "instagramTrial": null,
   "tiktokGrowth": {
-    "threadNumber": 51,
-    "answer": "FACE",
+    "sourceDate": "2026-04-04",
+    "threadNumber": 48,
+    "answer": "PLUG",
     "clues": [
       {
-        "word": "INTER",
-        "connection": "Interface"
+        "word": "PULL",
+        "connection": "Pull the plug"
       },
       {
-        "word": "POKER",
-        "connection": "Poker face"
+        "word": "SPARK",
+        "connection": "Spark plug"
       },
       {
-        "word": "VALUE",
-        "connection": "Face value"
+        "word": "EAR",
+        "connection": "Earplug"
       },
       {
-        "word": "PLATE",
-        "connection": "Faceplate"
+        "word": "BATH",
+        "connection": "Bath plug"
       },
       {
-        "word": "CLOCK",
-        "connection": "Clock face"
+        "word": "ELECTRIC",
+        "connection": "Electric plug"
       }
     ],
     "format": "video",
-    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "caption": "Thread #48 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
     "reel": {
-      "threadNumber": 51,
-      "mode": "join",
-      "answer": "FACE",
+      "threadNumber": 48,
+      "mode": "phrase",
+      "answer": "PLUG",
       "answerNarrationStartMs": 26600,
       "clues": [
         {
-          "word": "INTER",
-          "connection": "Interface"
+          "word": "PULL",
+          "connection": "Pull the plug",
+          "highlight": "plug"
         },
         {
-          "word": "POKER",
-          "connection": "Poker face"
+          "word": "SPARK",
+          "connection": "Spark plug",
+          "highlight": "plug"
         },
         {
-          "word": "VALUE",
-          "connection": "Face value"
+          "word": "EAR",
+          "connection": "Earplug",
+          "highlight": "plug"
         },
         {
-          "word": "PLATE",
-          "connection": "Faceplate"
+          "word": "BATH",
+          "connection": "Bath plug",
+          "highlight": "plug"
         },
         {
-          "word": "CLOCK",
-          "connection": "Clock face"
+          "word": "ELECTRIC",
+          "connection": "Electric plug",
+          "highlight": "plug"
         }
       ],
       "question": "How many clues did you need?",
       "cta": "Follow for a new puzzle every day"
     }
   },
-  "generatedAt": "2026-09-27T10:36:01.430Z"
+  "generatedAt": "2026-09-27T22:09:31.175Z"
 }

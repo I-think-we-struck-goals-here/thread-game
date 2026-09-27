@@ -109,67 +109,68 @@
   },
   "instagramTrial": null,
   "tiktokGrowth": {
-    "threadNumber": 120,
-    "answer": "DRAW",
+    "sourceDate": "2026-04-02",
+    "threadNumber": 46,
+    "answer": "BLOW",
     "clues": [
       {
-        "word": "LUCK",
-        "connection": "Luck of the draw"
+        "word": "WHISTLE",
+        "connection": "Whistleblower"
       },
       {
-        "word": "QUICK",
-        "connection": "Quick draw"
+        "word": "MIND",
+        "connection": "Mind-blowing"
       },
       {
-        "word": "SWORD",
-        "connection": "Draw a sword"
+        "word": "SNOW",
+        "connection": "Snowblower"
       },
       {
-        "word": "BRIDGE",
-        "connection": "Drawbridge"
+        "word": "OVER",
+        "connection": "Blow over"
       },
       {
-        "word": "BLANK",
-        "connection": "Draw a blank"
+        "word": "CANDLE",
+        "connection": "Blow out a candle"
       }
     ],
     "format": "video",
-    "caption": "Can you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "caption": "Thread #46 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
     "reel": {
-      "threadNumber": 120,
+      "threadNumber": 46,
       "mode": "phrase",
-      "answer": "DRAW",
+      "answer": "BLOW",
       "answerNarrationStartMs": 26600,
       "clues": [
         {
-          "word": "LUCK",
-          "connection": "Luck of the draw",
-          "highlight": "draw"
+          "word": "WHISTLE",
+          "connection": "Whistleblower",
+          "highlight": "blow"
         },
         {
-          "word": "QUICK",
-          "connection": "Quick draw",
-          "highlight": "draw"
+          "word": "MIND",
+          "connection": "Mind-blowing",
+          "highlight": "blow"
         },
         {
-          "word": "SWORD",
-          "connection": "Draw a sword",
-          "highlight": "Draw"
+          "word": "SNOW",
+          "connection": "Snowblower",
+          "highlight": "blow"
         },
         {
-          "word": "BRIDGE",
-          "connection": "Drawbridge",
-          "highlight": "Draw"
+          "word": "OVER",
+          "connection": "Blow over",
+          "highlight": "Blow"
         },
         {
-          "word": "BLANK",
-          "connection": "Draw a blank",
-          "highlight": "Draw"
+          "word": "CANDLE",
+          "connection": "Blow out a candle",
+          "highlight": "Blow"
         }
       ],
       "question": "How many clues did you need?",
       "cta": "Follow for a new puzzle every day"
     }
   },
-  "generatedAt": "2026-09-26T09:56:34.487Z"
+  "generatedAt": "2026-09-27T22:09:30.404Z"
 }
