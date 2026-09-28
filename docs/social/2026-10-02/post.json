@@ -1,0 +1,131 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-02",
+  "sourceDate": "2026-10-01",
+  "threadNumber": 228,
+  "answer": "SET",
+  "clues": [
+    {
+      "word": "SUN",
+      "connection": "Sunset"
+    },
+    {
+      "word": "MIND",
+      "connection": "Mindset"
+    },
+    {
+      "word": "BACK",
+      "connection": "Setback"
+    },
+    {
+      "word": "UP",
+      "connection": "Setup"
+    },
+    {
+      "word": "CHESS",
+      "connection": "Chess set"
+    }
+  ],
+  "caption": "Thread #228 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SUN. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #228. Clues revealed: SUN. Find the word connecting all five clues.",
+    "Daily Thread #228. Clues revealed: SUN, MIND. Find the word connecting all five clues.",
+    "Daily Thread #228. Clues revealed: SUN, MIND, BACK. Find the word connecting all five clues.",
+    "Daily Thread #228. Clues revealed: SUN, MIND, BACK, UP. Find the word connecting all five clues.",
+    "Daily Thread #228. Clues revealed: SUN, MIND, BACK, UP, CHESS. Find the word connecting all five clues.",
+    "Daily Thread #228 answer: SET. Connections: Sunset, Mindset, Setback, Setup, Chess set.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSUN was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #228 word-puzzle Reel. The clues SUN, MIND, BACK, UP, CHESS appear one every five seconds. The answer SET makes: Sunset, Mindset, Setback, Setup, Chess set.",
+  "reel": {
+    "threadNumber": 228,
+    "mode": "join",
+    "answer": "SET",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunset"
+      },
+      {
+        "word": "MIND",
+        "connection": "Mindset"
+      },
+      {
+        "word": "BACK",
+        "connection": "Setback"
+      },
+      {
+        "word": "UP",
+        "connection": "Setup"
+      },
+      {
+        "word": "CHESS",
+        "connection": "Chess set"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 228,
+    "mode": "join",
+    "answer": "SET",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SUN",
+        "connection": "Sunset"
+      },
+      {
+        "word": "MIND",
+        "connection": "Mindset"
+      },
+      {
+        "word": "BACK",
+        "connection": "Setback"
+      },
+      {
+        "word": "UP",
+        "connection": "Setup"
+      },
+      {
+        "word": "CHESS",
+        "connection": "Chess set"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-05",
+    "threadNumber": 49,
+    "answer": "BAR",
+    "clues": [
+      {
+        "word": "BEHIND",
+        "connection": "Behind bars"
+      },
+      {
+        "word": "CROW",
+        "connection": "Crowbar"
+      },
+      {
+        "word": "HANDLE",
+        "connection": "Handlebar"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Sidebar"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold bar"
+      }
+    ],
+    "format": "photo",
+    "caption": "Thread #49 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-09-28T11:46:06.486Z"
+}

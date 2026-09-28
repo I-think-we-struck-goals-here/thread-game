@@ -1,0 +1,28 @@
+{
+  "threadNumber": 228,
+  "mode": "join",
+  "answer": "SET",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SUN",
+      "connection": "Sunset"
+    },
+    {
+      "word": "MIND",
+      "connection": "Mindset"
+    },
+    {
+      "word": "BACK",
+      "connection": "Setback"
+    },
+    {
+      "word": "UP",
+      "connection": "Setup"
+    },
+    {
+      "word": "CHESS",
+      "connection": "Chess set"
+    }
+  ]
+}
