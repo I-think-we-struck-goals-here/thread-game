@@ -1,0 +1,35 @@
+{
+  "threadNumber": 50,
+  "mode": "phrase",
+  "answer": "BLOCK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WRITER",
+      "connection": "Writer's block",
+      "highlight": "block"
+    },
+    {
+      "word": "ROAD",
+      "connection": "Roadblock",
+      "highlight": "block"
+    },
+    {
+      "word": "CHIP",
+      "connection": "Chip off the old block",
+      "highlight": "block"
+    },
+    {
+      "word": "MENTAL",
+      "connection": "Mental block",
+      "highlight": "block"
+    },
+    {
+      "word": "BUILDING",
+      "connection": "Building block",
+      "highlight": "block"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

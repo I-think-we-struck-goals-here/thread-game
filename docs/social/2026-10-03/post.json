@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-03",
+  "sourceDate": "2026-10-02",
+  "threadNumber": 229,
+  "answer": "WHEEL",
+  "clues": [
+    {
+      "word": "CART",
+      "connection": "Cartwheel"
+    },
+    {
+      "word": "FLY",
+      "connection": "Flywheel"
+    },
+    {
+      "word": "HAMSTER",
+      "connection": "Hamster wheel"
+    },
+    {
+      "word": "STEERING",
+      "connection": "Steering wheel"
+    },
+    {
+      "word": "SPARE",
+      "connection": "Spare wheel"
+    }
+  ],
+  "caption": "Thread #229 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with CART. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #229. Clues revealed: CART. Find the word connecting all five clues.",
+    "Daily Thread #229. Clues revealed: CART, FLY. Find the word connecting all five clues.",
+    "Daily Thread #229. Clues revealed: CART, FLY, HAMSTER. Find the word connecting all five clues.",
+    "Daily Thread #229. Clues revealed: CART, FLY, HAMSTER, STEERING. Find the word connecting all five clues.",
+    "Daily Thread #229. Clues revealed: CART, FLY, HAMSTER, STEERING, SPARE. Find the word connecting all five clues.",
+    "Daily Thread #229 answer: WHEEL. Connections: Cartwheel, Flywheel, Hamster wheel, Steering wheel, Spare wheel.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nCART was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #229 word-puzzle Reel. The clues CART, FLY, HAMSTER, STEERING, SPARE appear one every five seconds. The answer WHEEL makes: Cartwheel, Flywheel, Hamster wheel, Steering wheel, Spare wheel.",
+  "reel": {
+    "threadNumber": 229,
+    "mode": "join",
+    "answer": "WHEEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CART",
+        "connection": "Cartwheel"
+      },
+      {
+        "word": "FLY",
+        "connection": "Flywheel"
+      },
+      {
+        "word": "HAMSTER",
+        "connection": "Hamster wheel"
+      },
+      {
+        "word": "STEERING",
+        "connection": "Steering wheel"
+      },
+      {
+        "word": "SPARE",
+        "connection": "Spare wheel"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 229,
+    "mode": "join",
+    "answer": "WHEEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CART",
+        "connection": "Cartwheel"
+      },
+      {
+        "word": "FLY",
+        "connection": "Flywheel"
+      },
+      {
+        "word": "HAMSTER",
+        "connection": "Hamster wheel"
+      },
+      {
+        "word": "STEERING",
+        "connection": "Steering wheel"
+      },
+      {
+        "word": "SPARE",
+        "connection": "Spare wheel"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-06",
+    "threadNumber": 50,
+    "answer": "BLOCK",
+    "clues": [
+      {
+        "word": "WRITER",
+        "connection": "Writer's block"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Roadblock"
+      },
+      {
+        "word": "CHIP",
+        "connection": "Chip off the old block"
+      },
+      {
+        "word": "MENTAL",
+        "connection": "Mental block"
+      },
+      {
+        "word": "BUILDING",
+        "connection": "Building block"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #50 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 50,
+      "mode": "phrase",
+      "answer": "BLOCK",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "WRITER",
+          "connection": "Writer's block",
+          "highlight": "block"
+        },
+        {
+          "word": "ROAD",
+          "connection": "Roadblock",
+          "highlight": "block"
+        },
+        {
+          "word": "CHIP",
+          "connection": "Chip off the old block",
+          "highlight": "block"
+        },
+        {
+          "word": "MENTAL",
+          "connection": "Mental block",
+          "highlight": "block"
+        },
+        {
+          "word": "BUILDING",
+          "connection": "Building block",
+          "highlight": "block"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-29T11:25:01.529Z"
+}

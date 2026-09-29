@@ -1,0 +1,28 @@
+{
+  "threadNumber": 229,
+  "mode": "join",
+  "answer": "WHEEL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CART",
+      "connection": "Cartwheel"
+    },
+    {
+      "word": "FLY",
+      "connection": "Flywheel"
+    },
+    {
+      "word": "HAMSTER",
+      "connection": "Hamster wheel"
+    },
+    {
+      "word": "STEERING",
+      "connection": "Steering wheel"
+    },
+    {
+      "word": "SPARE",
+      "connection": "Spare wheel"
+    }
+  ]
+}
