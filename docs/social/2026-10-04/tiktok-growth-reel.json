@@ -1,0 +1,35 @@
+{
+  "threadNumber": 51,
+  "mode": "phrase",
+  "answer": "STRAIGHT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "NARROW",
+      "connection": "Straight and narrow",
+      "highlight": "Straight"
+    },
+    {
+      "word": "JACKET",
+      "connection": "Straitjacket",
+      "highlight": "Strait"
+    },
+    {
+      "word": "FACE",
+      "connection": "Straight-faced",
+      "highlight": "Straight"
+    },
+    {
+      "word": "FORWARD",
+      "connection": "Straightforward",
+      "highlight": "Straight"
+    },
+    {
+      "word": "LINE",
+      "connection": "Straight line",
+      "highlight": "Straight"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

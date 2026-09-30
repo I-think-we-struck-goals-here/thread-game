@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-04",
+  "sourceDate": "2026-10-03",
+  "threadNumber": 230,
+  "answer": "STAND",
+  "clues": [
+    {
+      "word": "GRAND",
+      "connection": "Grandstand"
+    },
+    {
+      "word": "BAND",
+      "connection": "Bandstand"
+    },
+    {
+      "word": "LAST",
+      "connection": "Last stand"
+    },
+    {
+      "word": "ONE",
+      "connection": "One-night stand"
+    },
+    {
+      "word": "TAXI",
+      "connection": "Taxi stand"
+    }
+  ],
+  "caption": "Thread #230 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with GRAND. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #230. Clues revealed: GRAND. Find the word connecting all five clues.",
+    "Daily Thread #230. Clues revealed: GRAND, BAND. Find the word connecting all five clues.",
+    "Daily Thread #230. Clues revealed: GRAND, BAND, LAST. Find the word connecting all five clues.",
+    "Daily Thread #230. Clues revealed: GRAND, BAND, LAST, ONE. Find the word connecting all five clues.",
+    "Daily Thread #230. Clues revealed: GRAND, BAND, LAST, ONE, TAXI. Find the word connecting all five clues.",
+    "Daily Thread #230 answer: STAND. Connections: Grandstand, Bandstand, Last stand, One-night stand, Taxi stand.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nGRAND was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #230 word-puzzle Reel. The clues GRAND, BAND, LAST, ONE, TAXI appear one every five seconds. The answer STAND makes: Grandstand, Bandstand, Last stand, One-night stand, Taxi stand.",
+  "reel": {
+    "threadNumber": 230,
+    "mode": "phrase",
+    "answer": "STAND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GRAND",
+        "connection": "Grandstand",
+        "highlight": "stand"
+      },
+      {
+        "word": "BAND",
+        "connection": "Bandstand",
+        "highlight": "stand"
+      },
+      {
+        "word": "LAST",
+        "connection": "Last stand",
+        "highlight": "stand"
+      },
+      {
+        "word": "ONE",
+        "connection": "One-night stand",
+        "highlight": "stand"
+      },
+      {
+        "word": "TAXI",
+        "connection": "Taxi stand",
+        "highlight": "stand"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 230,
+    "mode": "phrase",
+    "answer": "STAND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GRAND",
+        "connection": "Grandstand",
+        "highlight": "stand"
+      },
+      {
+        "word": "BAND",
+        "connection": "Bandstand",
+        "highlight": "stand"
+      },
+      {
+        "word": "LAST",
+        "connection": "Last stand",
+        "highlight": "stand"
+      },
+      {
+        "word": "ONE",
+        "connection": "One-night stand",
+        "highlight": "stand"
+      },
+      {
+        "word": "TAXI",
+        "connection": "Taxi stand",
+        "highlight": "stand"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-07",
+    "threadNumber": 51,
+    "answer": "STRAIGHT",
+    "clues": [
+      {
+        "word": "NARROW",
+        "connection": "Straight and narrow"
+      },
+      {
+        "word": "JACKET",
+        "connection": "Straitjacket"
+      },
+      {
+        "word": "FACE",
+        "connection": "Straight-faced"
+      },
+      {
+        "word": "FORWARD",
+        "connection": "Straightforward"
+      },
+      {
+        "word": "LINE",
+        "connection": "Straight line"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #51 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 51,
+      "mode": "phrase",
+      "answer": "STRAIGHT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "NARROW",
+          "connection": "Straight and narrow",
+          "highlight": "Straight"
+        },
+        {
+          "word": "JACKET",
+          "connection": "Straitjacket",
+          "highlight": "Strait"
+        },
+        {
+          "word": "FACE",
+          "connection": "Straight-faced",
+          "highlight": "Straight"
+        },
+        {
+          "word": "FORWARD",
+          "connection": "Straightforward",
+          "highlight": "Straight"
+        },
+        {
+          "word": "LINE",
+          "connection": "Straight line",
+          "highlight": "Straight"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-09-30T11:13:07.041Z"
+}
