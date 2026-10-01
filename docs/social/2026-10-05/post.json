@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-05",
+  "sourceDate": "2026-10-04",
+  "threadNumber": 231,
+  "answer": "PUSH",
+  "clues": [
+    {
+      "word": "OVER",
+      "connection": "Pushover"
+    },
+    {
+      "word": "UP",
+      "connection": "Push-up"
+    },
+    {
+      "word": "BUTTON",
+      "connection": "Push-button"
+    },
+    {
+      "word": "BACK",
+      "connection": "Pushback"
+    },
+    {
+      "word": "PRAM",
+      "connection": "Push a pram"
+    }
+  ],
+  "caption": "Thread #231 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with OVER. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #231. Clues revealed: OVER. Find the word connecting all five clues.",
+    "Daily Thread #231. Clues revealed: OVER, UP. Find the word connecting all five clues.",
+    "Daily Thread #231. Clues revealed: OVER, UP, BUTTON. Find the word connecting all five clues.",
+    "Daily Thread #231. Clues revealed: OVER, UP, BUTTON, BACK. Find the word connecting all five clues.",
+    "Daily Thread #231. Clues revealed: OVER, UP, BUTTON, BACK, PRAM. Find the word connecting all five clues.",
+    "Daily Thread #231 answer: PUSH. Connections: Pushover, Push-up, Push-button, Pushback, Push a pram.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nOVER was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #231 word-puzzle Reel. The clues OVER, UP, BUTTON, BACK, PRAM appear one every five seconds. The answer PUSH makes: Pushover, Push-up, Push-button, Pushback, Push a pram.",
+  "reel": {
+    "threadNumber": 231,
+    "mode": "phrase",
+    "answer": "PUSH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Pushover",
+        "highlight": "Push"
+      },
+      {
+        "word": "UP",
+        "connection": "Push-up",
+        "highlight": "Push"
+      },
+      {
+        "word": "BUTTON",
+        "connection": "Push-button",
+        "highlight": "Push"
+      },
+      {
+        "word": "BACK",
+        "connection": "Pushback",
+        "highlight": "Push"
+      },
+      {
+        "word": "PRAM",
+        "connection": "Push a pram",
+        "highlight": "Push"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 231,
+    "mode": "phrase",
+    "answer": "PUSH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OVER",
+        "connection": "Pushover",
+        "highlight": "Push"
+      },
+      {
+        "word": "UP",
+        "connection": "Push-up",
+        "highlight": "Push"
+      },
+      {
+        "word": "BUTTON",
+        "connection": "Push-button",
+        "highlight": "Push"
+      },
+      {
+        "word": "BACK",
+        "connection": "Pushback",
+        "highlight": "Push"
+      },
+      {
+        "word": "PRAM",
+        "connection": "Push a pram",
+        "highlight": "Push"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-08",
+    "threadNumber": 52,
+    "answer": "TICK",
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Clock ticking"
+      },
+      {
+        "word": "BOMB",
+        "connection": "Ticking time bomb"
+      },
+      {
+        "word": "OFF",
+        "connection": "Tick someone off"
+      },
+      {
+        "word": "BOX",
+        "connection": "Tick the box"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Tick or cross"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #52 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 52,
+      "mode": "phrase",
+      "answer": "TICK",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "CLOCK",
+          "connection": "Clock ticking",
+          "highlight": "tick"
+        },
+        {
+          "word": "BOMB",
+          "connection": "Ticking time bomb",
+          "highlight": "Tick"
+        },
+        {
+          "word": "OFF",
+          "connection": "Tick someone off",
+          "highlight": "Tick"
+        },
+        {
+          "word": "BOX",
+          "connection": "Tick the box",
+          "highlight": "Tick"
+        },
+        {
+          "word": "CROSS",
+          "connection": "Tick or cross",
+          "highlight": "Tick"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-01T11:40:35.938Z"
+}

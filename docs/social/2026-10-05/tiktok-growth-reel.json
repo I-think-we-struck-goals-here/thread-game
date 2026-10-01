@@ -1,0 +1,35 @@
+{
+  "threadNumber": 52,
+  "mode": "phrase",
+  "answer": "TICK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CLOCK",
+      "connection": "Clock ticking",
+      "highlight": "tick"
+    },
+    {
+      "word": "BOMB",
+      "connection": "Ticking time bomb",
+      "highlight": "Tick"
+    },
+    {
+      "word": "OFF",
+      "connection": "Tick someone off",
+      "highlight": "Tick"
+    },
+    {
+      "word": "BOX",
+      "connection": "Tick the box",
+      "highlight": "Tick"
+    },
+    {
+      "word": "CROSS",
+      "connection": "Tick or cross",
+      "highlight": "Tick"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
