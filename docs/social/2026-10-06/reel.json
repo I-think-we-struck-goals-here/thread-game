@@ -1,0 +1,33 @@
+{
+  "threadNumber": 232,
+  "mode": "phrase",
+  "answer": "FREE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LANCE",
+      "connection": "Freelance",
+      "highlight": "Free"
+    },
+    {
+      "word": "RANGE",
+      "connection": "Free range",
+      "highlight": "Free"
+    },
+    {
+      "word": "LOAD",
+      "connection": "Freeloader",
+      "highlight": "Free"
+    },
+    {
+      "word": "STYLE",
+      "connection": "Freestyle",
+      "highlight": "Free"
+    },
+    {
+      "word": "FALL",
+      "connection": "Freefall",
+      "highlight": "Free"
+    }
+  ]
+}
