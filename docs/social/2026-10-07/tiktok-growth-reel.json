@@ -1,0 +1,35 @@
+{
+  "threadNumber": 54,
+  "mode": "phrase",
+  "answer": "SHADOW",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FIVE",
+      "connection": "Five o'clock shadow",
+      "highlight": "shadow"
+    },
+    {
+      "word": "EYE",
+      "connection": "Eye shadow",
+      "highlight": "shadow"
+    },
+    {
+      "word": "CABINET",
+      "connection": "Shadow cabinet",
+      "highlight": "Shadow"
+    },
+    {
+      "word": "PUPPET",
+      "connection": "Shadow puppet",
+      "highlight": "Shadow"
+    },
+    {
+      "word": "CAST",
+      "connection": "Cast a shadow",
+      "highlight": "shadow"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

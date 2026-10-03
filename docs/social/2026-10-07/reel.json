@@ -1,0 +1,33 @@
+{
+  "threadNumber": 233,
+  "mode": "phrase",
+  "answer": "LOVE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "PUPPY",
+      "connection": "Puppy love",
+      "highlight": "love"
+    },
+    {
+      "word": "TOUGH",
+      "connection": "Tough love",
+      "highlight": "love"
+    },
+    {
+      "word": "SEAT",
+      "connection": "Loveseat",
+      "highlight": "Love"
+    },
+    {
+      "word": "LETTER",
+      "connection": "Love letter",
+      "highlight": "Love"
+    },
+    {
+      "word": "TENNIS",
+      "connection": "Love (tennis zero)",
+      "highlight": "Love"
+    }
+  ]
+}
