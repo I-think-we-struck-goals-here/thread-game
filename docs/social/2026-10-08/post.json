@@ -1,0 +1,161 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-08",
+  "sourceDate": "2026-10-07",
+  "threadNumber": 234,
+  "answer": "FISH",
+  "clues": [
+    {
+      "word": "SWORD",
+      "connection": "Swordfish"
+    },
+    {
+      "word": "BLOW",
+      "connection": "Blowfish"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Goldfish"
+    },
+    {
+      "word": "STAR",
+      "connection": "Starfish"
+    },
+    {
+      "word": "JELLY",
+      "connection": "Jellyfish"
+    }
+  ],
+  "caption": "Thread #234 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SWORD. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #234. Clues revealed: SWORD. Find the word connecting all five clues.",
+    "Daily Thread #234. Clues revealed: SWORD, BLOW. Find the word connecting all five clues.",
+    "Daily Thread #234. Clues revealed: SWORD, BLOW, GOLD. Find the word connecting all five clues.",
+    "Daily Thread #234. Clues revealed: SWORD, BLOW, GOLD, STAR. Find the word connecting all five clues.",
+    "Daily Thread #234. Clues revealed: SWORD, BLOW, GOLD, STAR, JELLY. Find the word connecting all five clues.",
+    "Daily Thread #234 answer: FISH. Connections: Swordfish, Blowfish, Goldfish, Starfish, Jellyfish.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSWORD was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #234 word-puzzle Reel. The clues SWORD, BLOW, GOLD, STAR, JELLY appear one every five seconds. The answer FISH makes: Swordfish, Blowfish, Goldfish, Starfish, Jellyfish.",
+  "reel": {
+    "threadNumber": 234,
+    "mode": "join",
+    "answer": "FISH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SWORD",
+        "connection": "Swordfish"
+      },
+      {
+        "word": "BLOW",
+        "connection": "Blowfish"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Goldfish"
+      },
+      {
+        "word": "STAR",
+        "connection": "Starfish"
+      },
+      {
+        "word": "JELLY",
+        "connection": "Jellyfish"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 234,
+    "mode": "join",
+    "answer": "FISH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SWORD",
+        "connection": "Swordfish"
+      },
+      {
+        "word": "BLOW",
+        "connection": "Blowfish"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Goldfish"
+      },
+      {
+        "word": "STAR",
+        "connection": "Starfish"
+      },
+      {
+        "word": "JELLY",
+        "connection": "Jellyfish"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-11",
+    "threadNumber": 55,
+    "answer": "SAND",
+    "clues": [
+      {
+        "word": "BEACH",
+        "connection": "Beach sand"
+      },
+      {
+        "word": "CASTLE",
+        "connection": "Sandcastle"
+      },
+      {
+        "word": "QUICK",
+        "connection": "Quicksand"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Sandpaper"
+      },
+      {
+        "word": "STORM",
+        "connection": "Sandstorm"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #55 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 55,
+      "mode": "join",
+      "answer": "SAND",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BEACH",
+          "connection": "Beach sand"
+        },
+        {
+          "word": "CASTLE",
+          "connection": "Sandcastle"
+        },
+        {
+          "word": "QUICK",
+          "connection": "Quicksand"
+        },
+        {
+          "word": "PAPER",
+          "connection": "Sandpaper"
+        },
+        {
+          "word": "STORM",
+          "connection": "Sandstorm"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-04T11:09:39.409Z"
+}

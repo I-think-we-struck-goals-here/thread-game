@@ -1,0 +1,28 @@
+{
+  "threadNumber": 234,
+  "mode": "join",
+  "answer": "FISH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SWORD",
+      "connection": "Swordfish"
+    },
+    {
+      "word": "BLOW",
+      "connection": "Blowfish"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Goldfish"
+    },
+    {
+      "word": "STAR",
+      "connection": "Starfish"
+    },
+    {
+      "word": "JELLY",
+      "connection": "Jellyfish"
+    }
+  ]
+}

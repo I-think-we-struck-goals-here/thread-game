@@ -1,0 +1,30 @@
+{
+  "threadNumber": 234,
+  "mode": "join",
+  "answer": "FISH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SWORD",
+      "connection": "Swordfish"
+    },
+    {
+      "word": "BLOW",
+      "connection": "Blowfish"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Goldfish"
+    },
+    {
+      "word": "STAR",
+      "connection": "Starfish"
+    },
+    {
+      "word": "JELLY",
+      "connection": "Jellyfish"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
