@@ -1,0 +1,33 @@
+{
+  "threadNumber": 235,
+  "mode": "phrase",
+  "answer": "DARK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Dark horse",
+      "highlight": "Dark"
+    },
+    {
+      "word": "WEB",
+      "connection": "Dark web",
+      "highlight": "Dark"
+    },
+    {
+      "word": "ROOM",
+      "connection": "Darkroom",
+      "highlight": "Dark"
+    },
+    {
+      "word": "AGES",
+      "connection": "Dark Ages",
+      "highlight": "Dark"
+    },
+    {
+      "word": "NIGHT",
+      "connection": "After dark",
+      "highlight": "dark"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-09",
+  "sourceDate": "2026-10-08",
+  "threadNumber": 235,
+  "answer": "DARK",
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Dark horse"
+    },
+    {
+      "word": "WEB",
+      "connection": "Dark web"
+    },
+    {
+      "word": "ROOM",
+      "connection": "Darkroom"
+    },
+    {
+      "word": "AGES",
+      "connection": "Dark Ages"
+    },
+    {
+      "word": "NIGHT",
+      "connection": "After dark"
+    }
+  ],
+  "caption": "Thread #235 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with HORSE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #235. Clues revealed: HORSE. Find the word connecting all five clues.",
+    "Daily Thread #235. Clues revealed: HORSE, WEB. Find the word connecting all five clues.",
+    "Daily Thread #235. Clues revealed: HORSE, WEB, ROOM. Find the word connecting all five clues.",
+    "Daily Thread #235. Clues revealed: HORSE, WEB, ROOM, AGES. Find the word connecting all five clues.",
+    "Daily Thread #235. Clues revealed: HORSE, WEB, ROOM, AGES, NIGHT. Find the word connecting all five clues.",
+    "Daily Thread #235 answer: DARK. Connections: Dark horse, Dark web, Darkroom, Dark Ages, After dark.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nHORSE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #235 word-puzzle Reel. The clues HORSE, WEB, ROOM, AGES, NIGHT appear one every five seconds. The answer DARK makes: Dark horse, Dark web, Darkroom, Dark Ages, After dark.",
+  "reel": {
+    "threadNumber": 235,
+    "mode": "phrase",
+    "answer": "DARK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Dark horse",
+        "highlight": "Dark"
+      },
+      {
+        "word": "WEB",
+        "connection": "Dark web",
+        "highlight": "Dark"
+      },
+      {
+        "word": "ROOM",
+        "connection": "Darkroom",
+        "highlight": "Dark"
+      },
+      {
+        "word": "AGES",
+        "connection": "Dark Ages",
+        "highlight": "Dark"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "After dark",
+        "highlight": "dark"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 235,
+    "mode": "phrase",
+    "answer": "DARK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Dark horse",
+        "highlight": "Dark"
+      },
+      {
+        "word": "WEB",
+        "connection": "Dark web",
+        "highlight": "Dark"
+      },
+      {
+        "word": "ROOM",
+        "connection": "Darkroom",
+        "highlight": "Dark"
+      },
+      {
+        "word": "AGES",
+        "connection": "Dark Ages",
+        "highlight": "Dark"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "After dark",
+        "highlight": "dark"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-12",
+    "threadNumber": 56,
+    "answer": "ROPE",
+    "clues": [
+      {
+        "word": "SHOW",
+        "connection": "Show someone the ropes"
+      },
+      {
+        "word": "TIGHT",
+        "connection": "Tightrope"
+      },
+      {
+        "word": "SKIP",
+        "connection": "Skipping rope"
+      },
+      {
+        "word": "JUMP",
+        "connection": "Jump rope"
+      },
+      {
+        "word": "TUG",
+        "connection": "Tug of war rope"
+      }
+    ],
+    "format": "photo",
+    "caption": "Thread #56 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-10-05T12:21:13.828Z"
+}
