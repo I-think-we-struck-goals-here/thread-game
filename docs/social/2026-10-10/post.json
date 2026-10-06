@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-10",
+  "sourceDate": "2026-10-09",
+  "threadNumber": 236,
+  "answer": "WORM",
+  "clues": [
+    {
+      "word": "BOOK",
+      "connection": "Bookworm"
+    },
+    {
+      "word": "GLOW",
+      "connection": "Glowworm"
+    },
+    {
+      "word": "SILK",
+      "connection": "Silkworm"
+    },
+    {
+      "word": "EARTH",
+      "connection": "Earthworm"
+    },
+    {
+      "word": "CAN",
+      "connection": "Can of worms"
+    }
+  ],
+  "caption": "Thread #236 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BOOK. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #236. Clues revealed: BOOK. Find the word connecting all five clues.",
+    "Daily Thread #236. Clues revealed: BOOK, GLOW. Find the word connecting all five clues.",
+    "Daily Thread #236. Clues revealed: BOOK, GLOW, SILK. Find the word connecting all five clues.",
+    "Daily Thread #236. Clues revealed: BOOK, GLOW, SILK, EARTH. Find the word connecting all five clues.",
+    "Daily Thread #236. Clues revealed: BOOK, GLOW, SILK, EARTH, CAN. Find the word connecting all five clues.",
+    "Daily Thread #236 answer: WORM. Connections: Bookworm, Glowworm, Silkworm, Earthworm, Can of worms.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBOOK was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #236 word-puzzle Reel. The clues BOOK, GLOW, SILK, EARTH, CAN appear one every five seconds. The answer WORM makes: Bookworm, Glowworm, Silkworm, Earthworm, Can of worms.",
+  "reel": {
+    "threadNumber": 236,
+    "mode": "phrase",
+    "answer": "WORM",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Bookworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "GLOW",
+        "connection": "Glowworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silkworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Earthworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "CAN",
+        "connection": "Can of worms",
+        "highlight": "worm"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 236,
+    "mode": "phrase",
+    "answer": "WORM",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Bookworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "GLOW",
+        "connection": "Glowworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "SILK",
+        "connection": "Silkworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Earthworm",
+        "highlight": "worm"
+      },
+      {
+        "word": "CAN",
+        "connection": "Can of worms",
+        "highlight": "worm"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-13",
+    "threadNumber": 57,
+    "answer": "SWING",
+    "clues": [
+      {
+        "word": "MOOD",
+        "connection": "Mood swing"
+      },
+      {
+        "word": "FULL",
+        "connection": "In full swing"
+      },
+      {
+        "word": "VOTE",
+        "connection": "Swing vote"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Swinging door"
+      },
+      {
+        "word": "PORCH",
+        "connection": "Porch swing"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #57 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 57,
+      "mode": "phrase",
+      "answer": "SWING",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "MOOD",
+          "connection": "Mood swing",
+          "highlight": "swing"
+        },
+        {
+          "word": "FULL",
+          "connection": "In full swing",
+          "highlight": "swing"
+        },
+        {
+          "word": "VOTE",
+          "connection": "Swing vote",
+          "highlight": "Swing"
+        },
+        {
+          "word": "DOOR",
+          "connection": "Swinging door",
+          "highlight": "Swing"
+        },
+        {
+          "word": "PORCH",
+          "connection": "Porch swing",
+          "highlight": "swing"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-06T12:05:01.617Z"
+}

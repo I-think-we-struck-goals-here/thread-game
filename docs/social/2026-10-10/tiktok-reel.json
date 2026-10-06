@@ -1,0 +1,35 @@
+{
+  "threadNumber": 236,
+  "mode": "phrase",
+  "answer": "WORM",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BOOK",
+      "connection": "Bookworm",
+      "highlight": "worm"
+    },
+    {
+      "word": "GLOW",
+      "connection": "Glowworm",
+      "highlight": "worm"
+    },
+    {
+      "word": "SILK",
+      "connection": "Silkworm",
+      "highlight": "worm"
+    },
+    {
+      "word": "EARTH",
+      "connection": "Earthworm",
+      "highlight": "worm"
+    },
+    {
+      "word": "CAN",
+      "connection": "Can of worms",
+      "highlight": "worm"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

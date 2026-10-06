@@ -1,0 +1,35 @@
+{
+  "threadNumber": 57,
+  "mode": "phrase",
+  "answer": "SWING",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MOOD",
+      "connection": "Mood swing",
+      "highlight": "swing"
+    },
+    {
+      "word": "FULL",
+      "connection": "In full swing",
+      "highlight": "swing"
+    },
+    {
+      "word": "VOTE",
+      "connection": "Swing vote",
+      "highlight": "Swing"
+    },
+    {
+      "word": "DOOR",
+      "connection": "Swinging door",
+      "highlight": "Swing"
+    },
+    {
+      "word": "PORCH",
+      "connection": "Porch swing",
+      "highlight": "swing"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
