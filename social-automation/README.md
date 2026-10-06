@@ -34,6 +34,14 @@ The next scheduling run replaces future queued legacy archive posts within its p
 
 The Buffer API key is stored only as the repository secret `BUFFER_API_KEY`.
 
+### Platform failure isolation
+
+`schedule` and `audit` each attempt Instagram and TikTok independently, in sequence. One platform's exception does not block the other, but any failure still produces a nonzero exit status. The workflow always attempts the separate audit step after successful media publication (unless cancelled), including when scheduling fails. Rendering or media-publication failures still prevent scheduling and audit.
+
+Unavailable-channel errors include only status counts: organizations, channels, matching service, disconnected, locked and available channels. Counts can overlap when a channel is both disconnected and locked. The scheduler never selects an ambiguous channel or treats a disconnected/locked channel as publishable. It does not reconnect accounts or change access automatically.
+
+Offline regression tests exercise the real schedule/audit CLI with each possible platform outage and confirm already-covered slots create no duplicate posts. Existing per-platform caps, recovery flags and media checks remain unchanged.
+
 ## Commands
 
 ```bash
@@ -67,5 +75,7 @@ Buffer's API cannot upload a custom Reel cover. The automation selects the frame
 ## Manual recovery
 
 Open **Actions → Daily Thread social queue → Run workflow**. The job regenerates only missing/stale media and schedules only missing dates.
+
+For `Expected one available ... channel; found 0`, first inspect the accompanying counts and the connection in Buffer's Channels settings. Reconnect the existing channel if disconnected; resolve a locked channel/account access issue if locked. Do not recreate the channel or replace the API key blindly. After connection recovery, run the workflow once and verify both the queue-fill and audit steps. Previously scheduled/sent slots are preserved; expired prior-day posts are not backfilled. A healthy platform continues refilling while the other connection is repaired.
 
 If a future puzzle pool or schedule seed changes, regenerate the affected queued dates before publishing the app change. Historical puzzle mappings must remain immutable.

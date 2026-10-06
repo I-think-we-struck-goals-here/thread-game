@@ -57,6 +57,7 @@ jobs:
         run: node social-automation/cli.mjs render --days 5 --output docs/social
 
       - name: Publish immutable media files
+        id: publish_media
         run: |
           git config user.name "daily-thread-social-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -67,7 +68,7 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Fill both Buffer queues and verify today
+      - name: Fill both Buffer queues independently
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: |
@@ -76,4 +77,9 @@ jobs:
             --queue-size 8 \
             --output docs/social \
             --media-root https://raw.githubusercontent.com/I-think-we-struck-goals-here/thread-game/main/docs/social
-          node social-automation/cli.mjs audit
+
+      - name: Verify both platforms even after a scheduling failure
+        if: ${{ !cancelled() && steps.publish_media.outcome == 'success' }}
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: node social-automation/cli.mjs audit

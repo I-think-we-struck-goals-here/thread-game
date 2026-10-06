@@ -4,6 +4,7 @@ import { readFile, readdir, stat, mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawn } from "node:child_process";
+import { runPlatformTasks, selectBufferChannel } from "./platform-tasks.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const LONDON_TIME_ZONE = "Europe/London";
@@ -724,11 +725,7 @@ async function bufferChannel(apiKey, service) {
     channels.push(...result.channels.map(channel => ({ ...channel, organizationId: organization.id })));
   }
 
-  const available = channels.filter(channel => (
-    channel.service === service && !channel.isDisconnected && !channel.isLocked
-  ));
-  if (available.length !== 1) throw new Error(`Expected one available ${service} channel; found ${available.length}.`);
-  return available[0];
+  return selectBufferChannel(channels, service, organizations.length);
 }
 
 async function bufferPosts(apiKey, channel, statuses) {
@@ -1748,26 +1745,32 @@ if (command === "self-test") {
   const rounds = await loadFutureRounds(roundsPath);
   const archiveRounds = await loadTikTokArchiveRounds(archivePath);
   const posts = desiredPostDates(startDate, days).map(date => postForDate(date, rounds, archiveRounds));
-  await scheduleQueue({
-    posts,
-    outputDir,
-    mediaRoot: flags["media-root"],
-    queueSize,
-    recoverInstagramCarouselDate: flags["recover-instagram-carousel"],
-    lateDelayMinutes,
-  });
-  await scheduleTikTokQueue({
-    posts,
-    outputDir,
-    mediaRoot: flags["media-root"],
-    queueSize,
-    deleteFailuresBefore: flags["delete-tiktok-failures-before"],
-  });
+  await runPlatformTasks("schedule", [
+    ["Instagram", () => scheduleQueue({
+      posts,
+      outputDir,
+      mediaRoot: flags["media-root"],
+      queueSize,
+      recoverInstagramCarouselDate: flags["recover-instagram-carousel"],
+      lateDelayMinutes,
+    })],
+    ["TikTok", () => scheduleTikTokQueue({
+      posts,
+      outputDir,
+      mediaRoot: flags["media-root"],
+      queueSize,
+      deleteFailuresBefore: flags["delete-tiktok-failures-before"],
+    })],
+  ]);
 } else if (command === "audit") {
-  await auditToday();
-  const rounds = await loadFutureRounds(roundsPath);
-  const archiveRounds = await loadTikTokArchiveRounds(archivePath);
-  await auditTikTokToday(postForDate(londonDateKey(), rounds, archiveRounds));
+  await runPlatformTasks("audit", [
+    ["Instagram", () => auditToday()],
+    ["TikTok", async () => {
+      const rounds = await loadFutureRounds(roundsPath);
+      const archiveRounds = await loadTikTokArchiveRounds(archivePath);
+      await auditTikTokToday(postForDate(londonDateKey(), rounds, archiveRounds));
+    }],
+  ]);
 } else {
   help();
   if (command !== "help") process.exitCode = 1;

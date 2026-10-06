@@ -252,6 +252,7 @@ The approved Instagram carousel/Reel and TikTok growth pipeline live in `social-
 - Instagram rule: publish the previous `Europe/London` day's Thread as a carousel at 10:05 and Reel at 18:30; Trial Reel notifications are disabled
 - TikTok rule: publish a never-recycled historical archive puzzle at 12:30 and the previous day's Thread video at 18:30; Tuesday/Friday archive slots use native photo carousels. The 124-puzzle archive plan starts 28 September 2026 and pauses on exhaustion; daily videos continue.
 - reliability: keep at most eight occupied posts per channel, counting failed and sending posts, with two spare Buffer Free slots and three daily checks including pre-publication repairs at 11:37 and 16:37 London time
+- failure isolation: both platforms are attempted independently for scheduling and audit; one disconnected channel no longer blocks the other queue. Any failure still fails the workflow, with safe channel-status counts for diagnosis.
 - media: immutable 1080×1350 Instagram images plus 1080×1920 videos/TikTok images committed under `docs/social/YYYY-MM-DD/`; historical Trial assets under `docs/social/trials/` are archived but unscheduled
 - layout QC: clue type is consistent within each carousel, measures actual glyph width against the slide-one onboarding safe area, never falls below the 22px long-word floor, and uses the locked `#f8f5f0` paper colour
 - publishing: Buffer GraphQL API using the repository secret `BUFFER_API_KEY`

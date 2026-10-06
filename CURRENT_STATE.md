@@ -1,8 +1,16 @@
 # Current State
 
-Last updated: 2026-09-27
+Last updated: 2026-10-06
 
 This file is an operational snapshot of the repo as it exists locally right now. It is intentionally specific to the current working tree, not a timeless product overview.
+
+## October social publishing recovery
+
+- Scope: social queue orchestration and operational diagnostics only, developed in an isolated worktree. The separate dirty native/reporting/backend checkout is not part of this repair.
+- Confirmed incident: the last successful refill was 2 October (Actions run `37058377927`), covering posts through 6 October. From 3 October, `bufferChannel` returned zero eligible Instagram channels; latest pre-fix run `37499400013` failed the same way. Rendering and media tests continued to pass. The previous Instagram-first uncaught exception prevented TikTok refill and skipped both daily audits.
+- Repair: scheduling and audit now attempt each platform independently and fail after collecting any platform errors. The workflow runs the separate audit after successful media publication even if scheduling fails, but not after cancellation/render/publication failure. Per-channel queue limits, deduplication, manual recovery flags, media and captions are unchanged.
+- Channel diagnostics now distinguish missing, disconnected, locked and ambiguous matches using counts only. Signed-in Buffer confirms `daily_thread_play` needs its connection refreshed; the refresh route requests an Instagram login, handed to Zac. Reconnection and live recovery verification remain pending; do not treat the code fix as proof Instagram posting is restored.
+- Verification: 21 offline regressions pass, covering both real CLI commands with either/both/no platform outage, zero duplicate creations for covered slots, channel selection/privacy, non-Error throws and workflow audit gating. The existing suite also passes all 240 carousel rounds, 129 TikTok photo layouts, both Reel modes and schedule/caption checks. Independent review found no blocking issue; a live healthy-platform refill still needs verification.
 
 ## Verified Facts
 

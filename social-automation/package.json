@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node cli.mjs self-test"
+    "test": "node --test platform-tasks.test.mjs && node cli.mjs self-test"
   },
   "dependencies": {
     "playwright": "1.62.1"
