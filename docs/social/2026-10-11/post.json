@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-11",
+  "sourceDate": "2026-10-10",
+  "threadNumber": 237,
+  "answer": "BOX",
+  "clues": [
+    {
+      "word": "POST",
+      "connection": "Post box"
+    },
+    {
+      "word": "SAND",
+      "connection": "Sandbox"
+    },
+    {
+      "word": "PANDORA",
+      "connection": "Pandora's box"
+    },
+    {
+      "word": "JUKE",
+      "connection": "Jukebox"
+    },
+    {
+      "word": "CARD",
+      "connection": "Cardboard box"
+    }
+  ],
+  "caption": "Thread #237 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with POST. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #237. Clues revealed: POST. Find the word connecting all five clues.",
+    "Daily Thread #237. Clues revealed: POST, SAND. Find the word connecting all five clues.",
+    "Daily Thread #237. Clues revealed: POST, SAND, PANDORA. Find the word connecting all five clues.",
+    "Daily Thread #237. Clues revealed: POST, SAND, PANDORA, JUKE. Find the word connecting all five clues.",
+    "Daily Thread #237. Clues revealed: POST, SAND, PANDORA, JUKE, CARD. Find the word connecting all five clues.",
+    "Daily Thread #237 answer: BOX. Connections: Post box, Sandbox, Pandora's box, Jukebox, Cardboard box.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nPOST was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #237 word-puzzle Reel. The clues POST, SAND, PANDORA, JUKE, CARD appear one every five seconds. The answer BOX makes: Post box, Sandbox, Pandora's box, Jukebox, Cardboard box.",
+  "reel": {
+    "threadNumber": 237,
+    "mode": "phrase",
+    "answer": "BOX",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box",
+        "highlight": "box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox",
+        "highlight": "box"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora's box",
+        "highlight": "box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox",
+        "highlight": "box"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box",
+        "highlight": "box"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 237,
+    "mode": "phrase",
+    "answer": "BOX",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "POST",
+        "connection": "Post box",
+        "highlight": "box"
+      },
+      {
+        "word": "SAND",
+        "connection": "Sandbox",
+        "highlight": "box"
+      },
+      {
+        "word": "PANDORA",
+        "connection": "Pandora's box",
+        "highlight": "box"
+      },
+      {
+        "word": "JUKE",
+        "connection": "Jukebox",
+        "highlight": "box"
+      },
+      {
+        "word": "CARD",
+        "connection": "Cardboard box",
+        "highlight": "box"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-14",
+    "threadNumber": 58,
+    "answer": "FENCE",
+    "clues": [
+      {
+        "word": "SITTING",
+        "connection": "Sitting on the fence"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Fencing (the sport)"
+      },
+      {
+        "word": "PICKET",
+        "connection": "Picket fence"
+      },
+      {
+        "word": "GARDEN",
+        "connection": "Garden fence"
+      },
+      {
+        "word": "POST",
+        "connection": "Fence post"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #58 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 58,
+      "mode": "phrase",
+      "answer": "FENCE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SITTING",
+          "connection": "Sitting on the fence",
+          "highlight": "fence"
+        },
+        {
+          "word": "SWORD",
+          "connection": "Fencing (the sport)",
+          "highlight": "Fencing"
+        },
+        {
+          "word": "PICKET",
+          "connection": "Picket fence",
+          "highlight": "fence"
+        },
+        {
+          "word": "GARDEN",
+          "connection": "Garden fence",
+          "highlight": "fence"
+        },
+        {
+          "word": "POST",
+          "connection": "Fence post",
+          "highlight": "Fence"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-07T11:50:45.910Z"
+}
