@@ -1,0 +1,28 @@
+{
+  "threadNumber": 238,
+  "mode": "join",
+  "answer": "POWER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Horsepower"
+    },
+    {
+      "word": "MAN",
+      "connection": "Manpower"
+    },
+    {
+      "word": "WILL",
+      "connection": "Willpower"
+    },
+    {
+      "word": "FLOWER",
+      "connection": "Flower power"
+    },
+    {
+      "word": "STATION",
+      "connection": "Power station"
+    }
+  ]
+}

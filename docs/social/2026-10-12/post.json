@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-12",
+  "sourceDate": "2026-10-11",
+  "threadNumber": 238,
+  "answer": "POWER",
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Horsepower"
+    },
+    {
+      "word": "MAN",
+      "connection": "Manpower"
+    },
+    {
+      "word": "WILL",
+      "connection": "Willpower"
+    },
+    {
+      "word": "FLOWER",
+      "connection": "Flower power"
+    },
+    {
+      "word": "STATION",
+      "connection": "Power station"
+    }
+  ],
+  "caption": "Thread #238 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with HORSE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #238. Clues revealed: HORSE. Find the word connecting all five clues.",
+    "Daily Thread #238. Clues revealed: HORSE, MAN. Find the word connecting all five clues.",
+    "Daily Thread #238. Clues revealed: HORSE, MAN, WILL. Find the word connecting all five clues.",
+    "Daily Thread #238. Clues revealed: HORSE, MAN, WILL, FLOWER. Find the word connecting all five clues.",
+    "Daily Thread #238. Clues revealed: HORSE, MAN, WILL, FLOWER, STATION. Find the word connecting all five clues.",
+    "Daily Thread #238 answer: POWER. Connections: Horsepower, Manpower, Willpower, Flower power, Power station.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nHORSE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #238 word-puzzle Reel. The clues HORSE, MAN, WILL, FLOWER, STATION appear one every five seconds. The answer POWER makes: Horsepower, Manpower, Willpower, Flower power, Power station.",
+  "reel": {
+    "threadNumber": 238,
+    "mode": "join",
+    "answer": "POWER",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horsepower"
+      },
+      {
+        "word": "MAN",
+        "connection": "Manpower"
+      },
+      {
+        "word": "WILL",
+        "connection": "Willpower"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower power"
+      },
+      {
+        "word": "STATION",
+        "connection": "Power station"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 238,
+    "mode": "join",
+    "answer": "POWER",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horsepower"
+      },
+      {
+        "word": "MAN",
+        "connection": "Manpower"
+      },
+      {
+        "word": "WILL",
+        "connection": "Willpower"
+      },
+      {
+        "word": "FLOWER",
+        "connection": "Flower power"
+      },
+      {
+        "word": "STATION",
+        "connection": "Power station"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-15",
+    "threadNumber": 59,
+    "answer": "PEPPER",
+    "clues": [
+      {
+        "word": "SERGEANT",
+        "connection": "Sgt. Pepper's"
+      },
+      {
+        "word": "CORN",
+        "connection": "Peppercorn"
+      },
+      {
+        "word": "MINT",
+        "connection": "Peppermint"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Pepper spray"
+      },
+      {
+        "word": "SALT",
+        "connection": "Salt and pepper"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #59 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 59,
+      "mode": "phrase",
+      "answer": "PEPPER",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SERGEANT",
+          "connection": "Sgt. Pepper's",
+          "highlight": "Pepper"
+        },
+        {
+          "word": "CORN",
+          "connection": "Peppercorn",
+          "highlight": "Pepper"
+        },
+        {
+          "word": "MINT",
+          "connection": "Peppermint",
+          "highlight": "Pepper"
+        },
+        {
+          "word": "SPRAY",
+          "connection": "Pepper spray",
+          "highlight": "Pepper"
+        },
+        {
+          "word": "SALT",
+          "connection": "Salt and pepper",
+          "highlight": "pepper"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-08T12:05:46.223Z"
+}
