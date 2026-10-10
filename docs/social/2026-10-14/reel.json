@@ -1,0 +1,33 @@
+{
+  "threadNumber": 240,
+  "mode": "phrase",
+  "answer": "WORK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CLOCK",
+      "connection": "Clockwork",
+      "highlight": "work"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Fireworks",
+      "highlight": "work"
+    },
+    {
+      "word": "TEAM",
+      "connection": "Teamwork",
+      "highlight": "work"
+    },
+    {
+      "word": "NET",
+      "connection": "Network",
+      "highlight": "work"
+    },
+    {
+      "word": "HOME",
+      "connection": "Homework",
+      "highlight": "work"
+    }
+  ]
+}
