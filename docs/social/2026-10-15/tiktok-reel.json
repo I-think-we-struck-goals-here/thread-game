@@ -1,0 +1,30 @@
+{
+  "threadNumber": 241,
+  "mode": "join",
+  "answer": "MONKEY",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WRENCH",
+      "connection": "Monkey wrench"
+    },
+    {
+      "word": "BUSINESS",
+      "connection": "Monkey business"
+    },
+    {
+      "word": "BARS",
+      "connection": "Monkey bars"
+    },
+    {
+      "word": "SPIDER",
+      "connection": "Spider monkey"
+    },
+    {
+      "word": "BRASS",
+      "connection": "Brass monkey"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
