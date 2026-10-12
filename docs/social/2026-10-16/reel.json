@@ -1,0 +1,33 @@
+{
+  "threadNumber": 242,
+  "mode": "phrase",
+  "answer": "LIP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BITE",
+      "connection": "Bite your lip",
+      "highlight": "lip"
+    },
+    {
+      "word": "STIFF",
+      "connection": "Stiff upper lip",
+      "highlight": "lip"
+    },
+    {
+      "word": "READ",
+      "connection": "Lip reading",
+      "highlight": "Lip"
+    },
+    {
+      "word": "STICK",
+      "connection": "Lipstick",
+      "highlight": "Lip"
+    },
+    {
+      "word": "SERVICE",
+      "connection": "Lip service",
+      "highlight": "Lip"
+    }
+  ]
+}
