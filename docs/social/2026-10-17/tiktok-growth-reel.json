@@ -1,0 +1,35 @@
+{
+  "threadNumber": 64,
+  "mode": "phrase",
+  "answer": "BED",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HOT",
+      "connection": "Hotbed",
+      "highlight": "bed"
+    },
+    {
+      "word": "RIVER",
+      "connection": "Riverbed",
+      "highlight": "bed"
+    },
+    {
+      "word": "ROSE",
+      "connection": "Bed of roses",
+      "highlight": "Bed"
+    },
+    {
+      "word": "BUG",
+      "connection": "Bed bug",
+      "highlight": "Bed"
+    },
+    {
+      "word": "TIME",
+      "connection": "Bedtime",
+      "highlight": "Bed"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

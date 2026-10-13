@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-17",
+  "sourceDate": "2026-10-16",
+  "threadNumber": 243,
+  "answer": "HAND",
+  "clues": [
+    {
+      "word": "CLOCK",
+      "connection": "Hands of a clock"
+    },
+    {
+      "word": "SECOND",
+      "connection": "Secondhand"
+    },
+    {
+      "word": "SHORT",
+      "connection": "Shorthand"
+    },
+    {
+      "word": "UPPER",
+      "connection": "Upper hand"
+    },
+    {
+      "word": "SHAKE",
+      "connection": "Handshake"
+    }
+  ],
+  "caption": "Thread #243 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with CLOCK. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #243. Clues revealed: CLOCK. Find the word connecting all five clues.",
+    "Daily Thread #243. Clues revealed: CLOCK, SECOND. Find the word connecting all five clues.",
+    "Daily Thread #243. Clues revealed: CLOCK, SECOND, SHORT. Find the word connecting all five clues.",
+    "Daily Thread #243. Clues revealed: CLOCK, SECOND, SHORT, UPPER. Find the word connecting all five clues.",
+    "Daily Thread #243. Clues revealed: CLOCK, SECOND, SHORT, UPPER, SHAKE. Find the word connecting all five clues.",
+    "Daily Thread #243 answer: HAND. Connections: Hands of a clock, Secondhand, Shorthand, Upper hand, Handshake.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nCLOCK was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #243 word-puzzle Reel. The clues CLOCK, SECOND, SHORT, UPPER, SHAKE appear one every five seconds. The answer HAND makes: Hands of a clock, Secondhand, Shorthand, Upper hand, Handshake.",
+  "reel": {
+    "threadNumber": 243,
+    "mode": "phrase",
+    "answer": "HAND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Hands of a clock",
+        "highlight": "Hand"
+      },
+      {
+        "word": "SECOND",
+        "connection": "Secondhand",
+        "highlight": "hand"
+      },
+      {
+        "word": "SHORT",
+        "connection": "Shorthand",
+        "highlight": "hand"
+      },
+      {
+        "word": "UPPER",
+        "connection": "Upper hand",
+        "highlight": "hand"
+      },
+      {
+        "word": "SHAKE",
+        "connection": "Handshake",
+        "highlight": "Hand"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 243,
+    "mode": "phrase",
+    "answer": "HAND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "CLOCK",
+        "connection": "Hands of a clock",
+        "highlight": "Hand"
+      },
+      {
+        "word": "SECOND",
+        "connection": "Secondhand",
+        "highlight": "hand"
+      },
+      {
+        "word": "SHORT",
+        "connection": "Shorthand",
+        "highlight": "hand"
+      },
+      {
+        "word": "UPPER",
+        "connection": "Upper hand",
+        "highlight": "hand"
+      },
+      {
+        "word": "SHAKE",
+        "connection": "Handshake",
+        "highlight": "Hand"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-20",
+    "threadNumber": 64,
+    "answer": "BED",
+    "clues": [
+      {
+        "word": "HOT",
+        "connection": "Hotbed"
+      },
+      {
+        "word": "RIVER",
+        "connection": "Riverbed"
+      },
+      {
+        "word": "ROSE",
+        "connection": "Bed of roses"
+      },
+      {
+        "word": "BUG",
+        "connection": "Bed bug"
+      },
+      {
+        "word": "TIME",
+        "connection": "Bedtime"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #64 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 64,
+      "mode": "phrase",
+      "answer": "BED",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HOT",
+          "connection": "Hotbed",
+          "highlight": "bed"
+        },
+        {
+          "word": "RIVER",
+          "connection": "Riverbed",
+          "highlight": "bed"
+        },
+        {
+          "word": "ROSE",
+          "connection": "Bed of roses",
+          "highlight": "Bed"
+        },
+        {
+          "word": "BUG",
+          "connection": "Bed bug",
+          "highlight": "Bed"
+        },
+        {
+          "word": "TIME",
+          "connection": "Bedtime",
+          "highlight": "Bed"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-13T12:46:26.616Z"
+}

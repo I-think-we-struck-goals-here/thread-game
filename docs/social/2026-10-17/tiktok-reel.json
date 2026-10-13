@@ -1,0 +1,35 @@
+{
+  "threadNumber": 243,
+  "mode": "phrase",
+  "answer": "HAND",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CLOCK",
+      "connection": "Hands of a clock",
+      "highlight": "Hand"
+    },
+    {
+      "word": "SECOND",
+      "connection": "Secondhand",
+      "highlight": "hand"
+    },
+    {
+      "word": "SHORT",
+      "connection": "Shorthand",
+      "highlight": "hand"
+    },
+    {
+      "word": "UPPER",
+      "connection": "Upper hand",
+      "highlight": "hand"
+    },
+    {
+      "word": "SHAKE",
+      "connection": "Handshake",
+      "highlight": "Hand"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
