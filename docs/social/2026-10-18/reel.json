@@ -1,0 +1,33 @@
+{
+  "threadNumber": 244,
+  "mode": "phrase",
+  "answer": "SHIP",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WORK",
+      "connection": "Workmanship",
+      "highlight": "ship"
+    },
+    {
+      "word": "OWNER",
+      "connection": "Ownership",
+      "highlight": "ship"
+    },
+    {
+      "word": "FLAG",
+      "connection": "Flagship",
+      "highlight": "ship"
+    },
+    {
+      "word": "BATTLE",
+      "connection": "Battleship",
+      "highlight": "ship"
+    },
+    {
+      "word": "ROCKET",
+      "connection": "Rocket ship",
+      "highlight": "ship"
+    }
+  ]
+}

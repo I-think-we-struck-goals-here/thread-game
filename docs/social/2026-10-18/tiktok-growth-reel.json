@@ -1,0 +1,30 @@
+{
+  "threadNumber": 65,
+  "mode": "join",
+  "answer": "COLD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SHOULDER",
+      "connection": "Cold shoulder"
+    },
+    {
+      "word": "CASE",
+      "connection": "Cold case"
+    },
+    {
+      "word": "FEET",
+      "connection": "Cold feet"
+    },
+    {
+      "word": "TURKEY",
+      "connection": "Cold turkey"
+    },
+    {
+      "word": "WAR",
+      "connection": "Cold War"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-18",
+  "sourceDate": "2026-10-17",
+  "threadNumber": 244,
+  "answer": "SHIP",
+  "clues": [
+    {
+      "word": "WORK",
+      "connection": "Workmanship"
+    },
+    {
+      "word": "OWNER",
+      "connection": "Ownership"
+    },
+    {
+      "word": "FLAG",
+      "connection": "Flagship"
+    },
+    {
+      "word": "BATTLE",
+      "connection": "Battleship"
+    },
+    {
+      "word": "ROCKET",
+      "connection": "Rocket ship"
+    }
+  ],
+  "caption": "Thread #244 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with WORK. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #244. Clues revealed: WORK. Find the word connecting all five clues.",
+    "Daily Thread #244. Clues revealed: WORK, OWNER. Find the word connecting all five clues.",
+    "Daily Thread #244. Clues revealed: WORK, OWNER, FLAG. Find the word connecting all five clues.",
+    "Daily Thread #244. Clues revealed: WORK, OWNER, FLAG, BATTLE. Find the word connecting all five clues.",
+    "Daily Thread #244. Clues revealed: WORK, OWNER, FLAG, BATTLE, ROCKET. Find the word connecting all five clues.",
+    "Daily Thread #244 answer: SHIP. Connections: Workmanship, Ownership, Flagship, Battleship, Rocket ship.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nWORK was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #244 word-puzzle Reel. The clues WORK, OWNER, FLAG, BATTLE, ROCKET appear one every five seconds. The answer SHIP makes: Workmanship, Ownership, Flagship, Battleship, Rocket ship.",
+  "reel": {
+    "threadNumber": 244,
+    "mode": "phrase",
+    "answer": "SHIP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WORK",
+        "connection": "Workmanship",
+        "highlight": "ship"
+      },
+      {
+        "word": "OWNER",
+        "connection": "Ownership",
+        "highlight": "ship"
+      },
+      {
+        "word": "FLAG",
+        "connection": "Flagship",
+        "highlight": "ship"
+      },
+      {
+        "word": "BATTLE",
+        "connection": "Battleship",
+        "highlight": "ship"
+      },
+      {
+        "word": "ROCKET",
+        "connection": "Rocket ship",
+        "highlight": "ship"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 244,
+    "mode": "phrase",
+    "answer": "SHIP",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WORK",
+        "connection": "Workmanship",
+        "highlight": "ship"
+      },
+      {
+        "word": "OWNER",
+        "connection": "Ownership",
+        "highlight": "ship"
+      },
+      {
+        "word": "FLAG",
+        "connection": "Flagship",
+        "highlight": "ship"
+      },
+      {
+        "word": "BATTLE",
+        "connection": "Battleship",
+        "highlight": "ship"
+      },
+      {
+        "word": "ROCKET",
+        "connection": "Rocket ship",
+        "highlight": "ship"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-21",
+    "threadNumber": 65,
+    "answer": "COLD",
+    "clues": [
+      {
+        "word": "SHOULDER",
+        "connection": "Cold shoulder"
+      },
+      {
+        "word": "CASE",
+        "connection": "Cold case"
+      },
+      {
+        "word": "FEET",
+        "connection": "Cold feet"
+      },
+      {
+        "word": "TURKEY",
+        "connection": "Cold turkey"
+      },
+      {
+        "word": "WAR",
+        "connection": "Cold War"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #65 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 65,
+      "mode": "join",
+      "answer": "COLD",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SHOULDER",
+          "connection": "Cold shoulder"
+        },
+        {
+          "word": "CASE",
+          "connection": "Cold case"
+        },
+        {
+          "word": "FEET",
+          "connection": "Cold feet"
+        },
+        {
+          "word": "TURKEY",
+          "connection": "Cold turkey"
+        },
+        {
+          "word": "WAR",
+          "connection": "Cold War"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-14T10:18:23.944Z"
+}
