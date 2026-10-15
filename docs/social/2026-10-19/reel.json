@@ -1,0 +1,33 @@
+{
+  "threadNumber": 245,
+  "mode": "phrase",
+  "answer": "MIRROR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SMOKE",
+      "connection": "Smoke and mirrors",
+      "highlight": "mirror"
+    },
+    {
+      "word": "REAR",
+      "connection": "Rear-view mirror",
+      "highlight": "mirror"
+    },
+    {
+      "word": "IMAGE",
+      "connection": "Mirror image",
+      "highlight": "Mirror"
+    },
+    {
+      "word": "WING",
+      "connection": "Wing mirror",
+      "highlight": "mirror"
+    },
+    {
+      "word": "BATHROOM",
+      "connection": "Bathroom mirror",
+      "highlight": "mirror"
+    }
+  ]
+}

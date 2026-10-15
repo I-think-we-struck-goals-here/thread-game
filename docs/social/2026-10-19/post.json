@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-19",
+  "sourceDate": "2026-10-18",
+  "threadNumber": 245,
+  "answer": "MIRROR",
+  "clues": [
+    {
+      "word": "SMOKE",
+      "connection": "Smoke and mirrors"
+    },
+    {
+      "word": "REAR",
+      "connection": "Rear-view mirror"
+    },
+    {
+      "word": "IMAGE",
+      "connection": "Mirror image"
+    },
+    {
+      "word": "WING",
+      "connection": "Wing mirror"
+    },
+    {
+      "word": "BATHROOM",
+      "connection": "Bathroom mirror"
+    }
+  ],
+  "caption": "Thread #245 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SMOKE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #245. Clues revealed: SMOKE. Find the word connecting all five clues.",
+    "Daily Thread #245. Clues revealed: SMOKE, REAR. Find the word connecting all five clues.",
+    "Daily Thread #245. Clues revealed: SMOKE, REAR, IMAGE. Find the word connecting all five clues.",
+    "Daily Thread #245. Clues revealed: SMOKE, REAR, IMAGE, WING. Find the word connecting all five clues.",
+    "Daily Thread #245. Clues revealed: SMOKE, REAR, IMAGE, WING, BATHROOM. Find the word connecting all five clues.",
+    "Daily Thread #245 answer: MIRROR. Connections: Smoke and mirrors, Rear-view mirror, Mirror image, Wing mirror, Bathroom mirror.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSMOKE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #245 word-puzzle Reel. The clues SMOKE, REAR, IMAGE, WING, BATHROOM appear one every five seconds. The answer MIRROR makes: Smoke and mirrors, Rear-view mirror, Mirror image, Wing mirror, Bathroom mirror.",
+  "reel": {
+    "threadNumber": 245,
+    "mode": "phrase",
+    "answer": "MIRROR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SMOKE",
+        "connection": "Smoke and mirrors",
+        "highlight": "mirror"
+      },
+      {
+        "word": "REAR",
+        "connection": "Rear-view mirror",
+        "highlight": "mirror"
+      },
+      {
+        "word": "IMAGE",
+        "connection": "Mirror image",
+        "highlight": "Mirror"
+      },
+      {
+        "word": "WING",
+        "connection": "Wing mirror",
+        "highlight": "mirror"
+      },
+      {
+        "word": "BATHROOM",
+        "connection": "Bathroom mirror",
+        "highlight": "mirror"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 245,
+    "mode": "phrase",
+    "answer": "MIRROR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SMOKE",
+        "connection": "Smoke and mirrors",
+        "highlight": "mirror"
+      },
+      {
+        "word": "REAR",
+        "connection": "Rear-view mirror",
+        "highlight": "mirror"
+      },
+      {
+        "word": "IMAGE",
+        "connection": "Mirror image",
+        "highlight": "Mirror"
+      },
+      {
+        "word": "WING",
+        "connection": "Wing mirror",
+        "highlight": "mirror"
+      },
+      {
+        "word": "BATHROOM",
+        "connection": "Bathroom mirror",
+        "highlight": "mirror"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-22",
+    "threadNumber": 66,
+    "answer": "FOOT",
+    "clues": [
+      {
+        "word": "CARBON",
+        "connection": "Carbon footprint"
+      },
+      {
+        "word": "NOTE",
+        "connection": "Footnote"
+      },
+      {
+        "word": "LOOSE",
+        "connection": "Footloose"
+      },
+      {
+        "word": "BARE",
+        "connection": "Barefoot"
+      },
+      {
+        "word": "PRINT",
+        "connection": "Footprint"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #66 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 66,
+      "mode": "phrase",
+      "answer": "FOOT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "CARBON",
+          "connection": "Carbon footprint",
+          "highlight": "foot"
+        },
+        {
+          "word": "NOTE",
+          "connection": "Footnote",
+          "highlight": "Foot"
+        },
+        {
+          "word": "LOOSE",
+          "connection": "Footloose",
+          "highlight": "Foot"
+        },
+        {
+          "word": "BARE",
+          "connection": "Barefoot",
+          "highlight": "foot"
+        },
+        {
+          "word": "PRINT",
+          "connection": "Footprint",
+          "highlight": "Foot"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-15T10:01:41.995Z"
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 66,
+  "mode": "phrase",
+  "answer": "FOOT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CARBON",
+      "connection": "Carbon footprint",
+      "highlight": "foot"
+    },
+    {
+      "word": "NOTE",
+      "connection": "Footnote",
+      "highlight": "Foot"
+    },
+    {
+      "word": "LOOSE",
+      "connection": "Footloose",
+      "highlight": "Foot"
+    },
+    {
+      "word": "BARE",
+      "connection": "Barefoot",
+      "highlight": "foot"
+    },
+    {
+      "word": "PRINT",
+      "connection": "Footprint",
+      "highlight": "Foot"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
