@@ -1,0 +1,30 @@
+{
+  "threadNumber": 246,
+  "mode": "join",
+  "answer": "SILVER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "QUICK",
+      "connection": "Quicksilver"
+    },
+    {
+      "word": "LINING",
+      "connection": "Silver lining"
+    },
+    {
+      "word": "BULLET",
+      "connection": "Silver bullet"
+    },
+    {
+      "word": "SCREEN",
+      "connection": "Silver screen"
+    },
+    {
+      "word": "TONGUE",
+      "connection": "Silver tongue"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
