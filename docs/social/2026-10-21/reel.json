@@ -1,0 +1,33 @@
+{
+  "threadNumber": 247,
+  "mode": "phrase",
+  "answer": "WAR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TUG",
+      "connection": "Tug of war",
+      "highlight": "war"
+    },
+    {
+      "word": "COLD",
+      "connection": "Cold war",
+      "highlight": "war"
+    },
+    {
+      "word": "STAR",
+      "connection": "Star Wars",
+      "highlight": "War"
+    },
+    {
+      "word": "ZONE",
+      "connection": "War zone",
+      "highlight": "War"
+    },
+    {
+      "word": "WORLD",
+      "connection": "World war",
+      "highlight": "war"
+    }
+  ]
+}
