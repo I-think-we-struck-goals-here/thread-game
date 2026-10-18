@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-22",
+  "sourceDate": "2026-10-21",
+  "threadNumber": 248,
+  "answer": "WATCH",
+  "clues": [
+    {
+      "word": "BIRD",
+      "connection": "Birdwatching"
+    },
+    {
+      "word": "DOG",
+      "connection": "Watchdog"
+    },
+    {
+      "word": "NIGHT",
+      "connection": "Night watch"
+    },
+    {
+      "word": "TOWER",
+      "connection": "Watchtower"
+    },
+    {
+      "word": "WRIST",
+      "connection": "Wristwatch"
+    }
+  ],
+  "caption": "Thread #248 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BIRD. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #248. Clues revealed: BIRD. Find the word connecting all five clues.",
+    "Daily Thread #248. Clues revealed: BIRD, DOG. Find the word connecting all five clues.",
+    "Daily Thread #248. Clues revealed: BIRD, DOG, NIGHT. Find the word connecting all five clues.",
+    "Daily Thread #248. Clues revealed: BIRD, DOG, NIGHT, TOWER. Find the word connecting all five clues.",
+    "Daily Thread #248. Clues revealed: BIRD, DOG, NIGHT, TOWER, WRIST. Find the word connecting all five clues.",
+    "Daily Thread #248 answer: WATCH. Connections: Birdwatching, Watchdog, Night watch, Watchtower, Wristwatch.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBIRD was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #248 word-puzzle Reel. The clues BIRD, DOG, NIGHT, TOWER, WRIST appear one every five seconds. The answer WATCH makes: Birdwatching, Watchdog, Night watch, Watchtower, Wristwatch.",
+  "reel": {
+    "threadNumber": 248,
+    "mode": "phrase",
+    "answer": "WATCH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BIRD",
+        "connection": "Birdwatching",
+        "highlight": "watch"
+      },
+      {
+        "word": "DOG",
+        "connection": "Watchdog",
+        "highlight": "Watch"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Night watch",
+        "highlight": "watch"
+      },
+      {
+        "word": "TOWER",
+        "connection": "Watchtower",
+        "highlight": "Watch"
+      },
+      {
+        "word": "WRIST",
+        "connection": "Wristwatch",
+        "highlight": "watch"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 248,
+    "mode": "phrase",
+    "answer": "WATCH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BIRD",
+        "connection": "Birdwatching",
+        "highlight": "watch"
+      },
+      {
+        "word": "DOG",
+        "connection": "Watchdog",
+        "highlight": "Watch"
+      },
+      {
+        "word": "NIGHT",
+        "connection": "Night watch",
+        "highlight": "watch"
+      },
+      {
+        "word": "TOWER",
+        "connection": "Watchtower",
+        "highlight": "Watch"
+      },
+      {
+        "word": "WRIST",
+        "connection": "Wristwatch",
+        "highlight": "watch"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-25",
+    "threadNumber": 69,
+    "answer": "HOOK",
+    "clues": [
+      {
+        "word": "OFF",
+        "connection": "Off the hook"
+      },
+      {
+        "word": "SINKER",
+        "connection": "Hook, line and sinker"
+      },
+      {
+        "word": "CROCHET",
+        "connection": "Crochet hook"
+      },
+      {
+        "word": "FISH",
+        "connection": "Fish hook"
+      },
+      {
+        "word": "CAPTAIN",
+        "connection": "Captain Hook"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #69 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 69,
+      "mode": "phrase",
+      "answer": "HOOK",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "OFF",
+          "connection": "Off the hook",
+          "highlight": "hook"
+        },
+        {
+          "word": "SINKER",
+          "connection": "Hook, line and sinker",
+          "highlight": "Hook"
+        },
+        {
+          "word": "CROCHET",
+          "connection": "Crochet hook",
+          "highlight": "hook"
+        },
+        {
+          "word": "FISH",
+          "connection": "Fish hook",
+          "highlight": "hook"
+        },
+        {
+          "word": "CAPTAIN",
+          "connection": "Captain Hook",
+          "highlight": "Hook"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-18T09:42:00.190Z"
+}

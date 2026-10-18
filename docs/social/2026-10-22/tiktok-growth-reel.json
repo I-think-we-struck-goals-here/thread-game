@@ -1,0 +1,35 @@
+{
+  "threadNumber": 69,
+  "mode": "phrase",
+  "answer": "HOOK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "OFF",
+      "connection": "Off the hook",
+      "highlight": "hook"
+    },
+    {
+      "word": "SINKER",
+      "connection": "Hook, line and sinker",
+      "highlight": "Hook"
+    },
+    {
+      "word": "CROCHET",
+      "connection": "Crochet hook",
+      "highlight": "hook"
+    },
+    {
+      "word": "FISH",
+      "connection": "Fish hook",
+      "highlight": "hook"
+    },
+    {
+      "word": "CAPTAIN",
+      "connection": "Captain Hook",
+      "highlight": "Hook"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

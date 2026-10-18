@@ -1,0 +1,35 @@
+{
+  "threadNumber": 248,
+  "mode": "phrase",
+  "answer": "WATCH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BIRD",
+      "connection": "Birdwatching",
+      "highlight": "watch"
+    },
+    {
+      "word": "DOG",
+      "connection": "Watchdog",
+      "highlight": "Watch"
+    },
+    {
+      "word": "NIGHT",
+      "connection": "Night watch",
+      "highlight": "watch"
+    },
+    {
+      "word": "TOWER",
+      "connection": "Watchtower",
+      "highlight": "Watch"
+    },
+    {
+      "word": "WRIST",
+      "connection": "Wristwatch",
+      "highlight": "watch"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
