@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-24",
+  "sourceDate": "2026-10-23",
+  "threadNumber": 250,
+  "answer": "HILL",
+  "clues": [
+    {
+      "word": "ANT",
+      "connection": "Anthill"
+    },
+    {
+      "word": "OVER",
+      "connection": "Over the hill"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Downhill"
+    },
+    {
+      "word": "UP",
+      "connection": "Uphill battle"
+    },
+    {
+      "word": "CLIMB",
+      "connection": "Climb a hill"
+    }
+  ],
+  "caption": "Thread #250 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with ANT. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #250. Clues revealed: ANT. Find the word connecting all five clues.",
+    "Daily Thread #250. Clues revealed: ANT, OVER. Find the word connecting all five clues.",
+    "Daily Thread #250. Clues revealed: ANT, OVER, DOWN. Find the word connecting all five clues.",
+    "Daily Thread #250. Clues revealed: ANT, OVER, DOWN, UP. Find the word connecting all five clues.",
+    "Daily Thread #250. Clues revealed: ANT, OVER, DOWN, UP, CLIMB. Find the word connecting all five clues.",
+    "Daily Thread #250 answer: HILL. Connections: Anthill, Over the hill, Downhill, Uphill battle, Climb a hill.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nANT was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #250 word-puzzle Reel. The clues ANT, OVER, DOWN, UP, CLIMB appear one every five seconds. The answer HILL makes: Anthill, Over the hill, Downhill, Uphill battle, Climb a hill.",
+  "reel": {
+    "threadNumber": 250,
+    "mode": "phrase",
+    "answer": "HILL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "ANT",
+        "connection": "Anthill",
+        "highlight": "hill"
+      },
+      {
+        "word": "OVER",
+        "connection": "Over the hill",
+        "highlight": "hill"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Downhill",
+        "highlight": "hill"
+      },
+      {
+        "word": "UP",
+        "connection": "Uphill battle",
+        "highlight": "hill"
+      },
+      {
+        "word": "CLIMB",
+        "connection": "Climb a hill",
+        "highlight": "hill"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 250,
+    "mode": "phrase",
+    "answer": "HILL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "ANT",
+        "connection": "Anthill",
+        "highlight": "hill"
+      },
+      {
+        "word": "OVER",
+        "connection": "Over the hill",
+        "highlight": "hill"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Downhill",
+        "highlight": "hill"
+      },
+      {
+        "word": "UP",
+        "connection": "Uphill battle",
+        "highlight": "hill"
+      },
+      {
+        "word": "CLIMB",
+        "connection": "Climb a hill",
+        "highlight": "hill"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-27",
+    "threadNumber": 71,
+    "answer": "PIN",
+    "clues": [
+      {
+        "word": "KING",
+        "connection": "Kingpin"
+      },
+      {
+        "word": "ROLLING",
+        "connection": "Rolling pin"
+      },
+      {
+        "word": "TAIL",
+        "connection": "Pin the tail on the donkey"
+      },
+      {
+        "word": "CUSHION",
+        "connection": "Pincushion"
+      },
+      {
+        "word": "SAFETY",
+        "connection": "Safety pin"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #71 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 71,
+      "mode": "phrase",
+      "answer": "PIN",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "KING",
+          "connection": "Kingpin",
+          "highlight": "pin"
+        },
+        {
+          "word": "ROLLING",
+          "connection": "Rolling pin",
+          "highlight": "pin"
+        },
+        {
+          "word": "TAIL",
+          "connection": "Pin the tail on the donkey",
+          "highlight": "Pin"
+        },
+        {
+          "word": "CUSHION",
+          "connection": "Pincushion",
+          "highlight": "Pin"
+        },
+        {
+          "word": "SAFETY",
+          "connection": "Safety pin",
+          "highlight": "pin"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-20T10:09:05.724Z"
+}

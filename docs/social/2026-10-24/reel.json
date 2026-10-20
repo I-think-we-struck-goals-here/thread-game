@@ -1,0 +1,33 @@
+{
+  "threadNumber": 250,
+  "mode": "phrase",
+  "answer": "HILL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "ANT",
+      "connection": "Anthill",
+      "highlight": "hill"
+    },
+    {
+      "word": "OVER",
+      "connection": "Over the hill",
+      "highlight": "hill"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Downhill",
+      "highlight": "hill"
+    },
+    {
+      "word": "UP",
+      "connection": "Uphill battle",
+      "highlight": "hill"
+    },
+    {
+      "word": "CLIMB",
+      "connection": "Climb a hill",
+      "highlight": "hill"
+    }
+  ]
+}

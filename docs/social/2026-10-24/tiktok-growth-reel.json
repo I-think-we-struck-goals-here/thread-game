@@ -1,0 +1,35 @@
+{
+  "threadNumber": 71,
+  "mode": "phrase",
+  "answer": "PIN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "KING",
+      "connection": "Kingpin",
+      "highlight": "pin"
+    },
+    {
+      "word": "ROLLING",
+      "connection": "Rolling pin",
+      "highlight": "pin"
+    },
+    {
+      "word": "TAIL",
+      "connection": "Pin the tail on the donkey",
+      "highlight": "Pin"
+    },
+    {
+      "word": "CUSHION",
+      "connection": "Pincushion",
+      "highlight": "Pin"
+    },
+    {
+      "word": "SAFETY",
+      "connection": "Safety pin",
+      "highlight": "pin"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
