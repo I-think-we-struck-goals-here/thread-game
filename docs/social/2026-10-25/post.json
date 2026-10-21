@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-25",
+  "sourceDate": "2026-10-24",
+  "threadNumber": 251,
+  "answer": "SALT",
+  "clues": [
+    {
+      "word": "WOUND",
+      "connection": "Rub salt in the wound"
+    },
+    {
+      "word": "GRAIN",
+      "connection": "Take with a grain of salt"
+    },
+    {
+      "word": "EARTH",
+      "connection": "Salt of the earth"
+    },
+    {
+      "word": "LAKE",
+      "connection": "Salt lake"
+    },
+    {
+      "word": "PEPPER",
+      "connection": "Salt and pepper"
+    }
+  ],
+  "caption": "Thread #251 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with WOUND. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #251. Clues revealed: WOUND. Find the word connecting all five clues.",
+    "Daily Thread #251. Clues revealed: WOUND, GRAIN. Find the word connecting all five clues.",
+    "Daily Thread #251. Clues revealed: WOUND, GRAIN, EARTH. Find the word connecting all five clues.",
+    "Daily Thread #251. Clues revealed: WOUND, GRAIN, EARTH, LAKE. Find the word connecting all five clues.",
+    "Daily Thread #251. Clues revealed: WOUND, GRAIN, EARTH, LAKE, PEPPER. Find the word connecting all five clues.",
+    "Daily Thread #251 answer: SALT. Connections: Rub salt in the wound, Take with a grain of salt, Salt of the earth, Salt lake, Salt and pepper.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nWOUND was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #251 word-puzzle Reel. The clues WOUND, GRAIN, EARTH, LAKE, PEPPER appear one every five seconds. The answer SALT makes: Rub salt in the wound, Take with a grain of salt, Salt of the earth, Salt lake, Salt and pepper.",
+  "reel": {
+    "threadNumber": 251,
+    "mode": "phrase",
+    "answer": "SALT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WOUND",
+        "connection": "Rub salt in the wound",
+        "highlight": "salt"
+      },
+      {
+        "word": "GRAIN",
+        "connection": "Take with a grain of salt",
+        "highlight": "salt"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Salt of the earth",
+        "highlight": "Salt"
+      },
+      {
+        "word": "LAKE",
+        "connection": "Salt lake",
+        "highlight": "Salt"
+      },
+      {
+        "word": "PEPPER",
+        "connection": "Salt and pepper",
+        "highlight": "Salt"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 251,
+    "mode": "phrase",
+    "answer": "SALT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WOUND",
+        "connection": "Rub salt in the wound",
+        "highlight": "salt"
+      },
+      {
+        "word": "GRAIN",
+        "connection": "Take with a grain of salt",
+        "highlight": "salt"
+      },
+      {
+        "word": "EARTH",
+        "connection": "Salt of the earth",
+        "highlight": "Salt"
+      },
+      {
+        "word": "LAKE",
+        "connection": "Salt lake",
+        "highlight": "Salt"
+      },
+      {
+        "word": "PEPPER",
+        "connection": "Salt and pepper",
+        "highlight": "Salt"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-28",
+    "threadNumber": 72,
+    "answer": "BELT",
+    "clues": [
+      {
+        "word": "RUST",
+        "connection": "Rust Belt"
+      },
+      {
+        "word": "BIBLE",
+        "connection": "Bible Belt"
+      },
+      {
+        "word": "BLACK",
+        "connection": "Black belt"
+      },
+      {
+        "word": "SEAT",
+        "connection": "Seat belt"
+      },
+      {
+        "word": "BUCKLE",
+        "connection": "Belt buckle"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #72 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 72,
+      "mode": "join",
+      "answer": "BELT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "RUST",
+          "connection": "Rust Belt"
+        },
+        {
+          "word": "BIBLE",
+          "connection": "Bible Belt"
+        },
+        {
+          "word": "BLACK",
+          "connection": "Black belt"
+        },
+        {
+          "word": "SEAT",
+          "connection": "Seat belt"
+        },
+        {
+          "word": "BUCKLE",
+          "connection": "Belt buckle"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-21T10:16:59.561Z"
+}

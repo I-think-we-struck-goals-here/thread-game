@@ -1,0 +1,35 @@
+{
+  "threadNumber": 251,
+  "mode": "phrase",
+  "answer": "SALT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WOUND",
+      "connection": "Rub salt in the wound",
+      "highlight": "salt"
+    },
+    {
+      "word": "GRAIN",
+      "connection": "Take with a grain of salt",
+      "highlight": "salt"
+    },
+    {
+      "word": "EARTH",
+      "connection": "Salt of the earth",
+      "highlight": "Salt"
+    },
+    {
+      "word": "LAKE",
+      "connection": "Salt lake",
+      "highlight": "Salt"
+    },
+    {
+      "word": "PEPPER",
+      "connection": "Salt and pepper",
+      "highlight": "Salt"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
