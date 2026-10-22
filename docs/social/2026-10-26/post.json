@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-26",
+  "sourceDate": "2026-10-25",
+  "threadNumber": 252,
+  "answer": "PLAY",
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Horseplay"
+    },
+    {
+      "word": "SWORD",
+      "connection": "Swordplay"
+    },
+    {
+      "word": "FAIR",
+      "connection": "Fair play"
+    },
+    {
+      "word": "FOUL",
+      "connection": "Foul play"
+    },
+    {
+      "word": "CHILD",
+      "connection": "Child's play"
+    }
+  ],
+  "caption": "Thread #252 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with HORSE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #252. Clues revealed: HORSE. Find the word connecting all five clues.",
+    "Daily Thread #252. Clues revealed: HORSE, SWORD. Find the word connecting all five clues.",
+    "Daily Thread #252. Clues revealed: HORSE, SWORD, FAIR. Find the word connecting all five clues.",
+    "Daily Thread #252. Clues revealed: HORSE, SWORD, FAIR, FOUL. Find the word connecting all five clues.",
+    "Daily Thread #252. Clues revealed: HORSE, SWORD, FAIR, FOUL, CHILD. Find the word connecting all five clues.",
+    "Daily Thread #252 answer: PLAY. Connections: Horseplay, Swordplay, Fair play, Foul play, Child's play.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nHORSE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #252 word-puzzle Reel. The clues HORSE, SWORD, FAIR, FOUL, CHILD appear one every five seconds. The answer PLAY makes: Horseplay, Swordplay, Fair play, Foul play, Child's play.",
+  "reel": {
+    "threadNumber": 252,
+    "mode": "phrase",
+    "answer": "PLAY",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horseplay",
+        "highlight": "play"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Swordplay",
+        "highlight": "play"
+      },
+      {
+        "word": "FAIR",
+        "connection": "Fair play",
+        "highlight": "play"
+      },
+      {
+        "word": "FOUL",
+        "connection": "Foul play",
+        "highlight": "play"
+      },
+      {
+        "word": "CHILD",
+        "connection": "Child's play",
+        "highlight": "play"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 252,
+    "mode": "phrase",
+    "answer": "PLAY",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Horseplay",
+        "highlight": "play"
+      },
+      {
+        "word": "SWORD",
+        "connection": "Swordplay",
+        "highlight": "play"
+      },
+      {
+        "word": "FAIR",
+        "connection": "Fair play",
+        "highlight": "play"
+      },
+      {
+        "word": "FOUL",
+        "connection": "Foul play",
+        "highlight": "play"
+      },
+      {
+        "word": "CHILD",
+        "connection": "Child's play",
+        "highlight": "play"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-29",
+    "threadNumber": 73,
+    "answer": "JAW",
+    "clues": [
+      {
+        "word": "BONE",
+        "connection": "Jawbone"
+      },
+      {
+        "word": "SLACK",
+        "connection": "Slack-jawed"
+      },
+      {
+        "word": "DROP",
+        "connection": "Jaw-dropping"
+      },
+      {
+        "word": "LOCK",
+        "connection": "Lockjaw"
+      },
+      {
+        "word": "SHARK",
+        "connection": "Jaws (the movie)"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #73 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 73,
+      "mode": "phrase",
+      "answer": "JAW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BONE",
+          "connection": "Jawbone",
+          "highlight": "Jaw"
+        },
+        {
+          "word": "SLACK",
+          "connection": "Slack-jawed",
+          "highlight": "jaw"
+        },
+        {
+          "word": "DROP",
+          "connection": "Jaw-dropping",
+          "highlight": "Jaw"
+        },
+        {
+          "word": "LOCK",
+          "connection": "Lockjaw",
+          "highlight": "jaw"
+        },
+        {
+          "word": "SHARK",
+          "connection": "Jaws (the movie)",
+          "highlight": "Jaw"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-22T10:17:49.300Z"
+}

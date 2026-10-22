@@ -1,0 +1,33 @@
+{
+  "threadNumber": 252,
+  "mode": "phrase",
+  "answer": "PLAY",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HORSE",
+      "connection": "Horseplay",
+      "highlight": "play"
+    },
+    {
+      "word": "SWORD",
+      "connection": "Swordplay",
+      "highlight": "play"
+    },
+    {
+      "word": "FAIR",
+      "connection": "Fair play",
+      "highlight": "play"
+    },
+    {
+      "word": "FOUL",
+      "connection": "Foul play",
+      "highlight": "play"
+    },
+    {
+      "word": "CHILD",
+      "connection": "Child's play",
+      "highlight": "play"
+    }
+  ]
+}
