@@ -1,0 +1,141 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-27",
+  "sourceDate": "2026-10-26",
+  "threadNumber": 253,
+  "answer": "STORM",
+  "clues": [
+    {
+      "word": "BRAIN",
+      "connection": "Brainstorm"
+    },
+    {
+      "word": "BARN",
+      "connection": "Barnstormer"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Firestorm"
+    },
+    {
+      "word": "THUNDER",
+      "connection": "Thunderstorm"
+    },
+    {
+      "word": "SNOW",
+      "connection": "Snowstorm"
+    }
+  ],
+  "caption": "Thread #253 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BRAIN. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #253. Clues revealed: BRAIN. Find the word connecting all five clues.",
+    "Daily Thread #253. Clues revealed: BRAIN, BARN. Find the word connecting all five clues.",
+    "Daily Thread #253. Clues revealed: BRAIN, BARN, FIRE. Find the word connecting all five clues.",
+    "Daily Thread #253. Clues revealed: BRAIN, BARN, FIRE, THUNDER. Find the word connecting all five clues.",
+    "Daily Thread #253. Clues revealed: BRAIN, BARN, FIRE, THUNDER, SNOW. Find the word connecting all five clues.",
+    "Daily Thread #253 answer: STORM. Connections: Brainstorm, Barnstormer, Firestorm, Thunderstorm, Snowstorm.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBRAIN was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #253 word-puzzle Reel. The clues BRAIN, BARN, FIRE, THUNDER, SNOW appear one every five seconds. The answer STORM makes: Brainstorm, Barnstormer, Firestorm, Thunderstorm, Snowstorm.",
+  "reel": {
+    "threadNumber": 253,
+    "mode": "phrase",
+    "answer": "STORM",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BRAIN",
+        "connection": "Brainstorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "BARN",
+        "connection": "Barnstormer",
+        "highlight": "storm"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firestorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "THUNDER",
+        "connection": "Thunderstorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "SNOW",
+        "connection": "Snowstorm",
+        "highlight": "storm"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 253,
+    "mode": "phrase",
+    "answer": "STORM",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BRAIN",
+        "connection": "Brainstorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "BARN",
+        "connection": "Barnstormer",
+        "highlight": "storm"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Firestorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "THUNDER",
+        "connection": "Thunderstorm",
+        "highlight": "storm"
+      },
+      {
+        "word": "SNOW",
+        "connection": "Snowstorm",
+        "highlight": "storm"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-04-30",
+    "threadNumber": 74,
+    "answer": "EDGE",
+    "clues": [
+      {
+        "word": "CUTTING",
+        "connection": "Cutting edge"
+      },
+      {
+        "word": "RAZOR",
+        "connection": "Razor's edge"
+      },
+      {
+        "word": "WATER",
+        "connection": "Water's edge"
+      },
+      {
+        "word": "KNIFE",
+        "connection": "Knife edge"
+      },
+      {
+        "word": "CLIFF",
+        "connection": "Cliff edge"
+      }
+    ],
+    "format": "photo",
+    "caption": "Thread #74 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-10-23T10:11:23.220Z"
+}

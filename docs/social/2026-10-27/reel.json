@@ -1,0 +1,33 @@
+{
+  "threadNumber": 253,
+  "mode": "phrase",
+  "answer": "STORM",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BRAIN",
+      "connection": "Brainstorm",
+      "highlight": "storm"
+    },
+    {
+      "word": "BARN",
+      "connection": "Barnstormer",
+      "highlight": "storm"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Firestorm",
+      "highlight": "storm"
+    },
+    {
+      "word": "THUNDER",
+      "connection": "Thunderstorm",
+      "highlight": "storm"
+    },
+    {
+      "word": "SNOW",
+      "connection": "Snowstorm",
+      "highlight": "storm"
+    }
+  ]
+}
