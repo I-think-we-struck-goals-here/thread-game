@@ -1,0 +1,28 @@
+{
+  "threadNumber": 254,
+  "mode": "join",
+  "answer": "COAT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TURN",
+      "connection": "Turncoat"
+    },
+    {
+      "word": "SUGAR",
+      "connection": "Sugarcoat"
+    },
+    {
+      "word": "UNDER",
+      "connection": "Undercoat"
+    },
+    {
+      "word": "TOP",
+      "connection": "Topcoat"
+    },
+    {
+      "word": "RAIN",
+      "connection": "Raincoat"
+    }
+  ]
+}

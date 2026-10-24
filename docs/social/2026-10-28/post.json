@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-28",
+  "sourceDate": "2026-10-27",
+  "threadNumber": 254,
+  "answer": "COAT",
+  "clues": [
+    {
+      "word": "TURN",
+      "connection": "Turncoat"
+    },
+    {
+      "word": "SUGAR",
+      "connection": "Sugarcoat"
+    },
+    {
+      "word": "UNDER",
+      "connection": "Undercoat"
+    },
+    {
+      "word": "TOP",
+      "connection": "Topcoat"
+    },
+    {
+      "word": "RAIN",
+      "connection": "Raincoat"
+    }
+  ],
+  "caption": "Thread #254 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with TURN. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #254. Clues revealed: TURN. Find the word connecting all five clues.",
+    "Daily Thread #254. Clues revealed: TURN, SUGAR. Find the word connecting all five clues.",
+    "Daily Thread #254. Clues revealed: TURN, SUGAR, UNDER. Find the word connecting all five clues.",
+    "Daily Thread #254. Clues revealed: TURN, SUGAR, UNDER, TOP. Find the word connecting all five clues.",
+    "Daily Thread #254. Clues revealed: TURN, SUGAR, UNDER, TOP, RAIN. Find the word connecting all five clues.",
+    "Daily Thread #254 answer: COAT. Connections: Turncoat, Sugarcoat, Undercoat, Topcoat, Raincoat.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nTURN was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #254 word-puzzle Reel. The clues TURN, SUGAR, UNDER, TOP, RAIN appear one every five seconds. The answer COAT makes: Turncoat, Sugarcoat, Undercoat, Topcoat, Raincoat.",
+  "reel": {
+    "threadNumber": 254,
+    "mode": "join",
+    "answer": "COAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TURN",
+        "connection": "Turncoat"
+      },
+      {
+        "word": "SUGAR",
+        "connection": "Sugarcoat"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Undercoat"
+      },
+      {
+        "word": "TOP",
+        "connection": "Topcoat"
+      },
+      {
+        "word": "RAIN",
+        "connection": "Raincoat"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 254,
+    "mode": "join",
+    "answer": "COAT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "TURN",
+        "connection": "Turncoat"
+      },
+      {
+        "word": "SUGAR",
+        "connection": "Sugarcoat"
+      },
+      {
+        "word": "UNDER",
+        "connection": "Undercoat"
+      },
+      {
+        "word": "TOP",
+        "connection": "Topcoat"
+      },
+      {
+        "word": "RAIN",
+        "connection": "Raincoat"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-01",
+    "threadNumber": 75,
+    "answer": "SOFT",
+    "clues": [
+      {
+        "word": "WARE",
+        "connection": "Software"
+      },
+      {
+        "word": "SPOT",
+        "connection": "Soft spot"
+      },
+      {
+        "word": "BALL",
+        "connection": "Softball"
+      },
+      {
+        "word": "SPOKEN",
+        "connection": "Soft-spoken"
+      },
+      {
+        "word": "SERVE",
+        "connection": "Soft serve (ice cream)"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #75 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 75,
+      "mode": "phrase",
+      "answer": "SOFT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "WARE",
+          "connection": "Software",
+          "highlight": "Soft"
+        },
+        {
+          "word": "SPOT",
+          "connection": "Soft spot",
+          "highlight": "Soft"
+        },
+        {
+          "word": "BALL",
+          "connection": "Softball",
+          "highlight": "Soft"
+        },
+        {
+          "word": "SPOKEN",
+          "connection": "Soft-spoken",
+          "highlight": "Soft"
+        },
+        {
+          "word": "SERVE",
+          "connection": "Soft serve (ice cream)",
+          "highlight": "Soft"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-24T09:37:10.511Z"
+}
