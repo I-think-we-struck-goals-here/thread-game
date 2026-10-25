@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-29",
+  "sourceDate": "2026-10-28",
+  "threadNumber": 255,
+  "answer": "NOTE",
+  "clues": [
+    {
+      "word": "FOOT",
+      "connection": "Footnote"
+    },
+    {
+      "word": "KEY",
+      "connection": "Keynote"
+    },
+    {
+      "word": "WORTHY",
+      "connection": "Noteworthy"
+    },
+    {
+      "word": "STICKY",
+      "connection": "Sticky note"
+    },
+    {
+      "word": "MUSIC",
+      "connection": "Musical note"
+    }
+  ],
+  "caption": "Thread #255 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with FOOT. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #255. Clues revealed: FOOT. Find the word connecting all five clues.",
+    "Daily Thread #255. Clues revealed: FOOT, KEY. Find the word connecting all five clues.",
+    "Daily Thread #255. Clues revealed: FOOT, KEY, WORTHY. Find the word connecting all five clues.",
+    "Daily Thread #255. Clues revealed: FOOT, KEY, WORTHY, STICKY. Find the word connecting all five clues.",
+    "Daily Thread #255. Clues revealed: FOOT, KEY, WORTHY, STICKY, MUSIC. Find the word connecting all five clues.",
+    "Daily Thread #255 answer: NOTE. Connections: Footnote, Keynote, Noteworthy, Sticky note, Musical note.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nFOOT was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #255 word-puzzle Reel. The clues FOOT, KEY, WORTHY, STICKY, MUSIC appear one every five seconds. The answer NOTE makes: Footnote, Keynote, Noteworthy, Sticky note, Musical note.",
+  "reel": {
+    "threadNumber": 255,
+    "mode": "phrase",
+    "answer": "NOTE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FOOT",
+        "connection": "Footnote",
+        "highlight": "note"
+      },
+      {
+        "word": "KEY",
+        "connection": "Keynote",
+        "highlight": "note"
+      },
+      {
+        "word": "WORTHY",
+        "connection": "Noteworthy",
+        "highlight": "Note"
+      },
+      {
+        "word": "STICKY",
+        "connection": "Sticky note",
+        "highlight": "note"
+      },
+      {
+        "word": "MUSIC",
+        "connection": "Musical note",
+        "highlight": "note"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 255,
+    "mode": "phrase",
+    "answer": "NOTE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FOOT",
+        "connection": "Footnote",
+        "highlight": "note"
+      },
+      {
+        "word": "KEY",
+        "connection": "Keynote",
+        "highlight": "note"
+      },
+      {
+        "word": "WORTHY",
+        "connection": "Noteworthy",
+        "highlight": "Note"
+      },
+      {
+        "word": "STICKY",
+        "connection": "Sticky note",
+        "highlight": "note"
+      },
+      {
+        "word": "MUSIC",
+        "connection": "Musical note",
+        "highlight": "note"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-02",
+    "threadNumber": 76,
+    "answer": "BOOT",
+    "clues": [
+      {
+        "word": "CAMP",
+        "connection": "Boot camp"
+      },
+      {
+        "word": "LEG",
+        "connection": "Bootleg"
+      },
+      {
+        "word": "CAR",
+        "connection": "Car boot"
+      },
+      {
+        "word": "COWBOY",
+        "connection": "Cowboy boots"
+      },
+      {
+        "word": "MUDDY",
+        "connection": "Muddy boots"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #76 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 76,
+      "mode": "phrase",
+      "answer": "BOOT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "CAMP",
+          "connection": "Boot camp",
+          "highlight": "Boot"
+        },
+        {
+          "word": "LEG",
+          "connection": "Bootleg",
+          "highlight": "Boot"
+        },
+        {
+          "word": "CAR",
+          "connection": "Car boot",
+          "highlight": "boot"
+        },
+        {
+          "word": "COWBOY",
+          "connection": "Cowboy boots",
+          "highlight": "boot"
+        },
+        {
+          "word": "MUDDY",
+          "connection": "Muddy boots",
+          "highlight": "boot"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-25T11:42:53.995Z"
+}

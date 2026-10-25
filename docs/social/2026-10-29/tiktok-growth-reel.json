@@ -1,0 +1,35 @@
+{
+  "threadNumber": 76,
+  "mode": "phrase",
+  "answer": "BOOT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "CAMP",
+      "connection": "Boot camp",
+      "highlight": "Boot"
+    },
+    {
+      "word": "LEG",
+      "connection": "Bootleg",
+      "highlight": "Boot"
+    },
+    {
+      "word": "CAR",
+      "connection": "Car boot",
+      "highlight": "boot"
+    },
+    {
+      "word": "COWBOY",
+      "connection": "Cowboy boots",
+      "highlight": "boot"
+    },
+    {
+      "word": "MUDDY",
+      "connection": "Muddy boots",
+      "highlight": "boot"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

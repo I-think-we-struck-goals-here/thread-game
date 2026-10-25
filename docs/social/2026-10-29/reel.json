@@ -1,0 +1,33 @@
+{
+  "threadNumber": 255,
+  "mode": "phrase",
+  "answer": "NOTE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FOOT",
+      "connection": "Footnote",
+      "highlight": "note"
+    },
+    {
+      "word": "KEY",
+      "connection": "Keynote",
+      "highlight": "note"
+    },
+    {
+      "word": "WORTHY",
+      "connection": "Noteworthy",
+      "highlight": "Note"
+    },
+    {
+      "word": "STICKY",
+      "connection": "Sticky note",
+      "highlight": "note"
+    },
+    {
+      "word": "MUSIC",
+      "connection": "Musical note",
+      "highlight": "note"
+    }
+  ]
+}
