@@ -1,0 +1,141 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-30",
+  "sourceDate": "2026-10-29",
+  "threadNumber": 256,
+  "answer": "OPEN",
+  "clues": [
+    {
+      "word": "BOOK",
+      "connection": "Open book"
+    },
+    {
+      "word": "ENDED",
+      "connection": "Open-ended"
+    },
+    {
+      "word": "HEART",
+      "connection": "Open-hearted"
+    },
+    {
+      "word": "WIDE",
+      "connection": "Wide open"
+    },
+    {
+      "word": "DOOR",
+      "connection": "Open door"
+    }
+  ],
+  "caption": "Thread #256 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BOOK. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #256. Clues revealed: BOOK. Find the word connecting all five clues.",
+    "Daily Thread #256. Clues revealed: BOOK, ENDED. Find the word connecting all five clues.",
+    "Daily Thread #256. Clues revealed: BOOK, ENDED, HEART. Find the word connecting all five clues.",
+    "Daily Thread #256. Clues revealed: BOOK, ENDED, HEART, WIDE. Find the word connecting all five clues.",
+    "Daily Thread #256. Clues revealed: BOOK, ENDED, HEART, WIDE, DOOR. Find the word connecting all five clues.",
+    "Daily Thread #256 answer: OPEN. Connections: Open book, Open-ended, Open-hearted, Wide open, Open door.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBOOK was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #256 word-puzzle Reel. The clues BOOK, ENDED, HEART, WIDE, DOOR appear one every five seconds. The answer OPEN makes: Open book, Open-ended, Open-hearted, Wide open, Open door.",
+  "reel": {
+    "threadNumber": 256,
+    "mode": "phrase",
+    "answer": "OPEN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Open book",
+        "highlight": "Open"
+      },
+      {
+        "word": "ENDED",
+        "connection": "Open-ended",
+        "highlight": "Open"
+      },
+      {
+        "word": "HEART",
+        "connection": "Open-hearted",
+        "highlight": "Open"
+      },
+      {
+        "word": "WIDE",
+        "connection": "Wide open",
+        "highlight": "open"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Open door",
+        "highlight": "Open"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 256,
+    "mode": "phrase",
+    "answer": "OPEN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BOOK",
+        "connection": "Open book",
+        "highlight": "Open"
+      },
+      {
+        "word": "ENDED",
+        "connection": "Open-ended",
+        "highlight": "Open"
+      },
+      {
+        "word": "HEART",
+        "connection": "Open-hearted",
+        "highlight": "Open"
+      },
+      {
+        "word": "WIDE",
+        "connection": "Wide open",
+        "highlight": "open"
+      },
+      {
+        "word": "DOOR",
+        "connection": "Open door",
+        "highlight": "Open"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-03",
+    "threadNumber": 77,
+    "answer": "FINGER",
+    "clues": [
+      {
+        "word": "BUTTER",
+        "connection": "Butterfingers"
+      },
+      {
+        "word": "LADY",
+        "connection": "Ladyfinger (biscuit)"
+      },
+      {
+        "word": "FISH",
+        "connection": "Fish finger"
+      },
+      {
+        "word": "PRINT",
+        "connection": "Fingerprint"
+      },
+      {
+        "word": "POINT",
+        "connection": "Point the finger"
+      }
+    ],
+    "format": "photo",
+    "caption": "Thread #77 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-10-26T13:15:25.814Z"
+}

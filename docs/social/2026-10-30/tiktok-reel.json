@@ -1,0 +1,35 @@
+{
+  "threadNumber": 256,
+  "mode": "phrase",
+  "answer": "OPEN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BOOK",
+      "connection": "Open book",
+      "highlight": "Open"
+    },
+    {
+      "word": "ENDED",
+      "connection": "Open-ended",
+      "highlight": "Open"
+    },
+    {
+      "word": "HEART",
+      "connection": "Open-hearted",
+      "highlight": "Open"
+    },
+    {
+      "word": "WIDE",
+      "connection": "Wide open",
+      "highlight": "open"
+    },
+    {
+      "word": "DOOR",
+      "connection": "Open door",
+      "highlight": "Open"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
