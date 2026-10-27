@@ -1,0 +1,35 @@
+{
+  "threadNumber": 79,
+  "mode": "phrase",
+  "answer": "TRAIN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "THOUGHT",
+      "connection": "Train of thought",
+      "highlight": "Train"
+    },
+    {
+      "word": "GRAVY",
+      "connection": "Gravy train",
+      "highlight": "train"
+    },
+    {
+      "word": "BRAIN",
+      "connection": "Brain training",
+      "highlight": "train"
+    },
+    {
+      "word": "WRECK",
+      "connection": "Train wreck",
+      "highlight": "Train"
+    },
+    {
+      "word": "STATION",
+      "connection": "Train station",
+      "highlight": "Train"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

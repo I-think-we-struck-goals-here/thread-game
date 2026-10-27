@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-10-31",
+  "sourceDate": "2026-10-30",
+  "threadNumber": 257,
+  "answer": "CAN",
+  "clues": [
+    {
+      "word": "WORMS",
+      "connection": "Can of worms"
+    },
+    {
+      "word": "TRASH",
+      "connection": "Trash can"
+    },
+    {
+      "word": "WATERING",
+      "connection": "Watering can"
+    },
+    {
+      "word": "SPRAY",
+      "connection": "Spray can"
+    },
+    {
+      "word": "TIN",
+      "connection": "Tin can"
+    }
+  ],
+  "caption": "Thread #257 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with WORMS. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #257. Clues revealed: WORMS. Find the word connecting all five clues.",
+    "Daily Thread #257. Clues revealed: WORMS, TRASH. Find the word connecting all five clues.",
+    "Daily Thread #257. Clues revealed: WORMS, TRASH, WATERING. Find the word connecting all five clues.",
+    "Daily Thread #257. Clues revealed: WORMS, TRASH, WATERING, SPRAY. Find the word connecting all five clues.",
+    "Daily Thread #257. Clues revealed: WORMS, TRASH, WATERING, SPRAY, TIN. Find the word connecting all five clues.",
+    "Daily Thread #257 answer: CAN. Connections: Can of worms, Trash can, Watering can, Spray can, Tin can.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nWORMS was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #257 word-puzzle Reel. The clues WORMS, TRASH, WATERING, SPRAY, TIN appear one every five seconds. The answer CAN makes: Can of worms, Trash can, Watering can, Spray can, Tin can.",
+  "reel": {
+    "threadNumber": 257,
+    "mode": "phrase",
+    "answer": "CAN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WORMS",
+        "connection": "Can of worms",
+        "highlight": "Can"
+      },
+      {
+        "word": "TRASH",
+        "connection": "Trash can",
+        "highlight": "can"
+      },
+      {
+        "word": "WATERING",
+        "connection": "Watering can",
+        "highlight": "can"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Spray can",
+        "highlight": "can"
+      },
+      {
+        "word": "TIN",
+        "connection": "Tin can",
+        "highlight": "can"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 257,
+    "mode": "phrase",
+    "answer": "CAN",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WORMS",
+        "connection": "Can of worms",
+        "highlight": "Can"
+      },
+      {
+        "word": "TRASH",
+        "connection": "Trash can",
+        "highlight": "can"
+      },
+      {
+        "word": "WATERING",
+        "connection": "Watering can",
+        "highlight": "can"
+      },
+      {
+        "word": "SPRAY",
+        "connection": "Spray can",
+        "highlight": "can"
+      },
+      {
+        "word": "TIN",
+        "connection": "Tin can",
+        "highlight": "can"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-05",
+    "threadNumber": 79,
+    "answer": "TRAIN",
+    "clues": [
+      {
+        "word": "THOUGHT",
+        "connection": "Train of thought"
+      },
+      {
+        "word": "GRAVY",
+        "connection": "Gravy train"
+      },
+      {
+        "word": "BRAIN",
+        "connection": "Brain training"
+      },
+      {
+        "word": "WRECK",
+        "connection": "Train wreck"
+      },
+      {
+        "word": "STATION",
+        "connection": "Train station"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #79 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 79,
+      "mode": "phrase",
+      "answer": "TRAIN",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "THOUGHT",
+          "connection": "Train of thought",
+          "highlight": "Train"
+        },
+        {
+          "word": "GRAVY",
+          "connection": "Gravy train",
+          "highlight": "train"
+        },
+        {
+          "word": "BRAIN",
+          "connection": "Brain training",
+          "highlight": "train"
+        },
+        {
+          "word": "WRECK",
+          "connection": "Train wreck",
+          "highlight": "Train"
+        },
+        {
+          "word": "STATION",
+          "connection": "Train station",
+          "highlight": "Train"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-27T12:23:19.083Z"
+}

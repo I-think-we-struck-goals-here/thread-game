@@ -1,0 +1,33 @@
+{
+  "threadNumber": 257,
+  "mode": "phrase",
+  "answer": "CAN",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WORMS",
+      "connection": "Can of worms",
+      "highlight": "Can"
+    },
+    {
+      "word": "TRASH",
+      "connection": "Trash can",
+      "highlight": "can"
+    },
+    {
+      "word": "WATERING",
+      "connection": "Watering can",
+      "highlight": "can"
+    },
+    {
+      "word": "SPRAY",
+      "connection": "Spray can",
+      "highlight": "can"
+    },
+    {
+      "word": "TIN",
+      "connection": "Tin can",
+      "highlight": "can"
+    }
+  ]
+}
