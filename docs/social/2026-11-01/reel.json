@@ -1,0 +1,28 @@
+{
+  "threadNumber": 258,
+  "mode": "join",
+  "answer": "CLOUD",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "STORAGE",
+      "connection": "Cloud storage"
+    },
+    {
+      "word": "NINE",
+      "connection": "Cloud nine"
+    },
+    {
+      "word": "MUSHROOM",
+      "connection": "Mushroom cloud"
+    },
+    {
+      "word": "THUNDER",
+      "connection": "Thundercloud"
+    },
+    {
+      "word": "RAIN",
+      "connection": "Rain cloud"
+    }
+  ]
+}
