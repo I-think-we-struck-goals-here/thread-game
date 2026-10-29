@@ -1,0 +1,35 @@
+{
+  "threadNumber": 81,
+  "mode": "phrase",
+  "answer": "PULL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HEART",
+      "connection": "Pull at heartstrings",
+      "highlight": "Pull"
+    },
+    {
+      "word": "STRINGS",
+      "connection": "Pull strings",
+      "highlight": "Pull"
+    },
+    {
+      "word": "PLUG",
+      "connection": "Pull the plug",
+      "highlight": "Pull"
+    },
+    {
+      "word": "WEIGHT",
+      "connection": "Pull your weight",
+      "highlight": "Pull"
+    },
+    {
+      "word": "TRIGGER",
+      "connection": "Pull the trigger",
+      "highlight": "Pull"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

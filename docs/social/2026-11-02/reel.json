@@ -1,0 +1,33 @@
+{
+  "threadNumber": 259,
+  "mode": "phrase",
+  "answer": "BULL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "PIT",
+      "connection": "Pit bull",
+      "highlight": "bull"
+    },
+    {
+      "word": "HORN",
+      "connection": "Bullhorn",
+      "highlight": "Bull"
+    },
+    {
+      "word": "EYE",
+      "connection": "Bull's-eye",
+      "highlight": "Bull"
+    },
+    {
+      "word": "RED",
+      "connection": "Red rag to a bull",
+      "highlight": "bull"
+    },
+    {
+      "word": "MARKET",
+      "connection": "Bull market",
+      "highlight": "Bull"
+    }
+  ]
+}
