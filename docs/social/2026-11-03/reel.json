@@ -1,0 +1,28 @@
+{
+  "threadNumber": 260,
+  "mode": "join",
+  "answer": "RED",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HERRING",
+      "connection": "Red herring"
+    },
+    {
+      "word": "TAPE",
+      "connection": "Red tape"
+    },
+    {
+      "word": "CARPET",
+      "connection": "Red carpet"
+    },
+    {
+      "word": "CROSS",
+      "connection": "Red Cross"
+    },
+    {
+      "word": "CARD",
+      "connection": "Red card"
+    }
+  ]
+}
