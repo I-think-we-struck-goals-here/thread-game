@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-04",
+  "sourceDate": "2026-11-03",
+  "threadNumber": 261,
+  "answer": "FAIR",
+  "clues": [
+    {
+      "word": "GROUND",
+      "connection": "Fairground"
+    },
+    {
+      "word": "WEATHER",
+      "connection": "Fair weather friend"
+    },
+    {
+      "word": "TRADE",
+      "connection": "Fair trade"
+    },
+    {
+      "word": "GAME",
+      "connection": "Fair game"
+    },
+    {
+      "word": "COUNTY",
+      "connection": "County fair"
+    }
+  ],
+  "caption": "Thread #261 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with GROUND. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #261. Clues revealed: GROUND. Find the word connecting all five clues.",
+    "Daily Thread #261. Clues revealed: GROUND, WEATHER. Find the word connecting all five clues.",
+    "Daily Thread #261. Clues revealed: GROUND, WEATHER, TRADE. Find the word connecting all five clues.",
+    "Daily Thread #261. Clues revealed: GROUND, WEATHER, TRADE, GAME. Find the word connecting all five clues.",
+    "Daily Thread #261. Clues revealed: GROUND, WEATHER, TRADE, GAME, COUNTY. Find the word connecting all five clues.",
+    "Daily Thread #261 answer: FAIR. Connections: Fairground, Fair weather friend, Fair trade, Fair game, County fair.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nGROUND was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #261 word-puzzle Reel. The clues GROUND, WEATHER, TRADE, GAME, COUNTY appear one every five seconds. The answer FAIR makes: Fairground, Fair weather friend, Fair trade, Fair game, County fair.",
+  "reel": {
+    "threadNumber": 261,
+    "mode": "phrase",
+    "answer": "FAIR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GROUND",
+        "connection": "Fairground",
+        "highlight": "Fair"
+      },
+      {
+        "word": "WEATHER",
+        "connection": "Fair weather friend",
+        "highlight": "Fair"
+      },
+      {
+        "word": "TRADE",
+        "connection": "Fair trade",
+        "highlight": "Fair"
+      },
+      {
+        "word": "GAME",
+        "connection": "Fair game",
+        "highlight": "Fair"
+      },
+      {
+        "word": "COUNTY",
+        "connection": "County fair",
+        "highlight": "fair"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 261,
+    "mode": "phrase",
+    "answer": "FAIR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GROUND",
+        "connection": "Fairground",
+        "highlight": "Fair"
+      },
+      {
+        "word": "WEATHER",
+        "connection": "Fair weather friend",
+        "highlight": "Fair"
+      },
+      {
+        "word": "TRADE",
+        "connection": "Fair trade",
+        "highlight": "Fair"
+      },
+      {
+        "word": "GAME",
+        "connection": "Fair game",
+        "highlight": "Fair"
+      },
+      {
+        "word": "COUNTY",
+        "connection": "County fair",
+        "highlight": "fair"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-09",
+    "threadNumber": 83,
+    "answer": "SHOW",
+    "clues": [
+      {
+        "word": "SIDE",
+        "connection": "Sideshow"
+      },
+      {
+        "word": "ROAD",
+        "connection": "Roadshow"
+      },
+      {
+        "word": "SLIDE",
+        "connection": "Slideshow"
+      },
+      {
+        "word": "TALK",
+        "connection": "Talk show"
+      },
+      {
+        "word": "GAME",
+        "connection": "Game show"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #83 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 83,
+      "mode": "join",
+      "answer": "SHOW",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SIDE",
+          "connection": "Sideshow"
+        },
+        {
+          "word": "ROAD",
+          "connection": "Roadshow"
+        },
+        {
+          "word": "SLIDE",
+          "connection": "Slideshow"
+        },
+        {
+          "word": "TALK",
+          "connection": "Talk show"
+        },
+        {
+          "word": "GAME",
+          "connection": "Game show"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-10-31T12:44:14.461Z"
+}

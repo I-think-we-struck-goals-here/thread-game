@@ -1,0 +1,30 @@
+{
+  "threadNumber": 83,
+  "mode": "join",
+  "answer": "SHOW",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SIDE",
+      "connection": "Sideshow"
+    },
+    {
+      "word": "ROAD",
+      "connection": "Roadshow"
+    },
+    {
+      "word": "SLIDE",
+      "connection": "Slideshow"
+    },
+    {
+      "word": "TALK",
+      "connection": "Talk show"
+    },
+    {
+      "word": "GAME",
+      "connection": "Game show"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

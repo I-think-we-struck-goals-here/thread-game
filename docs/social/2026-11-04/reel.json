@@ -1,0 +1,33 @@
+{
+  "threadNumber": 261,
+  "mode": "phrase",
+  "answer": "FAIR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "GROUND",
+      "connection": "Fairground",
+      "highlight": "Fair"
+    },
+    {
+      "word": "WEATHER",
+      "connection": "Fair weather friend",
+      "highlight": "Fair"
+    },
+    {
+      "word": "TRADE",
+      "connection": "Fair trade",
+      "highlight": "Fair"
+    },
+    {
+      "word": "GAME",
+      "connection": "Fair game",
+      "highlight": "Fair"
+    },
+    {
+      "word": "COUNTY",
+      "connection": "County fair",
+      "highlight": "fair"
+    }
+  ]
+}
