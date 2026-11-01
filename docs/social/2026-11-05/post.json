@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-05",
+  "sourceDate": "2026-11-04",
+  "threadNumber": 262,
+  "answer": "MASK",
+  "clues": [
+    {
+      "word": "OXYGEN",
+      "connection": "Oxygen mask"
+    },
+    {
+      "word": "GAS",
+      "connection": "Gas mask"
+    },
+    {
+      "word": "FACE",
+      "connection": "Face mask"
+    },
+    {
+      "word": "SKI",
+      "connection": "Ski mask"
+    },
+    {
+      "word": "HALLOWEEN",
+      "connection": "Halloween mask"
+    }
+  ],
+  "caption": "Thread #262 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with OXYGEN. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #262. Clues revealed: OXYGEN. Find the word connecting all five clues.",
+    "Daily Thread #262. Clues revealed: OXYGEN, GAS. Find the word connecting all five clues.",
+    "Daily Thread #262. Clues revealed: OXYGEN, GAS, FACE. Find the word connecting all five clues.",
+    "Daily Thread #262. Clues revealed: OXYGEN, GAS, FACE, SKI. Find the word connecting all five clues.",
+    "Daily Thread #262. Clues revealed: OXYGEN, GAS, FACE, SKI, HALLOWEEN. Find the word connecting all five clues.",
+    "Daily Thread #262 answer: MASK. Connections: Oxygen mask, Gas mask, Face mask, Ski mask, Halloween mask.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nOXYGEN was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #262 word-puzzle Reel. The clues OXYGEN, GAS, FACE, SKI, HALLOWEEN appear one every five seconds. The answer MASK makes: Oxygen mask, Gas mask, Face mask, Ski mask, Halloween mask.",
+  "reel": {
+    "threadNumber": 262,
+    "mode": "join",
+    "answer": "MASK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OXYGEN",
+        "connection": "Oxygen mask"
+      },
+      {
+        "word": "GAS",
+        "connection": "Gas mask"
+      },
+      {
+        "word": "FACE",
+        "connection": "Face mask"
+      },
+      {
+        "word": "SKI",
+        "connection": "Ski mask"
+      },
+      {
+        "word": "HALLOWEEN",
+        "connection": "Halloween mask"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 262,
+    "mode": "join",
+    "answer": "MASK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OXYGEN",
+        "connection": "Oxygen mask"
+      },
+      {
+        "word": "GAS",
+        "connection": "Gas mask"
+      },
+      {
+        "word": "FACE",
+        "connection": "Face mask"
+      },
+      {
+        "word": "SKI",
+        "connection": "Ski mask"
+      },
+      {
+        "word": "HALLOWEEN",
+        "connection": "Halloween mask"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-10",
+    "threadNumber": 84,
+    "answer": "LAMB",
+    "clues": [
+      {
+        "word": "SILENCE",
+        "connection": "Silence of the Lambs"
+      },
+      {
+        "word": "GENTLE",
+        "connection": "Gentle as a lamb"
+      },
+      {
+        "word": "CHOP",
+        "connection": "Lamb chop"
+      },
+      {
+        "word": "SPRING",
+        "connection": "Spring lamb"
+      },
+      {
+        "word": "MARY",
+        "connection": "Mary had a little lamb"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #84 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 84,
+      "mode": "phrase",
+      "answer": "LAMB",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SILENCE",
+          "connection": "Silence of the Lambs",
+          "highlight": "Lamb"
+        },
+        {
+          "word": "GENTLE",
+          "connection": "Gentle as a lamb",
+          "highlight": "lamb"
+        },
+        {
+          "word": "CHOP",
+          "connection": "Lamb chop",
+          "highlight": "Lamb"
+        },
+        {
+          "word": "SPRING",
+          "connection": "Spring lamb",
+          "highlight": "lamb"
+        },
+        {
+          "word": "MARY",
+          "connection": "Mary had a little lamb",
+          "highlight": "lamb"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-01T13:35:07.486Z"
+}

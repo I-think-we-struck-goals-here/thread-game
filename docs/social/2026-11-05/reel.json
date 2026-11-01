@@ -1,0 +1,28 @@
+{
+  "threadNumber": 262,
+  "mode": "join",
+  "answer": "MASK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "OXYGEN",
+      "connection": "Oxygen mask"
+    },
+    {
+      "word": "GAS",
+      "connection": "Gas mask"
+    },
+    {
+      "word": "FACE",
+      "connection": "Face mask"
+    },
+    {
+      "word": "SKI",
+      "connection": "Ski mask"
+    },
+    {
+      "word": "HALLOWEEN",
+      "connection": "Halloween mask"
+    }
+  ]
+}

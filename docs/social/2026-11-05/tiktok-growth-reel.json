@@ -1,0 +1,35 @@
+{
+  "threadNumber": 84,
+  "mode": "phrase",
+  "answer": "LAMB",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SILENCE",
+      "connection": "Silence of the Lambs",
+      "highlight": "Lamb"
+    },
+    {
+      "word": "GENTLE",
+      "connection": "Gentle as a lamb",
+      "highlight": "lamb"
+    },
+    {
+      "word": "CHOP",
+      "connection": "Lamb chop",
+      "highlight": "Lamb"
+    },
+    {
+      "word": "SPRING",
+      "connection": "Spring lamb",
+      "highlight": "lamb"
+    },
+    {
+      "word": "MARY",
+      "connection": "Mary had a little lamb",
+      "highlight": "lamb"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
