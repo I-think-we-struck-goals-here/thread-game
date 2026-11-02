@@ -1,0 +1,33 @@
+{
+  "threadNumber": 263,
+  "mode": "phrase",
+  "answer": "FINE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "TUNE",
+      "connection": "Fine-tune",
+      "highlight": "Fine"
+    },
+    {
+      "word": "ART",
+      "connection": "Fine art",
+      "highlight": "Fine"
+    },
+    {
+      "word": "PRINT",
+      "connection": "Fine print",
+      "highlight": "Fine"
+    },
+    {
+      "word": "DINING",
+      "connection": "Fine dining",
+      "highlight": "Fine"
+    },
+    {
+      "word": "WINE",
+      "connection": "Fine wine",
+      "highlight": "Fine"
+    }
+  ]
+}
