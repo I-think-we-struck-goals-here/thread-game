@@ -1,0 +1,35 @@
+{
+  "threadNumber": 86,
+  "mode": "phrase",
+  "answer": "CARPET",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MAGIC",
+      "connection": "Magic carpet",
+      "highlight": "carpet"
+    },
+    {
+      "word": "SWEEP",
+      "connection": "Sweep under the carpet",
+      "highlight": "carpet"
+    },
+    {
+      "word": "BOMB",
+      "connection": "Carpet bomb",
+      "highlight": "Carpet"
+    },
+    {
+      "word": "RED",
+      "connection": "Red carpet",
+      "highlight": "carpet"
+    },
+    {
+      "word": "FLOOR",
+      "connection": "Carpet on the floor",
+      "highlight": "Carpet"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 264,
+  "mode": "phrase",
+  "answer": "CROW",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SCARE",
+      "connection": "Scarecrow",
+      "highlight": "crow"
+    },
+    {
+      "word": "BAR",
+      "connection": "Crowbar",
+      "highlight": "Crow"
+    },
+    {
+      "word": "FEET",
+      "connection": "Crow's feet (wrinkles)",
+      "highlight": "Crow"
+    },
+    {
+      "word": "FLIES",
+      "connection": "As the crow flies",
+      "highlight": "crow"
+    },
+    {
+      "word": "ROOSTER",
+      "connection": "Rooster crows",
+      "highlight": "crow"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
