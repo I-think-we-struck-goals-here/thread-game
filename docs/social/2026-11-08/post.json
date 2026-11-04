@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-08",
+  "sourceDate": "2026-11-07",
+  "threadNumber": 265,
+  "answer": "HOLD",
+  "clues": [
+    {
+      "word": "UP",
+      "connection": "Hold-up"
+    },
+    {
+      "word": "STRONG",
+      "connection": "Stronghold"
+    },
+    {
+      "word": "HOUSE",
+      "connection": "Household"
+    },
+    {
+      "word": "FOOT",
+      "connection": "Foothold"
+    },
+    {
+      "word": "BREATH",
+      "connection": "Hold your breath"
+    }
+  ],
+  "caption": "Thread #265 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with UP. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #265. Clues revealed: UP. Find the word connecting all five clues.",
+    "Daily Thread #265. Clues revealed: UP, STRONG. Find the word connecting all five clues.",
+    "Daily Thread #265. Clues revealed: UP, STRONG, HOUSE. Find the word connecting all five clues.",
+    "Daily Thread #265. Clues revealed: UP, STRONG, HOUSE, FOOT. Find the word connecting all five clues.",
+    "Daily Thread #265. Clues revealed: UP, STRONG, HOUSE, FOOT, BREATH. Find the word connecting all five clues.",
+    "Daily Thread #265 answer: HOLD. Connections: Hold-up, Stronghold, Household, Foothold, Hold your breath.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nUP was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #265 word-puzzle Reel. The clues UP, STRONG, HOUSE, FOOT, BREATH appear one every five seconds. The answer HOLD makes: Hold-up, Stronghold, Household, Foothold, Hold your breath.",
+  "reel": {
+    "threadNumber": 265,
+    "mode": "phrase",
+    "answer": "HOLD",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "UP",
+        "connection": "Hold-up",
+        "highlight": "Hold"
+      },
+      {
+        "word": "STRONG",
+        "connection": "Stronghold",
+        "highlight": "hold"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Household",
+        "highlight": "hold"
+      },
+      {
+        "word": "FOOT",
+        "connection": "Foothold",
+        "highlight": "hold"
+      },
+      {
+        "word": "BREATH",
+        "connection": "Hold your breath",
+        "highlight": "Hold"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 265,
+    "mode": "phrase",
+    "answer": "HOLD",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "UP",
+        "connection": "Hold-up",
+        "highlight": "Hold"
+      },
+      {
+        "word": "STRONG",
+        "connection": "Stronghold",
+        "highlight": "hold"
+      },
+      {
+        "word": "HOUSE",
+        "connection": "Household",
+        "highlight": "hold"
+      },
+      {
+        "word": "FOOT",
+        "connection": "Foothold",
+        "highlight": "hold"
+      },
+      {
+        "word": "BREATH",
+        "connection": "Hold your breath",
+        "highlight": "Hold"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-13",
+    "threadNumber": 87,
+    "answer": "CUT",
+    "clues": [
+      {
+        "word": "SHORT",
+        "connection": "Shortcut"
+      },
+      {
+        "word": "CLEAR",
+        "connection": "Clear cut"
+      },
+      {
+        "word": "TAX",
+        "connection": "Tax cut"
+      },
+      {
+        "word": "POWER",
+        "connection": "Power cut"
+      },
+      {
+        "word": "PAPER",
+        "connection": "Paper cut"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #87 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 87,
+      "mode": "join",
+      "answer": "CUT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "SHORT",
+          "connection": "Shortcut"
+        },
+        {
+          "word": "CLEAR",
+          "connection": "Clear cut"
+        },
+        {
+          "word": "TAX",
+          "connection": "Tax cut"
+        },
+        {
+          "word": "POWER",
+          "connection": "Power cut"
+        },
+        {
+          "word": "PAPER",
+          "connection": "Paper cut"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-04T14:41:20.716Z"
+}
