@@ -1,0 +1,28 @@
+{
+  "threadNumber": 266,
+  "mode": "join",
+  "answer": "DOG",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "UNDER",
+      "connection": "Underdog"
+    },
+    {
+      "word": "TOP",
+      "connection": "Top dog"
+    },
+    {
+      "word": "BULL",
+      "connection": "Bulldog"
+    },
+    {
+      "word": "HOT",
+      "connection": "Hot dog"
+    },
+    {
+      "word": "WATCH",
+      "connection": "Watchdog"
+    }
+  ]
+}

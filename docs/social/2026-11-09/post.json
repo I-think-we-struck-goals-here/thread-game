@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-09",
+  "sourceDate": "2026-11-08",
+  "threadNumber": 266,
+  "answer": "DOG",
+  "clues": [
+    {
+      "word": "UNDER",
+      "connection": "Underdog"
+    },
+    {
+      "word": "TOP",
+      "connection": "Top dog"
+    },
+    {
+      "word": "BULL",
+      "connection": "Bulldog"
+    },
+    {
+      "word": "HOT",
+      "connection": "Hot dog"
+    },
+    {
+      "word": "WATCH",
+      "connection": "Watchdog"
+    }
+  ],
+  "caption": "Thread #266 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with UNDER. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #266. Clues revealed: UNDER. Find the word connecting all five clues.",
+    "Daily Thread #266. Clues revealed: UNDER, TOP. Find the word connecting all five clues.",
+    "Daily Thread #266. Clues revealed: UNDER, TOP, BULL. Find the word connecting all five clues.",
+    "Daily Thread #266. Clues revealed: UNDER, TOP, BULL, HOT. Find the word connecting all five clues.",
+    "Daily Thread #266. Clues revealed: UNDER, TOP, BULL, HOT, WATCH. Find the word connecting all five clues.",
+    "Daily Thread #266 answer: DOG. Connections: Underdog, Top dog, Bulldog, Hot dog, Watchdog.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nUNDER was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #266 word-puzzle Reel. The clues UNDER, TOP, BULL, HOT, WATCH appear one every five seconds. The answer DOG makes: Underdog, Top dog, Bulldog, Hot dog, Watchdog.",
+  "reel": {
+    "threadNumber": 266,
+    "mode": "join",
+    "answer": "DOG",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "UNDER",
+        "connection": "Underdog"
+      },
+      {
+        "word": "TOP",
+        "connection": "Top dog"
+      },
+      {
+        "word": "BULL",
+        "connection": "Bulldog"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hot dog"
+      },
+      {
+        "word": "WATCH",
+        "connection": "Watchdog"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 266,
+    "mode": "join",
+    "answer": "DOG",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "UNDER",
+        "connection": "Underdog"
+      },
+      {
+        "word": "TOP",
+        "connection": "Top dog"
+      },
+      {
+        "word": "BULL",
+        "connection": "Bulldog"
+      },
+      {
+        "word": "HOT",
+        "connection": "Hot dog"
+      },
+      {
+        "word": "WATCH",
+        "connection": "Watchdog"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-14",
+    "threadNumber": 88,
+    "answer": "WOLF",
+    "clues": [
+      {
+        "word": "LONE",
+        "connection": "Lone wolf"
+      },
+      {
+        "word": "SHEEP",
+        "connection": "Wolf in sheep's clothing"
+      },
+      {
+        "word": "CRY",
+        "connection": "Cry wolf"
+      },
+      {
+        "word": "WERE",
+        "connection": "Werewolf"
+      },
+      {
+        "word": "PACK",
+        "connection": "Wolf pack"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #88 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 88,
+      "mode": "phrase",
+      "answer": "WOLF",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LONE",
+          "connection": "Lone wolf",
+          "highlight": "wolf"
+        },
+        {
+          "word": "SHEEP",
+          "connection": "Wolf in sheep's clothing",
+          "highlight": "Wolf"
+        },
+        {
+          "word": "CRY",
+          "connection": "Cry wolf",
+          "highlight": "wolf"
+        },
+        {
+          "word": "WERE",
+          "connection": "Werewolf",
+          "highlight": "wolf"
+        },
+        {
+          "word": "PACK",
+          "connection": "Wolf pack",
+          "highlight": "Wolf"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-05T14:46:05.117Z"
+}

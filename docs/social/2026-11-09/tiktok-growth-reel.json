@@ -1,0 +1,35 @@
+{
+  "threadNumber": 88,
+  "mode": "phrase",
+  "answer": "WOLF",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LONE",
+      "connection": "Lone wolf",
+      "highlight": "wolf"
+    },
+    {
+      "word": "SHEEP",
+      "connection": "Wolf in sheep's clothing",
+      "highlight": "Wolf"
+    },
+    {
+      "word": "CRY",
+      "connection": "Cry wolf",
+      "highlight": "wolf"
+    },
+    {
+      "word": "WERE",
+      "connection": "Werewolf",
+      "highlight": "wolf"
+    },
+    {
+      "word": "PACK",
+      "connection": "Wolf pack",
+      "highlight": "Wolf"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
