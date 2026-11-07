@@ -1,0 +1,33 @@
+{
+  "threadNumber": 268,
+  "mode": "phrase",
+  "answer": "TONGUE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SILVER",
+      "connection": "Silver tongue",
+      "highlight": "tongue"
+    },
+    {
+      "word": "MOTHER",
+      "connection": "Mother tongue",
+      "highlight": "tongue"
+    },
+    {
+      "word": "CHEEK",
+      "connection": "Tongue in cheek",
+      "highlight": "Tongue"
+    },
+    {
+      "word": "TIED",
+      "connection": "Tongue-tied",
+      "highlight": "Tongue"
+    },
+    {
+      "word": "TIP",
+      "connection": "Tip of the tongue",
+      "highlight": "tongue"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "threadNumber": 90,
+  "mode": "join",
+  "answer": "FLOWER",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WALL",
+      "connection": "Wallflower"
+    },
+    {
+      "word": "CAULI",
+      "connection": "Cauliflower"
+    },
+    {
+      "word": "SUN",
+      "connection": "Sunflower"
+    },
+    {
+      "word": "BED",
+      "connection": "Flower bed"
+    },
+    {
+      "word": "POWER",
+      "connection": "Flower power"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

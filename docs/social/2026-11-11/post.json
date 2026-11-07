@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-11",
+  "sourceDate": "2026-11-10",
+  "threadNumber": 268,
+  "answer": "TONGUE",
+  "clues": [
+    {
+      "word": "SILVER",
+      "connection": "Silver tongue"
+    },
+    {
+      "word": "MOTHER",
+      "connection": "Mother tongue"
+    },
+    {
+      "word": "CHEEK",
+      "connection": "Tongue in cheek"
+    },
+    {
+      "word": "TIED",
+      "connection": "Tongue-tied"
+    },
+    {
+      "word": "TIP",
+      "connection": "Tip of the tongue"
+    }
+  ],
+  "caption": "Thread #268 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SILVER. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #268. Clues revealed: SILVER. Find the word connecting all five clues.",
+    "Daily Thread #268. Clues revealed: SILVER, MOTHER. Find the word connecting all five clues.",
+    "Daily Thread #268. Clues revealed: SILVER, MOTHER, CHEEK. Find the word connecting all five clues.",
+    "Daily Thread #268. Clues revealed: SILVER, MOTHER, CHEEK, TIED. Find the word connecting all five clues.",
+    "Daily Thread #268. Clues revealed: SILVER, MOTHER, CHEEK, TIED, TIP. Find the word connecting all five clues.",
+    "Daily Thread #268 answer: TONGUE. Connections: Silver tongue, Mother tongue, Tongue in cheek, Tongue-tied, Tip of the tongue.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSILVER was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #268 word-puzzle Reel. The clues SILVER, MOTHER, CHEEK, TIED, TIP appear one every five seconds. The answer TONGUE makes: Silver tongue, Mother tongue, Tongue in cheek, Tongue-tied, Tip of the tongue.",
+  "reel": {
+    "threadNumber": 268,
+    "mode": "phrase",
+    "answer": "TONGUE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SILVER",
+        "connection": "Silver tongue",
+        "highlight": "tongue"
+      },
+      {
+        "word": "MOTHER",
+        "connection": "Mother tongue",
+        "highlight": "tongue"
+      },
+      {
+        "word": "CHEEK",
+        "connection": "Tongue in cheek",
+        "highlight": "Tongue"
+      },
+      {
+        "word": "TIED",
+        "connection": "Tongue-tied",
+        "highlight": "Tongue"
+      },
+      {
+        "word": "TIP",
+        "connection": "Tip of the tongue",
+        "highlight": "tongue"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 268,
+    "mode": "phrase",
+    "answer": "TONGUE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SILVER",
+        "connection": "Silver tongue",
+        "highlight": "tongue"
+      },
+      {
+        "word": "MOTHER",
+        "connection": "Mother tongue",
+        "highlight": "tongue"
+      },
+      {
+        "word": "CHEEK",
+        "connection": "Tongue in cheek",
+        "highlight": "Tongue"
+      },
+      {
+        "word": "TIED",
+        "connection": "Tongue-tied",
+        "highlight": "Tongue"
+      },
+      {
+        "word": "TIP",
+        "connection": "Tip of the tongue",
+        "highlight": "tongue"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-16",
+    "threadNumber": 90,
+    "answer": "FLOWER",
+    "clues": [
+      {
+        "word": "WALL",
+        "connection": "Wallflower"
+      },
+      {
+        "word": "CAULI",
+        "connection": "Cauliflower"
+      },
+      {
+        "word": "SUN",
+        "connection": "Sunflower"
+      },
+      {
+        "word": "BED",
+        "connection": "Flower bed"
+      },
+      {
+        "word": "POWER",
+        "connection": "Flower power"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #90 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 90,
+      "mode": "join",
+      "answer": "FLOWER",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "WALL",
+          "connection": "Wallflower"
+        },
+        {
+          "word": "CAULI",
+          "connection": "Cauliflower"
+        },
+        {
+          "word": "SUN",
+          "connection": "Sunflower"
+        },
+        {
+          "word": "BED",
+          "connection": "Flower bed"
+        },
+        {
+          "word": "POWER",
+          "connection": "Flower power"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-07T13:15:09.772Z"
+}
