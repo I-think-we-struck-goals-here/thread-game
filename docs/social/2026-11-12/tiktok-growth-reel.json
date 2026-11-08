@@ -1,0 +1,35 @@
+{
+  "threadNumber": 91,
+  "mode": "phrase",
+  "answer": "LEMON",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "LIFE",
+      "connection": "When life gives you lemons",
+      "highlight": "lemon"
+    },
+    {
+      "word": "ADE",
+      "connection": "Lemonade",
+      "highlight": "Lemon"
+    },
+    {
+      "word": "DROP",
+      "connection": "Lemon drop",
+      "highlight": "Lemon"
+    },
+    {
+      "word": "SQUEEZE",
+      "connection": "Squeeze a lemon",
+      "highlight": "lemon"
+    },
+    {
+      "word": "ZEST",
+      "connection": "Lemon zest",
+      "highlight": "Lemon"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

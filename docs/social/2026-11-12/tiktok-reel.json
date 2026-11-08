@@ -1,0 +1,30 @@
+{
+  "threadNumber": 269,
+  "mode": "join",
+  "answer": "BRANCH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "OLIVE",
+      "connection": "Olive branch"
+    },
+    {
+      "word": "EXECUTIVE",
+      "connection": "Executive branch"
+    },
+    {
+      "word": "OUT",
+      "connection": "Branch out"
+    },
+    {
+      "word": "MANAGER",
+      "connection": "Branch manager"
+    },
+    {
+      "word": "TREE",
+      "connection": "Tree branch"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

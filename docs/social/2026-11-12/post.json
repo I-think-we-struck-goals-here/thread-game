@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-12",
+  "sourceDate": "2026-11-11",
+  "threadNumber": 269,
+  "answer": "BRANCH",
+  "clues": [
+    {
+      "word": "OLIVE",
+      "connection": "Olive branch"
+    },
+    {
+      "word": "EXECUTIVE",
+      "connection": "Executive branch"
+    },
+    {
+      "word": "OUT",
+      "connection": "Branch out"
+    },
+    {
+      "word": "MANAGER",
+      "connection": "Branch manager"
+    },
+    {
+      "word": "TREE",
+      "connection": "Tree branch"
+    }
+  ],
+  "caption": "Thread #269 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with OLIVE. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #269. Clues revealed: OLIVE. Find the word connecting all five clues.",
+    "Daily Thread #269. Clues revealed: OLIVE, EXECUTIVE. Find the word connecting all five clues.",
+    "Daily Thread #269. Clues revealed: OLIVE, EXECUTIVE, OUT. Find the word connecting all five clues.",
+    "Daily Thread #269. Clues revealed: OLIVE, EXECUTIVE, OUT, MANAGER. Find the word connecting all five clues.",
+    "Daily Thread #269. Clues revealed: OLIVE, EXECUTIVE, OUT, MANAGER, TREE. Find the word connecting all five clues.",
+    "Daily Thread #269 answer: BRANCH. Connections: Olive branch, Executive branch, Branch out, Branch manager, Tree branch.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nOLIVE was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #269 word-puzzle Reel. The clues OLIVE, EXECUTIVE, OUT, MANAGER, TREE appear one every five seconds. The answer BRANCH makes: Olive branch, Executive branch, Branch out, Branch manager, Tree branch.",
+  "reel": {
+    "threadNumber": 269,
+    "mode": "join",
+    "answer": "BRANCH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OLIVE",
+        "connection": "Olive branch"
+      },
+      {
+        "word": "EXECUTIVE",
+        "connection": "Executive branch"
+      },
+      {
+        "word": "OUT",
+        "connection": "Branch out"
+      },
+      {
+        "word": "MANAGER",
+        "connection": "Branch manager"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree branch"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 269,
+    "mode": "join",
+    "answer": "BRANCH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "OLIVE",
+        "connection": "Olive branch"
+      },
+      {
+        "word": "EXECUTIVE",
+        "connection": "Executive branch"
+      },
+      {
+        "word": "OUT",
+        "connection": "Branch out"
+      },
+      {
+        "word": "MANAGER",
+        "connection": "Branch manager"
+      },
+      {
+        "word": "TREE",
+        "connection": "Tree branch"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-17",
+    "threadNumber": 91,
+    "answer": "LEMON",
+    "clues": [
+      {
+        "word": "LIFE",
+        "connection": "When life gives you lemons"
+      },
+      {
+        "word": "ADE",
+        "connection": "Lemonade"
+      },
+      {
+        "word": "DROP",
+        "connection": "Lemon drop"
+      },
+      {
+        "word": "SQUEEZE",
+        "connection": "Squeeze a lemon"
+      },
+      {
+        "word": "ZEST",
+        "connection": "Lemon zest"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #91 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 91,
+      "mode": "phrase",
+      "answer": "LEMON",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "LIFE",
+          "connection": "When life gives you lemons",
+          "highlight": "lemon"
+        },
+        {
+          "word": "ADE",
+          "connection": "Lemonade",
+          "highlight": "Lemon"
+        },
+        {
+          "word": "DROP",
+          "connection": "Lemon drop",
+          "highlight": "Lemon"
+        },
+        {
+          "word": "SQUEEZE",
+          "connection": "Squeeze a lemon",
+          "highlight": "lemon"
+        },
+        {
+          "word": "ZEST",
+          "connection": "Lemon zest",
+          "highlight": "Lemon"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-08T13:35:43.753Z"
+}
