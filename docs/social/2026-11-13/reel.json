@@ -1,0 +1,33 @@
+{
+  "threadNumber": 270,
+  "mode": "phrase",
+  "answer": "SCORE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FOUR",
+      "connection": "Four score (and seven years)",
+      "highlight": "score"
+    },
+    {
+      "word": "UNDER",
+      "connection": "Underscore",
+      "highlight": "score"
+    },
+    {
+      "word": "SETTLE",
+      "connection": "Settle a score",
+      "highlight": "score"
+    },
+    {
+      "word": "CARD",
+      "connection": "Scorecard",
+      "highlight": "Score"
+    },
+    {
+      "word": "HIGH",
+      "connection": "High score",
+      "highlight": "score"
+    }
+  ]
+}
