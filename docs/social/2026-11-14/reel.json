@@ -1,0 +1,33 @@
+{
+  "threadNumber": 271,
+  "mode": "phrase",
+  "answer": "LEVEL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SPIRIT",
+      "connection": "Spirit level",
+      "highlight": "level"
+    },
+    {
+      "word": "HEADED",
+      "connection": "Level-headed",
+      "highlight": "Level"
+    },
+    {
+      "word": "ENTRY",
+      "connection": "Entry level",
+      "highlight": "level"
+    },
+    {
+      "word": "PLAYING",
+      "connection": "Level playing field",
+      "highlight": "Level"
+    },
+    {
+      "word": "SEA",
+      "connection": "Sea level",
+      "highlight": "level"
+    }
+  ]
+}

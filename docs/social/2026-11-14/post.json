@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-14",
+  "sourceDate": "2026-11-13",
+  "threadNumber": 271,
+  "answer": "LEVEL",
+  "clues": [
+    {
+      "word": "SPIRIT",
+      "connection": "Spirit level"
+    },
+    {
+      "word": "HEADED",
+      "connection": "Level-headed"
+    },
+    {
+      "word": "ENTRY",
+      "connection": "Entry level"
+    },
+    {
+      "word": "PLAYING",
+      "connection": "Level playing field"
+    },
+    {
+      "word": "SEA",
+      "connection": "Sea level"
+    }
+  ],
+  "caption": "Thread #271 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SPIRIT. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #271. Clues revealed: SPIRIT. Find the word connecting all five clues.",
+    "Daily Thread #271. Clues revealed: SPIRIT, HEADED. Find the word connecting all five clues.",
+    "Daily Thread #271. Clues revealed: SPIRIT, HEADED, ENTRY. Find the word connecting all five clues.",
+    "Daily Thread #271. Clues revealed: SPIRIT, HEADED, ENTRY, PLAYING. Find the word connecting all five clues.",
+    "Daily Thread #271. Clues revealed: SPIRIT, HEADED, ENTRY, PLAYING, SEA. Find the word connecting all five clues.",
+    "Daily Thread #271 answer: LEVEL. Connections: Spirit level, Level-headed, Entry level, Level playing field, Sea level.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSPIRIT was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #271 word-puzzle Reel. The clues SPIRIT, HEADED, ENTRY, PLAYING, SEA appear one every five seconds. The answer LEVEL makes: Spirit level, Level-headed, Entry level, Level playing field, Sea level.",
+  "reel": {
+    "threadNumber": 271,
+    "mode": "phrase",
+    "answer": "LEVEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SPIRIT",
+        "connection": "Spirit level",
+        "highlight": "level"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Level-headed",
+        "highlight": "Level"
+      },
+      {
+        "word": "ENTRY",
+        "connection": "Entry level",
+        "highlight": "level"
+      },
+      {
+        "word": "PLAYING",
+        "connection": "Level playing field",
+        "highlight": "Level"
+      },
+      {
+        "word": "SEA",
+        "connection": "Sea level",
+        "highlight": "level"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 271,
+    "mode": "phrase",
+    "answer": "LEVEL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SPIRIT",
+        "connection": "Spirit level",
+        "highlight": "level"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Level-headed",
+        "highlight": "Level"
+      },
+      {
+        "word": "ENTRY",
+        "connection": "Entry level",
+        "highlight": "level"
+      },
+      {
+        "word": "PLAYING",
+        "connection": "Level playing field",
+        "highlight": "Level"
+      },
+      {
+        "word": "SEA",
+        "connection": "Sea level",
+        "highlight": "level"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-19",
+    "threadNumber": 93,
+    "answer": "GIFT",
+    "clues": [
+      {
+        "word": "HORSE",
+        "connection": "Don't look a gift horse in the mouth"
+      },
+      {
+        "word": "WRAP",
+        "connection": "Gift wrap"
+      },
+      {
+        "word": "GAB",
+        "connection": "Gift of the gab"
+      },
+      {
+        "word": "CARD",
+        "connection": "Gift card"
+      },
+      {
+        "word": "BIRTHDAY",
+        "connection": "Birthday gift"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #93 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 93,
+      "mode": "phrase",
+      "answer": "GIFT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "HORSE",
+          "connection": "Don't look a gift horse in the mouth",
+          "highlight": "gift"
+        },
+        {
+          "word": "WRAP",
+          "connection": "Gift wrap",
+          "highlight": "Gift"
+        },
+        {
+          "word": "GAB",
+          "connection": "Gift of the gab",
+          "highlight": "Gift"
+        },
+        {
+          "word": "CARD",
+          "connection": "Gift card",
+          "highlight": "Gift"
+        },
+        {
+          "word": "BIRTHDAY",
+          "connection": "Birthday gift",
+          "highlight": "gift"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-10T00:23:27.876Z"
+}
