@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-15",
+  "sourceDate": "2026-11-14",
+  "threadNumber": 272,
+  "answer": "BUTTON",
+  "clues": [
+    {
+      "word": "BELLY",
+      "connection": "Belly button"
+    },
+    {
+      "word": "CUTE",
+      "connection": "Cute as a button"
+    },
+    {
+      "word": "PUSH",
+      "connection": "Push-button"
+    },
+    {
+      "word": "PANIC",
+      "connection": "Panic button"
+    },
+    {
+      "word": "MASH",
+      "connection": "Button mashing"
+    }
+  ],
+  "caption": "Thread #272 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BELLY. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #272. Clues revealed: BELLY. Find the word connecting all five clues.",
+    "Daily Thread #272. Clues revealed: BELLY, CUTE. Find the word connecting all five clues.",
+    "Daily Thread #272. Clues revealed: BELLY, CUTE, PUSH. Find the word connecting all five clues.",
+    "Daily Thread #272. Clues revealed: BELLY, CUTE, PUSH, PANIC. Find the word connecting all five clues.",
+    "Daily Thread #272. Clues revealed: BELLY, CUTE, PUSH, PANIC, MASH. Find the word connecting all five clues.",
+    "Daily Thread #272 answer: BUTTON. Connections: Belly button, Cute as a button, Push-button, Panic button, Button mashing.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBELLY was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #272 word-puzzle Reel. The clues BELLY, CUTE, PUSH, PANIC, MASH appear one every five seconds. The answer BUTTON makes: Belly button, Cute as a button, Push-button, Panic button, Button mashing.",
+  "reel": {
+    "threadNumber": 272,
+    "mode": "phrase",
+    "answer": "BUTTON",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BELLY",
+        "connection": "Belly button",
+        "highlight": "button"
+      },
+      {
+        "word": "CUTE",
+        "connection": "Cute as a button",
+        "highlight": "button"
+      },
+      {
+        "word": "PUSH",
+        "connection": "Push-button",
+        "highlight": "button"
+      },
+      {
+        "word": "PANIC",
+        "connection": "Panic button",
+        "highlight": "button"
+      },
+      {
+        "word": "MASH",
+        "connection": "Button mashing",
+        "highlight": "Button"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 272,
+    "mode": "phrase",
+    "answer": "BUTTON",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BELLY",
+        "connection": "Belly button",
+        "highlight": "button"
+      },
+      {
+        "word": "CUTE",
+        "connection": "Cute as a button",
+        "highlight": "button"
+      },
+      {
+        "word": "PUSH",
+        "connection": "Push-button",
+        "highlight": "button"
+      },
+      {
+        "word": "PANIC",
+        "connection": "Panic button",
+        "highlight": "button"
+      },
+      {
+        "word": "MASH",
+        "connection": "Button mashing",
+        "highlight": "Button"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-20",
+    "threadNumber": 94,
+    "answer": "FROST",
+    "clues": [
+      {
+        "word": "ROBERT",
+        "connection": "Robert Frost (poet)"
+      },
+      {
+        "word": "BITE",
+        "connection": "Frostbite"
+      },
+      {
+        "word": "MORNING",
+        "connection": "Morning frost"
+      },
+      {
+        "word": "JACK",
+        "connection": "Jack Frost"
+      },
+      {
+        "word": "GLASS",
+        "connection": "Frosted glass"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #94 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 94,
+      "mode": "phrase",
+      "answer": "FROST",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "ROBERT",
+          "connection": "Robert Frost (poet)",
+          "highlight": "Frost"
+        },
+        {
+          "word": "BITE",
+          "connection": "Frostbite",
+          "highlight": "Frost"
+        },
+        {
+          "word": "MORNING",
+          "connection": "Morning frost",
+          "highlight": "frost"
+        },
+        {
+          "word": "JACK",
+          "connection": "Jack Frost",
+          "highlight": "Frost"
+        },
+        {
+          "word": "GLASS",
+          "connection": "Frosted glass",
+          "highlight": "Frost"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-11T14:36:56.399Z"
+}
