@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-16",
+  "sourceDate": "2026-11-15",
+  "threadNumber": 273,
+  "answer": "ROUND",
+  "clues": [
+    {
+      "word": "MERRY",
+      "connection": "Merry-go-round"
+    },
+    {
+      "word": "ABOUT",
+      "connection": "Roundabout"
+    },
+    {
+      "word": "TABLE",
+      "connection": "Round table"
+    },
+    {
+      "word": "TRIP",
+      "connection": "Round trip"
+    },
+    {
+      "word": "BOXING",
+      "connection": "Boxing round"
+    }
+  ],
+  "caption": "Thread #273 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with MERRY. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #273. Clues revealed: MERRY. Find the word connecting all five clues.",
+    "Daily Thread #273. Clues revealed: MERRY, ABOUT. Find the word connecting all five clues.",
+    "Daily Thread #273. Clues revealed: MERRY, ABOUT, TABLE. Find the word connecting all five clues.",
+    "Daily Thread #273. Clues revealed: MERRY, ABOUT, TABLE, TRIP. Find the word connecting all five clues.",
+    "Daily Thread #273. Clues revealed: MERRY, ABOUT, TABLE, TRIP, BOXING. Find the word connecting all five clues.",
+    "Daily Thread #273 answer: ROUND. Connections: Merry-go-round, Roundabout, Round table, Round trip, Boxing round.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nMERRY was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #273 word-puzzle Reel. The clues MERRY, ABOUT, TABLE, TRIP, BOXING appear one every five seconds. The answer ROUND makes: Merry-go-round, Roundabout, Round table, Round trip, Boxing round.",
+  "reel": {
+    "threadNumber": 273,
+    "mode": "phrase",
+    "answer": "ROUND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "MERRY",
+        "connection": "Merry-go-round",
+        "highlight": "round"
+      },
+      {
+        "word": "ABOUT",
+        "connection": "Roundabout",
+        "highlight": "Round"
+      },
+      {
+        "word": "TABLE",
+        "connection": "Round table",
+        "highlight": "Round"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Round trip",
+        "highlight": "Round"
+      },
+      {
+        "word": "BOXING",
+        "connection": "Boxing round",
+        "highlight": "round"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 273,
+    "mode": "phrase",
+    "answer": "ROUND",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "MERRY",
+        "connection": "Merry-go-round",
+        "highlight": "round"
+      },
+      {
+        "word": "ABOUT",
+        "connection": "Roundabout",
+        "highlight": "Round"
+      },
+      {
+        "word": "TABLE",
+        "connection": "Round table",
+        "highlight": "Round"
+      },
+      {
+        "word": "TRIP",
+        "connection": "Round trip",
+        "highlight": "Round"
+      },
+      {
+        "word": "BOXING",
+        "connection": "Boxing round",
+        "highlight": "round"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-21",
+    "threadNumber": 95,
+    "answer": "ROLL",
+    "clues": [
+      {
+        "word": "BARREL",
+        "connection": "Barrel roll"
+      },
+      {
+        "word": "HONOUR",
+        "connection": "Honour roll"
+      },
+      {
+        "word": "ROCK",
+        "connection": "Rock and roll"
+      },
+      {
+        "word": "BREAD",
+        "connection": "Bread roll"
+      },
+      {
+        "word": "DICE",
+        "connection": "Roll the dice"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #95 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 95,
+      "mode": "phrase",
+      "answer": "ROLL",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BARREL",
+          "connection": "Barrel roll",
+          "highlight": "roll"
+        },
+        {
+          "word": "HONOUR",
+          "connection": "Honour roll",
+          "highlight": "roll"
+        },
+        {
+          "word": "ROCK",
+          "connection": "Rock and roll",
+          "highlight": "roll"
+        },
+        {
+          "word": "BREAD",
+          "connection": "Bread roll",
+          "highlight": "roll"
+        },
+        {
+          "word": "DICE",
+          "connection": "Roll the dice",
+          "highlight": "Roll"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-12T15:24:14.588Z"
+}

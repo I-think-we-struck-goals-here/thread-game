@@ -1,0 +1,35 @@
+{
+  "threadNumber": 273,
+  "mode": "phrase",
+  "answer": "ROUND",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MERRY",
+      "connection": "Merry-go-round",
+      "highlight": "round"
+    },
+    {
+      "word": "ABOUT",
+      "connection": "Roundabout",
+      "highlight": "Round"
+    },
+    {
+      "word": "TABLE",
+      "connection": "Round table",
+      "highlight": "Round"
+    },
+    {
+      "word": "TRIP",
+      "connection": "Round trip",
+      "highlight": "Round"
+    },
+    {
+      "word": "BOXING",
+      "connection": "Boxing round",
+      "highlight": "round"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
