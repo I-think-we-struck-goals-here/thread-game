@@ -1,0 +1,33 @@
+{
+  "threadNumber": 274,
+  "mode": "phrase",
+  "answer": "TOOTH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FAIRY",
+      "connection": "Tooth fairy",
+      "highlight": "Tooth"
+    },
+    {
+      "word": "SWEET",
+      "connection": "Sweet tooth",
+      "highlight": "tooth"
+    },
+    {
+      "word": "SABER",
+      "connection": "Saber-toothed",
+      "highlight": "tooth"
+    },
+    {
+      "word": "PASTE",
+      "connection": "Toothpaste",
+      "highlight": "Tooth"
+    },
+    {
+      "word": "BRUSH",
+      "connection": "Toothbrush",
+      "highlight": "Tooth"
+    }
+  ]
+}

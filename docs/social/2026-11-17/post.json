@@ -1,0 +1,141 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-17",
+  "sourceDate": "2026-11-16",
+  "threadNumber": 274,
+  "answer": "TOOTH",
+  "clues": [
+    {
+      "word": "FAIRY",
+      "connection": "Tooth fairy"
+    },
+    {
+      "word": "SWEET",
+      "connection": "Sweet tooth"
+    },
+    {
+      "word": "SABER",
+      "connection": "Saber-toothed"
+    },
+    {
+      "word": "PASTE",
+      "connection": "Toothpaste"
+    },
+    {
+      "word": "BRUSH",
+      "connection": "Toothbrush"
+    }
+  ],
+  "caption": "Thread #274 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with FAIRY. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #274. Clues revealed: FAIRY. Find the word connecting all five clues.",
+    "Daily Thread #274. Clues revealed: FAIRY, SWEET. Find the word connecting all five clues.",
+    "Daily Thread #274. Clues revealed: FAIRY, SWEET, SABER. Find the word connecting all five clues.",
+    "Daily Thread #274. Clues revealed: FAIRY, SWEET, SABER, PASTE. Find the word connecting all five clues.",
+    "Daily Thread #274. Clues revealed: FAIRY, SWEET, SABER, PASTE, BRUSH. Find the word connecting all five clues.",
+    "Daily Thread #274 answer: TOOTH. Connections: Tooth fairy, Sweet tooth, Saber-toothed, Toothpaste, Toothbrush.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nFAIRY was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #274 word-puzzle Reel. The clues FAIRY, SWEET, SABER, PASTE, BRUSH appear one every five seconds. The answer TOOTH makes: Tooth fairy, Sweet tooth, Saber-toothed, Toothpaste, Toothbrush.",
+  "reel": {
+    "threadNumber": 274,
+    "mode": "phrase",
+    "answer": "TOOTH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FAIRY",
+        "connection": "Tooth fairy",
+        "highlight": "Tooth"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet tooth",
+        "highlight": "tooth"
+      },
+      {
+        "word": "SABER",
+        "connection": "Saber-toothed",
+        "highlight": "tooth"
+      },
+      {
+        "word": "PASTE",
+        "connection": "Toothpaste",
+        "highlight": "Tooth"
+      },
+      {
+        "word": "BRUSH",
+        "connection": "Toothbrush",
+        "highlight": "Tooth"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 274,
+    "mode": "phrase",
+    "answer": "TOOTH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "FAIRY",
+        "connection": "Tooth fairy",
+        "highlight": "Tooth"
+      },
+      {
+        "word": "SWEET",
+        "connection": "Sweet tooth",
+        "highlight": "tooth"
+      },
+      {
+        "word": "SABER",
+        "connection": "Saber-toothed",
+        "highlight": "tooth"
+      },
+      {
+        "word": "PASTE",
+        "connection": "Toothpaste",
+        "highlight": "Tooth"
+      },
+      {
+        "word": "BRUSH",
+        "connection": "Toothbrush",
+        "highlight": "Tooth"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-22",
+    "threadNumber": 96,
+    "answer": "BEAN",
+    "clues": [
+      {
+        "word": "SPILL",
+        "connection": "Spill the beans"
+      },
+      {
+        "word": "JELLY",
+        "connection": "Jelly bean"
+      },
+      {
+        "word": "COFFEE",
+        "connection": "Coffee bean"
+      },
+      {
+        "word": "RUNNER",
+        "connection": "Runner bean"
+      },
+      {
+        "word": "MR",
+        "connection": "Mr. Bean"
+      }
+    ],
+    "format": "photo",
+    "caption": "Thread #96 🧵\n\nSwipe one clue at a time. Stop as soon as you find the connection. 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser"
+  },
+  "generatedAt": "2026-11-13T14:42:28.054Z"
+}
