@@ -1,0 +1,30 @@
+{
+  "threadNumber": 97,
+  "mode": "join",
+  "answer": "HONEY",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "MOON",
+      "connection": "Honeymoon"
+    },
+    {
+      "word": "TRAP",
+      "connection": "Honeytrap"
+    },
+    {
+      "word": "COMB",
+      "connection": "Honeycomb"
+    },
+    {
+      "word": "BEE",
+      "connection": "Honeybee"
+    },
+    {
+      "word": "POT",
+      "connection": "Honey pot"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

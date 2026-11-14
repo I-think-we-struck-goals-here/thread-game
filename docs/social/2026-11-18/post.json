@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-18",
+  "sourceDate": "2026-11-17",
+  "threadNumber": 275,
+  "answer": "DEAL",
+  "clues": [
+    {
+      "word": "WHEEL",
+      "connection": "Wheel and deal"
+    },
+    {
+      "word": "RAW",
+      "connection": "Raw deal"
+    },
+    {
+      "word": "BIG",
+      "connection": "Big deal"
+    },
+    {
+      "word": "NEW",
+      "connection": "New Deal"
+    },
+    {
+      "word": "CARDS",
+      "connection": "Deal the cards"
+    }
+  ],
+  "caption": "Thread #275 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with WHEEL. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #275. Clues revealed: WHEEL. Find the word connecting all five clues.",
+    "Daily Thread #275. Clues revealed: WHEEL, RAW. Find the word connecting all five clues.",
+    "Daily Thread #275. Clues revealed: WHEEL, RAW, BIG. Find the word connecting all five clues.",
+    "Daily Thread #275. Clues revealed: WHEEL, RAW, BIG, NEW. Find the word connecting all five clues.",
+    "Daily Thread #275. Clues revealed: WHEEL, RAW, BIG, NEW, CARDS. Find the word connecting all five clues.",
+    "Daily Thread #275 answer: DEAL. Connections: Wheel and deal, Raw deal, Big deal, New Deal, Deal the cards.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nWHEEL was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #275 word-puzzle Reel. The clues WHEEL, RAW, BIG, NEW, CARDS appear one every five seconds. The answer DEAL makes: Wheel and deal, Raw deal, Big deal, New Deal, Deal the cards.",
+  "reel": {
+    "threadNumber": 275,
+    "mode": "phrase",
+    "answer": "DEAL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WHEEL",
+        "connection": "Wheel and deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "RAW",
+        "connection": "Raw deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "BIG",
+        "connection": "Big deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "NEW",
+        "connection": "New Deal",
+        "highlight": "Deal"
+      },
+      {
+        "word": "CARDS",
+        "connection": "Deal the cards",
+        "highlight": "Deal"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 275,
+    "mode": "phrase",
+    "answer": "DEAL",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "WHEEL",
+        "connection": "Wheel and deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "RAW",
+        "connection": "Raw deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "BIG",
+        "connection": "Big deal",
+        "highlight": "deal"
+      },
+      {
+        "word": "NEW",
+        "connection": "New Deal",
+        "highlight": "Deal"
+      },
+      {
+        "word": "CARDS",
+        "connection": "Deal the cards",
+        "highlight": "Deal"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-23",
+    "threadNumber": 97,
+    "answer": "HONEY",
+    "clues": [
+      {
+        "word": "MOON",
+        "connection": "Honeymoon"
+      },
+      {
+        "word": "TRAP",
+        "connection": "Honeytrap"
+      },
+      {
+        "word": "COMB",
+        "connection": "Honeycomb"
+      },
+      {
+        "word": "BEE",
+        "connection": "Honeybee"
+      },
+      {
+        "word": "POT",
+        "connection": "Honey pot"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #97 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 97,
+      "mode": "join",
+      "answer": "HONEY",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "MOON",
+          "connection": "Honeymoon"
+        },
+        {
+          "word": "TRAP",
+          "connection": "Honeytrap"
+        },
+        {
+          "word": "COMB",
+          "connection": "Honeycomb"
+        },
+        {
+          "word": "BEE",
+          "connection": "Honeybee"
+        },
+        {
+          "word": "POT",
+          "connection": "Honey pot"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-14T13:39:12.687Z"
+}

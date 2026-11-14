@@ -1,0 +1,35 @@
+{
+  "threadNumber": 275,
+  "mode": "phrase",
+  "answer": "DEAL",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WHEEL",
+      "connection": "Wheel and deal",
+      "highlight": "deal"
+    },
+    {
+      "word": "RAW",
+      "connection": "Raw deal",
+      "highlight": "deal"
+    },
+    {
+      "word": "BIG",
+      "connection": "Big deal",
+      "highlight": "deal"
+    },
+    {
+      "word": "NEW",
+      "connection": "New Deal",
+      "highlight": "Deal"
+    },
+    {
+      "word": "CARDS",
+      "connection": "Deal the cards",
+      "highlight": "Deal"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
