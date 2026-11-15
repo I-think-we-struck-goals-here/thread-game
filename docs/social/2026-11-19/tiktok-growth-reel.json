@@ -1,0 +1,35 @@
+{
+  "threadNumber": 98,
+  "mode": "phrase",
+  "answer": "CLOCK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BIO",
+      "connection": "Biological clock",
+      "highlight": "clock"
+    },
+    {
+      "word": "WISE",
+      "connection": "Clockwise",
+      "highlight": "Clock"
+    },
+    {
+      "word": "ALARM",
+      "connection": "Alarm clock",
+      "highlight": "clock"
+    },
+    {
+      "word": "WORK",
+      "connection": "Clockwork",
+      "highlight": "Clock"
+    },
+    {
+      "word": "TOWER",
+      "connection": "Clock tower",
+      "highlight": "Clock"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

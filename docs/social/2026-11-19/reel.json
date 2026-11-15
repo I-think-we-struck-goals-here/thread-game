@@ -1,0 +1,28 @@
+{
+  "threadNumber": 276,
+  "mode": "join",
+  "answer": "FIRE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "HELL",
+      "connection": "Hellfire"
+    },
+    {
+      "word": "CROSS",
+      "connection": "Crossfire"
+    },
+    {
+      "word": "SURE",
+      "connection": "Surefire"
+    },
+    {
+      "word": "RAPID",
+      "connection": "Rapid fire"
+    },
+    {
+      "word": "CEASE",
+      "connection": "Ceasefire"
+    }
+  ]
+}

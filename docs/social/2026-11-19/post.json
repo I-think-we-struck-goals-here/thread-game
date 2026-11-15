@@ -1,0 +1,166 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-19",
+  "sourceDate": "2026-11-18",
+  "threadNumber": 276,
+  "answer": "FIRE",
+  "clues": [
+    {
+      "word": "HELL",
+      "connection": "Hellfire"
+    },
+    {
+      "word": "CROSS",
+      "connection": "Crossfire"
+    },
+    {
+      "word": "SURE",
+      "connection": "Surefire"
+    },
+    {
+      "word": "RAPID",
+      "connection": "Rapid fire"
+    },
+    {
+      "word": "CEASE",
+      "connection": "Ceasefire"
+    }
+  ],
+  "caption": "Thread #276 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with HELL. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #276. Clues revealed: HELL. Find the word connecting all five clues.",
+    "Daily Thread #276. Clues revealed: HELL, CROSS. Find the word connecting all five clues.",
+    "Daily Thread #276. Clues revealed: HELL, CROSS, SURE. Find the word connecting all five clues.",
+    "Daily Thread #276. Clues revealed: HELL, CROSS, SURE, RAPID. Find the word connecting all five clues.",
+    "Daily Thread #276. Clues revealed: HELL, CROSS, SURE, RAPID, CEASE. Find the word connecting all five clues.",
+    "Daily Thread #276 answer: FIRE. Connections: Hellfire, Crossfire, Surefire, Rapid fire, Ceasefire.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nHELL was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #276 word-puzzle Reel. The clues HELL, CROSS, SURE, RAPID, CEASE appear one every five seconds. The answer FIRE makes: Hellfire, Crossfire, Surefire, Rapid fire, Ceasefire.",
+  "reel": {
+    "threadNumber": 276,
+    "mode": "join",
+    "answer": "FIRE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HELL",
+        "connection": "Hellfire"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Crossfire"
+      },
+      {
+        "word": "SURE",
+        "connection": "Surefire"
+      },
+      {
+        "word": "RAPID",
+        "connection": "Rapid fire"
+      },
+      {
+        "word": "CEASE",
+        "connection": "Ceasefire"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 276,
+    "mode": "join",
+    "answer": "FIRE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "HELL",
+        "connection": "Hellfire"
+      },
+      {
+        "word": "CROSS",
+        "connection": "Crossfire"
+      },
+      {
+        "word": "SURE",
+        "connection": "Surefire"
+      },
+      {
+        "word": "RAPID",
+        "connection": "Rapid fire"
+      },
+      {
+        "word": "CEASE",
+        "connection": "Ceasefire"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-24",
+    "threadNumber": 98,
+    "answer": "CLOCK",
+    "clues": [
+      {
+        "word": "BIO",
+        "connection": "Biological clock"
+      },
+      {
+        "word": "WISE",
+        "connection": "Clockwise"
+      },
+      {
+        "word": "ALARM",
+        "connection": "Alarm clock"
+      },
+      {
+        "word": "WORK",
+        "connection": "Clockwork"
+      },
+      {
+        "word": "TOWER",
+        "connection": "Clock tower"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #98 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 98,
+      "mode": "phrase",
+      "answer": "CLOCK",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BIO",
+          "connection": "Biological clock",
+          "highlight": "clock"
+        },
+        {
+          "word": "WISE",
+          "connection": "Clockwise",
+          "highlight": "Clock"
+        },
+        {
+          "word": "ALARM",
+          "connection": "Alarm clock",
+          "highlight": "clock"
+        },
+        {
+          "word": "WORK",
+          "connection": "Clockwork",
+          "highlight": "Clock"
+        },
+        {
+          "word": "TOWER",
+          "connection": "Clock tower",
+          "highlight": "Clock"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-15T14:04:09.153Z"
+}
