@@ -1,0 +1,28 @@
+{
+  "threadNumber": 277,
+  "mode": "join",
+  "answer": "CHAIR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "ELECTRIC",
+      "connection": "Electric chair"
+    },
+    {
+      "word": "ARM",
+      "connection": "Armchair"
+    },
+    {
+      "word": "HIGH",
+      "connection": "Highchair"
+    },
+    {
+      "word": "WHEEL",
+      "connection": "Wheelchair"
+    },
+    {
+      "word": "ROCKING",
+      "connection": "Rocking chair"
+    }
+  ]
+}
