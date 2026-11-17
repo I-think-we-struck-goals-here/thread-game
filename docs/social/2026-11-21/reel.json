@@ -1,0 +1,33 @@
+{
+  "threadNumber": 278,
+  "mode": "phrase",
+  "answer": "LOCK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "GRID",
+      "connection": "Gridlock",
+      "highlight": "lock"
+    },
+    {
+      "word": "SMITH",
+      "connection": "Locksmith",
+      "highlight": "Lock"
+    },
+    {
+      "word": "DEAD",
+      "connection": "Deadlock",
+      "highlight": "lock"
+    },
+    {
+      "word": "PAD",
+      "connection": "Padlock",
+      "highlight": "lock"
+    },
+    {
+      "word": "KEY",
+      "connection": "Lock and key",
+      "highlight": "Lock"
+    }
+  ]
+}

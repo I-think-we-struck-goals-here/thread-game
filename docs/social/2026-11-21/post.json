@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-21",
+  "sourceDate": "2026-11-20",
+  "threadNumber": 278,
+  "answer": "LOCK",
+  "clues": [
+    {
+      "word": "GRID",
+      "connection": "Gridlock"
+    },
+    {
+      "word": "SMITH",
+      "connection": "Locksmith"
+    },
+    {
+      "word": "DEAD",
+      "connection": "Deadlock"
+    },
+    {
+      "word": "PAD",
+      "connection": "Padlock"
+    },
+    {
+      "word": "KEY",
+      "connection": "Lock and key"
+    }
+  ],
+  "caption": "Thread #278 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with GRID. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #278. Clues revealed: GRID. Find the word connecting all five clues.",
+    "Daily Thread #278. Clues revealed: GRID, SMITH. Find the word connecting all five clues.",
+    "Daily Thread #278. Clues revealed: GRID, SMITH, DEAD. Find the word connecting all five clues.",
+    "Daily Thread #278. Clues revealed: GRID, SMITH, DEAD, PAD. Find the word connecting all five clues.",
+    "Daily Thread #278. Clues revealed: GRID, SMITH, DEAD, PAD, KEY. Find the word connecting all five clues.",
+    "Daily Thread #278 answer: LOCK. Connections: Gridlock, Locksmith, Deadlock, Padlock, Lock and key.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nGRID was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #278 word-puzzle Reel. The clues GRID, SMITH, DEAD, PAD, KEY appear one every five seconds. The answer LOCK makes: Gridlock, Locksmith, Deadlock, Padlock, Lock and key.",
+  "reel": {
+    "threadNumber": 278,
+    "mode": "phrase",
+    "answer": "LOCK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GRID",
+        "connection": "Gridlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "SMITH",
+        "connection": "Locksmith",
+        "highlight": "Lock"
+      },
+      {
+        "word": "DEAD",
+        "connection": "Deadlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "PAD",
+        "connection": "Padlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "KEY",
+        "connection": "Lock and key",
+        "highlight": "Lock"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 278,
+    "mode": "phrase",
+    "answer": "LOCK",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GRID",
+        "connection": "Gridlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "SMITH",
+        "connection": "Locksmith",
+        "highlight": "Lock"
+      },
+      {
+        "word": "DEAD",
+        "connection": "Deadlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "PAD",
+        "connection": "Padlock",
+        "highlight": "lock"
+      },
+      {
+        "word": "KEY",
+        "connection": "Lock and key",
+        "highlight": "Lock"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-26",
+    "threadNumber": 100,
+    "answer": "EYE",
+    "clues": [
+      {
+        "word": "BIRD",
+        "connection": "Bird's-eye view"
+      },
+      {
+        "word": "PRIVATE",
+        "connection": "Private eye"
+      },
+      {
+        "word": "NEEDLE",
+        "connection": "Eye of a needle"
+      },
+      {
+        "word": "BROW",
+        "connection": "Eyebrow"
+      },
+      {
+        "word": "WITNESS",
+        "connection": "Eyewitness"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #100 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 100,
+      "mode": "phrase",
+      "answer": "EYE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BIRD",
+          "connection": "Bird's-eye view",
+          "highlight": "eye"
+        },
+        {
+          "word": "PRIVATE",
+          "connection": "Private eye",
+          "highlight": "eye"
+        },
+        {
+          "word": "NEEDLE",
+          "connection": "Eye of a needle",
+          "highlight": "Eye"
+        },
+        {
+          "word": "BROW",
+          "connection": "Eyebrow",
+          "highlight": "Eye"
+        },
+        {
+          "word": "WITNESS",
+          "connection": "Eyewitness",
+          "highlight": "Eye"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-17T00:25:14.203Z"
+}
