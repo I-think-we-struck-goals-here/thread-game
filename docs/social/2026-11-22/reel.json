@@ -1,0 +1,33 @@
+{
+  "threadNumber": 279,
+  "mode": "phrase",
+  "answer": "STRIKE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "GOLD",
+      "connection": "Strike gold",
+      "highlight": "Strike"
+    },
+    {
+      "word": "BOWLING",
+      "connection": "Bowling strike",
+      "highlight": "strike"
+    },
+    {
+      "word": "LIGHTNING",
+      "connection": "Lightning strike",
+      "highlight": "strike"
+    },
+    {
+      "word": "AIR",
+      "connection": "Airstrike",
+      "highlight": "strike"
+    },
+    {
+      "word": "MATCH",
+      "connection": "Strike a match",
+      "highlight": "Strike"
+    }
+  ]
+}

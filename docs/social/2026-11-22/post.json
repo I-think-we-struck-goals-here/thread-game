@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-22",
+  "sourceDate": "2026-11-21",
+  "threadNumber": 279,
+  "answer": "STRIKE",
+  "clues": [
+    {
+      "word": "GOLD",
+      "connection": "Strike gold"
+    },
+    {
+      "word": "BOWLING",
+      "connection": "Bowling strike"
+    },
+    {
+      "word": "LIGHTNING",
+      "connection": "Lightning strike"
+    },
+    {
+      "word": "AIR",
+      "connection": "Airstrike"
+    },
+    {
+      "word": "MATCH",
+      "connection": "Strike a match"
+    }
+  ],
+  "caption": "Thread #279 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with GOLD. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #279. Clues revealed: GOLD. Find the word connecting all five clues.",
+    "Daily Thread #279. Clues revealed: GOLD, BOWLING. Find the word connecting all five clues.",
+    "Daily Thread #279. Clues revealed: GOLD, BOWLING, LIGHTNING. Find the word connecting all five clues.",
+    "Daily Thread #279. Clues revealed: GOLD, BOWLING, LIGHTNING, AIR. Find the word connecting all five clues.",
+    "Daily Thread #279. Clues revealed: GOLD, BOWLING, LIGHTNING, AIR, MATCH. Find the word connecting all five clues.",
+    "Daily Thread #279 answer: STRIKE. Connections: Strike gold, Bowling strike, Lightning strike, Airstrike, Strike a match.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nGOLD was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #279 word-puzzle Reel. The clues GOLD, BOWLING, LIGHTNING, AIR, MATCH appear one every five seconds. The answer STRIKE makes: Strike gold, Bowling strike, Lightning strike, Airstrike, Strike a match.",
+  "reel": {
+    "threadNumber": 279,
+    "mode": "phrase",
+    "answer": "STRIKE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Strike gold",
+        "highlight": "Strike"
+      },
+      {
+        "word": "BOWLING",
+        "connection": "Bowling strike",
+        "highlight": "strike"
+      },
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning strike",
+        "highlight": "strike"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airstrike",
+        "highlight": "strike"
+      },
+      {
+        "word": "MATCH",
+        "connection": "Strike a match",
+        "highlight": "Strike"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 279,
+    "mode": "phrase",
+    "answer": "STRIKE",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "GOLD",
+        "connection": "Strike gold",
+        "highlight": "Strike"
+      },
+      {
+        "word": "BOWLING",
+        "connection": "Bowling strike",
+        "highlight": "strike"
+      },
+      {
+        "word": "LIGHTNING",
+        "connection": "Lightning strike",
+        "highlight": "strike"
+      },
+      {
+        "word": "AIR",
+        "connection": "Airstrike",
+        "highlight": "strike"
+      },
+      {
+        "word": "MATCH",
+        "connection": "Strike a match",
+        "highlight": "Strike"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-27",
+    "threadNumber": 101,
+    "answer": "GATE",
+    "clues": [
+      {
+        "word": "FLOOD",
+        "connection": "Floodgate"
+      },
+      {
+        "word": "TAIL",
+        "connection": "Tailgate"
+      },
+      {
+        "word": "WATER",
+        "connection": "Watergate"
+      },
+      {
+        "word": "GOLDEN",
+        "connection": "Golden Gate"
+      },
+      {
+        "word": "GARDEN",
+        "connection": "Garden gate"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #101 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 101,
+      "mode": "join",
+      "answer": "GATE",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "FLOOD",
+          "connection": "Floodgate"
+        },
+        {
+          "word": "TAIL",
+          "connection": "Tailgate"
+        },
+        {
+          "word": "WATER",
+          "connection": "Watergate"
+        },
+        {
+          "word": "GOLDEN",
+          "connection": "Golden Gate"
+        },
+        {
+          "word": "GARDEN",
+          "connection": "Garden gate"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-18T15:52:06.209Z"
+}

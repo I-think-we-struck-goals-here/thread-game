@@ -1,0 +1,30 @@
+{
+  "threadNumber": 101,
+  "mode": "join",
+  "answer": "GATE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FLOOD",
+      "connection": "Floodgate"
+    },
+    {
+      "word": "TAIL",
+      "connection": "Tailgate"
+    },
+    {
+      "word": "WATER",
+      "connection": "Watergate"
+    },
+    {
+      "word": "GOLDEN",
+      "connection": "Golden Gate"
+    },
+    {
+      "word": "GARDEN",
+      "connection": "Garden gate"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
