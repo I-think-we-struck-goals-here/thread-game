@@ -1,0 +1,33 @@
+{
+  "threadNumber": 280,
+  "mode": "phrase",
+  "answer": "HOT",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DOG",
+      "connection": "Hot dog",
+      "highlight": "Hot"
+    },
+    {
+      "word": "HEADED",
+      "connection": "Hot-headed",
+      "highlight": "Hot"
+    },
+    {
+      "word": "POTATO",
+      "connection": "Hot potato",
+      "highlight": "Hot"
+    },
+    {
+      "word": "ROD",
+      "connection": "Hot rod",
+      "highlight": "Hot"
+    },
+    {
+      "word": "WATER",
+      "connection": "Hot water",
+      "highlight": "Hot"
+    }
+  ]
+}

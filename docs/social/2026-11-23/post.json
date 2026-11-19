@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-23",
+  "sourceDate": "2026-11-22",
+  "threadNumber": 280,
+  "answer": "HOT",
+  "clues": [
+    {
+      "word": "DOG",
+      "connection": "Hot dog"
+    },
+    {
+      "word": "HEADED",
+      "connection": "Hot-headed"
+    },
+    {
+      "word": "POTATO",
+      "connection": "Hot potato"
+    },
+    {
+      "word": "ROD",
+      "connection": "Hot rod"
+    },
+    {
+      "word": "WATER",
+      "connection": "Hot water"
+    }
+  ],
+  "caption": "Thread #280 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with DOG. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #280. Clues revealed: DOG. Find the word connecting all five clues.",
+    "Daily Thread #280. Clues revealed: DOG, HEADED. Find the word connecting all five clues.",
+    "Daily Thread #280. Clues revealed: DOG, HEADED, POTATO. Find the word connecting all five clues.",
+    "Daily Thread #280. Clues revealed: DOG, HEADED, POTATO, ROD. Find the word connecting all five clues.",
+    "Daily Thread #280. Clues revealed: DOG, HEADED, POTATO, ROD, WATER. Find the word connecting all five clues.",
+    "Daily Thread #280 answer: HOT. Connections: Hot dog, Hot-headed, Hot potato, Hot rod, Hot water.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nDOG was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #280 word-puzzle Reel. The clues DOG, HEADED, POTATO, ROD, WATER appear one every five seconds. The answer HOT makes: Hot dog, Hot-headed, Hot potato, Hot rod, Hot water.",
+  "reel": {
+    "threadNumber": 280,
+    "mode": "phrase",
+    "answer": "HOT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DOG",
+        "connection": "Hot dog",
+        "highlight": "Hot"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Hot-headed",
+        "highlight": "Hot"
+      },
+      {
+        "word": "POTATO",
+        "connection": "Hot potato",
+        "highlight": "Hot"
+      },
+      {
+        "word": "ROD",
+        "connection": "Hot rod",
+        "highlight": "Hot"
+      },
+      {
+        "word": "WATER",
+        "connection": "Hot water",
+        "highlight": "Hot"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 280,
+    "mode": "phrase",
+    "answer": "HOT",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DOG",
+        "connection": "Hot dog",
+        "highlight": "Hot"
+      },
+      {
+        "word": "HEADED",
+        "connection": "Hot-headed",
+        "highlight": "Hot"
+      },
+      {
+        "word": "POTATO",
+        "connection": "Hot potato",
+        "highlight": "Hot"
+      },
+      {
+        "word": "ROD",
+        "connection": "Hot rod",
+        "highlight": "Hot"
+      },
+      {
+        "word": "WATER",
+        "connection": "Hot water",
+        "highlight": "Hot"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-28",
+    "threadNumber": 102,
+    "answer": "FRUIT",
+    "clues": [
+      {
+        "word": "FORBIDDEN",
+        "connection": "Forbidden fruit"
+      },
+      {
+        "word": "GRAPE",
+        "connection": "Grapefruit"
+      },
+      {
+        "word": "PASSION",
+        "connection": "Passion fruit"
+      },
+      {
+        "word": "BASKET",
+        "connection": "Fruit basket"
+      },
+      {
+        "word": "SALAD",
+        "connection": "Fruit salad"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #102 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 102,
+      "mode": "join",
+      "answer": "FRUIT",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "FORBIDDEN",
+          "connection": "Forbidden fruit"
+        },
+        {
+          "word": "GRAPE",
+          "connection": "Grapefruit"
+        },
+        {
+          "word": "PASSION",
+          "connection": "Passion fruit"
+        },
+        {
+          "word": "BASKET",
+          "connection": "Fruit basket"
+        },
+        {
+          "word": "SALAD",
+          "connection": "Fruit salad"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-19T19:37:07.051Z"
+}
