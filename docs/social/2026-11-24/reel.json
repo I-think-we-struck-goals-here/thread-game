@@ -1,0 +1,33 @@
+{
+  "threadNumber": 281,
+  "mode": "phrase",
+  "answer": "KNEE",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "JERK",
+      "connection": "Knee-jerk reaction",
+      "highlight": "Knee"
+    },
+    {
+      "word": "DEEP",
+      "connection": "Knee-deep",
+      "highlight": "Knee"
+    },
+    {
+      "word": "CAP",
+      "connection": "Kneecap",
+      "highlight": "Knee"
+    },
+    {
+      "word": "WEAK",
+      "connection": "Weak at the knees",
+      "highlight": "knee"
+    },
+    {
+      "word": "PAD",
+      "connection": "Knee pad",
+      "highlight": "Knee"
+    }
+  ]
+}
