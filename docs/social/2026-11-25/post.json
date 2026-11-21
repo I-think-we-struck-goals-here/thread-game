@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-25",
+  "sourceDate": "2026-11-24",
+  "threadNumber": 282,
+  "answer": "RAW",
+  "clues": [
+    {
+      "word": "DEAL",
+      "connection": "Raw deal"
+    },
+    {
+      "word": "NERVE",
+      "connection": "Raw nerve"
+    },
+    {
+      "word": "MATERIAL",
+      "connection": "Raw material"
+    },
+    {
+      "word": "TALENT",
+      "connection": "Raw talent"
+    },
+    {
+      "word": "FISH",
+      "connection": "Raw fish (sushi)"
+    }
+  ],
+  "caption": "Thread #282 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with DEAL. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #282. Clues revealed: DEAL. Find the word connecting all five clues.",
+    "Daily Thread #282. Clues revealed: DEAL, NERVE. Find the word connecting all five clues.",
+    "Daily Thread #282. Clues revealed: DEAL, NERVE, MATERIAL. Find the word connecting all five clues.",
+    "Daily Thread #282. Clues revealed: DEAL, NERVE, MATERIAL, TALENT. Find the word connecting all five clues.",
+    "Daily Thread #282. Clues revealed: DEAL, NERVE, MATERIAL, TALENT, FISH. Find the word connecting all five clues.",
+    "Daily Thread #282 answer: RAW. Connections: Raw deal, Raw nerve, Raw material, Raw talent, Raw fish (sushi).",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nDEAL was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #282 word-puzzle Reel. The clues DEAL, NERVE, MATERIAL, TALENT, FISH appear one every five seconds. The answer RAW makes: Raw deal, Raw nerve, Raw material, Raw talent, Raw fish (sushi).",
+  "reel": {
+    "threadNumber": 282,
+    "mode": "phrase",
+    "answer": "RAW",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEAL",
+        "connection": "Raw deal",
+        "highlight": "Raw"
+      },
+      {
+        "word": "NERVE",
+        "connection": "Raw nerve",
+        "highlight": "Raw"
+      },
+      {
+        "word": "MATERIAL",
+        "connection": "Raw material",
+        "highlight": "Raw"
+      },
+      {
+        "word": "TALENT",
+        "connection": "Raw talent",
+        "highlight": "Raw"
+      },
+      {
+        "word": "FISH",
+        "connection": "Raw fish (sushi)",
+        "highlight": "Raw"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 282,
+    "mode": "phrase",
+    "answer": "RAW",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "DEAL",
+        "connection": "Raw deal",
+        "highlight": "Raw"
+      },
+      {
+        "word": "NERVE",
+        "connection": "Raw nerve",
+        "highlight": "Raw"
+      },
+      {
+        "word": "MATERIAL",
+        "connection": "Raw material",
+        "highlight": "Raw"
+      },
+      {
+        "word": "TALENT",
+        "connection": "Raw talent",
+        "highlight": "Raw"
+      },
+      {
+        "word": "FISH",
+        "connection": "Raw fish (sushi)",
+        "highlight": "Raw"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-30",
+    "threadNumber": 104,
+    "answer": "WILD",
+    "clues": [
+      {
+        "word": "CARD",
+        "connection": "Wildcard"
+      },
+      {
+        "word": "GOOSE",
+        "connection": "Wild goose chase"
+      },
+      {
+        "word": "FIRE",
+        "connection": "Wildfire"
+      },
+      {
+        "word": "WEST",
+        "connection": "Wild West"
+      },
+      {
+        "word": "LIFE",
+        "connection": "Wildlife"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #104 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 104,
+      "mode": "phrase",
+      "answer": "WILD",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "CARD",
+          "connection": "Wildcard",
+          "highlight": "Wild"
+        },
+        {
+          "word": "GOOSE",
+          "connection": "Wild goose chase",
+          "highlight": "Wild"
+        },
+        {
+          "word": "FIRE",
+          "connection": "Wildfire",
+          "highlight": "Wild"
+        },
+        {
+          "word": "WEST",
+          "connection": "Wild West",
+          "highlight": "Wild"
+        },
+        {
+          "word": "LIFE",
+          "connection": "Wildlife",
+          "highlight": "Wild"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-21T14:45:45.013Z"
+}

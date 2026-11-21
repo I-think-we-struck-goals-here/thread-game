@@ -1,0 +1,35 @@
+{
+  "threadNumber": 282,
+  "mode": "phrase",
+  "answer": "RAW",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DEAL",
+      "connection": "Raw deal",
+      "highlight": "Raw"
+    },
+    {
+      "word": "NERVE",
+      "connection": "Raw nerve",
+      "highlight": "Raw"
+    },
+    {
+      "word": "MATERIAL",
+      "connection": "Raw material",
+      "highlight": "Raw"
+    },
+    {
+      "word": "TALENT",
+      "connection": "Raw talent",
+      "highlight": "Raw"
+    },
+    {
+      "word": "FISH",
+      "connection": "Raw fish (sushi)",
+      "highlight": "Raw"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
