@@ -1,0 +1,171 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-11-26",
+  "sourceDate": "2026-11-25",
+  "threadNumber": 283,
+  "answer": "EARTH",
+  "clues": [
+    {
+      "word": "SALT",
+      "connection": "Salt of the earth"
+    },
+    {
+      "word": "SCORCHED",
+      "connection": "Scorched earth"
+    },
+    {
+      "word": "QUAKE",
+      "connection": "Earthquake"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Down to earth"
+    },
+    {
+      "word": "WORM",
+      "connection": "Earthworm"
+    }
+  ],
+  "caption": "Thread #283 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with SALT. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #283. Clues revealed: SALT. Find the word connecting all five clues.",
+    "Daily Thread #283. Clues revealed: SALT, SCORCHED. Find the word connecting all five clues.",
+    "Daily Thread #283. Clues revealed: SALT, SCORCHED, QUAKE. Find the word connecting all five clues.",
+    "Daily Thread #283. Clues revealed: SALT, SCORCHED, QUAKE, DOWN. Find the word connecting all five clues.",
+    "Daily Thread #283. Clues revealed: SALT, SCORCHED, QUAKE, DOWN, WORM. Find the word connecting all five clues.",
+    "Daily Thread #283 answer: EARTH. Connections: Salt of the earth, Scorched earth, Earthquake, Down to earth, Earthworm.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nSALT was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #283 word-puzzle Reel. The clues SALT, SCORCHED, QUAKE, DOWN, WORM appear one every five seconds. The answer EARTH makes: Salt of the earth, Scorched earth, Earthquake, Down to earth, Earthworm.",
+  "reel": {
+    "threadNumber": 283,
+    "mode": "phrase",
+    "answer": "EARTH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SALT",
+        "connection": "Salt of the earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "SCORCHED",
+        "connection": "Scorched earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "QUAKE",
+        "connection": "Earthquake",
+        "highlight": "Earth"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Down to earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "WORM",
+        "connection": "Earthworm",
+        "highlight": "Earth"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 283,
+    "mode": "phrase",
+    "answer": "EARTH",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "SALT",
+        "connection": "Salt of the earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "SCORCHED",
+        "connection": "Scorched earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "QUAKE",
+        "connection": "Earthquake",
+        "highlight": "Earth"
+      },
+      {
+        "word": "DOWN",
+        "connection": "Down to earth",
+        "highlight": "earth"
+      },
+      {
+        "word": "WORM",
+        "connection": "Earthworm",
+        "highlight": "Earth"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-05-31",
+    "threadNumber": 105,
+    "answer": "DOOR",
+    "clues": [
+      {
+        "word": "TRAP",
+        "connection": "Trapdoor"
+      },
+      {
+        "word": "REVOLVING",
+        "connection": "Revolving door"
+      },
+      {
+        "word": "NEXT",
+        "connection": "Next door"
+      },
+      {
+        "word": "BELL",
+        "connection": "Doorbell"
+      },
+      {
+        "word": "STEP",
+        "connection": "Doorstep"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #105 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 105,
+      "mode": "join",
+      "answer": "DOOR",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "TRAP",
+          "connection": "Trapdoor"
+        },
+        {
+          "word": "REVOLVING",
+          "connection": "Revolving door"
+        },
+        {
+          "word": "NEXT",
+          "connection": "Next door"
+        },
+        {
+          "word": "BELL",
+          "connection": "Doorbell"
+        },
+        {
+          "word": "STEP",
+          "connection": "Doorstep"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-22T14:41:55.403Z"
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 283,
+  "mode": "phrase",
+  "answer": "EARTH",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "SALT",
+      "connection": "Salt of the earth",
+      "highlight": "earth"
+    },
+    {
+      "word": "SCORCHED",
+      "connection": "Scorched earth",
+      "highlight": "earth"
+    },
+    {
+      "word": "QUAKE",
+      "connection": "Earthquake",
+      "highlight": "Earth"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Down to earth",
+      "highlight": "earth"
+    },
+    {
+      "word": "WORM",
+      "connection": "Earthworm",
+      "highlight": "Earth"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
