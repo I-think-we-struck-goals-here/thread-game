@@ -1,0 +1,33 @@
+{
+  "threadNumber": 284,
+  "mode": "phrase",
+  "answer": "CRACK",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "WISE",
+      "connection": "Wisecrack",
+      "highlight": "crack"
+    },
+    {
+      "word": "FIRE",
+      "connection": "Firecracker",
+      "highlight": "crack"
+    },
+    {
+      "word": "DAWN",
+      "connection": "Crack of dawn",
+      "highlight": "Crack"
+    },
+    {
+      "word": "DOWN",
+      "connection": "Crackdown",
+      "highlight": "Crack"
+    },
+    {
+      "word": "NUT",
+      "connection": "Nutcracker",
+      "highlight": "crack"
+    }
+  ]
+}
