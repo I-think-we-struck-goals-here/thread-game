@@ -1,0 +1,35 @@
+{
+  "threadNumber": 107,
+  "mode": "phrase",
+  "answer": "BEAR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "FRUIT",
+      "connection": "Bear fruit",
+      "highlight": "Bear"
+    },
+    {
+      "word": "GRUDGE",
+      "connection": "Bear a grudge",
+      "highlight": "Bear"
+    },
+    {
+      "word": "POLAR",
+      "connection": "Polar bear",
+      "highlight": "bear"
+    },
+    {
+      "word": "TEDDY",
+      "connection": "Teddy bear",
+      "highlight": "bear"
+    },
+    {
+      "word": "HUG",
+      "connection": "Bear hug",
+      "highlight": "Bear"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

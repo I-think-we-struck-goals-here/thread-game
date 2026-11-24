@@ -1,0 +1,35 @@
+{
+  "threadNumber": 285,
+  "mode": "phrase",
+  "answer": "FLOOR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "DANCE",
+      "connection": "Dance floor",
+      "highlight": "floor"
+    },
+    {
+      "word": "GROUND",
+      "connection": "Ground floor",
+      "highlight": "floor"
+    },
+    {
+      "word": "BOARD",
+      "connection": "Floorboard",
+      "highlight": "Floor"
+    },
+    {
+      "word": "PLAN",
+      "connection": "Floor plan",
+      "highlight": "Floor"
+    },
+    {
+      "word": "SHOW",
+      "connection": "Showroom floor",
+      "highlight": "floor"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}
