@@ -1,0 +1,33 @@
+{
+  "threadNumber": 289,
+  "mode": "phrase",
+  "answer": "BAR",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BEHIND",
+      "connection": "Behind bars",
+      "highlight": "bar"
+    },
+    {
+      "word": "CROW",
+      "connection": "Crowbar",
+      "highlight": "bar"
+    },
+    {
+      "word": "HANDLE",
+      "connection": "Handlebar",
+      "highlight": "bar"
+    },
+    {
+      "word": "SIDE",
+      "connection": "Sidebar",
+      "highlight": "bar"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Gold bar",
+      "highlight": "bar"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "threadNumber": 111,
+  "mode": "phrase",
+  "answer": "DAY",
+  "answerNarrationStartMs": 26600,
+  "clues": [
+    {
+      "word": "BIRTH",
+      "connection": "Birthday",
+      "highlight": "day"
+    },
+    {
+      "word": "EVERY",
+      "connection": "Everyday",
+      "highlight": "day"
+    },
+    {
+      "word": "HOL",
+      "connection": "Holiday",
+      "highlight": "day"
+    },
+    {
+      "word": "RAINY",
+      "connection": "Rainy day",
+      "highlight": "day"
+    },
+    {
+      "word": "BREAK",
+      "connection": "Daybreak",
+      "highlight": "Day"
+    }
+  ],
+  "question": "How many clues did you need?",
+  "cta": "Follow for a new puzzle every day"
+}

@@ -1,0 +1,176 @@
+{
+  "templateVersion": "2026-08-07-v7-instagram-trials",
+  "postDate": "2026-12-02",
+  "sourceDate": "2026-12-01",
+  "threadNumber": 289,
+  "answer": "BAR",
+  "clues": [
+    {
+      "word": "BEHIND",
+      "connection": "Behind bars"
+    },
+    {
+      "word": "CROW",
+      "connection": "Crowbar"
+    },
+    {
+      "word": "HANDLE",
+      "connection": "Handlebar"
+    },
+    {
+      "word": "SIDE",
+      "connection": "Sidebar"
+    },
+    {
+      "word": "GOLD",
+      "connection": "Gold bar"
+    }
+  ],
+  "caption": "Thread #289 🧵\n\nOne hidden word makes a word or phrase with each of the five clues.\n\nStart with BEHIND. Swipe when you need another clue.\n\nHow many clues did you need?",
+  "altText": [
+    "Daily Thread #289. Clues revealed: BEHIND. Find the word connecting all five clues.",
+    "Daily Thread #289. Clues revealed: BEHIND, CROW. Find the word connecting all five clues.",
+    "Daily Thread #289. Clues revealed: BEHIND, CROW, HANDLE. Find the word connecting all five clues.",
+    "Daily Thread #289. Clues revealed: BEHIND, CROW, HANDLE, SIDE. Find the word connecting all five clues.",
+    "Daily Thread #289. Clues revealed: BEHIND, CROW, HANDLE, SIDE, GOLD. Find the word connecting all five clues.",
+    "Daily Thread #289 answer: BAR. Connections: Behind bars, Crowbar, Handlebar, Sidebar, Gold bar.",
+    "Daily Thread. One word, five clues, every day. Play free on iPhone through the link in bio."
+  ],
+  "reelCaption": "Could you connect all five? 🧵\n\nBEHIND was clue one. How many clues did you need?\n\nComment 1–5. No spoilers 🤫\n\nPlay today’s Daily Thread free on iPhone. Link in bio.\n\n#DailyThread #WordGame #WordPuzzle #BrainTeaser",
+  "reelAltText": "Daily Thread #289 word-puzzle Reel. The clues BEHIND, CROW, HANDLE, SIDE, GOLD appear one every five seconds. The answer BAR makes: Behind bars, Crowbar, Handlebar, Sidebar, Gold bar.",
+  "reel": {
+    "threadNumber": 289,
+    "mode": "phrase",
+    "answer": "BAR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BEHIND",
+        "connection": "Behind bars",
+        "highlight": "bar"
+      },
+      {
+        "word": "CROW",
+        "connection": "Crowbar",
+        "highlight": "bar"
+      },
+      {
+        "word": "HANDLE",
+        "connection": "Handlebar",
+        "highlight": "bar"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Sidebar",
+        "highlight": "bar"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold bar",
+        "highlight": "bar"
+      }
+    ]
+  },
+  "tiktokCaption": "Could you get it from clue one? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadToday #WordGame #WordPuzzle #BrainTeaser",
+  "tiktokReel": {
+    "threadNumber": 289,
+    "mode": "phrase",
+    "answer": "BAR",
+    "answerNarrationStartMs": 26600,
+    "clues": [
+      {
+        "word": "BEHIND",
+        "connection": "Behind bars",
+        "highlight": "bar"
+      },
+      {
+        "word": "CROW",
+        "connection": "Crowbar",
+        "highlight": "bar"
+      },
+      {
+        "word": "HANDLE",
+        "connection": "Handlebar",
+        "highlight": "bar"
+      },
+      {
+        "word": "SIDE",
+        "connection": "Sidebar",
+        "highlight": "bar"
+      },
+      {
+        "word": "GOLD",
+        "connection": "Gold bar",
+        "highlight": "bar"
+      }
+    ],
+    "question": "How many clues did you need?",
+    "cta": "Follow for a new puzzle every day"
+  },
+  "instagramTrial": null,
+  "tiktokGrowth": {
+    "sourceDate": "2026-06-06",
+    "threadNumber": 111,
+    "answer": "DAY",
+    "clues": [
+      {
+        "word": "BIRTH",
+        "connection": "Birthday"
+      },
+      {
+        "word": "EVERY",
+        "connection": "Everyday"
+      },
+      {
+        "word": "HOL",
+        "connection": "Holiday"
+      },
+      {
+        "word": "RAINY",
+        "connection": "Rainy day"
+      },
+      {
+        "word": "BREAK",
+        "connection": "Daybreak"
+      }
+    ],
+    "format": "video",
+    "caption": "Thread #111 🧵\n\nCan you connect all five words? 🧵\n\nComment the number of clues you needed: 1–5. No spoilers 🤫\n\nFollow for a new word puzzle every day.\n\n#DailyThreadArchive #WordGame #WordPuzzle #BrainTeaser",
+    "reel": {
+      "threadNumber": 111,
+      "mode": "phrase",
+      "answer": "DAY",
+      "answerNarrationStartMs": 26600,
+      "clues": [
+        {
+          "word": "BIRTH",
+          "connection": "Birthday",
+          "highlight": "day"
+        },
+        {
+          "word": "EVERY",
+          "connection": "Everyday",
+          "highlight": "day"
+        },
+        {
+          "word": "HOL",
+          "connection": "Holiday",
+          "highlight": "day"
+        },
+        {
+          "word": "RAINY",
+          "connection": "Rainy day",
+          "highlight": "day"
+        },
+        {
+          "word": "BREAK",
+          "connection": "Daybreak",
+          "highlight": "Day"
+        }
+      ],
+      "question": "How many clues did you need?",
+      "cta": "Follow for a new puzzle every day"
+    }
+  },
+  "generatedAt": "2026-11-28T00:12:43.369Z"
+}
